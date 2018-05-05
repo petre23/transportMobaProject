@@ -1,0 +1,10 @@
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\bin\DataAccessLayer.dll.config
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\bin\DataAccessLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\bin\DataAccessLayer.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\bin\DataLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\bin\DataLayer.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

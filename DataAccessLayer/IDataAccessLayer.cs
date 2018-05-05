@@ -15,13 +15,31 @@ namespace DataAccessLayer
     {
 
         [OperationContract]
-        List<Angajat> GetAngajati();
+        List<Worker> GetWorkers();
 
         [OperationContract]
-        Guid SaveAngajat(Angajat angajat);
+        Guid SaveWorker(Worker worker);
 
         [OperationContract]
-        Angajat GetAngajat(Guid idAngajat);
+        Worker GetWorker(Guid idWorker);
+
+        [OperationContract]
+        List<Truck> GetTrucks();
+
+        [OperationContract]
+        Guid SaveTruck(Truck truck);
+
+        [OperationContract]
+        Truck GetTruck(Guid idTruck);
+
+        [OperationContract]
+        List<Drive> GetDrives();
+
+        [OperationContract]
+        Guid SaveDrive(Drive drive);
+
+        [OperationContract]
+        Drive GetDrive(Guid idDrive);
     }
 
 

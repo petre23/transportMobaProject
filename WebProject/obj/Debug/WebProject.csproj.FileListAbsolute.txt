@@ -196,3 +196,8 @@ C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\D
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\Debug\WebProject.csproj.CopyComplete
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\Debug\WebProject.dll
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\Debug\WebProject.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\bin\DataAccessLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\bin\DataLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\bin\DataAccessLayer.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\bin\DataAccessLayer.dll.config
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\bin\DataLayer.pdb

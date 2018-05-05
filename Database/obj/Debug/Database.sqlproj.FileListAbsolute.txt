@@ -1,0 +1,6 @@
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\Database\bin\Debug\Database.dacpac
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\Database\bin\Debug\Database.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\Database\bin\Debug\Database.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\Database\obj\Debug\Database.sqlprojResolveAssemblyReference.cache
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\Database\obj\Debug\Database.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\Database\obj\Debug\Database.pdb
