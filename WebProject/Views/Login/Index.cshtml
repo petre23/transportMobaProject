@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/Pages/loginController.js"></script>
+
+<div class="center-area row">
+    <div class="col-md-12">
+        <div class="">
+            <div class="margin-top-small">
+                <label class="left-side">@Resources.Labels.UserName</label>
+                <input class="right-side" type="text" />
+            </div>
+            <div class="margin-top-small">
+                <label class="left-side margin-top-small">@Resources.Labels.Password</label>
+                <input class="right-side margin-top-small" type="password" />
+            </div>
+            <div class="center-items">
+                <button class="margin-top-small" onclick="loginController.login()">@Resources.Labels.Login</button>
+            </div>
+        </div>
+    </div>
+</div>
