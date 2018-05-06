@@ -17,6 +17,11 @@ namespace WebProject.Controllers
             return View();
         }
 
+        public ActionResult EditTruck()
+        {
+            return View();
+        }
+
         public ActionResult GetTrucks()
         {
             return Json(new { drivers = _dataAccessLayer.GetTrucks() });

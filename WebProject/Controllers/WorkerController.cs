@@ -17,6 +17,11 @@ namespace WebProject.Controllers
             return View();
         }
 
+        public ActionResult EditWorker()
+        {
+            return View();
+        }
+
         public ActionResult GetWorkers()
         {
             return Json(new { drivers = _dataAccessLayer.GetWorkers() });

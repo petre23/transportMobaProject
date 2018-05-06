@@ -17,6 +17,11 @@ namespace WebProject.Controllers
             return View();
         }
 
+        public ActionResult EditDrive()
+        {
+            return View();
+        }
+
         public ActionResult GetDrives()
         {
             return Json(new { drivers = _dataAccessLayer.GetDrives() });

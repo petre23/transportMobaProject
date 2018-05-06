@@ -208,6 +208,9 @@
     <Content Include="Views\Truck\Index.cshtml" />
     <Content Include="Views\Drive\Index.cshtml" />
     <Content Include="Views\Worker\Index.cshtml" />
+    <Content Include="Views\Drive\EditDrive.cshtml" />
+    <Content Include="Views\Truck\EditTruck.cshtml" />
+    <Content Include="Views\Worker\EditWorker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
