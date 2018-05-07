@@ -117,13 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
+  <data name="Autentificare" xml:space="preserve">
+    <value>Autentificare</value>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="UserName" xml:space="preserve">
-    <value>Username</value>
+  <data name="IntoducetiEmail" xml:space="preserve">
+    <value>Intoduceti email</value>
+  </data>
+  <data name="IntoducetiParola" xml:space="preserve">
+    <value>Intoduceti parola</value>
+  </data>
+  <data name="InvalidUserOrPassword" xml:space="preserve">
+    <value>Email sau parola gresita!</value>
+  </data>
+  <data name="Parola" xml:space="preserve">
+    <value>Parola</value>
   </data>
 </root>

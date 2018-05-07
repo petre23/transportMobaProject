@@ -61,29 +61,56 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Autentificare.
         /// </summary>
-        public static string Login {
+        public static string Autentificare {
             get {
-                return ResourceManager.GetString("Login", resourceCulture);
+                return ResourceManager.GetString("Autentificare", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        public static string Password {
+        public static string Email {
             get {
-                return ResourceManager.GetString("Password", resourceCulture);
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username.
+        ///   Looks up a localized string similar to Intoduceti email.
         /// </summary>
-        public static string UserName {
+        public static string IntoducetiEmail {
             get {
-                return ResourceManager.GetString("UserName", resourceCulture);
+                return ResourceManager.GetString("IntoducetiEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Intoduceti parola.
+        /// </summary>
+        public static string IntoducetiParola {
+            get {
+                return ResourceManager.GetString("IntoducetiParola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email sau parola gresita!.
+        /// </summary>
+        public static string InvalidUserOrPassword {
+            get {
+                return ResourceManager.GetString("InvalidUserOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parola.
+        /// </summary>
+        public static string Parola {
+            get {
+                return ResourceManager.GetString("Parola", resourceCulture);
             }
         }
     }

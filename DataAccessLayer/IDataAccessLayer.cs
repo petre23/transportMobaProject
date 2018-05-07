@@ -13,7 +13,6 @@ namespace DataAccessLayer
     [ServiceContract]
     public interface IDataAccessLayer
     {
-
         [OperationContract]
         List<Worker> GetWorkers();
 
@@ -40,28 +39,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         Drive GetDrive(Guid idDrive);
-    }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        [OperationContract]
+        User Login(User user);
     }
 }

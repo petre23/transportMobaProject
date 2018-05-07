@@ -1,0 +1,9 @@
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\bin\Debug\DataLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\bin\Debug\DataLayer.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

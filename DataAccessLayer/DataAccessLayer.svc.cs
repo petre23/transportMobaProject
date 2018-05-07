@@ -1,5 +1,5 @@
 ﻿using DataLayer.PersistanceLayer;
-using DataLayer.Repository;
+using BusinessLogicLayer.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,60 +14,67 @@ namespace DataAccessLayer
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class DataAccessLayer : IDataAccessLayer
     {
-        WorkerRepository _angajatRepository;
-        TruckRepository _truckRepository;
-        DriveRepository _driveRepository;
+        WorkerBL _workerLogic;
+        TruckBL _truckLogic;
+        DriveBL _driveLogic;
+        UserBL _userLogic;
 
         public DataAccessLayer()
         {
-            _angajatRepository = new WorkerRepository();
-            _truckRepository = new TruckRepository();
-            _driveRepository = new DriveRepository();
+            _workerLogic = new WorkerBL();
+            _truckLogic = new TruckBL();
+            _driveLogic = new DriveBL();
+            _userLogic = new UserBL();
         }
 
         public List<Worker> GetWorkers()
         {
-            return _angajatRepository.GetWorkers();
+            return _workerLogic.GetWorkers();
         }
 
         public Guid SaveWorker(Worker worker)
         {
-            return _angajatRepository.SaveWorker(worker);
+            return _workerLogic.SaveWorker(worker);
         }
 
         public Worker GetWorker(Guid idWorker)
         {
-            return _angajatRepository.GetWorker(idWorker);
+            return _workerLogic.GetWorker(idWorker);
         }
 
         public List<Truck> GetTrucks()
         {
-            return _truckRepository.GetTrucks();
+            return _truckLogic.GetTrucks();
         }
 
         public Guid SaveTruck(Truck truck)
         {
-            return _truckRepository.SaveTruck(truck);
+            return _truckLogic.SaveTruck(truck);
         }
 
         public Truck GetTruck(Guid idTruck)
         {
-            return _truckRepository.GetTruck(idTruck);
+            return _truckLogic.GetTruck(idTruck);
         }
 
         public List<Drive> GetDrives()
         {
-            return _driveRepository.GetDrives();
+            return _driveLogic.GetDrives();
         }
 
         public Guid SaveDrive(Drive drive)
         {
-            return _driveRepository.SaveDrive(drive);
+            return _driveLogic.SaveDrive(drive);
         }
 
         public Drive GetDrive(Guid idDrive)
         {
-            return _driveRepository.GetDrive(idDrive);
+            return _driveLogic.GetDrive(idDrive);
+        }
+
+        public User Login(User user)
+        {
+            return _userLogic.Login(user);
         }
     }
 }
