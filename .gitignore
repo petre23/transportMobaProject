@@ -16,3 +16,14 @@
 *.user
 Database/Database.dbmdl
 .vs/WebProject/v15/.suo
+*.pdb
+.vs/WebProject/v15/.suo
+*.ide
+*.cache
+*.dbmdl
+*.jfm
+*.dll
+*.pdb
+*.cache
+*.dll
+*.pdb
