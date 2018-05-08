@@ -26,6 +26,14 @@ namespace WebProject
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/cssGrid").Include(
+                      "~/Scripts/jsGrid/jsgrid-theme.min.css",
+                      "~/Scripts/jsGrid/jsgrid.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jsGrid").Include(
+                      "~/Scripts/jquery-1.10.2.min.js",
+                      "~/Scripts/jsGrid/jsgrid.min.js"));
         }
     }
 }

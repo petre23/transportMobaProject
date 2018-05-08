@@ -4,8 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    @Styles.Render("~/Content/cssGrid")
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jsGrid")
     @Scripts.Render("~/bundles/modernizr")
+
+
 </head>
 <body>
     @if (HttpContext.Current.Session["UserId"] != null)
@@ -38,11 +45,5 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/Pages/loginController.js"></script>
-    <script src="~/Scripts/jsGrid/jsgrid.min.js"></script>
-    <link href="~/Scripts/jsGrid/jsgrid.min.css" rel="stylesheet" />
-    <link href="~/Scripts/jsGrid/jsgrid-theme.min.css" rel="stylesheet" />
 </body>
 </html>
