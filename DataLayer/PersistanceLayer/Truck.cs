@@ -10,5 +10,27 @@ namespace DataLayer.PersistanceLayer
     [DataContract]
     public class Truck
     {
+        [DataMember]
+        public Guid Id { get; set; }
+        [DataMember]
+        public string RegistrationNumber { get; set; }
+        [DataMember]
+        public Guid Brand { get; set; }
+        [DataMember]
+        public DateTime? ManufacturingYear { get; set; }
+        [DataMember]
+        public DateTime? ITPExpirationDate { get; set; }
+        [DataMember]
+        public DateTime? InsuranceExpirationDate { get; set; }
+        [DataMember]
+        public DateTime? TachographExpirationDate { get; set; }
+        [DataMember]
+        public DateTime? VignetteExpirationDate { get; set; }
+        [DataMember]
+        public DateTime? ConformCopyExpirationDate { get; set; }
+        [DataMember]
+        public string BrandName { get; set; }
+        [DataMember]
+        public int BrandDropDownValue { get; set; }
     }
 }

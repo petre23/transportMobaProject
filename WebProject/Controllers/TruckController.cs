@@ -24,17 +24,17 @@ namespace WebProject.Controllers
 
         public ActionResult GetTrucks()
         {
-            return Json(new { drivers = _dataAccessLayer.GetTrucks() });
+            return Json(new { trucks = _dataAccessLayer.GetTrucks() });
         }
 
         public ActionResult SaveTruck(Truck truck)
         {
-            return Json(new { drivers = _dataAccessLayer.SaveTruck(truck) });
+            return Json(new { truckId = _dataAccessLayer.SaveTruck(truck) });
         }
 
         public ActionResult GetTruck(Guid idTruck)
         {
-            return Json(new { drivers = _dataAccessLayer.GetTruck(idTruck) });
+            return Json(new { truck = _dataAccessLayer.GetTruck(idTruck) });
         }
     }
 }

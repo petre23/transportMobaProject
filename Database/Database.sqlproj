@@ -66,6 +66,13 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
     <Build Include="dbo\StoredProcedures\Login.sql" />
+    <Build Include="dbo\Tables\Trucks.sql" />
+    <Build Include="dbo\Tables\Worker.sql" />
+    <Build Include="dbo\Tables\Brands.sql" />
+    <Build Include="dbo\Tables\Employers.sql" />
+    <Build Include="dbo\StoredProcedures\GetTrucks.sql" />
+    <Build Include="dbo\StoredProcedures\GetTruck.sql" />
+    <Build Include="dbo\StoredProcedures\SaveTruck.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />
