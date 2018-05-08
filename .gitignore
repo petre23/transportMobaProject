@@ -27,3 +27,7 @@ Database/Database.dbmdl
 *.cache
 *.dll
 *.pdb
+.vs/WebProject/v15/.suo
+*.cache
+*.dbmdl
+*.jfm
