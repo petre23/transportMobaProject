@@ -19,27 +19,63 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public DateTime? ManufacturingYear { get; set; }
         [DataMember]
-        public string ManufacturingYearString { get; set; }
+        public string ManufacturingYearString
+        {
+            get
+            {
+                return ManufacturingYear.HasValue ? ManufacturingYear.Value.Year.ToString() : string.Empty;
+            }
+        }
         [DataMember]
         public DateTime? ITPExpirationDate { get; set; }
         [DataMember]
-        public string ITPExpirationDateString { get; set; }
+        public string ITPExpirationDateString
+        {
+            get
+            {
+                return ITPExpirationDate.HasValue ? ITPExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
+            }
+        }
         [DataMember]
         public DateTime? InsuranceExpirationDate { get; set; }
         [DataMember]
-        public string InsuranceExpirationDateString { get; set; }
+        public string InsuranceExpirationDateString
+        {
+            get
+            {
+                return InsuranceExpirationDate.HasValue ? InsuranceExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
+            }
+        }
         [DataMember]
         public DateTime? TachographExpirationDate { get; set; }
         [DataMember]
-        public string TachographExpirationDateString { get; set; }
+        public string TachographExpirationDateString
+        {
+            get
+            {
+                return TachographExpirationDate.HasValue ? TachographExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
+            }
+        }
         [DataMember]
         public DateTime? VignetteExpirationDate { get; set; }
         [DataMember]
-        public string VignetteExpirationDateString { get; set; }
+        public string VignetteExpirationDateString
+        {
+            get
+            {
+                return VignetteExpirationDate.HasValue ? VignetteExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
+            }
+        }
         [DataMember]
         public DateTime? ConformCopyExpirationDate { get; set; }
         [DataMember]
-        public string ConformCopyExpirationDateString { get; set; }
+        public string ConformCopyExpirationDateString
+        {
+            get
+            {
+                return ConformCopyExpirationDate.HasValue ? ConformCopyExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
+            }
+        }
         [DataMember]
         public string BrandName { get; set; }
         [DataMember]

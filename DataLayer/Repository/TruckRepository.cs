@@ -30,18 +30,12 @@ namespace DataLayer.Repository
                             BrandDropDownValue = Convert.ToInt32(reader["BrandDropDownValue"]),
                             BrandName = reader["BrandName"].ToString(),
                             ConformCopyExpirationDate = Convert.ToDateTime(reader["ConformCopyExpirationDate"].ToString()),
-                            ConformCopyExpirationDateString = Convert.ToDateTime(reader["ConformCopyExpirationDate"].ToString()).ToString("dd/MM/yyyy"),
                             InsuranceExpirationDate = Convert.ToDateTime(reader["InsuranceExpirationDate"].ToString()),
-                            InsuranceExpirationDateString = Convert.ToDateTime(reader["InsuranceExpirationDate"].ToString()).ToString("dd/MM/yyyy"),
                             ITPExpirationDate = Convert.ToDateTime(reader["ITPExpirationDate"].ToString()),
-                            ITPExpirationDateString = Convert.ToDateTime(reader["ITPExpirationDate"].ToString()).ToString("dd/MM/yyyy"),
                             ManufacturingYear = Convert.ToDateTime(reader["ManufacturingYear"].ToString()),
-                            ManufacturingYearString = Convert.ToDateTime(reader["ManufacturingYear"].ToString()).Year.ToString(),
                             RegistrationNumber = reader["RegistrationNumber"].ToString(),
                             TachographExpirationDate = Convert.ToDateTime(reader["TachographExpirationDate"].ToString()),
-                            TachographExpirationDateString = Convert.ToDateTime(reader["TachographExpirationDate"].ToString()).ToString("dd/MM/yyyy"),
-                            VignetteExpirationDate = Convert.ToDateTime(reader["VignetteExpirationDate"].ToString()),
-                            VignetteExpirationDateString = Convert.ToDateTime(reader["VignetteExpirationDate"].ToString()).ToString("dd/MM/yyyy"),
+                            VignetteExpirationDate = Convert.ToDateTime(reader["VignetteExpirationDate"].ToString())
                         };
                         trucks.Add(truck);
                     }
