@@ -28,12 +28,11 @@ namespace WebProject
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/cssGrid").Include(
-                      "~/Scripts/jsGrid/jsgrid-theme.min.css",
-                      "~/Scripts/jsGrid/jsgrid.min.css"));
+                      "~/Scripts/jsGrid/jsgrid-theme.css",
+                      "~/Scripts/jsGrid/jsgrid.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jsGrid").Include(
-                      "~/Scripts/jquery-1.10.2.min.js",
-                      "~/Scripts/jsGrid/jsgrid.min.js"));
+                      "~/Scripts/jsGrid/jsgrid.js"));
         }
     }
 }

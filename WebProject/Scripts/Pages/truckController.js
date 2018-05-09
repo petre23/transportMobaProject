@@ -9,27 +9,29 @@ var truckController =
                 type: 'post',
                 dataType: 'json',
                 url: "/Truck/GetTrucks",
-            }).done(function (trucks) {
-                truckController.initGrid(trucks);
+            }).done(function (res) {
+                truckController.initGrid(res.trucks);
             });
         },
         initGrid: function (trucks)
         {
             $("#trucksGrid").jsGrid({
                 width: "100%",
-                height: "400px",
+                height: "600px",
 
                 inserting: false,
                 editing: false,
                 sorting: true,
                 paging: false,
-                rowClick: function () { alert("click");},
+                rowClick: function () { alert("click"); },
                 data: trucks,
                 fields: [
-                    { name: "RegistrationNumber", type: "text", width: 150},
-                    { name: "BrandName", type: "text", width: 50 },
-                    { name: "ManufacturingYear", type: "text", width: 100 },
-                    { name: "ITPExpirationDate", type: "text", width: 100 },
+                    { name: "RegistrationNumber", title: 'Nr. Inmatriculare', type: "text", width: 100 },
+                    { name: "BrandName", title: 'Marca', type: "text", width: 100 },
+                    { name: "ManufacturingYearString", title: 'An fabricatie', type: "text", width: 100 },
+                    { name: "ITPExpirationDateString", title: 'Data expirare ITP', type: "text", width: 100 },
+                    { name: "VignetteExpirationDateString", title: 'Data expirare Vignette', type: "text", width: 100 },
+                    { name: "InsuranceExpirationDateString", title: 'Data expirare asigurare', type: "text", width: 100 },
                     { type: "control" }
                 ]
             });
