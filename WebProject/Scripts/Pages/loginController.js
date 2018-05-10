@@ -9,12 +9,17 @@
                     Password: $("#password").val()
                 },
                 url: "/Login/Login",
-            }).done(function (res) {
-                if (res.userName && res.userName != '') {
-                    console.log(res.userName);
-                    window.location ='/Truck/Index';
-                } else {
-                    alert('Email sau parola invalide');
+                success: function (res) {
+                    if (res.userName && res.userName != '') {
+                        console.log(res.userName);
+                        window.location = '/Truck/Index';
+                    } else {
+                        alert('Email sau parola invalide');
+                    }
+                },
+                error: function (jqXHR, textStatus, exception, errorThrown) {
+                    $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
+                    $("#errorDialog").dialog("open");
                 }
             });
         },

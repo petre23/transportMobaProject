@@ -6,10 +6,14 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     @Scripts.Render("~/bundles/jsGrid")
     @Styles.Render("~/Content/cssGrid")
 </head>
@@ -34,9 +38,16 @@
             {
                 <label class="right-side" onclick="loginController.logout()">@Html.ActionLink("Logout", "Logout", "Login")</label>
             }
+            <div id="errorDialog" title="Error"></div>
             @RenderBody()
         </div>
     </div>
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $("#errorDialog").dialog({
+            autoOpen: false,
+            maxHeight: 500,
+        }).prev(".ui-dialog-titlebar").css("background", "red");
+    </script>
 </body>
 </html>

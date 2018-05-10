@@ -5,7 +5,7 @@ BEGIN
 	SELECT t.[Id]
 		  ,t.[RegistrationNumber]
 		  ,b.[Name] AS BrandName
-		  ,b.Id AS BrandId
+		  ,b.Id AS Brand
 		  ,b.[Value] AS BrandDropDownValue
 		  ,t.[ManufacturingYear]
 		  ,t.[ITPExpirationDate]

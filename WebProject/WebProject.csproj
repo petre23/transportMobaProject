@@ -159,6 +159,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ErrorHelper.cs" />
     <Compile Include="Labels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -194,6 +195,7 @@
     <Content Include="Scripts\jsGrid\jsgrid.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Pages\driveController.js" />
+    <Content Include="Scripts\Pages\editTruckController.js" />
     <Content Include="Scripts\Pages\loginController.js" />
     <Content Include="Scripts\Pages\truckController.js" />
     <Content Include="Scripts\Pages\workerController.js" />
