@@ -22,7 +22,7 @@
         <div class="row">
             @if (HttpContext.Current.Session["UserId"] != null)
             {
-        <div>
+        <div class="col-md-2">
             <div id="wrapper" class="active">
                 <!-- Sidebar -->
                 <!-- Sidebar -->
@@ -35,13 +35,14 @@
                         <li class="text-center black-border">@Html.ActionLink("Camioane", "Index", "Truck")</li>
                         <li class="text-center black-border">@Html.ActionLink("Soferi", "Index", "Worker")</li>
                         <li class="text-center black-border">@Html.ActionLink("Curse", "Index", "Drive")</li>
-                        <li><a>Adauga utilizator<span class="sub_icon glyphicon glyphicon-plus"></span></a></li>
+                        <li class="text-center black-border">@Html.ActionLink("Adauga Utilizator", "Index", "Users")<span class="sub_icon glyphicon glyphicon-plus"></span></li>
+
                     </ul>
                 </div>
             </div>
         </div>
             }
-        <div class="@(HttpContext.Current.Session["UserId"] != null ? "col-md-12" : "co-md-12")">
+        <div class="@(HttpContext.Current.Session["UserId"] != null ? "col-md-10" : "co-md-12")">
             @if (HttpContext.Current.Session["UserId"] != null)
     {
         <label class="right-side" onclick="loginController.logout()">@Html.ActionLink("Logout", "Logout", "Login")</label>
