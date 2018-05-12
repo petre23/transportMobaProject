@@ -1,6 +1,8 @@
 ﻿@{
     ViewBag.Title = "Editare camion";
 }
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="~/Scripts/Pages/editTruckController.js"></script>
 <div class="container">
     <div class="row">
@@ -8,7 +10,7 @@
             <nav class="navbar navbar-inverse nav-bar">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand nav-bar-text" href="#">@ViewBag.Title</a>
+                        <a id="headerLabel" class="navbar-brand nav-bar-text" href="#"></a>
                     </div>
                 </div>
             </nav>
@@ -24,10 +26,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>Nr Inmatriculare</label>
+                                        <label>@Resources.Labels.NumarInmatriculare</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="registrationNumber" type="text" required />
+                                        <input class="min-input-width min-input-height" placeholder="NN-00-NNN" id="registrationNumber" type="text" required />
                                     </div>
                                 </div>
                             </div>
@@ -36,11 +38,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>Marca/Brand</label>
+                                        <label>@Resources.Labels.Marca</label>
                                     </div>
                                     <div class="col-md-6">
                                         <select class="min-input-width min-input-height" name="brands" id="brands" required>
-                                            <option value="0"></option>
                                             <option value="1">Iveco Stralis</option>
                                             <option value="2">Renault Premium</option>
                                         </select>
@@ -58,10 +59,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>An Inmatriculare</label>
+                                        <label>@Resources.Labels.DataExpirareCopieConforma</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="registrationYear" type="number" max="3000" maxlength="4" required />
+                                        <input class="min-input-width min-input-height" id="registrationYear" placeholder="yyyy" type="number" max="3000" maxlength="4" required />
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +72,7 @@
             </div>
         </div>
         <div class="expirationDetails">
-            <h3 class="details-header">Valabilitate acte</h3>
+            <h3 class="details-header">@Resources.Labels.ValabilitateActe</h3>
             <div class="row fields-padding">
                 <div class="col-md-12">
                     <div class="row">
@@ -79,10 +80,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>Data expirare ITP</label>
+                                        <label>@Resources.Labels.DataExpirareITP</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="ITPExpirationDate" type="date" required />
+                                        <input class="min-input-width min-input-height" placeholder="dd/MM/yyyy" id="ITPExpirationDate" type="text" required />
                                     </div>
                                 </div>
                             </div>
@@ -91,10 +92,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>Data expirare asigurare</label>
+                                        <label>@Resources.Labels.DataExpirareAsigurare</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="insuranceExpirationDate" type="date" required />
+                                        <input class="min-input-width min-input-height" placeholder="dd/MM/yyyy" id="insuranceExpirationDate" type="text" required />
                                     </div>
                                 </div>
                             </div>
@@ -109,10 +110,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>Data expirare Tahograf</label>
+                                        <label>@Resources.Labels.DataExpirareTahograf</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="tachographExpirationDate" type="date" required />
+                                        <input class="min-input-width min-input-height" placeholder="dd/MM/yyyy" id="tachographExpirationDate" type="text" required />
                                     </div>
                                 </div>
                             </div>
@@ -121,10 +122,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>Data expirare Vignette</label>
+                                        <label>@Resources.Labels.DataExpirareVignette</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="vignetteExpirationDate" type="date" required />
+                                        <input class="min-input-width min-input-height" placeholder="dd/MM/yyyy" id="vignetteExpirationDate" type="text" required />
                                     </div>
                                 </div>
                             </div>
@@ -139,10 +140,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>Data expirare copie conforma</label>
+                                        <label>@Resources.Labels.DataExpirareCopieConforma</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="conformCopyExpirationDate" type="date" required />
+                                        <input class="min-input-width min-input-height" placeholder="dd/MM/yyyy" id="conformCopyExpirationDate" type="text" required />
                                     </div>
                                 </div>
                             </div>
@@ -167,5 +168,27 @@
     </form>
 </div>
 
+<script>
+    function addLoadEvent(func) {
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = func;
+        } else {
+            window.onload = function () {
+                if (oldonload) {
+                    oldonload();
+                }
+                func();
+            }
+        }
+    }
 
+    addLoadEvent(function () {
+        if (editTruckController.truckId) {
+            document.getElementById('headerLabel').innerHTML = 'Editare camion';
+        } else {
+            document.getElementById('headerLabel').innerHTML = 'Adaugare camion';
+        }
 
+    });
+</script>

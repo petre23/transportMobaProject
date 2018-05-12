@@ -11,7 +11,7 @@
             },
             error: function (jqXHR, textStatus, exception, errorThrown) {
                 $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
-                $("#errorDialog").dialog("open");
+                setTimeout(function () { $("#errorDialog").dialog("open"); }, 1000);
             }
         });
     },
@@ -27,6 +27,7 @@
                 editTruckController.truckId = res.truck.Id;
                 var truck = res.truck;
                 editTruckController.setTruckDetails(truck);
+                editTruckController.initControls();
             },
             error: function (jqXHR, textStatus, exception, errorThrown) {
                 $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
@@ -38,17 +39,17 @@
         $("#registrationNumber").val(truck.RegistrationNumber);
         $("#brands").val(truck.BrandDropDownValue);
         $("#registrationYear").val(truck.ManufacturingYearString);
-        $("#ITPExpirationDate").val(this.getValidDate(truck.ITPExpirationDateString));
-        $("#insuranceExpirationDate").val(this.getValidDate(truck.InsuranceExpirationDateString));
-        $("#tachographExpirationDate").val(this.getValidDate(truck.TachographExpirationDateString));
-        $("#vignetteExpirationDate").val(this.getValidDate(truck.VignetteExpirationDateString));
-        $("#conformCopyExpirationDate").val(this.getValidDate(truck.ConformCopyExpirationDateString));
+        $("#ITPExpirationDate").val(truck.ITPExpirationDateString);
+        $("#insuranceExpirationDate").val(truck.InsuranceExpirationDateString);
+        $("#tachographExpirationDate").val(truck.TachographExpirationDateString);
+        $("#vignetteExpirationDate").val(truck.VignetteExpirationDateString);
+        $("#conformCopyExpirationDate").val(truck.ConformCopyExpirationDateString);
     },
-    getValidDate: function (dateString) {
+    getCorrectDateFormat: function (dateString) {
         var parts = dateString.split("/");
         var date = new Date(parts[2], parts[1] - 1, parts[0]);
         if (date) {
-            return date.toISOString().substring(0, 10);
+            return date.toISOString();
         }
         return "";
     },
@@ -76,10 +77,20 @@
             editTruckController.getTruck();
         } else {
             editTruckController.setupNewTruckInfo();
+            setTimeout(function () { editTruckController.initControls(); }, 0);
         }
     },
+    initControls: function () {
+        $("#ITPExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+        $("#insuranceExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+        $("#tachographExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+        $("#vignetteExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+        $("#conformCopyExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+    },
     cancelEdit: function () {
-        window.location = "/Truck/Index";
+        if (this.confirmCancel()) {
+            window.location = "/Truck/Index";
+        }
     },
     validateAndSaveTruck: function () {
         var truckInfo = {
@@ -87,14 +98,22 @@
             RegistrationNumber : $("#registrationNumber").val(),
             BrandDropDownValue : $("#brands").val(),
             ManufacturingYear: new Date($("#registrationYear").val()).toISOString(),
-            ITPExpirationDate: new Date($("#ITPExpirationDate").val()).toISOString(),
-            InsuranceExpirationDate: new Date($("#insuranceExpirationDate").val()).toISOString(),
-            TachographExpirationDate: new Date($("#tachographExpirationDate").val()).toISOString(),
-            VignetteExpirationDate: new Date($("#vignetteExpirationDate").val()).toISOString(),
-            ConformCopyExpirationDate: new Date($("#conformCopyExpirationDate").val()).toISOString()
+            ITPExpirationDate: this.getCorrectDateFormat($("#ITPExpirationDate").val()),
+            InsuranceExpirationDate: this.getCorrectDateFormat($("#insuranceExpirationDate").val()),
+            TachographExpirationDate: this.getCorrectDateFormat($("#tachographExpirationDate").val()),
+            VignetteExpirationDate: this.getCorrectDateFormat($("#vignetteExpirationDate").val()),
+            ConformCopyExpirationDate: this.getCorrectDateFormat($("#conformCopyExpirationDate").val())
         };
-
         this.saveTruck(truckInfo);
+    },
+    confirmCancel: function () {
+        var txt;
+        var r = confirm(" Sunteti sigur ca vreti sa anulati aceasta operatie? \r\n Toate modificarile for fi pierdute!");
+        if (r == true) {
+            return true;
+        } else {
+            return false;
+        }
     }
 };
 editTruckController.initTruck();

@@ -117,11 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnFabricatie" xml:space="preserve">
+    <value>An fabricatie</value>
+  </data>
   <data name="Autentificare" xml:space="preserve">
     <value>Autentificare</value>
   </data>
+  <data name="DataExpirareAsigurare" xml:space="preserve">
+    <value>Data expirare asigurare</value>
+  </data>
+  <data name="DataExpirareCopieConforma" xml:space="preserve">
+    <value>Data expirare copie conforma</value>
+  </data>
+  <data name="DataExpirareITP" xml:space="preserve">
+    <value>Data expirare ITP</value>
+  </data>
+  <data name="DataExpirareTahograf" xml:space="preserve">
+    <value>Data expirare Tahograf</value>
+  </data>
+  <data name="DataExpirareVignette" xml:space="preserve">
+    <value>Data expirare Vignette</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="InformatiiGenerale" xml:space="preserve">
+    <value>Informatii Generale</value>
   </data>
   <data name="IntoducetiEmail" xml:space="preserve">
     <value>Intoduceti email</value>
@@ -132,7 +153,16 @@
   <data name="InvalidUserOrPassword" xml:space="preserve">
     <value>Email sau parola gresita!</value>
   </data>
+  <data name="Marca" xml:space="preserve">
+    <value>Marca/Brand</value>
+  </data>
+  <data name="NumarInmatriculare" xml:space="preserve">
+    <value>Numar inmatriculare</value>
+  </data>
   <data name="Parola" xml:space="preserve">
     <value>Parola</value>
+  </data>
+  <data name="ValabilitateActe" xml:space="preserve">
+    <value>ValabilitateActe</value>
   </data>
 </root>

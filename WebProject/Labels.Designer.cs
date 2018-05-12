@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An fabricatie.
+        /// </summary>
+        public static string AnFabricatie {
+            get {
+                return ResourceManager.GetString("AnFabricatie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Autentificare.
         /// </summary>
         public static string Autentificare {
@@ -70,11 +79,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data expirare asigurare.
+        /// </summary>
+        public static string DataExpirareAsigurare {
+            get {
+                return ResourceManager.GetString("DataExpirareAsigurare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare copie conforma.
+        /// </summary>
+        public static string DataExpirareCopieConforma {
+            get {
+                return ResourceManager.GetString("DataExpirareCopieConforma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare ITP.
+        /// </summary>
+        public static string DataExpirareITP {
+            get {
+                return ResourceManager.GetString("DataExpirareITP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare Tahograf.
+        /// </summary>
+        public static string DataExpirareTahograf {
+            get {
+                return ResourceManager.GetString("DataExpirareTahograf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare Vignette.
+        /// </summary>
+        public static string DataExpirareVignette {
+            get {
+                return ResourceManager.GetString("DataExpirareVignette", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informatii Generale.
+        /// </summary>
+        public static string InformatiiGenerale {
+            get {
+                return ResourceManager.GetString("InformatiiGenerale", resourceCulture);
             }
         }
         
@@ -106,11 +169,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marca/Brand.
+        /// </summary>
+        public static string Marca {
+            get {
+                return ResourceManager.GetString("Marca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numar inmatriculare.
+        /// </summary>
+        public static string NumarInmatriculare {
+            get {
+                return ResourceManager.GetString("NumarInmatriculare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parola.
         /// </summary>
         public static string Parola {
             get {
                 return ResourceManager.GetString("Parola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ValabilitateActe.
+        /// </summary>
+        public static string ValabilitateActe {
+            get {
+                return ResourceManager.GetString("ValabilitateActe", resourceCulture);
             }
         }
     }

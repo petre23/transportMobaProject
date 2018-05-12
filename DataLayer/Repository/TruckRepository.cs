@@ -59,7 +59,7 @@ namespace DataLayer.Repository
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     var isNew = truck.Id == Guid.Empty;
-                    truck.Id = isNew ? new Guid() : truck.Id;
+                    truck.Id = isNew ? Guid.NewGuid() : truck.Id;
                     cmd.Parameters.AddWithValue("@IsNew", isNew);
                     cmd.Parameters.AddWithValue("@Id", truck.Id);
                     cmd.Parameters.AddWithValue("@Brand", truck.Brand);
