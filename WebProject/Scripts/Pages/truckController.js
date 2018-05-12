@@ -3,6 +3,7 @@
 
 var truckController =
     {
+        selectedTruck: "",
         getTrucks: function () {
             $.ajax({
                 type: 'post',
@@ -28,8 +29,13 @@ var truckController =
                 sorting: true,
                 paging: false,
                 rowClick: function (args) {
-                    var truckId = args.item.Id;
-                    window.location = "/Truck/EditTruck?truckId="+truckId;
+                    $("#trucksGrid tr").removeClass("selected-row")
+                    $selectedRow = $(args.event.target).closest("tr");
+                    $selectedRow.addClass("selected-row");
+
+                    truckController.selectedTruck = args.item.Id;
+
+                    $("#editButton").prop('disabled', false);
                 },
                 data: trucks,
                 fields: [
@@ -39,10 +45,17 @@ var truckController =
                     { name: "ManufacturingYearString", title: 'An fabricatie', type: "text", width: 100 },
                     { name: "ITPExpirationDateString", title: 'Data expirare ITP', type: "text", width: 100 },
                     { name: "VignetteExpirationDateString", title: 'Data expirare Vignette', type: "text", width: 100 },
-                    { name: "InsuranceExpirationDateString", title: 'Data expirare asigurare', type: "text", width: 100 },
-                    { type: "control" }
+                    { name: "InsuranceExpirationDateString", title: 'Data expirare asigurare', type: "text", width: 100 }
                 ]
             });
-        }
+        },
+        addNewTruck: function (){
+            window.location = "/Truck/EditTruck";
+        },
+        editTruck: function () {
+            if (truckController.selectedTruck) {
+                window.location = "/Truck/EditTruck?truckId=" + truckController.selectedTruck;
+            }
+        },
     };
 truckController.getTrucks();

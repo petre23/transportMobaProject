@@ -270,62 +270,54 @@ input::-webkit-input-placeholder {
     margin-top: 5px;
 }
 
+.logout-button {
+    margin-top: 5px;
+    margin-right:10px;
+    float: right
+}
+
 .login-register {
     font-size: 11px;
     text-align: center;
 }
 
-.addButton {
-    padding: 5px 5px;
-    font-size: 15px;
-    margin-top: 15px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: black;
-    margin-left:10%;
-    background-color: white;
-    border: none;
-    border-radius: 2px;
-    box-shadow: 0 2px powderblue;
+.min-input-width {
+    min-width: 100px;
+    width: 175px;
 }
-
-.editButton {
-    padding: 5px 5px;
-    font-size: 15px;
-    margin-top: 15px;
-    cursor: pointer;
-    text-align: center;
-    margin-left: 5%;
-    text-decoration: none;
-    outline: none;
-    color: black;
-    background-color: white;
-    border: none;
-    border-radius: 2px;
-    box-shadow: 0 2px powderblue;
+.min-input-height {
+    min-height: 15px;
+    height: 28px;
 }
-
-    .editButton:hover {
-        background-color: #428bca;
-    }
-
-    .editButton:active {
-        background-color: #428bca;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-    }
-
-.addButton:hover {
-    background-color: #428bca;
+.details-header {
+    padding-top:5px;
+    padding-bottom:5px;
+    color:grey;
+    border-bottom:1px solid;
 }
-
-.addButton:active {
-    background-color: #428bca;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+.fields-padding {
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
-
-
-
+.edit-panel {
+    border:1px solid #dfedf1;
+}
+.button-group {
+    padding:10px;
+}
+.no-text-decoration {
+    text-decoration:none!important;
+    color:white!important;
+}
+.nav-bar {
+    background-color: #428bca!important;
+    border-color:black!important;
+    border-radius:3px!important;
+}
+.nav-bar-text {
+    color:white!important;
+}
+.selected-row > td {
+    background: #c4e2ff !important;
+    border-color: #c4e2ff !important;
+}

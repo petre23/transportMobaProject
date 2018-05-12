@@ -73,6 +73,7 @@
     <Build Include="dbo\StoredProcedures\GetTrucks.sql" />
     <Build Include="dbo\StoredProcedures\GetTruck.sql" />
     <Build Include="dbo\StoredProcedures\SaveTruck.sql" />
+    <Build Include="dbo\StoredProcedures\GetBrands.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

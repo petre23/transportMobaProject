@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Repository
 {
-    public class DriveRepository
+    public class DriveRepository: BaseRepository
     {
         public List<Drive> GetDrives()
         {
