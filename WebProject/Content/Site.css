@@ -274,3 +274,58 @@ input::-webkit-input-placeholder {
     font-size: 11px;
     text-align: center;
 }
+
+.addButton {
+    padding: 5px 5px;
+    font-size: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    margin-left:10%;
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 2px powderblue;
+}
+
+.editButton {
+    padding: 5px 5px;
+    font-size: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 5%;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 2px powderblue;
+}
+
+    .editButton:hover {
+        background-color: #428bca;
+    }
+
+    .editButton:active {
+        background-color: #428bca;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+.addButton:hover {
+    background-color: #428bca;
+}
+
+.addButton:active {
+    background-color: #428bca;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+

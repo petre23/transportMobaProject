@@ -24,8 +24,6 @@
             {
         <div class="col-md-2">
             <div id="wrapper" class="active">
-                <!-- Sidebar -->
-                <!-- Sidebar -->
                 <div id="sidebar-wrapper">
                     <ul id="sidebar_menu" class="sidebar-nav">
                         <li class="sidebar-brand"><a id="menu-toggle" href="#">Meniu<span id="main_icon" class="glyphicon glyphicon-align-justify"></span></a></li>
@@ -43,9 +41,23 @@
         </div>
             }
         <div class="@(HttpContext.Current.Session["UserId"] != null ? "col-md-10" : "co-md-12")">
+          
             @if (HttpContext.Current.Session["UserId"] != null)
-    {
-        <label class="right-side" onclick="loginController.logout()">@Html.ActionLink("Logout", "Logout", "Login")</label>
+    {  <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">WebSiteLogo</a>
+                    </div>
+                
+                       <button class="addButton">Adaugare</button>
+                       <button class="editButton">@Html.ActionLink("Editare", "Index", "Truck/EditTruck")</button>
+              
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="display: inherit; margin-top: 15px; margin-right:15px;"><span class="glyphicon glyphicon-log-out" style="color:white;"> @Html.ActionLink("Logout", "Logout", "Login")  </span></li>
+                    </ul>
+                </div>
+            </nav>
+      
 }
             <div id="errorDialog" title="Error"></div>
             @RenderBody()

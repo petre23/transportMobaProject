@@ -3,7 +3,50 @@
     ViewBag.Title = "EditTruck";
 }
 <script src="~/Scripts/Pages/editTruckController.js"></script>
-<label>Numar inmatriculare</label>   <input id="truckRegistrationNumber"/>
-<label>Marca</label>   <input id="brand"/>
-<label>An fabricatie</label>   <input id="manufacteringYear"/>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<div class="row">
+    <div class="col-md-12 column">
+        <table class="table table-bordered table-hover" id="tab_logic">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        #
+                    </th>
+                    <th class="text-center">
+                        Numar inmatriculare
+                    </th>
+                    <th class="text-center">
+                        Marca
+                    </th>
+                    <th class="text-center">
+                        An fabricatie
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id='addr0'>
+                    <td>1</td>
+                    <td>
+                        <input type="text" name='truckRegistrationNumber' placeholder='Numar de inmatriculare' class="form-control" />
+                    </td>
+                    <td>
+                        <input type="email" name='brand' placeholder='Marca' class="form-control" />
+                    </td>
+                    <td>
+                        <input type="number" name='manufacteringYear' placeholder='An fabricatie' class="form-control" />
+                    </td>
+                </tr>
+                <tr id='addr1'></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 
