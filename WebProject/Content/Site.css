@@ -384,3 +384,8 @@ input::-webkit-input-placeholder {
 .button-group {
     padding-top: 7px;
 }
+
+#saveButtons {
+    margin-top: 10px;
+    margin-right:1px;
+}
