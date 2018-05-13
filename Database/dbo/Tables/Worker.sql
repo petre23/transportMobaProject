@@ -3,6 +3,7 @@
 	[Id] Uniqueidentifier NOT NULL,
 	[FirstName] nvarchar(255) NOT NULL,
 	[Surname] nvarchar(255) NOT NULL,
+	[BirthDay] DATETIME NOT NULL,
 	[Employer] Uniqueidentifier NOT NULL,
 	[Truck] Uniqueidentifier NOT NULL,
 	[EmploymentDate] DATETIME NOT NULL,

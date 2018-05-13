@@ -74,6 +74,11 @@
     <Build Include="dbo\StoredProcedures\GetTruck.sql" />
     <Build Include="dbo\StoredProcedures\SaveTruck.sql" />
     <Build Include="dbo\StoredProcedures\GetBrands.sql" />
+    <Build Include="dbo\StoredProcedures\GetWorkers.sql" />
+    <Build Include="dbo\StoredProcedures\GetWorker.sql" />
+    <Build Include="dbo\StoredProcedures\SaveWorker.sql" />
+    <Build Include="dbo\StoredProcedures\GetEmployers.sql" />
+    <Build Include="dbo\StoredProcedures\GetTrucksForDropDown.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

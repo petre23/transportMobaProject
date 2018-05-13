@@ -114,5 +114,31 @@ namespace DataLayer.Repository
                 }
             }
         }
+
+        public List<Truck> GetTrucksForDropDown()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("[etTrucksForDropDown", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    var trucks = new List<Truck>();
+                    while (reader.Read())
+                    {
+                        var truck = new Truck()
+                        {
+                            Id = Guid.Parse(reader["Id"].ToString()),
+                            RegistrationNumber = reader["RegistrationNumber"].ToString(),
+                        };
+                        trucks.Add(truck);
+                    }
+                    con.Close();
+
+                    return trucks;
+                }
+            }
+        }
     }
 }
