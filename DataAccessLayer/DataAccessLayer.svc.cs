@@ -57,6 +57,16 @@ namespace DataAccessLayer
             return _truckLogic.GetTruck(idTruck);
         }
 
+        public void DeleteTruck(Guid truckId)
+        {
+            _truckLogic.DeleteTruck(truckId);
+        }
+
+        public List<Truck> GetTrucksForDropDown()
+        {
+            return _truckLogic.GetTrucksForDropDown();
+        }
+
         public List<Drive> GetDrives()
         {
             return _driveLogic.GetDrives();

@@ -25,5 +25,15 @@ namespace BusinessLogicLayer.Logic
         {
             return _truckRepository.GetTruck(idTruck);
         }
+
+        public void DeleteTruck(Guid truckId)
+        {
+            _truckRepository.DeleteTruck(truckId);
+        }
+
+        public List<Truck> GetTrucksForDropDown()
+        {
+            return _truckRepository.GetTrucksForDropDown();
+        }
     }
 }

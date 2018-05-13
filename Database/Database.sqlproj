@@ -79,6 +79,8 @@
     <Build Include="dbo\StoredProcedures\SaveWorker.sql" />
     <Build Include="dbo\StoredProcedures\GetEmployers.sql" />
     <Build Include="dbo\StoredProcedures\GetTrucksForDropDown.sql" />
+    <Build Include="dbo\StoredProcedures\DeleteTruck.sql" />
+    <Build Include="dbo\StoredProcedures\DeleteWorker.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Adauga" xml:space="preserve">
+    <value>Adauga</value>
+  </data>
   <data name="AnFabricatie" xml:space="preserve">
     <value>An fabricatie</value>
+  </data>
+  <data name="Anulare" xml:space="preserve">
+    <value>Anulare</value>
   </data>
   <data name="Autentificare" xml:space="preserve">
     <value>Autentificare</value>
@@ -137,6 +143,9 @@
   </data>
   <data name="DataExpirareVignette" xml:space="preserve">
     <value>Data expirare Vignette</value>
+  </data>
+  <data name="Editeaza" xml:space="preserve">
+    <value>Editeaza</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -161,6 +170,12 @@
   </data>
   <data name="Parola" xml:space="preserve">
     <value>Parola</value>
+  </data>
+  <data name="Salvare" xml:space="preserve">
+    <value>Salvare</value>
+  </data>
+  <data name="Sterge" xml:space="preserve">
+    <value>Sterge</value>
   </data>
   <data name="ValabilitateActe" xml:space="preserve">
     <value>ValabilitateActe</value>

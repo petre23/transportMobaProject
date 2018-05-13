@@ -61,11 +61,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adauga.
+        /// </summary>
+        public static string Adauga {
+            get {
+                return ResourceManager.GetString("Adauga", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An fabricatie.
         /// </summary>
         public static string AnFabricatie {
             get {
                 return ResourceManager.GetString("AnFabricatie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anulare.
+        /// </summary>
+        public static string Anulare {
+            get {
+                return ResourceManager.GetString("Anulare", resourceCulture);
             }
         }
         
@@ -120,6 +138,15 @@ namespace Resources {
         public static string DataExpirareVignette {
             get {
                 return ResourceManager.GetString("DataExpirareVignette", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editeaza.
+        /// </summary>
+        public static string Editeaza {
+            get {
+                return ResourceManager.GetString("Editeaza", resourceCulture);
             }
         }
         
@@ -192,6 +219,24 @@ namespace Resources {
         public static string Parola {
             get {
                 return ResourceManager.GetString("Parola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salvare.
+        /// </summary>
+        public static string Salvare {
+            get {
+                return ResourceManager.GetString("Salvare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sterge.
+        /// </summary>
+        public static string Sterge {
+            get {
+                return ResourceManager.GetString("Sterge", resourceCulture);
             }
         }
         

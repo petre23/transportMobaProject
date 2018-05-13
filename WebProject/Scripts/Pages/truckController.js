@@ -20,6 +20,9 @@ var truckController =
         },
         initGrid: function (trucks)
         {
+            $("#editButton").prop('disabled', true);
+            $("#deleteButton").prop('disabled', true);
+
             $("#trucksGrid").jsGrid({
                 width: "100%",
                 height: "80vh",
@@ -36,6 +39,7 @@ var truckController =
                     truckController.selectedTruck = args.item.Id;
 
                     $("#editButton").prop('disabled', false);
+                    $("#deleteButton").prop('disabled', false);
                 },
                 data: trucks,
                 fields: [
@@ -59,5 +63,31 @@ var truckController =
                 window.location = "/Truck/EditTruck?truckId=" + truckController.selectedTruck;
             }
         },
+        deleteTruck: function () {
+            if (this.confirmDeleteTruck()) {
+                $.ajax({
+                    type: 'post',
+                    dataType: 'json',
+                    url: "/Truck/DeleteTruck",
+                    data: { truckId: truckController.selectedTruck },
+                    success: function (res) {
+                        truckController.getTrucks();
+                    },
+                    error: function (jqXHR, textStatus, exception, errorThrown) {
+                        $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
+                        $("#errorDialog").dialog("open");
+                    }
+                });
+            }
+        },
+        confirmDeleteTruck: function () {
+            var txt;
+            var r = confirm("Sunteti sigur ca vreti sa stergeti acest camion?");
+            if (r == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     };
 truckController.getTrucks();

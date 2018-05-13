@@ -64,5 +64,32 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
+
+        public ActionResult DeleteTruck(Guid truckId)
+        {
+            try
+            {
+                _dataAccessLayer.DeleteTruck(truckId);
+                return Json(new { success = "true" });
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
+            }
+        }
+
+        public ActionResult GetTrucksForDropDown()
+        {
+            try
+            {
+                return Json(new { trucksForDropDown = _dataAccessLayer.GetTrucksForDropDown() });
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
+            }
+        }
     }
 }

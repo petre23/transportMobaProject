@@ -32,6 +32,12 @@ namespace DataAccessLayer
         Truck GetTruck(Guid idTruck);
 
         [OperationContract]
+        void DeleteTruck(Guid truckId);
+
+        [OperationContract]
+        List<Truck> GetTrucksForDropDown();
+
+        [OperationContract]
         List<Drive> GetDrives();
 
         [OperationContract]

@@ -115,6 +115,21 @@ namespace DataLayer.Repository
             }
         }
 
+        public void DeleteTruck(Guid truckId)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("DeleteTruck", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TruckId", truckId);
+                    con.Open();
+                    var reader = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
         public List<Truck> GetTrucksForDropDown()
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))

@@ -328,10 +328,7 @@ input::-webkit-input-placeholder {
 
 .edit-panel {
     border: 1px solid #dfedf1;
-}
-
-.button-group {
-    padding: 10px;
+    padding: 5px;
 }
 
 .no-text-decoration {
@@ -383,4 +380,7 @@ input::-webkit-input-placeholder {
 }
 .no-margin-right {
     margin-right:0px;
+}
+.button-group {
+    padding-top: 7px;
 }
