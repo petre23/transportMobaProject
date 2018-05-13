@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActIdentitate" xml:space="preserve">
+    <value>Act identitate</value>
+  </data>
   <data name="Adauga" xml:space="preserve">
     <value>Adauga</value>
   </data>
@@ -129,14 +132,32 @@
   <data name="Autentificare" xml:space="preserve">
     <value>Autentificare</value>
   </data>
+  <data name="Camion" xml:space="preserve">
+    <value>Camion</value>
+  </data>
+  <data name="DataAngajarii" xml:space="preserve">
+    <value>Data angajarii</value>
+  </data>
+  <data name="DataExpirareAnalizeMedicale" xml:space="preserve">
+    <value>Data expirare analize medicale</value>
+  </data>
   <data name="DataExpirareAsigurare" xml:space="preserve">
     <value>Data expirare asigurare</value>
+  </data>
+  <data name="DataExpirareAtestat" xml:space="preserve">
+    <value>Data expirare atestat</value>
+  </data>
+  <data name="DataExpirareCardTahograf" xml:space="preserve">
+    <value>Data expirare card tahograf</value>
   </data>
   <data name="DataExpirareCopieConforma" xml:space="preserve">
     <value>Data expirare copie conforma</value>
   </data>
   <data name="DataExpirareITP" xml:space="preserve">
     <value>Data expirare ITP</value>
+  </data>
+  <data name="DataExpirarePermis" xml:space="preserve">
+    <value>Data expirare permis</value>
   </data>
   <data name="DataExpirareTahograf" xml:space="preserve">
     <value>Data expirare Tahograf</value>
@@ -147,11 +168,17 @@
   <data name="DataExpirareVignetteUK" xml:space="preserve">
     <value>Data expirare Vignette UK</value>
   </data>
+  <data name="DataNasterii" xml:space="preserve">
+    <value>Data nasterii</value>
+  </data>
   <data name="Editeaza" xml:space="preserve">
     <value>Editeaza</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="Firma" xml:space="preserve">
+    <value>Firma</value>
   </data>
   <data name="InformatiiGenerale" xml:space="preserve">
     <value>Informatii Generale</value>
@@ -171,8 +198,14 @@
   <data name="NumarInmatriculare" xml:space="preserve">
     <value>Numar inmatriculare</value>
   </data>
+  <data name="NumeSofer" xml:space="preserve">
+    <value>Nume sofer</value>
+  </data>
   <data name="Parola" xml:space="preserve">
     <value>Parola</value>
+  </data>
+  <data name="PrenumeSofer" xml:space="preserve">
+    <value>Prenume sofer</value>
   </data>
   <data name="Salvare" xml:space="preserve">
     <value>Salvare</value>
@@ -181,6 +214,6 @@
     <value>Sterge</value>
   </data>
   <data name="ValabilitateActe" xml:space="preserve">
-    <value>ValabilitateActe</value>
+    <value>Valabilitate Acte</value>
   </data>
 </root>

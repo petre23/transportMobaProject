@@ -3,5 +3,227 @@
     ViewBag.Title = "EditWorker";
 }
 <script src="~/Scripts/Pages/workerController.js"></script>
-<h2>EditWorker</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <nav class="navbar navbar-inverse nav-bar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a id="headerLabel" class="navbar-brand nav-bar-text" href="#"></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<form name="saveWorker" class="edit-panel" onsubmit="editTruckController.validateAndSaveTruck();">
+    <div id="generalInformation">
+        <h3 class="details-header">Informatii generale</h3>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.NumeSofer</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Nume" id="numeSofer" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.PrenumeSofer</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="Prenume" id="prenumeSofer" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.DataNasterii</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="dataNasterii" placeholder="dd/MM/yyyy" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.DataAngajarii</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="dataAngajarii" placeholder="dd/MM/yyyy" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Firma</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="firma" placeholder="firma" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Camion</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="camion" placeholder="camion" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ActIdentitate</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="actIdentitate" placeholder="Act Identitate" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="expirationDetails">
+        <h3 class="details-header">@Resources.Labels.ValabilitateActe</h3>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.DataExpirarePermis</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="DataExpirarePermis" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.DataExpirareAtestat</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="DataExpirareAtestat" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.DataExpirareCardTahograf</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="DataExpirareCardTahograf" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.DataExpirareAnalizeMedicale</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="DataExpirareAnalizeMedicale" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+    <div class="row" id="saveButtons">
+        <div class="col-sm-9 col-lg-9 col-md-9"></div>
+        <div class="col-sm-3 col-lg-3 col-md-3">
+            <div class="btn-group right-side">
+                <button type="submit" id="btnSaveTruck" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> @Resources.Labels.Salvare</button>
+                <button type="button" onclick="editTruckController.cancelEdit();" id="btnCancelSaveTruck" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Anulare</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function addLoadEvent(func) {
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = func;
+        } else {
+            window.onload = function () {
+                if (oldonload) {
+                    oldonload();
+                }
+                func();
+            }
+        }
+    }
+
+    addLoadEvent(function () {
+        if (editTruckController.truckId) {
+            document.getElementById('headerLabel').innerHTML = 'Editare sofer';
+        } else {
+            document.getElementById('headerLabel').innerHTML = 'Adaugare sofer';
+        }
+
+    });
+</script>
 

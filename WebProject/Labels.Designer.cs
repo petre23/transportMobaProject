@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Act identitate.
+        /// </summary>
+        public static string ActIdentitate {
+            get {
+                return ResourceManager.GetString("ActIdentitate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adauga.
         /// </summary>
         public static string Adauga {
@@ -97,11 +106,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Camion.
+        /// </summary>
+        public static string Camion {
+            get {
+                return ResourceManager.GetString("Camion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data angajarii.
+        /// </summary>
+        public static string DataAngajarii {
+            get {
+                return ResourceManager.GetString("DataAngajarii", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare analize medicale.
+        /// </summary>
+        public static string DataExpirareAnalizeMedicale {
+            get {
+                return ResourceManager.GetString("DataExpirareAnalizeMedicale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data expirare asigurare.
         /// </summary>
         public static string DataExpirareAsigurare {
             get {
                 return ResourceManager.GetString("DataExpirareAsigurare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare atestat.
+        /// </summary>
+        public static string DataExpirareAtestat {
+            get {
+                return ResourceManager.GetString("DataExpirareAtestat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare card tahograf.
+        /// </summary>
+        public static string DataExpirareCardTahograf {
+            get {
+                return ResourceManager.GetString("DataExpirareCardTahograf", resourceCulture);
             }
         }
         
@@ -120,6 +174,15 @@ namespace Resources {
         public static string DataExpirareITP {
             get {
                 return ResourceManager.GetString("DataExpirareITP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare permis.
+        /// </summary>
+        public static string DataExpirarePermis {
+            get {
+                return ResourceManager.GetString("DataExpirarePermis", resourceCulture);
             }
         }
         
@@ -151,6 +214,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data nasterii.
+        /// </summary>
+        public static string DataNasterii {
+            get {
+                return ResourceManager.GetString("DataNasterii", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editeaza.
         /// </summary>
         public static string Editeaza {
@@ -165,6 +237,15 @@ namespace Resources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Firma.
+        /// </summary>
+        public static string Firma {
+            get {
+                return ResourceManager.GetString("Firma", resourceCulture);
             }
         }
         
@@ -223,11 +304,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nume sofer.
+        /// </summary>
+        public static string NumeSofer {
+            get {
+                return ResourceManager.GetString("NumeSofer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parola.
         /// </summary>
         public static string Parola {
             get {
                 return ResourceManager.GetString("Parola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prenume sofer.
+        /// </summary>
+        public static string PrenumeSofer {
+            get {
+                return ResourceManager.GetString("PrenumeSofer", resourceCulture);
             }
         }
         
@@ -250,7 +349,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ValabilitateActe.
+        ///   Looks up a localized string similar to Valabilitate Acte.
         /// </summary>
         public static string ValabilitateActe {
             get {
