@@ -57,13 +57,23 @@ namespace DataLayer.PersistanceLayer
             }
         }
         [DataMember]
-        public DateTime? VignetteExpirationDate { get; set; }
+        public DateTime? VignetteExpirationDateUK { get; set; }
         [DataMember]
-        public string VignetteExpirationDateString
+        public string VignetteExpirationDateUKString
         {
             get
             {
-                return VignetteExpirationDate.HasValue ? VignetteExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
+                return VignetteExpirationDateUK.HasValue ? VignetteExpirationDateUK.Value.ToString("dd/MM/yyyy") : string.Empty;
+            }
+        }
+        [DataMember]
+        public DateTime? VignetteExpirationDateNL { get; set; }
+        [DataMember]
+        public string VignetteExpirationDateNLString
+        {
+            get
+            {
+                return VignetteExpirationDateNL.HasValue ? VignetteExpirationDateNL.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]

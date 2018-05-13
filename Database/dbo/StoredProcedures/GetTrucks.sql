@@ -10,7 +10,8 @@ BEGIN
 		  ,t.[ITPExpirationDate]
 		  ,t.[InsuranceExpirationDate]
 		  ,t.[TachographExpirationDate]
-		  ,t.[VignetteExpirationDate]
+		   ,t.[VignetteExpirationDateUK]
+		  ,t.[VignetteExpirationDateNL]
 		  ,t.[ConformCopyExpirationDate]
 		FROM dbo.Trucks t
 		INNER JOIN dbo.Brands b ON t.Brand = b.Id

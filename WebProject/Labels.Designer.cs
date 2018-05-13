@@ -133,11 +133,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data expirare Vignette.
+        ///   Looks up a localized string similar to Data expirare Vignette NL.
         /// </summary>
-        public static string DataExpirareVignette {
+        public static string DataExpirareVignetteNL {
             get {
-                return ResourceManager.GetString("DataExpirareVignette", resourceCulture);
+                return ResourceManager.GetString("DataExpirareVignetteNL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data expirare Vignette UK.
+        /// </summary>
+        public static string DataExpirareVignetteUK {
+            get {
+                return ResourceManager.GetString("DataExpirareVignetteUK", resourceCulture);
             }
         }
         

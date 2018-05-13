@@ -141,8 +141,11 @@
   <data name="DataExpirareTahograf" xml:space="preserve">
     <value>Data expirare Tahograf</value>
   </data>
-  <data name="DataExpirareVignette" xml:space="preserve">
-    <value>Data expirare Vignette</value>
+  <data name="DataExpirareVignetteNL" xml:space="preserve">
+    <value>Data expirare Vignette NL</value>
+  </data>
+  <data name="DataExpirareVignetteUK" xml:space="preserve">
+    <value>Data expirare Vignette UK</value>
   </data>
   <data name="Editeaza" xml:space="preserve">
     <value>Editeaza</value>

@@ -37,7 +37,8 @@ namespace DataLayer.Repository
                             ManufacturingYear = Convert.ToDateTime(reader["ManufacturingYear"].ToString()),
                             RegistrationNumber = reader["RegistrationNumber"].ToString(),
                             TachographExpirationDate = Convert.ToDateTime(reader["TachographExpirationDate"].ToString()),
-                            VignetteExpirationDate = Convert.ToDateTime(reader["VignetteExpirationDate"].ToString())
+                            VignetteExpirationDateUK = Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()),
+                            VignetteExpirationDateNL = Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString())
                         };
                         trucks.Add(truck);
                     }
@@ -69,7 +70,8 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@ManufacturingYear", truck.ManufacturingYear);
                     cmd.Parameters.AddWithValue("@RegistrationNumber", truck.RegistrationNumber);
                     cmd.Parameters.AddWithValue("@TachographExpirationDate", truck.TachographExpirationDate);
-                    cmd.Parameters.AddWithValue("@VignetteExpirationDate", truck.VignetteExpirationDate);
+                    cmd.Parameters.AddWithValue("@VignetteExpirationDateUK", truck.VignetteExpirationDateUK);
+                    cmd.Parameters.AddWithValue("@VignetteExpirationDateNL", truck.VignetteExpirationDateNL);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -104,7 +106,8 @@ namespace DataLayer.Repository
                             ManufacturingYear = Convert.ToDateTime(reader["ManufacturingYear"].ToString()),
                             RegistrationNumber = reader["RegistrationNumber"].ToString(),
                             TachographExpirationDate = Convert.ToDateTime(reader["TachographExpirationDate"].ToString()),
-                            VignetteExpirationDate = Convert.ToDateTime(reader["VignetteExpirationDate"].ToString())
+                            VignetteExpirationDateUK = Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()),
+                            VignetteExpirationDateNL = Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString()),
                         };
                         trucks.Add(truck);
                     }
@@ -134,7 +137,7 @@ namespace DataLayer.Repository
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("[etTrucksForDropDown", con))
+                using (SqlCommand cmd = new SqlCommand("GetTrucksForDropDown", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();

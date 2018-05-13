@@ -7,13 +7,14 @@
 	@ITPExpirationDate DATETIME,
 	@InsuranceExpirationDate DATETIME,
 	@TachographExpirationDate DATETIME,
-	@VignetteExpirationDate DATETIME,
+	@VignetteExpirationDateUK DATETIME,
+	@VignetteExpirationDateNL DATETIME,
 	@ConformCopyExpirationDate DATETIME
 AS
 BEGIN
 	IF(@IsNew = 1)
 	BEGIN
-		INSERT INTO dbo.Trucks(Id,RegistrationNumber,Brand,ManufacturingYear,ITPExpirationDate,InsuranceExpirationDate,TachographExpirationDate,VignetteExpirationDate,ConformCopyExpirationDate) VALUES
+		INSERT INTO dbo.Trucks(Id,RegistrationNumber,Brand,ManufacturingYear,ITPExpirationDate,InsuranceExpirationDate,TachographExpirationDate,VignetteExpirationDateUK,VignetteExpirationDateNL,ConformCopyExpirationDate) VALUES
 		(
 			@Id,
 			@RegistrationNumber,
@@ -22,7 +23,8 @@ BEGIN
 			@ITPExpirationDate,
 			@InsuranceExpirationDate,
 			@TachographExpirationDate,
-			@VignetteExpirationDate,
+			@VignetteExpirationDateUK,
+			@VignetteExpirationDateNL,
 			@ConformCopyExpirationDate
 		)
 	END
@@ -35,7 +37,8 @@ BEGIN
 			ITPExpirationDate = @ITPExpirationDate,
 			InsuranceExpirationDate = @InsuranceExpirationDate,
 			TachographExpirationDate = @TachographExpirationDate,
-			VignetteExpirationDate = @VignetteExpirationDate,
+			VignetteExpirationDateUK = @VignetteExpirationDateUK,
+			VignetteExpirationDateNL = @VignetteExpirationDateNL,
 			ConformCopyExpirationDate = @ConformCopyExpirationDate
 			WHERE Id = @Id
 	END

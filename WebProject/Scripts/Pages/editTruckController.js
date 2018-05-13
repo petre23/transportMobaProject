@@ -42,7 +42,8 @@
         $("#ITPExpirationDate").val(truck.ITPExpirationDateString);
         $("#insuranceExpirationDate").val(truck.InsuranceExpirationDateString);
         $("#tachographExpirationDate").val(truck.TachographExpirationDateString);
-        $("#vignetteExpirationDate").val(truck.VignetteExpirationDateString);
+        $("#vignetteExpirationDateUK").val(truck.VignetteExpirationDateUKString);
+        $("#vignetteExpirationDateNL").val(truck.VignetteExpirationDateNLString);
         $("#conformCopyExpirationDate").val(truck.ConformCopyExpirationDateString);
     },
     getCorrectDateFormat: function (dateString) {
@@ -66,7 +67,8 @@
         $("#ITPExpirationDate").val("");
         $("#insuranceExpirationDate").val("");
         $("#tachographExpirationDate").val("");
-        $("#vignetteExpirationDate").val("");
+        $("#vignetteExpirationDateUK").val("");
+        $("#vignetteExpirationDateNL").val("");
         $("#conformCopyExpirationDate").val("");
     },
     initTruck: function ()
@@ -84,7 +86,8 @@
         $("#ITPExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#insuranceExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#tachographExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
-        $("#vignetteExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+        $("#vignetteExpirationDateUK").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+        $("#vignetteExpirationDateNL").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#conformCopyExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
     },
     cancelEdit: function () {
@@ -101,7 +104,8 @@
             ITPExpirationDate: this.getCorrectDateFormat($("#ITPExpirationDate").val()),
             InsuranceExpirationDate: this.getCorrectDateFormat($("#insuranceExpirationDate").val()),
             TachographExpirationDate: this.getCorrectDateFormat($("#tachographExpirationDate").val()),
-            VignetteExpirationDate: this.getCorrectDateFormat($("#vignetteExpirationDate").val()),
+            VignetteExpirationDateUK: this.getCorrectDateFormat($("#vignetteExpirationDateUK").val()),
+            VignetteExpirationDateNL: this.getCorrectDateFormat($("#vignetteExpirationDateNL").val()),
             ConformCopyExpirationDate: this.getCorrectDateFormat($("#conformCopyExpirationDate").val())
         };
         this.saveTruck(truckInfo);
