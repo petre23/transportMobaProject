@@ -6,7 +6,6 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -14,22 +13,26 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     @Scripts.Render("~/bundles/jsGrid")
     @Styles.Render("~/Content/cssGrid")
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/Scripts/Pages/editTruckController.js"></script>
+
 </head>
 <body class="zero-space-body">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row no-margin-right">
             @if (HttpContext.Current.Session["UserId"] != null)
             {
                 <div class="col-md-2 left-sidebar">
                     <ul id="sidebar">
                         <li class="black-border" style="font-size: 26px; font-weight:bold;"><a>Meniu</a></li>
-                        <li class="black-border">@Html.ActionLink("Acasa", "Index", "Truck")</li>
-                        <li class="black-border">@Html.ActionLink("Camioane", "Index", "Truck")</li>
-                        <li class="black-border">@Html.ActionLink("Soferi", "Index", "Worker")</li>
-                        <li class="black-border">@Html.ActionLink("Curse", "Index", "Drive")</li>
-                        <li class="black-border">@Html.ActionLink("Adauga Utilizator", "Index", "Users")</li>
+                        <li class="black-border"><span class="glyphicon glyphicon-road icon-right-position"></span>@Html.ActionLink("Curse", "Index", "Drive", null, new { @class = "menu-item-clickable-aria" })</li>
+                        <li class="black-border"><span class="fa fa-truck icon-right-position"></span>@Html.ActionLink("Camioane", "Index", "Truck", null, new { @class = "menu-item-clickable-aria" })</li>
+                        <li class="black-border"><span class="far fa-address-card icon-right-position"></span>@Html.ActionLink("Soferi", "Index", "Worker", null, new { @class = "menu-item-clickable-aria" })</li>
+                        <li class="black-border"><span class="fas fa-user-plus icon-right-position"></span>@Html.ActionLink("Adauga Utilizator", "Index", "Users",null,new { @class= "menu-item-clickable-aria" })</li>
 
                     </ul>
                 </div>

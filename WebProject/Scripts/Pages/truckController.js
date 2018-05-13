@@ -22,7 +22,7 @@ var truckController =
         {
             $("#trucksGrid").jsGrid({
                 width: "100%",
-                height: "600px",
+                height: "80vh",
 
                 inserting: false,
                 editing: false,
@@ -40,12 +40,14 @@ var truckController =
                 data: trucks,
                 fields: [
                     { name: "Id", title: 'Id', type: "text", css:"hide" },
-                    { name: "RegistrationNumber", title: 'Nr. Inmatriculare', type: "text", width: 100 },
-                    { name: "BrandName", title: 'Marca', type: "text", width: 100 },
-                    { name: "ManufacturingYearString", title: 'An fabricatie', type: "text", width: 100 },
-                    { name: "ITPExpirationDateString", title: 'Data expirare ITP', type: "text", width: 100 },
-                    { name: "VignetteExpirationDateString", title: 'Data expirare Vignette', type: "text", width: 100 },
-                    { name: "InsuranceExpirationDateString", title: 'Data expirare asigurare', type: "text", width: 100 }
+                    { name: "RegistrationNumber", title: 'Numar Inmatriculare', type: "text", width: 60 },
+                    { name: "BrandName", title: 'Marca', type: "text", width: 70 },
+                    { name: "ManufacturingYearString", title: 'An fabricatie', type: "text", width: 60 },
+                    { name: "ITPExpirationDateString", title: 'Data expirare ITP', type: "text", width: 80 },
+                    { name: "VignetteExpirationDateString", title: 'Data expirare vignette', type: "text", width: 100 },
+                    { name: "InsuranceExpirationDateString", title: 'Data expirare asigurare', type: "text", width: 100 },
+                    { name: "TachographExpirationDateString", title: 'Data expirare tahograf', type: "text", width: 100 },
+                    { name: "ConformCopyExpirationDateString", title: 'Data expirare copie confirma', type: "text", width: 100 },
                 ]
             });
         },

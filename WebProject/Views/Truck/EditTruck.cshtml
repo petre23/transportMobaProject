@@ -1,9 +1,6 @@
 ﻿@{
     ViewBag.Title = "Editare camion";
 }
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="~/Scripts/Pages/editTruckController.js"></script>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -59,10 +56,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-6">
-                                        <label>@Resources.Labels.DataExpirareCopieConforma</label>
+                                        <label>@Resources.Labels.AnFabricatie</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="min-input-width min-input-height" id="registrationYear" placeholder="yyyy" type="number" max="3000" maxlength="4" required />
+                                        <input class="min-input-width min-input-height" id="registrationYear" placeholder="yyyy" type="number" min="1990" max="3000" maxlength="4" required />
                                     </div>
                                 </div>
                             </div>
