@@ -1,10 +1,6 @@
 ﻿@{
     ViewBag.Title = "Camioane";
 }
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
             <nav class="navbar navbar-inverse nav-bar">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -13,17 +9,15 @@
                     <div class="button-group right-side">
                         <button class="btn btn-success" id="addButton" onclick="truckController.addNewTruck();">Adaugare</button>
                         <button class="btn btn-success" id="editButton" disabled onclick="truckController.editTruck();">Editare</button>
+                        <button class="btn btn-primary"><span class="glyphicon glyphicon-log-out"> @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration" })  </span></button>
                     </div>
 
                 </div>
             </nav>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-12">
             <div id="trucksGrid"></div>
         </div>
     </div>
-</div>
 
 <script src="~/Scripts/Pages/truckController.js"></script>

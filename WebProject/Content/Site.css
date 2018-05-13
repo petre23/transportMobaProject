@@ -4,6 +4,11 @@ body {
     padding-bottom: 20px;
 }
 
+ul,ol{
+    margin-right:1%;
+    padding-left:7%;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -37,11 +42,13 @@ textarea {
 }
 
 .right-side {
-   float: right;
+    float: right;
 }
+
 .margin-top-small {
     margin-top: 3px;
 }
+
 .center-items {
     margin-left: 50%;
 }
@@ -53,14 +60,29 @@ textarea {
 }
 
 .zero-space-body {
-    padding:0px;
+    padding: 0px;
 }
 
 .black-border {
-    border:1px solid black;
+    list-style:none;
+    padding:5%;
+    background:currentColor;
+    border-bottom:1px solid white;
 }
 
-.margin-left-small{
+#menu-title a {
+    font-weight: bold;
+    font-size: 22px;
+    padding: 5%;
+    background: currentColor !important;
+    border-bottom: 2px solid white;
+}
+
+.black-border a{
+    color:#fff;
+}
+
+.margin-left-small {
     margin-left: 10px;
 }
 
@@ -272,7 +294,7 @@ input::-webkit-input-placeholder {
 
 .logout-button {
     margin-top: 5px;
-    margin-right:10px;
+    margin-right: 10px;
     float: right
 }
 
@@ -285,39 +307,72 @@ input::-webkit-input-placeholder {
     min-width: 100px;
     width: 175px;
 }
+
 .min-input-height {
     min-height: 15px;
     height: 28px;
+    font-family: 'Old Standard TT';
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+    border-radius: 1px;
+    border-style: inset;
 }
+
 .details-header {
-    padding-top:5px;
-    padding-bottom:5px;
-    color:grey;
-    border-bottom:1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: grey;
+    border-bottom: 1px solid;
 }
+
 .fields-padding {
     padding-top: 3px;
     padding-bottom: 3px;
 }
+
 .edit-panel {
-    border:1px solid #dfedf1;
+    border: 1px solid #dfedf1;
 }
+
 .button-group {
-    padding:10px;
+    padding: 10px;
 }
+
 .no-text-decoration {
-    text-decoration:none!important;
-    color:white!important;
+    text-decoration: none !important;
+    color: white !important;
 }
+
 .nav-bar {
-    background-color: #428bca!important;
-    border-color:black!important;
-    border-radius:3px!important;
+    background-color: #428bca !important;
+    border-color: black !important;
+    border-radius: 3px !important;
 }
+
 .nav-bar-text {
-    color:white!important;
+    color: white !important;
 }
+
 .selected-row > td {
     background: #c4e2ff !important;
     border-color: #c4e2ff !important;
+}
+
+.left-sidebar{
+    background:blue;
+    height:100vh;
+    margin:0;
+    padding:0;
+    background:currentColor;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .left-sidebar {
+        height:200px;
+    }
+    .black-border{
+        padding:1%;
+    }
 }
