@@ -42,6 +42,11 @@ namespace DataAccessLayer
             return _workerLogic.GetWorker(idWorker);
         }
 
+        public void DeteWorker(Guid workerId)
+        {
+            _workerLogic.DeleteWorker(workerId);
+        }
+
         public List<Truck> GetTrucks()
         {
             return _truckLogic.GetTrucks();

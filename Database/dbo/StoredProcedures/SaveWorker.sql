@@ -45,7 +45,7 @@ BEGIN
 			MedicalTestsExpirationDate = @MedicalTestsExpirationDate,
 			TachographCardExpirationDate = @TachographCardExpirationDate,
 			Employer = @Employer,
-			@Truck = @Truck
+			Truck = @Truck
 			WHERE Id = @Id
 	END
 END

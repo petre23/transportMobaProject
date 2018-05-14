@@ -40,6 +40,7 @@ namespace DataLayer.Repository
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             Truck = Guid.Parse(reader["Truck"].ToString()),
+                            TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString(),
                             IdentityDocument = reader["IdentityDocument"].ToString()
                         };
                         workers.Add(worker);
@@ -113,6 +114,7 @@ namespace DataLayer.Repository
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             Truck = Guid.Parse(reader["Truck"].ToString()),
+                            TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString(),
                             IdentityDocument = reader["IdentityDocument"].ToString()
                         };
                         workers.Add(worker);
@@ -120,6 +122,21 @@ namespace DataLayer.Repository
                     con.Close();
 
                     return workers.Any() ? workers.FirstOrDefault() : null;
+                }
+            }
+        }
+
+        public void DeletWorker(Guid workerId)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("DeleteWorker", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@WorkerId", workerId);
+                    con.Open();
+                    var reader = cmd.ExecuteNonQuery();
+                    con.Close();
                 }
             }
         }

@@ -21,6 +21,7 @@ namespace WebProject.Controllers
 
         public ActionResult EditWorker()
         {
+            ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
 
@@ -28,7 +29,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drivers = _dataAccessLayer.GetWorkers() });
+                return Json(new { workers = _dataAccessLayer.GetWorkers() });
             }
             catch (Exception ex)
             {
@@ -41,7 +42,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drivers = _dataAccessLayer.SaveWorker(worker) });
+                return Json(new { workerId = _dataAccessLayer.SaveWorker(worker) });
             }
             catch (Exception ex)
             {
@@ -54,7 +55,21 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drivers = _dataAccessLayer.GetWorker(idWorker) });
+                return Json(new { worker = _dataAccessLayer.GetWorker(idWorker) });
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
+            }
+        }
+
+        public ActionResult DeleteWorker(Guid workerId)
+        {
+            try
+            {
+                _dataAccessLayer.DeteWorker(workerId);
+                return Json(new { success = "true" });
             }
             catch (Exception ex)
             {

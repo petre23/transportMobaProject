@@ -23,6 +23,9 @@ namespace DataAccessLayer
         Worker GetWorker(Guid idWorker);
 
         [OperationContract]
+        void DeteWorker(Guid workerId);
+
+        [OperationContract]
         List<Truck> GetTrucks();
 
         [OperationContract]

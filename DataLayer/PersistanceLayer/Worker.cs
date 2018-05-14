@@ -19,7 +19,13 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public DateTime BirthDay { get; set; }
         [DataMember]
-        public string BirthDayString { get; }
+        public string BirthDayString
+        {
+            get
+            {
+                return BirthDay.ToString("dd/MM/yyyy");
+            }
+        }
         [DataMember]
         public string IdentityDocument { get; set; }
         [DataMember]
@@ -76,6 +82,8 @@ namespace DataLayer.PersistanceLayer
         public Guid Employer { get; set; }
         [DataMember]
         public Guid Truck { get; set; }
+        [DataMember]
+        public string TruckRegistrationNumber { get; set; }
         [DataMember]
         public string EmployerName { get; set; }
         [DataMember]

@@ -15,6 +15,7 @@ BEGIN
 		  ,e.[Name] AS EmployerName
 		  ,e.[Value] AS EmployerDropDownValue
 		  ,t.Id AS Truck
+		  ,t.RegistrationNumber AS TruckRegistrationNumber
 		FROM dbo.Worker w
 		INNER JOIN dbo.Employers e on e.Id = w.Employer
 		INNER JOIN dbo.Trucks t on t.Id = w.Truck
