@@ -11,12 +11,13 @@
 	@MedicalTestsExpirationDate DATETIME,
 	@TachographCardExpirationDate DATETIME,
 	@Employer Uniqueidentifier,
-	@Truck Uniqueidentifier
+	@Truck Uniqueidentifier,
+	@CNP nvarchar(255)
 AS
 BEGIN
 	IF(@IsNew = 1)
 	BEGIN
-		INSERT INTO dbo.Worker(Id,FirstName,Surname,BirthDay,IdentityDocument,CertificateExpirationDate,DrivingLicenseExpirationDate,EmploymentDate,MedicalTestsExpirationDate,TachographCardExpirationDate,Employer,Truck) VALUES
+		INSERT INTO dbo.Worker(Id,FirstName,Surname,BirthDay,IdentityDocument,CertificateExpirationDate,DrivingLicenseExpirationDate,EmploymentDate,MedicalTestsExpirationDate,TachographCardExpirationDate,Employer,Truck,CNP) VALUES
 		(
 			@Id,
 			@FirstName,
@@ -29,7 +30,8 @@ BEGIN
 			@MedicalTestsExpirationDate,
 			@TachographCardExpirationDate,
 			@Employer,
-			@Truck
+			@Truck,
+			@CNP
 		)
 	END
 	ELSE
@@ -45,7 +47,8 @@ BEGIN
 			MedicalTestsExpirationDate = @MedicalTestsExpirationDate,
 			TachographCardExpirationDate = @TachographCardExpirationDate,
 			Employer = @Employer,
-			Truck = @Truck
+			Truck = @Truck,
+			CNP = @CNP
 			WHERE Id = @Id
 	END
 END

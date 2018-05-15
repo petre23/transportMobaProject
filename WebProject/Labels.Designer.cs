@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Act identitate.
+        ///   Looks up a localized string similar to Serie act identitate.
         /// </summary>
         public static string ActIdentitate {
             get {
@@ -111,6 +111,15 @@ namespace Resources {
         public static string Camion {
             get {
                 return ResourceManager.GetString("Camion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CNP.
+        /// </summary>
+        public static string CNP {
+            get {
+                return ResourceManager.GetString("CNP", resourceCulture);
             }
         }
         

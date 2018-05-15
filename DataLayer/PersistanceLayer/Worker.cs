@@ -29,6 +29,8 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string IdentityDocument { get; set; }
         [DataMember]
+        public string CNP { get; set; }
+        [DataMember]
         public DateTime CertificateExpirationDate { get; set; }
         [DataMember]
         public string CertificateExpirationDateString

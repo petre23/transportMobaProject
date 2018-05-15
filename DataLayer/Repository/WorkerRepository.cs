@@ -38,6 +38,7 @@ namespace DataLayer.Repository
                             MedicalTestsExpirationDate = Convert.ToDateTime(reader["MedicalTestsExpirationDate"].ToString()),
                             TachographCardExpirationDate = Convert.ToDateTime(reader["TachographCardExpirationDate"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
+                            CNP = reader["CNP"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             Truck = Guid.Parse(reader["Truck"].ToString()),
                             TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString(),
@@ -77,6 +78,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@IdentityDocument", worker.IdentityDocument);
                     cmd.Parameters.AddWithValue("@FirstName", worker.FirstName);
                     cmd.Parameters.AddWithValue("@Surname", worker.Surname);
+                    cmd.Parameters.AddWithValue("@CNP", worker.CNP);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -112,6 +114,7 @@ namespace DataLayer.Repository
                             MedicalTestsExpirationDate = Convert.ToDateTime(reader["MedicalTestsExpirationDate"].ToString()),
                             TachographCardExpirationDate = Convert.ToDateTime(reader["TachographCardExpirationDate"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
+                            CNP = reader["CNP"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             Truck = Guid.Parse(reader["Truck"].ToString()),
                             TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString(),

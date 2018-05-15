@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ActIdentitate" xml:space="preserve">
-    <value>Act identitate</value>
+    <value>Serie act identitate</value>
   </data>
   <data name="Adauga" xml:space="preserve">
     <value>Adauga</value>
@@ -134,6 +134,9 @@
   </data>
   <data name="Camion" xml:space="preserve">
     <value>Camion</value>
+  </data>
+  <data name="CNP" xml:space="preserve">
+    <value>CNP</value>
   </data>
   <data name="DataAngajarii" xml:space="preserve">
     <value>Data angajarii</value>

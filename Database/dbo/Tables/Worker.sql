@@ -12,6 +12,7 @@
 	[TachographCardExpirationDate] DATETIME NOT NULL,
 	[CertificateExpirationDate] DATETIME NOT NULL,
 	[MedicalTestsExpirationDate] DATETIME NOT NULL,
+	[CNP] nvarchar(255) NOT NULL,
 	PRIMARY KEY([Id]),
 	CONSTRAINT FK_WORKER_EMPLOYERS FOREIGN KEY ([Employer]) REFERENCES dbo.[Employers] (Id)
 )

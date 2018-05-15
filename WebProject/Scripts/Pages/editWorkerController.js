@@ -40,6 +40,7 @@
         $("#surname").val(worker.Surname);
         $("#employer").val(worker.EmployerDropDownValue);
         $("#truck").val(worker.Truck);
+        $("#cnp").val(worker.CNP);
         $("#identityDocument").val(worker.IdentityDocument);
         $("#birthDay").val(worker.BirthDayString);
         $("#employmentDate").val(worker.EmploymentDateString);
@@ -67,6 +68,7 @@
         $("#surname").val("");
         $("#employer").val("");
         $("#truck").val("");
+        $("#cnp").val("");
         $("#identityDocument").val("");
         $("#birthDay").val("");
         $("#employmentDate").val("");
@@ -105,6 +107,7 @@
             Surname: $("#surname").val(),
             EmployerDropDownValue: $("#employer").val(),
             Truck: $("#truck").val(),
+            CNP: $("#cnp").val(),
             IdentityDocument: $("#identityDocument").val(),
             BirthDay: this.getCorrectDateFormat($("#birthDay").val()),
             EmploymentDate: this.getCorrectDateFormat($("#employmentDate").val()),
