@@ -25,5 +25,10 @@ namespace BusinessLogicLayer.Logic
         {
             return _driveRepository.GetDrive(idDrive);
         }
+
+        public void DeleteDrive(Guid driveId)
+        {
+            _driveRepository.DeleteDrive(driveId);
+        }
     }
 }

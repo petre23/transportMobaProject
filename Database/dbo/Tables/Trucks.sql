@@ -10,6 +10,6 @@
 	[VignetteExpirationDateUK] DATETIME NULL,
 	[VignetteExpirationDateNL] DATETIME NULL,
 	[ConformCopyExpirationDate] DATETIME NULL,
-	PRIMARY KEY([Id],[RegistrationNumber]),
+	PRIMARY KEY([Id]),
 	CONSTRAINT FK_TRUCKS_BRANDS FOREIGN KEY (Brand) REFERENCES dbo.Brands (Id)
 )

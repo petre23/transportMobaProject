@@ -1,0 +1,83 @@
+﻿CREATE PROCEDURE [dbo].[SaveDrive]
+	@IsNew bit = 1,
+	@Id UNIQUEIDENTIFIER,
+	@Date DATETIME,
+	@Destination nvarchar(255),
+	@AdblueLiters int,
+	@AdblueValue int,
+	@CostsSpecification nvarchar(MAX),
+	@DieselValue decimal(12,3),
+	@Difference int,
+	@DistanceDFDS int,
+	@DistanceGpl int,
+	@DistanceGPS int,
+	@EstimatedConsumption int,
+	@FueledDieseKMLiters int,
+	@FinalGPSKM int,
+	@FueledKM int,
+	@GPSConsumption int,
+	@GPSFinalConsumption int,
+	@GPSInitialConsumption int,
+	@InitialGPSKM int,
+	@LoadingPlace nvarchar(255),
+	@PayedCosts decimal(18,3),
+	@RealConsumption int,
+	@Reason nvarchar(MAX),
+	@SettlementCosts  decimal(18,3),
+	@TotalPayments  decimal(18,3),
+	@Vlaplan nvarchar(255),
+	@Vlaref nvarchar(255),
+	@WeightInTons decimal(12,2),
+	@WorkerCosts decimal(18,3),
+	@Worker UNIQUEIDENTIFIER,
+	@Truck UNIQUEIDENTIFIER
+AS
+	IF(@IsNew = 0)
+	BEGIN
+		INSERT INTO dbo.Drive(Id,Date,Destination,AdblueLiters,AdblueValue,CostsSpecification,DieselValue,
+							Difference,DistanceDFDS,DistanceGpl,DistanceGPS,EstimatedConsumption,FueledDieseKMLiters,
+							FinalGPSKM,FueledKM,GPSFinalConsumption,GPSConsumption,GPSInitialConsumption,InitialGPSKM,
+							LoadingPlace,PayedCosts,RealConsumption,Reason,SettlementCosts,TotalPayments,Truck,Vlaplan,
+							Vlaref,WeightInTons,Worker,WorkerCosts)
+		VALUES
+		(@Id,@Date,@Destination,@AdblueLiters,@AdblueValue,@CostsSpecification,@DieselValue,
+		@Difference,@DistanceDFDS,@DistanceGpl,@DistanceGPS,@EstimatedConsumption,@FueledDieseKMLiters,
+		@FinalGPSKM,@FueledKM,@GPSFinalConsumption,@GPSConsumption,@GPSInitialConsumption,@InitialGPSKM,
+		@LoadingPlace,@PayedCosts,@RealConsumption,@Reason,@SettlementCosts,@TotalPayments,@Truck,@Vlaplan,
+		@Vlaref,@WeightInTons,@Worker,@WorkerCosts)
+	END
+	ELSE
+	BEGIN
+		UPDATE dbo.Drive SET
+			Date = @Date,
+			Destination = @Destination,
+			AdblueLiters = @AdblueLiters,
+		    AdblueValue =@AdblueValue,
+			CostsSpecification = @CostsSpecification,
+			DieselValue = @DieselValue,
+			Difference = @Difference,
+			DistanceDFDS = @DistanceDFDS,
+			DistanceGpl = @DistanceGpl,
+			DistanceGPS = @DistanceGPS,
+			EstimatedConsumption = @EstimatedConsumption,
+			FueledDieseKMLiters = @FueledDieseKMLiters,
+			FinalGPSKM = @FinalGPSKM,
+			FueledKM = @FueledKM,
+			GPSFinalConsumption = @GPSFinalConsumption,
+			GPSConsumption = @GPSConsumption,
+			GPSInitialConsumption = @GPSInitialConsumption,
+			InitialGPSKM = @InitialGPSKM,
+			LoadingPlace = @LoadingPlace,
+			PayedCosts = @PayedCosts,
+			RealConsumption = @RealConsumption,
+			Reason = @Reason,
+			SettlementCosts = @SettlementCosts,
+			TotalPayments = @TotalPayments,
+			Truck = @Truck,
+			Vlaplan = @Vlaplan,
+			Vlaref = @Vlaref,
+			WeightInTons = @WeightInTons,
+			WorkerCosts = @WorkerCosts,
+			Worker = @Worker
+			WHERE Id = @Id
+	END

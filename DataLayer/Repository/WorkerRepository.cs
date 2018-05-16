@@ -129,7 +129,7 @@ namespace DataLayer.Repository
             }
         }
 
-        public void DeletWorker(Guid workerId)
+        public void DeleteWorker(Guid workerId)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {

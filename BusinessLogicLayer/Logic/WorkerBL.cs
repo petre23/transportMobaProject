@@ -28,7 +28,7 @@ namespace BusinessLogicLayer.Logic
 
         public void DeleteWorker(Guid workerId)
         {
-            _workerRepository.DeletWorker(workerId);
+            _workerRepository.DeleteWorker(workerId);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace DataAccessLayer
         Worker GetWorker(Guid idWorker);
 
         [OperationContract]
-        void DeteWorker(Guid workerId);
+        void DeleteWorker(Guid workerId);
 
         [OperationContract]
         List<Truck> GetTrucks();
@@ -51,5 +51,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         User Login(User user);
+
+        [OperationContract]
+        void DeleteDrive(Guid driveId);
     }
 }

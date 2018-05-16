@@ -68,7 +68,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                _dataAccessLayer.DeteWorker(workerId);
+                _dataAccessLayer.DeleteWorker(workerId);
                 return Json(new { success = "true" });
             }
             catch (Exception ex)

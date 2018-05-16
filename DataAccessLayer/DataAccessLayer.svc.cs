@@ -42,7 +42,7 @@ namespace DataAccessLayer
             return _workerLogic.GetWorker(idWorker);
         }
 
-        public void DeteWorker(Guid workerId)
+        public void DeleteWorker(Guid workerId)
         {
             _workerLogic.DeleteWorker(workerId);
         }
@@ -85,6 +85,11 @@ namespace DataAccessLayer
         public Drive GetDrive(Guid idDrive)
         {
             return _driveLogic.GetDrive(idDrive);
+        }
+
+        public void DeleteDrive(Guid driveId)
+        {
+            _driveLogic.DeleteDrive(driveId);
         }
 
         public User Login(User user)

@@ -28,7 +28,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drivers = _dataAccessLayer.GetDrives() });
+                return Json(new { drives = _dataAccessLayer.GetDrives() });
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drivers = _dataAccessLayer.SaveDrive(drive) });
+                return Json(new { driveId = _dataAccessLayer.SaveDrive(drive) });
             }
             catch (Exception ex)
             {
@@ -57,7 +57,21 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drivers = _dataAccessLayer.GetDrive(idDrive) });
+                return Json(new { drive = _dataAccessLayer.GetDrive(idDrive) });
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
+            }
+        }
+
+        public ActionResult DeleteDrive(Guid driveId)
+        {
+            try
+            {
+                _dataAccessLayer.DeleteDrive(driveId);
+                return Json(new { success = "true" });
             }
             catch (Exception ex)
             {
