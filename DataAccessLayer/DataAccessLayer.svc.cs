@@ -47,6 +47,11 @@ namespace DataAccessLayer
             _workerLogic.DeleteWorker(workerId);
         }
 
+        public List<Worker> GetWorkersForDropDown()
+        {
+            return _workerLogic.GetWorkersForDropDown();
+        }
+
         public List<Truck> GetTrucks()
         {
             return _truckLogic.GetTrucks();

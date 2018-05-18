@@ -26,6 +26,9 @@ namespace DataAccessLayer
         void DeleteWorker(Guid workerId);
 
         [OperationContract]
+        List<Worker> GetWorkersForDropDown();
+
+        [OperationContract]
         List<Truck> GetTrucks();
 
         [OperationContract]

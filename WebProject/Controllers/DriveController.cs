@@ -21,6 +21,8 @@ namespace WebProject.Controllers
 
         public ActionResult EditDrive()
         {
+            ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
+            ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
 

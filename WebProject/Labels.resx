@@ -219,4 +219,97 @@
   <data name="ValabilitateActe" xml:space="preserve">
     <value>Valabilitate Acte</value>
   </data>
+  <data name="AdblueLitri" xml:space="preserve">
+    <value>Adblue litri</value>
+  </data>
+  <data name="AlimentareDieselEWlitrii" xml:space="preserve">
+    <value>Alimentare Diesel EW litri</value>
+  </data>
+  <data name="Cheltuieli" xml:space="preserve">
+    <value>Cheltuieli</value>
+  </data>
+  <data name="CheltuieliDeDecontat" xml:space="preserve">
+    <value>Cheltuieli de decontat</value>
+  </data>
+  <data name="CheltuieliPlatite" xml:space="preserve">
+    <value>Cheltuieli platite</value>
+  </data>
+  <data name="CheltuieliSofer" xml:space="preserve">
+    <value>Cheltuieli sofer</value>
+  </data>
+  <data name="ConsumAndAlimentari" xml:space="preserve">
+    <value>Consum &amp; Alimentari</value>
+  </data>
+  <data name="ConsumEstimat" xml:space="preserve">
+    <value>Consum estimat</value>
+  </data>
+  <data name="ConsumGPS" xml:space="preserve">
+    <value>Consum GPS</value>
+  </data>
+  <data name="ConsumGPSFinal" xml:space="preserve">
+    <value>Consum GPS final</value>
+  </data>
+  <data name="ConsumGPSInitial" xml:space="preserve">
+    <value>Consum GPS initial</value>
+  </data>
+  <data name="ConsumReal" xml:space="preserve">
+    <value>Consum real</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Diferenta" xml:space="preserve">
+    <value>Diferenta</value>
+  </data>
+  <data name="KMAlimentati" xml:space="preserve">
+    <value>KM alimentati</value>
+  </data>
+  <data name="KMDFSD" xml:space="preserve">
+    <value>KMDFSD</value>
+  </data>
+  <data name="KMGpl" xml:space="preserve">
+    <value>KM Gpl</value>
+  </data>
+  <data name="KMGps" xml:space="preserve">
+    <value>KM GPS</value>
+  </data>
+  <data name="KMGpsFinal" xml:space="preserve">
+    <value>KM GPS finali</value>
+  </data>
+  <data name="KMGpsInitiali" xml:space="preserve">
+    <value>KM GPS initiali</value>
+  </data>
+  <data name="LocDescarcare" xml:space="preserve">
+    <value>Loc descarcare</value>
+  </data>
+  <data name="LocIncarcare" xml:space="preserve">
+    <value>Loc incarcare</value>
+  </data>
+  <data name="Motiv" xml:space="preserve">
+    <value>Motiv</value>
+  </data>
+  <data name="Sofer" xml:space="preserve">
+    <value>Sofer</value>
+  </data>
+  <data name="SpecificatieCheltuieli" xml:space="preserve">
+    <value>Specificatie cheltuieli</value>
+  </data>
+  <data name="Tonaj" xml:space="preserve">
+    <value>Tonaj</value>
+  </data>
+  <data name="TotalPlati" xml:space="preserve">
+    <value>Total plati</value>
+  </data>
+  <data name="ValoareAdblue" xml:space="preserve">
+    <value>Valoare Adblue</value>
+  </data>
+  <data name="ValoareDiesel" xml:space="preserve">
+    <value>Valoare diesel</value>
+  </data>
+  <data name="Vlaplan" xml:space="preserve">
+    <value>Vlaplan</value>
+  </data>
+  <data name="Vlarref" xml:space="preserve">
+    <value>Vlarref</value>
+  </data>
 </root>

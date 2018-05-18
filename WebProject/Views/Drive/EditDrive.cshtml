@@ -17,7 +17,7 @@
 </div>
 <form name="saveTruck" class="edit-panel" onsubmit="editDriveController.validateAndSaveDrive();">
     <div id="generalInformation">
-        <h3 class="details-header">Informatii generale</h3>
+        <h3 class="details-header">Informatii generale cursa</h3>
         <div class="row fields-padding">
             <div class="col-md-12">
                 <div class="row">
@@ -25,10 +25,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.NumarInmatriculare</label>
+                                    <label>@Resources.Labels.Sofer</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="NN-00-NNN" id="registrationNumber" type="text" required />
+                                    <select class="form-control" placeholder="@Resources.Labels.Sofer" id="driver" required>
+                                        @foreach (var worker in ViewBag.WorkersForDropDown)
+                                        {
+                                        <option value="@worker.Id">@worker.WorkerName</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -37,12 +42,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.Marca</label>
+                                    <label>@Resources.Labels.Camion</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" name="brands" id="brands" required>
-                                        <option value="1">Iveco Stralis</option>
-                                        <option value="2">Renault Premium</option>
+                                    <select class="form-control" placeholder="@Resources.Labels.Camion" name="truck" id="truck" required>
+                                        @foreach (var truck in ViewBag.TrucksForDropDown)
+                                        {
+                                        <option value="@truck.Id">@truck.RegistrationNumber</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -58,10 +65,192 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.AnFabricatie</label>
+                                    <label>@Resources.Labels.Vlaplan</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="registrationYear" placeholder="yyyy" type="number" min="1990" max="3000" maxlength="4" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.Vlaplan" id="vlaplan" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Vlarref</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control"  placeholder="@Resources.Labels.Vlarref" id="vlarref" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.LocIncarcare</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.LocIncarcare" id="locIncarcare" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.LocDescarcare</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.LocDescarcare" id="locDescarcare" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMGpsInitiali</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsInitiali" id="KMGpsInitiali" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMGpsFinal</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsFinal" id="KMGpsFinal" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMGps</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGps" id="KMGps" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMGpl</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGpl" id="KMGpl" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMDFSD</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMDFSD" id="KMDFSD" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Diferenta</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.Diferenta" id="difference" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Motiv</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.Motiv" id="reason" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Data</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="date" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Tonaj</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="tons" placeholder="@Resources.Labels.Tonaj" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -71,7 +260,7 @@
         </div>
     </div>
     <div class="expirationDetails">
-        <h3 class="details-header">@Resources.Labels.ValabilitateActe</h3>
+        <h3 class="details-header">@Resources.Labels.Cheltuieli</h3>
         <div class="row fields-padding">
             <div class="col-md-12">
                 <div class="row">
@@ -79,10 +268,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.DataExpirareITP</label>
+                                    <label>@Resources.Labels.CheltuieliSofer</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="ITPExpirationDate" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.CheltuieliSofer" id="workerCosts" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -91,10 +280,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.DataExpirareAsigurare</label>
+                                    <label>@Resources.Labels.SpecificatieCheltuieli</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="insuranceExpirationDate" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.SpecificatieCheltuieli" id="costsSpecifications" type="text" />
                                 </div>
                             </div>
                         </div>
@@ -109,10 +298,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.DataExpirareTahograf</label>
+                                    <label>@Resources.Labels.CheltuieliPlatite</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="tachographExpirationDate" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.SpecificatieCheltuieli" id="payedCosts" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -121,10 +310,63 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.DataExpirareCopieConforma</label>
+                                    <label>@Resources.Labels.CheltuieliDeDecontat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="conformCopyExpirationDate" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.CheltuieliDeDecontat" id="settlementCosts" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.TotalPlati</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.TotalPlati" id="totalCosts" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="consumptionDetails">
+        <h3 class="details-header">@Resources.Labels.ConsumAndAlimentari</h3>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumGPSInitial</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSInitial" id="GPSInitialConsumption" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumGPSFinal</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSFinal" id="GPSFinalConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -139,10 +381,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.DataExpirareVignetteUK</label>
+                                    <label>@Resources.Labels.ConsumGPS</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="vignetteExpirationDateUK" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPS" id="GPSConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -151,10 +393,100 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.DataExpirareVignetteNL</label>
+                                    <label>@Resources.Labels.ConsumEstimat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="vignetteExpirationDateNL" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" id="etimatedConsumption" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMAlimentati</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMAlimentati" id="FueledKM" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.AlimentareDieselEWlitrii</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.AlimentareDieselEWlitrii" id="fueledDieseEWLiters" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ValoareDiesel</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ValoareDiesel" id="dieselValue" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumReal</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumReal" id="dieselConsumption" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.AdblueLitri</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" id="adblueLiters" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ValoareAdblue</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" id="adblueValue" type="number" />
                                 </div>
                             </div>
                         </div>

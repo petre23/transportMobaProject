@@ -143,5 +143,33 @@ namespace DataLayer.Repository
                 }
             }
         }
+
+        public List<Worker> GetWorkersForDropDown()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetWorkersForDropDown", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    var workers = new List<Worker>();
+                    while (reader.Read())
+                    {
+                        var worker = new Worker()
+                        {
+                            Id = Guid.Parse(reader["Id"].ToString()),
+                            FirstName = reader["FirstName"].ToString(),
+                            Surname = reader["Surname"].ToString(),
+                            Truck = Guid.Parse(reader["Truck"].ToString())
+                        };
+                        workers.Add(worker);
+                    }
+                    con.Close();
+
+                    return workers;
+                }
+            }
+        }
     }
 }

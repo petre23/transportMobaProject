@@ -79,6 +79,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adblue litri.
+        /// </summary>
+        public static string AdblueLitri {
+            get {
+                return ResourceManager.GetString("AdblueLitri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alimentare Diesel EW litri.
+        /// </summary>
+        public static string AlimentareDieselEWlitrii {
+            get {
+                return ResourceManager.GetString("AlimentareDieselEWlitrii", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An fabricatie.
         /// </summary>
         public static string AnFabricatie {
@@ -115,11 +133,110 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cheltuieli.
+        /// </summary>
+        public static string Cheltuieli {
+            get {
+                return ResourceManager.GetString("Cheltuieli", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cheltuieli de decontat.
+        /// </summary>
+        public static string CheltuieliDeDecontat {
+            get {
+                return ResourceManager.GetString("CheltuieliDeDecontat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cheltuieli platite.
+        /// </summary>
+        public static string CheltuieliPlatite {
+            get {
+                return ResourceManager.GetString("CheltuieliPlatite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cheltuieli sofer.
+        /// </summary>
+        public static string CheltuieliSofer {
+            get {
+                return ResourceManager.GetString("CheltuieliSofer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CNP.
         /// </summary>
         public static string CNP {
             get {
                 return ResourceManager.GetString("CNP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consum &amp; Alimentari.
+        /// </summary>
+        public static string ConsumAndAlimentari {
+            get {
+                return ResourceManager.GetString("ConsumAndAlimentari", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consum estimat.
+        /// </summary>
+        public static string ConsumEstimat {
+            get {
+                return ResourceManager.GetString("ConsumEstimat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consum GPS.
+        /// </summary>
+        public static string ConsumGPS {
+            get {
+                return ResourceManager.GetString("ConsumGPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consum GPS final.
+        /// </summary>
+        public static string ConsumGPSFinal {
+            get {
+                return ResourceManager.GetString("ConsumGPSFinal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consum GPS initial.
+        /// </summary>
+        public static string ConsumGPSInitial {
+            get {
+                return ResourceManager.GetString("ConsumGPSInitial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consum real.
+        /// </summary>
+        public static string ConsumReal {
+            get {
+                return ResourceManager.GetString("ConsumReal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string Data {
+            get {
+                return ResourceManager.GetString("Data", resourceCulture);
             }
         }
         
@@ -232,6 +349,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Diferenta.
+        /// </summary>
+        public static string Diferenta {
+            get {
+                return ResourceManager.GetString("Diferenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editeaza.
         /// </summary>
         public static string Editeaza {
@@ -295,11 +421,92 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to KM alimentati.
+        /// </summary>
+        public static string KMAlimentati {
+            get {
+                return ResourceManager.GetString("KMAlimentati", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KMDFSD.
+        /// </summary>
+        public static string KMDFSD {
+            get {
+                return ResourceManager.GetString("KMDFSD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KM Gpl.
+        /// </summary>
+        public static string KMGpl {
+            get {
+                return ResourceManager.GetString("KMGpl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KM GPS.
+        /// </summary>
+        public static string KMGps {
+            get {
+                return ResourceManager.GetString("KMGps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KM GPS finali.
+        /// </summary>
+        public static string KMGpsFinal {
+            get {
+                return ResourceManager.GetString("KMGpsFinal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KM GPS initiali.
+        /// </summary>
+        public static string KMGpsInitiali {
+            get {
+                return ResourceManager.GetString("KMGpsInitiali", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loc descarcare.
+        /// </summary>
+        public static string LocDescarcare {
+            get {
+                return ResourceManager.GetString("LocDescarcare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loc incarcare.
+        /// </summary>
+        public static string LocIncarcare {
+            get {
+                return ResourceManager.GetString("LocIncarcare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Marca/Brand.
         /// </summary>
         public static string Marca {
             get {
                 return ResourceManager.GetString("Marca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Motiv.
+        /// </summary>
+        public static string Motiv {
+            get {
+                return ResourceManager.GetString("Motiv", resourceCulture);
             }
         }
         
@@ -349,6 +556,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sofer.
+        /// </summary>
+        public static string Sofer {
+            get {
+                return ResourceManager.GetString("Sofer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specificatie cheltuieli.
+        /// </summary>
+        public static string SpecificatieCheltuieli {
+            get {
+                return ResourceManager.GetString("SpecificatieCheltuieli", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sterge.
         /// </summary>
         public static string Sterge {
@@ -358,11 +583,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tonaj.
+        /// </summary>
+        public static string Tonaj {
+            get {
+                return ResourceManager.GetString("Tonaj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total plati.
+        /// </summary>
+        public static string TotalPlati {
+            get {
+                return ResourceManager.GetString("TotalPlati", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Valabilitate Acte.
         /// </summary>
         public static string ValabilitateActe {
             get {
                 return ResourceManager.GetString("ValabilitateActe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valoare Adblue.
+        /// </summary>
+        public static string ValoareAdblue {
+            get {
+                return ResourceManager.GetString("ValoareAdblue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valoare diesel.
+        /// </summary>
+        public static string ValoareDiesel {
+            get {
+                return ResourceManager.GetString("ValoareDiesel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vlaplan.
+        /// </summary>
+        public static string Vlaplan {
+            get {
+                return ResourceManager.GetString("Vlaplan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vlarref.
+        /// </summary>
+        public static string Vlarref {
+            get {
+                return ResourceManager.GetString("Vlarref", resourceCulture);
             }
         }
     }

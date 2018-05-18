@@ -30,5 +30,10 @@ namespace BusinessLogicLayer.Logic
         {
             _workerRepository.DeleteWorker(workerId);
         }
+
+        public List<Worker> GetWorkersForDropDown()
+        {
+            return _workerRepository.GetWorkersForDropDown();
+        }
     }
 }
