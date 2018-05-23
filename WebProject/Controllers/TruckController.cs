@@ -48,6 +48,7 @@ namespace WebProject.Controllers
             catch (Exception ex)
             {
                 Response.StatusCode = 500;
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }

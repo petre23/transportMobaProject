@@ -32,7 +32,7 @@
 	@Worker UNIQUEIDENTIFIER,
 	@Truck UNIQUEIDENTIFIER
 AS
-	IF(@IsNew = 0)
+	IF(@IsNew = 1)
 	BEGIN
 		INSERT INTO dbo.Drive(Id,Date,Destination,AdblueLiters,AdblueValue,CostsSpecification,DieselValue,
 							Difference,DistanceDFDS,DistanceGpl,DistanceGPS,EstimatedConsumption,FueledDieseKMLiters,

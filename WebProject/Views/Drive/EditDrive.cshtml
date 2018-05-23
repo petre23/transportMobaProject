@@ -15,7 +15,7 @@
         </nav>
     </div>
 </div>
-<form name="saveTruck" class="edit-panel" onsubmit="editDriveController.validateAndSaveDrive();">
+<form name="saveDrive" class="edit-panel" onsubmit="editDriveController.validateAndSaveDrive();">
     <div id="generalInformation">
         <h3 class="details-header">Informatii generale cursa</h3>
         <div class="row fields-padding">
@@ -80,7 +80,7 @@
                                     <label>@Resources.Labels.Vlarref</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control"  placeholder="@Resources.Labels.Vlarref" id="vlarref" type="text" required />
+                                    <input class="form-control"  placeholder="@Resources.Labels.Vlarref" id="vlaref" type="text" required />
                                 </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                                     <label>@Resources.Labels.LocIncarcare</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.LocIncarcare" id="locIncarcare" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.LocIncarcare" id="loadingPlace" type="text" required />
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                     <label>@Resources.Labels.LocDescarcare</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.LocDescarcare" id="locDescarcare" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.LocDescarcare" id="destination" type="text" required />
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                                     <label>@Resources.Labels.KMGpsInitiali</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsInitiali" id="KMGpsInitiali" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsInitiali" id="KMGpsInitiali" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                                     <label>@Resources.Labels.KMGpsFinal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsFinal" id="KMGpsFinal" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsFinal" id="KMGpsFinal" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -158,7 +158,7 @@
                                     <label>@Resources.Labels.KMGps</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMGps" id="KMGps" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGps" id="KMGps" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
                                     <label>@Resources.Labels.KMGpl</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMGpl" id="KMGpl" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGpl" id="KMGpl" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,7 @@
                                     <label>@Resources.Labels.KMDFSD</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMDFSD" id="KMDFSD" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.KMDFSD" id="KMDFSD" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                                     <label>@Resources.Labels.Diferenta</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.Diferenta" id="difference" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.Diferenta" id="difference" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -250,7 +250,7 @@
                                     <label>@Resources.Labels.Tonaj</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="tons" placeholder="@Resources.Labels.Tonaj" type="number" required />
+                                    <input class="form-control" id="tons" placeholder="@Resources.Labels.Tonaj" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -271,7 +271,7 @@
                                     <label>@Resources.Labels.CheltuieliSofer</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.CheltuieliSofer" id="workerCosts" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.CheltuieliSofer" step="0.01" id="workerCosts" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -283,7 +283,7 @@
                                     <label>@Resources.Labels.SpecificatieCheltuieli</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.SpecificatieCheltuieli" id="costsSpecifications" type="text" />
+                                    <input class="form-control" placeholder="@Resources.Labels.SpecificatieCheltuieli" step="0.01" id="costsSpecifications" type="text" />
                                 </div>
                             </div>
                         </div>
@@ -301,7 +301,7 @@
                                     <label>@Resources.Labels.CheltuieliPlatite</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.SpecificatieCheltuieli" id="payedCosts" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.SpecificatieCheltuieli" step="0.01" id="payedCosts" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -313,7 +313,7 @@
                                     <label>@Resources.Labels.CheltuieliDeDecontat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.CheltuieliDeDecontat" id="settlementCosts" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.CheltuieliDeDecontat" step="0.01" id="settlementCosts" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -333,7 +333,7 @@
                                     <label>@Resources.Labels.TotalPlati</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.TotalPlati" id="totalCosts" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.TotalPlati" step="0.01" id="totalCosts" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -354,7 +354,7 @@
                                     <label>@Resources.Labels.ConsumGPSInitial</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSInitial" id="GPSInitialConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSInitial" step="0.01" id="GPSInitialConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -366,7 +366,7 @@
                                     <label>@Resources.Labels.ConsumGPSFinal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSFinal" id="GPSFinalConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSFinal" step="0.01" id="GPSFinalConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -384,7 +384,7 @@
                                     <label>@Resources.Labels.ConsumGPS</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPS" id="GPSConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPS" step="0.01" id="GPSConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -396,7 +396,7 @@
                                     <label>@Resources.Labels.ConsumEstimat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" id="etimatedConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="etimatedConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -414,7 +414,7 @@
                                     <label>@Resources.Labels.KMAlimentati</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMAlimentati" id="FueledKM" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.KMAlimentati" step="0.01" id="FueledKM" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -426,7 +426,7 @@
                                     <label>@Resources.Labels.AlimentareDieselEWlitrii</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.AlimentareDieselEWlitrii" id="fueledDieseEWLiters" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.AlimentareDieselEWlitrii" step="0.01" id="fueledDieseEWLiters" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -444,7 +444,7 @@
                                     <label>@Resources.Labels.ValoareDiesel</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ValoareDiesel" id="dieselValue" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ValoareDiesel" step="0.01" id="dieselValue" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -456,7 +456,7 @@
                                     <label>@Resources.Labels.ConsumReal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumReal" id="dieselConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumReal" step="0.01" id="realConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -474,7 +474,7 @@
                                     <label>@Resources.Labels.AdblueLitri</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" id="adblueLiters" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" step="0.01" id="adblueLiters" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -486,7 +486,7 @@
                                     <label>@Resources.Labels.ValoareAdblue</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" id="adblueValue" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" step="0.01" id="adblueValue" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -499,8 +499,8 @@
         <div class="col-sm-9 col-lg-9 col-md-9"></div>
         <div class="col-sm-3 col-lg-3 col-md-3">
             <div class="btn-group right-side">
-                <button type="submit" id="btnSaveTruck" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> @Resources.Labels.Salvare</button>
-                <button type="button" onclick="editTruckController.cancelEdit();" id="btnCancelSaveTruck" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Anulare</button>
+                <button type="submit" id="btnSaveDrive" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> @Resources.Labels.Salvare</button>
+                <button type="button" onclick="editDriveController.cancelEdit();" id="btnCancelSaveDrive" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Anulare</button>
             </div>
         </div>
     </div>

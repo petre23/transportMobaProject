@@ -52,7 +52,7 @@
         },
         editDrive: function () {
             if (driveController.selectedDrive) {
-                window.location = "/Drive/EditDrive?drive=" + driveController.selectedDrive;
+                window.location = "/Drive/EditDrive?driveId=" + driveController.selectedDrive;
             }
         },
         deleteDrive: function () {
