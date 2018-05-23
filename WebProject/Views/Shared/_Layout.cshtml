@@ -20,7 +20,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
-<body class="zero-space-body">
+<body class="zero-space-body" style="overflow-y:hidden;">
     <div class="container-fluid">
         <div class="row no-margin-right">
             @if (HttpContext.Current.Session["UserId"] != null)
@@ -31,8 +31,8 @@
                         <li class="black-border"><span class="glyphicon glyphicon-road icon-right-position"></span>@Html.ActionLink("Curse", "Index", "Drive", null, new { @class = "menu-item-clickable-aria" })</li>
                         <li class="black-border"><span class="fa fa-truck icon-right-position"></span>@Html.ActionLink("Camioane", "Index", "Truck", null, new { @class = "menu-item-clickable-aria" })</li>
                         <li class="black-border"><span class="far fa-address-card icon-right-position"></span>@Html.ActionLink("Soferi", "Index", "Worker", null, new { @class = "menu-item-clickable-aria" })</li>
-                        <li class="black-border"><span class="fas fa-user-plus icon-right-position"></span>@Html.ActionLink("Adauga Utilizator", "Index", "Users",null,new { @class= "menu-item-clickable-aria" })</li>
-
+                        <li class="black-border"><span class="fas fa-user-plus icon-right-position"></span>@Html.ActionLink("Adauga Utilizator", "Index", "Users", null, new { @class = "menu-item-clickable-aria" })</li>
+                        <li class="black-border"><span class="far fa-bell icon-right-position" style="margin-top: -5px;"><h5 style="text-align:right; display:inline-block; color: red;">10</h5></span><a href="#" class="menu-item-clickable-aria">Notificari</a></li>
                     </ul>
                 </div>
             }

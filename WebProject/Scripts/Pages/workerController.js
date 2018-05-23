@@ -36,17 +36,17 @@
                 data: workers,
                 fields: [
                     { name: "Id", title: 'Id', type: "text", css: "hide" },
-                    { name: "WorkerName", title: 'Nume', type: "text", width: 80 },
-                    { name: "BirthDayString", title: 'Data nasterii', type: "text", width: 70 },
-                    { name: "EmployerName", title: 'Firma', type: "text", width: 180 },
-                    { name: "TruckRegistrationNumber", title: 'Camion', type: "text", width: 80 },
-                    { name: "EmploymentDateString", title: 'Data angajarii', type: "text", width: 80 },
-                    { name: "IdentityDocument", title: 'Serie act identitate', type: "text", width: 90 },
-                    { name: "CNP", title: 'CNP', type: "text", width: 90 },
-                    { name: "DrivingLicenseExpirationDateString", title: 'Data expirare permis', type: "text", width: 100 },
-                    { name: "TachographCardExpirationDateString", title: 'Data expirare card tahograf', type: "text", width: 100 },
-                    { name: "CertificateExpirationDateString", title: 'Data expirare atestat', type: "text", width: 100 },
-                    { name: "MedicalTestsExpirationDateString", title: 'Data expirare analize medicale', type: "text", width: 100 }
+                    { name: "WorkerName", title: 'Nume', type: "text", width: 80},
+                    { name: "BirthDayString", title: 'Data nasterii', type: "text", width: 90 },
+                    { name: "EmployerName", title: 'Firma', type: "text", width: 140 },
+                    { name: "TruckRegistrationNumber", title: 'Camion', type: "text", width: 80},
+                    { name: "EmploymentDateString", title: 'Data angajarii', type: "text", width: 80},
+                    { name: "IdentityDocument", title: 'Serie act identitate', type: "text", width: 85},
+                    { name: "CNP", title: 'CNP', type: "text", width: 125 },
+                    { name: "DrivingLicenseExpirationDateString", title: 'Data expirare permis', type: "text", width: 95},
+                    { name: "TachographCardExpirationDateString", title: 'Data expirare card tahograf', type: "text", width: 95 },
+                    { name: "CertificateExpirationDateString", title: 'Data expirare atestat', type: "text", width: 95},
+                    { name: "MedicalTestsExpirationDateString", title: 'Data expirare analize medicale', type: "text", width: 95 }
                 ]
             });
         },

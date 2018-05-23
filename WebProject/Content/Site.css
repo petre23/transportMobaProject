@@ -329,6 +329,9 @@ input::-webkit-input-placeholder {
 .edit-panel {
     border: 1px solid #dfedf1;
     padding: 5px;
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .no-text-decoration {
@@ -351,13 +354,12 @@ input::-webkit-input-placeholder {
     border-color: #c4e2ff !important;
 }
 
-.left-sidebar{
-    background:blue;
-    height:100vh;
-    margin:0;
-    padding:0;
-    background:currentColor;
-
+.left-sidebar {
+    background: blue;
+    height: 105vh;
+    margin: 0;
+    padding: 0;
+    background: currentColor;
 }
 
 @media only screen and (max-width: 600px) {
