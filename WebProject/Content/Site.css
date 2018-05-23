@@ -356,7 +356,7 @@ input::-webkit-input-placeholder {
 
 .left-sidebar {
     background: blue;
-    height: 105vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
     background: currentColor;
@@ -390,4 +390,32 @@ input::-webkit-input-placeholder {
 #saveButtons {
     margin-top: 10px;
     margin-right:1px;
+}
+
+*.icon-black {
+    color: black
+}
+i {
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+.badge:after {
+    content: "1";
+    position: absolute;
+    background: #428bca;
+    height: 2rem;
+    top: -0.7rem;
+    width: 2rem;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid #428bca;
+}
+.bell-icon {
+    width:25px;
+    height:20px;
+    background-color:white;
 }

@@ -28,6 +28,7 @@ namespace WebProject.Controllers
                     Session["UserId"] = correctUser.Id.ToString();
                     Session["Username"] = correctUser.Username;
                     Session["HasAdminRole"] = correctUser.HasAdminRole;
+                    Session["NotificationNumber"] = 10;
                 }
                 return Json(new { userName = correctUser != null ? correctUser.Username : string.Empty });
             }

@@ -1,4 +1,5 @@
-﻿using DataLayer.PersistanceLayer;
+﻿using BusinessLogicLayer.Helpers;
+using DataLayer.PersistanceLayer;
 using DataLayer.Repository;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace BusinessLogicLayer.Logic
 
         public Guid SaveDrive(Drive drive)
         {
-            return _driveRepository.SaveDrive(drive);
+            var adaptedDrive = new DriveHelper().AdaptDrive(drive);
+            return _driveRepository.SaveDrive(adaptedDrive);
         }
 
         public Drive GetDrive(Guid idDrive)
