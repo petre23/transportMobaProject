@@ -3,3 +3,4 @@ C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataLayer\bin\De
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataLayer\obj\Debug\DataLayer.dll
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataLayer\obj\Debug\DataLayer.pdb
+C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache

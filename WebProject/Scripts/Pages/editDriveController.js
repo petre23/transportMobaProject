@@ -173,8 +173,7 @@
             AdblueLiters: $("#adblueLiters").val(),
             AdblueValue: $("#adblueValue").val(),
         };
-        debugger;
-        this.saveDrive(JSON.stringify(driveInfo));
+        this.saveDrive(driveInfo);
     },
     confirmCancel: function () {
         var txt;
