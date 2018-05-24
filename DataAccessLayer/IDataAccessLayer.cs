@@ -57,5 +57,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         void DeleteDrive(Guid driveId);
+
+        [OperationContract]
+        List<Notification> GetNotifications();
     }
 }

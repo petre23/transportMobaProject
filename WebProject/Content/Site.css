@@ -425,9 +425,13 @@ i {
 }
 
 .notification-list {
-    height: 150px;
+    height: 200px;
     overflow-y: scroll;
 }
 .modal-footer{
     padding:5px 20px 5px;
+}
+
+.modal-custom {
+    width: 700px;
 }

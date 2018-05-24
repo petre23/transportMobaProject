@@ -18,6 +18,7 @@ namespace DataAccessLayer
         TruckBL _truckLogic;
         DriveBL _driveLogic;
         UserBL _userLogic;
+        NotificationBL _notificationLogic;
 
         public DataAccessLayer()
         {
@@ -25,6 +26,7 @@ namespace DataAccessLayer
             _truckLogic = new TruckBL();
             _driveLogic = new DriveBL();
             _userLogic = new UserBL();
+            _notificationLogic = new NotificationBL();
         }
 
         public List<Worker> GetWorkers()
@@ -100,6 +102,11 @@ namespace DataAccessLayer
         public User Login(User user)
         {
             return _userLogic.Login(user);
+        }
+
+        public List<Notification> GetNotifications()
+        {
+            return _notificationLogic.GetNotifications();
         }
     }
 }

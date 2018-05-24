@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using DataLayer.PersistanceLayer
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -38,46 +40,43 @@
             }
             <div class="@(HttpContext.Current.Session["UserId"] != null ? "col-md-10" : "co-md-12")">
                 <div id="errorDialog" title="Error"></div>
-                <div id="notificationsDialog" title="Notifications"></div>
                 @RenderBody()
             </div>
         </div>
     </div>
     <div class="modal fade" id="notificationsModal" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content modal-custom">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Notificari</h4>
                 </div>
                 <div class="modal-body">
+                    @if (HttpContext.Current.Session["UserId"] != null)
+                    {
                     <h5>Acte care expira curand</h5>
                     <div class="notification-list">
-                        <div class="alert alert-warning" role="alert">Notificarea numarul 1</div>
-                        <div class="alert alert-warning" role="alert">Notificarea numarul 1</div>
-                        <div class="alert alert-warning" role="alert">Notificarea numarul 1</div>
-                        <div class="alert alert-warning" role="alert">Notificarea numarul 1</div>
-                        <div class="alert alert-warning" role="alert">Notificarea numarul 1</div>
-                        <div class="alert alert-warning" role="alert">Notificarea numarul 1</div>
-                    </div><br /><br />
+                    @foreach (var notification in ((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 0))
+                    {
+                        <div class="alert alert-warning" role="alert"><a href="@notification.NotificationLink">@notification.NotificationText</a></div>
+                    }
+                    </div><br/>
                     <h5>Acte expirate</h5>
                     <div class="notification-list">
-                        <div class="alert alert-danger" role="alert">Notificarea numarul 2</div>
-                        <div class="alert alert-danger" role="alert">Notificarea numarul 2</div>
-                        <div class="alert alert-danger" role="alert">Notificarea numarul 2</div>
-                        <div class="alert alert-danger" role="alert">Notificarea numarul 2</div>
-                        <div class="alert alert-danger" role="alert">Notificarea numarul 2</div>
-                        <div class="alert alert-danger" role="alert">Notificarea numarul 2</div>
+                    @foreach (var notification in ((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 1))
+                    {
+                        <div class="alert alert-danger" role="alert"><a href="@notification.NotificationLink">@notification.NotificationText</a></div>
+                    }
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Inchide</button>
                     </div>
+                    }
                 </div>
-
+            </div>
         </div>
-    </div>
-    @RenderSection("scripts", required: false)
-    <script type="text/javascript">
+        @RenderSection("scripts", required: false)
+        <script type="text/javascript">
         $("#errorDialog").dialog({
             autoOpen: false,
             maxHeight: 500,
@@ -85,6 +84,6 @@
 
         var str = @Session["NotificationNumber"];
         document.styleSheets[0].addRule('i.badge:after', 'content: "' + str + '";');
-    </script>
+        </script>
 </body>
 </html>
