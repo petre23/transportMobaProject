@@ -42,7 +42,13 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { workerId = _dataAccessLayer.SaveWorker(worker) });
+                var workerId = _dataAccessLayer.SaveWorker(worker);
+
+                var notifications = _dataAccessLayer.GetNotifications();
+                Session["NotificationNumber"] = notifications.Any() ? notifications.Count : 0;
+                Session["Notifications"] = notifications.Any() ? notifications : new List<Notification>();
+
+                return Json(new { workerId });
             }
             catch (Exception ex)
             {
@@ -69,6 +75,11 @@ namespace WebProject.Controllers
             try
             {
                 _dataAccessLayer.DeleteWorker(workerId);
+
+                var notifications = _dataAccessLayer.GetNotifications();
+                Session["NotificationNumber"] = notifications.Any() ? notifications.Count : 0;
+                Session["Notifications"] = notifications.Any() ? notifications : new List<Notification>();
+
                 return Json(new { success = "true" });
             }
             catch (Exception ex)

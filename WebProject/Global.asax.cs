@@ -29,5 +29,10 @@ namespace WebProject
             newCulture.DateTimeFormat.DateSeparator = "/";
             Thread.CurrentThread.CurrentCulture = newCulture;
         }
+
+        protected void Session_End(Object sender, EventArgs E)
+        {
+            Response.Redirect("Login/Index.cshtml");
+        }
     }
 }

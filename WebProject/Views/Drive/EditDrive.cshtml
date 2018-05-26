@@ -28,10 +28,11 @@
                                     <label>@Resources.Labels.Sofer</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" placeholder="@Resources.Labels.Sofer" id="driver" required>
+                                    <select class="form-control" placeholder="@Resources.Labels.Sofer" onchange="editDriveController.setTruckForWorker();" id="driver" required>
+                                        <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var worker in ViewBag.WorkersForDropDown)
                                         {
-                                        <option value="@worker.Id">@worker.WorkerName</option>
+                                        <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
                                         }
                                     </select>
                                 </div>
@@ -46,6 +47,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <select class="form-control" placeholder="@Resources.Labels.Camion" name="truck" id="truck" required>
+                                        <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var truck in ViewBag.TrucksForDropDown)
                                         {
                                         <option value="@truck.Id">@truck.RegistrationNumber</option>

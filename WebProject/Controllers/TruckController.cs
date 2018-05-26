@@ -43,7 +43,12 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { truckId = _dataAccessLayer.SaveTruck(truck) });
+                var truckId = _dataAccessLayer.SaveTruck(truck);
+                var notifications = _dataAccessLayer.GetNotifications();
+                Session["NotificationNumber"] = notifications.Any() ? notifications.Count : 0;
+                Session["Notifications"] = notifications.Any() ? notifications : new List<Notification>();
+
+                return Json(new { truckId });
             }
             catch (Exception ex)
             {
@@ -71,6 +76,11 @@ namespace WebProject.Controllers
             try
             {
                 _dataAccessLayer.DeleteTruck(truckId);
+
+                var notifications = _dataAccessLayer.GetNotifications();
+                Session["NotificationNumber"] = notifications.Any() ? notifications.Count : 0;
+                Session["Notifications"] = notifications.Any() ? notifications : new List<Notification>();
+
                 return Json(new { success = "true" });
             }
             catch (Exception ex)

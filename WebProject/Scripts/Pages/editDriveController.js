@@ -175,6 +175,10 @@
         };
         this.saveDrive(driveInfo);
     },
+    setTruckForWorker: function () {
+        var truckId = $("#" + $("#driver").val()).attr("truck-id");
+        $("#truck").val(truckId);
+    },
     confirmCancel: function () {
         var txt;
         var r = confirm(" Sunteti sigur ca vreti sa anulati aceasta operatie? \r\n Toate modificarile for fi pierdute!");

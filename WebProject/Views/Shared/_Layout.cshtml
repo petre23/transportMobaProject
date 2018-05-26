@@ -54,21 +54,33 @@
                 <div class="modal-body">
                     @if (HttpContext.Current.Session["UserId"] != null)
                     {
-                    <h5>Acte care expira curand</h5>
-                    <div class="notification-list">
-                    @foreach (var notification in ((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 0))
-                    {
-                        <div class="alert alert-warning" role="alert"><a href="@notification.NotificationLink">@notification.NotificationText</a></div>
-                    }
-                    </div><br/>
-                    <h5>Acte expirate</h5>
-                    <div class="notification-list">
-                    @foreach (var notification in ((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 1))
-                    {
-                        <div class="alert alert-danger" role="alert"><a href="@notification.NotificationLink">@notification.NotificationText</a></div>
-                    }
-                    </div>
-                    <div class="modal-footer">
+                        if (((List<Notification>)Session["Notifications"]).Count > 0)
+                        {
+                            if (((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 0).ToList().Count > 0)
+                            {
+                                <h5>Acte care urmeaza sa expire</h5>
+                                <div class="notification-list">
+                                @foreach (var notification in ((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 0))
+                                {
+                                    <div class="alert alert-warning" role="alert"><a href="@notification.NotificationLink">@notification.NotificationText</a></div>
+                                }
+                                </div><br/>
+                            }
+                            if (((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 1).ToList().Count > 0)
+                            {
+                                <h5>Acte expirate</h5>
+                                <div class="notification-list">
+                                @foreach (var notification in ((List<Notification>)Session["Notifications"]).Where(x => x.NotificationType == 1))
+                                {
+                                    <div class="alert alert-danger" role="alert"><a href="@notification.NotificationLink">@notification.NotificationText</a></div>
+                                }
+                                </div>
+                            }
+                        }
+                        else {
+                            <h5>Nu exista notificari noi!</h5>
+                        }
+                        <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Inchide</button>
                     </div>
                     }
