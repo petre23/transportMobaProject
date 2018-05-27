@@ -64,17 +64,17 @@ textarea {
 }
 
 .black-border {
-    list-style:none;
-    padding:5%;
-    background:currentColor;
-    border-bottom:1px solid white;
+    list-style: none;
+    padding: 5%;
+    background: #010522;
+    border-bottom: 1px solid white;
 }
 
 #menu-title a {
     font-weight: bold;
     font-size: 22px;
     padding: 5%;
-    background: currentColor !important;
+    background: #010522 !important;
     border-bottom: 2px solid white;
 }
 
@@ -340,9 +340,10 @@ input::-webkit-input-placeholder {
 }
 
 .nav-bar {
-    background-color: #428bca !important;
+    background-color: #010522 !important;
     border-color: black !important;
-    border-radius: 3px !important;
+    border-radius: 2px !important;
+    height: 60px;
 }
 
 .nav-bar-text {
@@ -359,7 +360,7 @@ input::-webkit-input-placeholder {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: currentColor;
+    background: #010522;
 }
 
 @media only screen and (max-width: 600px) {

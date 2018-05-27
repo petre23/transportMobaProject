@@ -4,16 +4,16 @@
 
 <nav class="navbar navbar-inverse nav-bar">
     <div class="container-fluid">
-        <div class="navbar-header">
+        <div class="navbar-header" style="margin-top: 5px;">
             <a class="navbar-brand nav-bar-text" href="#">@ViewBag.Title</a>
         </div>
-        <div class="button-group right-side">
+        <div class="button-group right-side" style="margin-top: 5px;">
             <div class="btn-group">
                 <button class="btn btn-success" id="addDriveButton" onclick="driveController.addNewDrive();"><span class="glyphicon glyphicon glyphicon-plus"></span> @Resources.Labels.Adauga</button>
                 <button class="btn btn-success" id="editDriveButton" disabled onclick="driveController.editDrive();"><span class="glyphicon glyphicon glyphicon-edit"></span> @Resources.Labels.Editeaza</button>
                 <button class="btn btn-danger" id="deleteDriveButton" disabled onclick="driveController.deleteDrive();"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Sterge</button>
             </div>
-            <button class="btn btn-primary"><span class="glyphicon glyphicon-log-out"> @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration" })  </span></button>
+            <button class="btn btn-primary" style="margin-right:10px;"><span class="glyphicon glyphicon-log-out"> @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration" })  </span></button>
         </div>
 
     </div>
