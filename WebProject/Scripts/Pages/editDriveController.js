@@ -21,7 +21,7 @@
             dataType: 'json',
             url: "/Drive/GetDrive",
             data: {
-                idDrive: this.getIdFromUrl()
+                idDrive: this.getParameterByName("driveId", new URL(window.location.href))
             },
             success: function (res) {
                 editDriveController.driveId = res.drive.Id;
@@ -75,10 +75,14 @@
         }
         return "";
     },
-    getIdFromUrl: function () {
-        var url = new URL(window.location.href);
-        var driveId = url.searchParams.get("driveId");
-        return driveId;
+    getParameterByName: function (name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
     },
     setupNewDriveInfo: function () {
         this.driveId = null;
@@ -115,7 +119,7 @@
     },
     initDrive: function () {
         var url = new URL(window.location.href);
-        var driveId = url.searchParams.get("driveId");
+        var driveId = editDriveController.getParameterByName("driveId", new URL(window.location.href));
         if (driveId) {
             editDriveController.getDrive();
         } else {
@@ -125,6 +129,10 @@
     },
     initControls: function () {
         $("#date").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+
+        $("#saveDrive").on("submit", function () {
+            return false;
+        });
     },
     cancelEdit: function () {
         if (this.confirmCancel()) {

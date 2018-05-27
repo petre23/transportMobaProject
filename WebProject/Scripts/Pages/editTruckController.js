@@ -21,7 +21,7 @@
             dataType: 'json',
             url: "/Truck/GetTruck",
             data: {
-                idTruck: this.getIdFromUrl()
+                idTruck: this.getParameterByName("truckId", new URL(window.location.href)),
             },
             success: function (res) {
                 editTruckController.truckId = res.truck.Id;
@@ -54,11 +54,6 @@
         }
         return "";
     },
-    getIdFromUrl: function () {
-        var url = new URL(window.location.href);
-        var truckId = url.searchParams.get("truckId");
-        return truckId;
-    },
     setupNewTruckInfo: function () {
         this.truckId = null;
         $("#registrationNumber").val("");
@@ -74,13 +69,22 @@
     initTruck: function ()
     {
         var url = new URL(window.location.href);
-        var truckId = url.searchParams.get("truckId");
+        var truckId = editTruckController.getParameterByName("truckId", url);
         if (truckId) {
             editTruckController.getTruck();
         } else {
             editTruckController.setupNewTruckInfo();
             setTimeout(function () { editTruckController.initControls(); }, 0);
         }
+    },
+    getParameterByName: function (name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
     },
     initControls: function () {
         $("#ITPExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
@@ -89,6 +93,10 @@
         $("#vignetteExpirationDateUK").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#vignetteExpirationDateNL").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#conformCopyExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+
+        $("#saveTruck").on("submit", function () {
+            return false;
+        });
     },
     cancelEdit: function () {
         if (this.confirmCancel()) {

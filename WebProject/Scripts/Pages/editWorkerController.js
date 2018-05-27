@@ -21,7 +21,7 @@
             dataType: 'json',
             url: "/Worker/GetWorker",
             data: {
-                idWorker: this.getIdFromUrl()
+                idWorker: editWorkerController.getParameterByName("workerId", new URL(window.location.href))
             },
             success: function (res) {
                 editWorkerController.workerId = res.worker.Id;
@@ -57,10 +57,14 @@
         }
         return "";
     },
-    getIdFromUrl: function () {
-        var url = new URL(window.location.href);
-        var workerId = url.searchParams.get("workerId");
-        return workerId;
+    getParameterByName: function (name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
     },
     setupNewWorkerInfo: function () {
         this.workerId = null;
@@ -79,7 +83,7 @@
     },
     initWorker: function () {
         var url = new URL(window.location.href);
-        var workerId = url.searchParams.get("workerId");
+        var workerId = editWorkerController.getParameterByName("workerId", url);
         if (workerId) {
             editWorkerController.getWorker();
         } else {
@@ -94,6 +98,10 @@
         $("#certificateExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#tachographCardExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#medicalTestsExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+
+        $("#saveWorker").on("submit", function () {
+            return false;
+        });
     },
     cancelEditWorker: function () {
         if (this.confirmCancelWorker()) {

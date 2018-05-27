@@ -15,7 +15,7 @@
         </nav>
     </div>
 </div>
-<form name="saveWorker" class="edit-panel" onsubmit="editWorkerController.validateAndSaveWorker();">
+<form name="saveWorker" id="saveWorker" class="edit-panel" onsubmit="editWorkerController.validateAndSaveWorker();">
     <div id="generalInformation">
         <h3 class="details-header">Informatii generale</h3>
         <div class="row fields-padding">
@@ -245,7 +245,6 @@
         } else {
             document.getElementById('headerLabel').innerHTML = 'Adaugare sofer';
         }
-
     });
 </script>
 
