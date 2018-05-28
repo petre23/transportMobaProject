@@ -87,6 +87,10 @@
     <Build Include="dbo\StoredProcedures\SaveDrive.sql" />
     <Build Include="dbo\StoredProcedures\DeleteDrive.sql" />
     <Build Include="dbo\StoredProcedures\GetWorkersForDropDown.sql" />
+    <Build Include="dbo\StoredProcedures\SaveUser.sql" />
+    <Build Include="dbo\StoredProcedures\GetUsers.sql" />
+    <Build Include="dbo\StoredProcedures\GetUser.sql" />
+    <Build Include="dbo\StoredProcedures\DeleteUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

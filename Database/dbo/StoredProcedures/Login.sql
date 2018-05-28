@@ -3,11 +3,13 @@
 	@Password NVARCHAR(255)
 AS
 BEGIN
-	SELECT  TOP 1 
+	SELECT TOP 1 
 			u.Id,
 			u.Username,
 			u.Password,
-			u.HasAdminRole
+			u.HasAdminRole,
+			u.FirstName,
+			u.SurName
 			FROM dbo.Users u 
 			WHERE u.Username = @Username 
 			AND u.Password = @Password

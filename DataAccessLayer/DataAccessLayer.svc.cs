@@ -108,5 +108,25 @@ namespace DataAccessLayer
         {
             return _notificationLogic.GetNotifications();
         }
+
+        public User GetUser(Guid userId)
+        {
+            return _userLogic.GetUser(userId);
+        }
+
+        public List<User> GetUsers()
+        {
+            return _userLogic.GetUsers();
+        }
+
+        public Guid SaveUser(User user)
+        {
+            return _userLogic.SaveUser(user);
+        }
+
+        public void DeleteUser(Guid userId)
+        {
+            _userLogic.DeleteUser(userId);
+        }
     }
 }

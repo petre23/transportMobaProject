@@ -1,17 +1,17 @@
 ﻿var userController =
     {
         selectedUser: "",
-        getUser: function () {
+        getUsers: function () {
             $.ajax({
                 type: 'post',
                 dataType: 'json',
-                url: "/User/GetUser",
+                url: "/Users/GetUsers",
                 success: function (res) {
-                    userController.initGrid(res.user);
+                    userController.initGrid(res.users);
                 }
             });
         },
-        initGrid: function (user) {
+        initGrid: function (users) {
             $("#editButton").prop('disabled', true);
             $("#deleteButton").prop('disabled', true);
 
@@ -28,26 +28,28 @@
                     $selectedRow = $(args.event.target).closest("tr");
                     $selectedRow.addClass("selected-row");
 
-                    userController.selectedWorker = args.item.Id;
+                    userController.selectedUser = args.item.Id;
 
                     $("#editButton").prop('disabled', false);
-                    $("#deleteButton").prop('disabled', false);
+                    if (!args.item.HasAdminRole) {
+                        $("#deleteButton").prop('disabled', false);
+                    }
                 },
-                data: user,
+                data: users,
                 fields: [
                     { name: "Id", title: 'Id', type: "text", css: "hide" },
-                    { name: "UserName", title: 'Nume', type: "text", width:140 },
-                    { name: "Prenume", title: 'Prenume', type: "text", width: 140 },
-                    { name: "Email", title: 'Email', type: "text", width: 140 }
+                    { name: "Username", title: 'Email', type: "text", width:140 },
+                    { name: "FullName", title: 'Nume', type: "text", width: 140 },
+                    { name: "HasAdminRole", title: 'HasAdminRole', align: "center", type: "checkbox", width: 140 }
                 ]
             });
         },
         addNewUser: function () {
-            window.location = "/User/EditUser";
+            window.location = "/Users/EditUser";
         },
         editUser: function () {
-            if (workerController.selectedWorker) {
-                window.location = "/User/EditUser?userId=" + userController.selectedUser;
+            if (userController.selectedUser) {
+                window.location = "/Users/EditUser?userId=" + userController.selectedUser;
             }
         },
         deleteUser: function () {
@@ -55,10 +57,10 @@
                 $.ajax({
                     type: 'post',
                     dataType: 'json',
-                    url: "/User/DeleteUser",
+                    url: "/Users/DeleteUser",
                     data: { userId: userController.selectedUser },
                     success: function (res) {
-                        userController.getUser();
+                        userController.getUsers();
                     },
                     error: function (jqXHR, textStatus, exception, errorThrown) {
                         $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
@@ -79,4 +81,4 @@
     };
 
 
-userController.getUser();
+userController.getUsers();

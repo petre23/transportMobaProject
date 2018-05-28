@@ -18,5 +18,16 @@ namespace DataLayer.PersistanceLayer
         public string Password { get; set; }
         [DataMember]
         public bool HasAdminRole { get; set; }
+        [DataMember]
+        public string FirstName { get; set; }
+        [DataMember]
+        public string SurName { get; set; }
+
+        [DataMember]
+        public string FullName { get
+            {
+                return string.Format("{0} {1}",FirstName, SurName);
+            }
+        }
     }
 }

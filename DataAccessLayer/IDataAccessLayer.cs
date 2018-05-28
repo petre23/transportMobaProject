@@ -53,12 +53,24 @@ namespace DataAccessLayer
         Drive GetDrive(Guid idDrive);
 
         [OperationContract]
-        User Login(User user);
-
-        [OperationContract]
         void DeleteDrive(Guid driveId);
 
         [OperationContract]
         List<Notification> GetNotifications();
+
+        [OperationContract]
+        User Login(User user);
+
+        [OperationContract]
+        User GetUser(Guid userId);
+
+        [OperationContract]
+        List<User> GetUsers();
+
+        [OperationContract]
+        Guid SaveUser(User user);
+
+        [OperationContract]
+        void DeleteUser(Guid userId);
     }
 }

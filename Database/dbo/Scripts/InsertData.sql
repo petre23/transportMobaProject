@@ -3,6 +3,8 @@
 	NEWID(),
 	'petre@test.ro',
 	'098f6bcd4621d373cade4e832627b4f6',
+	'Petre',
+	'Mazilu',
 	'1'
 )
 INSERT INTO dbo.Brands VALUES

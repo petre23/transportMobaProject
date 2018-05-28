@@ -24,5 +24,33 @@ namespace BusinessLogicLayer.Logic
             }
             return null;
         }
+
+        public List<User> GetUsers()
+        {
+            return _userRepositoty.GetUsers();
+        }
+
+        public User GetUser(Guid userId)
+        {
+            return _userRepositoty.GetUser(userId);
+        }
+
+        public Guid SaveUser(User user)
+        {
+            var hasSamePassword = false;
+            if (user.Id != Guid.Empty)
+            {
+                var userOldPass = _userRepositoty.GetUser(user.Id).Password;
+                if (userOldPass == user.Password)
+                    hasSamePassword = true;
+            }
+            user.Password = hasSamePassword ? user.Password : _loginHelper.HashPasswordToMD5(user.Password);
+            return _userRepositoty.SaveUser(user);
+        }
+        public void DeleteUser(Guid userId)
+        {
+            _userRepositoty.DeleteUser(userId);
+        }
+
     }
 }
