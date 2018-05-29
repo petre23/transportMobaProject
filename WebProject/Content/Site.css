@@ -288,9 +288,6 @@ input::-webkit-input-placeholder {
     padding: 40px 40px;
 }
 
-.login-button {
-    margin-top: 5px;
-}
 
 .logout-button {
     margin-top: 5px;
@@ -435,4 +432,9 @@ i {
 
 .modal-custom {
     width: 700px;
+}
+
+#hasAdminRole { 
+    width: 140px;
+    height: 15px;
 }
