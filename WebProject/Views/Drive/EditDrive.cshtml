@@ -159,7 +159,7 @@
                                     <label>@Resources.Labels.KMGps</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMGps" id="KMGps" step="0.01" type="number" required />
+                                    <input class="form-control" oninput="editDriveController.calculateDifference();" placeholder="@Resources.Labels.KMGps" id="KMGps" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                                     <label>@Resources.Labels.KMDFSD</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMDFSD" id="KMDFSD" step="0.01" type="number" required />
+                                    <input class="form-control" oninput="editDriveController.calculateDifference();" placeholder="@Resources.Labels.KMDFSD" id="KMDFSD" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -201,7 +201,7 @@
                                     <label>@Resources.Labels.Diferenta</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.Diferenta" id="difference" step="0.01" type="number" required />
+                                    <input class="form-control" readonly placeholder="@Resources.Labels.Diferenta" id="difference" step="0.01" type="number" required />
                                 </div>
                             </div>
                         </div>
@@ -334,7 +334,7 @@
                                     <label>@Resources.Labels.TotalPlati</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.TotalPlati" step="0.01" id="totalCosts" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.TotalPlati" step="0.01" id="totalCosts" type="number" required/>
                                 </div>
                             </div>
                         </div>
@@ -355,7 +355,7 @@
                                     <label>@Resources.Labels.ConsumGPSInitial</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSInitial" step="0.01" id="GPSInitialConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSInitial" step="0.01" id="GPSInitialConsumption" type="number" required/>
                                 </div>
                             </div>
                         </div>
@@ -367,7 +367,7 @@
                                     <label>@Resources.Labels.ConsumGPSFinal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSFinal" step="0.01" id="GPSFinalConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSFinal" step="0.01" id="GPSFinalConsumption" type="number" required/>
                                 </div>
                             </div>
                         </div>
@@ -385,7 +385,7 @@
                                     <label>@Resources.Labels.ConsumGPS</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPS" step="0.01" id="GPSConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPS" step="0.01" id="GPSConsumption" type="number" required/>
                                 </div>
                             </div>
                         </div>
@@ -397,7 +397,7 @@
                                     <label>@Resources.Labels.ConsumEstimat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="etimatedConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="etimatedConsumption" type="number" required/>
                                 </div>
                             </div>
                         </div>

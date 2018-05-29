@@ -133,6 +133,11 @@
         $("#saveDrive").on("submit", function () {
             return false;
         });
+
+        if ($("#difference").val() < 0)
+        {
+            $("#difference").addClass("red-border");
+        }
     },
     cancelEdit: function () {
         if (this.confirmCancel()) {
@@ -194,6 +199,22 @@
             return true;
         } else {
             return false;
+        }
+    },
+    calculateDifference: function ()
+    {
+        var GPSkm = parseInt($("#KMGps").val());
+        var DFSDkm = parseInt($("#KMDFSD").val());
+        var difference = DFSDkm - GPSkm;
+
+        $("#difference").val(difference);
+        if (difference < 0)
+        {
+            $("#difference").addClass("red-border");
+        }
+        else
+        {
+            $("#difference").removeClass("red-border");
         }
     }
 }

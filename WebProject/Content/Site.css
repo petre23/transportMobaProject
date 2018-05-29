@@ -439,3 +439,8 @@ i {
     width: 140px;
     height: 15px;
 }
+
+.red-border {
+    border:1px solid red;
+    color:red;
+}
