@@ -3,9 +3,6 @@
     ViewBag.Title = "EditUser";
 }
 
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-<!-- Website CSS style -->
-<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 <!-- Website Font style -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
@@ -34,7 +31,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="surName" id="surName" placeholder="Introduceti numele" />
+                            <input type="text" class="form-control" name="surName" id="surName" placeholder="Introduceti numele" required/>
                         </div>
                     </div>
                 </div>
@@ -43,7 +40,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Introduceti prenumele" />
+                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Introduceti prenumele" required />
                         </div>
                     </div>
                 </div>
@@ -52,7 +49,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" name="username" id="username" placeholder="Introduceti emailul" />
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Introduceti emailul" required/>
                         </div>
                     </div>
                 </div>
@@ -62,7 +59,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Introduceti parola" />
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Introduceti parola" required />
                         </div>
                     </div>
                 </div>
@@ -71,22 +68,18 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirmati parola" />
+                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirmati parola" required/>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="confirm" class="cols-sm-2 control-label">Este admin</label>
-                    <div class="cols-sm-10">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user fa-lg" aria-hidden="true"></i></span>
-                            <input type="checkbox" class="form-control" name="hasAdminRole" id="hasAdminRole"/>
-                        </div>
-                    </div>
+     
+                            <input type="checkbox" name="hasAdminRole" id="hasAdminRole"/>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block login-button">@Resources.Labels.Salvare</button>
-                    <button type="button" class="btn btn-danger btn-lg btn-block" onclick="editUserController.cancelEdit();" id="btnCancelSaveTruck" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span>@Resources.Labels.Anulare</button>
+                <div class="form-group" style="text-align: center; padding-top: 14px;">
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> @Resources.Labels.Salvare</button>
+                    <button type="button" class="btn btn-danger" onclick="editUserController.cancelEdit();" id="btnCancelSaveTruck" style="margin-left:20px"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Anulare</button>
                 </div>
             </form>
         </div>
