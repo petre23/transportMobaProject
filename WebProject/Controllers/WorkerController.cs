@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebProject.App_Start;
 using WebProject.Helpers;
 
 namespace WebProject.Controllers
@@ -14,17 +15,18 @@ namespace WebProject.Controllers
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
         // GET: Truck
+        [AuthorizationAttribute]
         public ActionResult Index()
         {
             return View();
         }
-
+        [AuthorizationAttribute]
         public ActionResult EditWorker()
         {
             ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetWorkers()
         {
             try
@@ -37,7 +39,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult SaveWorker(Worker worker)
         {
             try
@@ -56,7 +58,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetWorker(Guid idWorker)
         {
             try
@@ -69,7 +71,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult DeleteWorker(Guid workerId)
         {
             try

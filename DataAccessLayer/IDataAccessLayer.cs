@@ -44,7 +44,7 @@ namespace DataAccessLayer
         List<Truck> GetTrucksForDropDown();
 
         [OperationContract]
-        List<Drive> GetDrives();
+        List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50);
 
         [OperationContract]
         Guid SaveDrive(Drive drive);

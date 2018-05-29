@@ -11,13 +11,16 @@ namespace DataLayer.Repository
 {
     public class DriveRepository: BaseRepository
     {
-        public List<Drive> GetDrives()
+        public List<Drive> GetDrives(int pageNumber = 0,int pageSize = 50)
         {
+            var totalDrivesCount = GetDrivesTotalCount();
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand("GetDrives", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@PageNumber", pageNumber);
+                    cmd.Parameters.AddWithValue("@PageSize", pageSize);
                     con.Open();
                     var reader = cmd.ExecuteReader();
                     var drives = new List<Drive>();
@@ -59,6 +62,8 @@ namespace DataLayer.Repository
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             TruckRegistrationNumber = reader["RegistrationNumber"].ToString(),
+                            LastUpdateByUserName = reader["LastUpdateByUserName"].ToString(),
+                            TotalRows = totalDrivesCount
                         };
                         drives.Add(drive);
                     }
@@ -80,6 +85,7 @@ namespace DataLayer.Repository
                     drive.Id = isNew ? Guid.NewGuid() : drive.Id;
                     cmd.Parameters.AddWithValue("@IsNew", isNew);
                     cmd.Parameters.AddWithValue("@Id", drive.Id);
+                    cmd.Parameters.AddWithValue("@LastUpdateByUser", drive.LastUpdateByUser);
                     cmd.Parameters.AddWithValue("@AdblueLiters", drive.AdblueLiters);
                     cmd.Parameters.AddWithValue("@AdblueValue", drive.AdblueValue);
                     cmd.Parameters.AddWithValue("@CostsSpecification", drive.CostsSpecification);
@@ -191,6 +197,27 @@ namespace DataLayer.Repository
                     con.Close();
                 }
             }
+        }
+
+        public int GetDrivesTotalCount()
+        {
+            var totalDrivesCount = 0;
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetDrivesTotalCount", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        totalDrivesCount = Convert.ToInt32(reader["TotalDrivesCount"].ToString());
+                    }
+                    con.Close();
+                }
+            }
+
+            return totalDrivesCount;
         }
     }
 }

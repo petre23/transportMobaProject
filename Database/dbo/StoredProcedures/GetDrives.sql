@@ -36,10 +36,12 @@ BEGIN
 		   w.FirstName,
 		   w.Surname,
 		   t.Id AS Truck,
-		   t.RegistrationNumber
+		   t.RegistrationNumber,
+		   (u.FirstName + ' ' + u.SurName) LastUpdateByUserName
 	FROM dbo.Drive d
 	INNER JOIN dbo.Worker w ON d.Worker = w.Id
 	INNER JOIN dbo.Trucks t ON d.Truck = t.Id
+	INNER JOIN dbo.Users u ON u.Id = d.LastUpdateByUser
 	ORDER BY d.Date 
 	OFFSET (@PageSize*@PageNumber) ROWS
 	FETCH NEXT @PageSize ROWS ONLY;

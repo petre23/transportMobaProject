@@ -12,7 +12,7 @@
                 success: function (res) {
                     if (res.userName && res.userName != '') {
                         console.log(res.userName);
-                        window.location = '/Truck/Index';
+                        window.location = '/Drive/Index';
                     } else {
                         alert('Email sau parola invalide');
                     }

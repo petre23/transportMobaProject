@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using WebProject.App_Start;
 using WebProject.Helpers;
 
 namespace WebProject.Controllers
@@ -16,16 +17,17 @@ namespace WebProject.Controllers
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
         // GET: Truck
+        [AuthorizationAttribute]
         public ActionResult Index()
         {
             return View();
         }
-
+        [AuthorizationAttribute]
         public ActionResult EditTruck()
         {
             return View();
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetTrucks()
         {
             try
@@ -38,7 +40,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult SaveTruck(Truck truck)
         {
             try
@@ -56,7 +58,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetTruck(Guid idTruck)
         {
             try
@@ -69,7 +71,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult DeleteTruck(Guid truckId)
         {
             try
@@ -88,7 +90,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetTrucksForDropDown()
         {
             try

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DataAccessLayer;
 using DataLayer.PersistanceLayer;
+using WebProject.App_Start;
 using WebProject.Helpers;
 
 namespace WebProject.Controllers
@@ -14,23 +15,24 @@ namespace WebProject.Controllers
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
         // GET: Drive
+        [AuthorizationAttribute]
         public ActionResult Index()
         {
             return View();
         }
-
+        [AuthorizationAttribute]
         public ActionResult EditDrive()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
-
-        public ActionResult GetDrives()
+        [AuthorizationAttribute]
+        public ActionResult GetDrives(string pageIndex, string pageSize)
         {
             try
             {
-                return Json(new { drives = _dataAccessLayer.GetDrives() });
+                return Json(new { drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageIndex) - 1, Convert.ToInt32(pageSize)) });
             }
             catch (Exception ex)
             {
@@ -41,11 +43,12 @@ namespace WebProject.Controllers
                 });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult SaveDrive(Drive drive)
         {
             try
             {
+                drive.LastUpdateByUser = Guid.Parse(Session["UserId"].ToString());
                 return Json(new { driveId = _dataAccessLayer.SaveDrive(drive) });
             }
             catch (Exception ex)
@@ -54,7 +57,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetDrive(Guid idDrive)
         {
             try
@@ -67,7 +70,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult DeleteDrive(Guid driveId)
         {
             try

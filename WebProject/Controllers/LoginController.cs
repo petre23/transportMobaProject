@@ -45,6 +45,7 @@ namespace WebProject.Controllers
         public ActionResult Logout()
         {
             Session.RemoveAll();
+            Session.Abandon();
             return View("~/Views/Login/Index.cshtml");
         }
     }

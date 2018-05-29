@@ -6,5 +6,5 @@
 	[FirstName] nvarchar(255) NOT NULL,
 	[SurName] nvarchar(255) NOT NULL,
 	[HasAdminRole] bit NOT NULL DEFAULT 1,
-	PRIMARY KEY(Id,Username,Password)
+	PRIMARY KEY(Id)
 )

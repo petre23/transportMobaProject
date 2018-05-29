@@ -1,16 +1,8 @@
 ﻿var driveController =
     {
-        selectedDrive : "",
-        getDrives: function () {
-            $.ajax({
-                type: 'post',
-                dataType: 'json',
-                url: "/Drive/GetDrives",
-                success: function (res) {
-                    driveController.initGrid(res.drives);
-                }
-            });
-        },
+        selectedDrive: "",
+        page: 1,
+        pageSize: 30,
         initGrid: function (drives) {
             $("#editDriveButton").prop('disabled', true);
             $("#deleteDriveButton").prop('disabled', true);
@@ -22,7 +14,11 @@
                 inserting: false,
                 editing: false,
                 sorting: true,
-                paging: false,
+                paging: true,
+                autoload: true,
+                pageLoading: true,
+                pageSize: driveController.pageSize,
+                pageIndex: driveController.page,
                 rowClick: function (args) {
                     $("#driveGrid tr").removeClass("selected-row")
                     $selectedRow = $(args.event.target).closest("tr");
@@ -33,7 +29,26 @@
                     $("#editDriveButton").prop('disabled', false);
                     $("#deleteDriveButton").prop('disabled', false);
                 },
-                data: drives,
+                controller: {
+                    loadData: function (filter) {
+                        var deferred = $.Deferred();
+                        $.ajax({
+                            type: "post",
+                            url: "/Drive/GetDrives",
+                            data: filter,
+                            dataType: "json",
+                            success: function (res) {
+                                var dataForDrives = {
+                                    data: res.drives,
+                                    itemsCount: res.drives && res.drives.length > 0 ? res.drives[0].TotalRows : 0
+                                }
+
+                                deferred.resolve(dataForDrives);
+                            }
+                        });
+                        return deferred.promise();
+                    }
+                },
                 fields: [
                     { name: "Id", title: 'Id', type: "text", css: "hide" },
                     { name: "WorkerName", title: 'Sofer', type: "text", width: 80 },
@@ -43,7 +58,8 @@
                     { name: "Vlaref", title: 'Vlaref', type: "text", width: 100 },
                     { name: "LoadingPlace", title: 'Locatie incarcare', type: "text", width: 100 },
                     { name: "Destination", title: 'Destinatie', type: "text", width: 100 },
-                    { name: "WeightInTons", title: 'Tonaj', type: "text", width: 100 }
+                    { name: "WeightInTons", title: 'Tonaj', type: "text", width: 100 },
+                    { name: "LastUpdateByUserName", title: 'Ultima modificare facuta de', type: "text", width: 150 },
                 ]
             });
         },
@@ -63,7 +79,7 @@
                     url: "/Drive/DeleteDrive",
                     data: { driveId: driveController.selectedDrive },
                     success: function (res) {
-                        driveController.getDrives();
+                        driveController.initGrid();
                     },
                     error: function (jqXHR, textStatus, exception, errorThrown) {
                         $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
@@ -82,4 +98,4 @@
             }
         }
     };
-driveController.getDrives();
+driveController.initGrid();

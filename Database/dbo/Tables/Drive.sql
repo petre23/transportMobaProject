@@ -31,7 +31,8 @@
 	[RealConsumption] decimal(12,2) NULL,
 	[AdblueLiters] decimal(12,2) NULL,
 	[AdblueValue] decimal(12,2) NULL,
+	[LastUpdateByUser] UNIQUEIDENTIFIER NOT NULL
 	CONSTRAINT FK_DRIVE_WORKER FOREIGN KEY (Worker) REFERENCES dbo.Worker (Id),
-	CONSTRAINT FK_DRIVE_Truck FOREIGN KEY (Truck) REFERENCES dbo.Trucks (Id)
-
+	CONSTRAINT FK_DRIVE_Truck FOREIGN KEY (Truck) REFERENCES dbo.Trucks (Id),
+	CONSTRAINT FK_DRIVE_User FOREIGN KEY (LastUpdateByUser) REFERENCES dbo.Users (Id)
 )

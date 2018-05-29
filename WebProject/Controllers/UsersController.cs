@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebProject.App_Start;
 using WebProject.Helpers;
 
 namespace WebProject.Controllers
@@ -12,17 +13,17 @@ namespace WebProject.Controllers
     {
         DataAccessLayer.DataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
-
+        [AuthorizationAttribute]
         public ActionResult Index()
         {
             return View();
         }
-
+        [AuthorizationAttribute]
         public ActionResult EditUser()
         {
             return View();
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetUsers()
         {
             try
@@ -35,7 +36,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult GetUser(Guid userId)
         {
             try
@@ -48,7 +49,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult SaveUser(User user)
         {
             try
@@ -62,7 +63,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [AuthorizationAttribute]
         public ActionResult DeleteUser(Guid userId)
         {
             try

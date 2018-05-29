@@ -32,7 +32,7 @@ namespace WebProject
 
         protected void Session_End(Object sender, EventArgs E)
         {
-            Response.Redirect("Login/Index.cshtml");
+            //Response.Redirect("Login/Index.cshtml");
         }
     }
 }

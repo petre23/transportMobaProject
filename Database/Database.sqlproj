@@ -91,6 +91,7 @@
     <Build Include="dbo\StoredProcedures\GetUsers.sql" />
     <Build Include="dbo\StoredProcedures\GetUser.sql" />
     <Build Include="dbo\StoredProcedures\DeleteUser.sql" />
+    <Build Include="dbo\StoredProcedures\GetDrivesTotalCount.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

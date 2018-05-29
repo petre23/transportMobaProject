@@ -112,7 +112,10 @@ namespace DataLayer.PersistanceLayer
         public decimal AdblueValue { get; set; }
         [DataMember]
         public string AdblueValueString { get; set; }
-
+        [DataMember]
+        public Guid LastUpdateByUser { get; set; }
+        [DataMember]
+        public string LastUpdateByUserName { get; set; }
         [DataMember]
         public string FirstName { get; set; }
         [DataMember]
@@ -121,5 +124,8 @@ namespace DataLayer.PersistanceLayer
         public string WorkerName { get { return string.Format("{0} {1}", FirstName, Surname); } }
         [DataMember]
         public string TruckRegistrationNumber { get; set; }
+
+        [DataMember]
+        public int TotalRows { get; set; }
     }
 }

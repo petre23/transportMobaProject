@@ -30,7 +30,8 @@
 	@WeightInTons decimal(12,2),
 	@WorkerCosts decimal(18,3),
 	@Worker UNIQUEIDENTIFIER,
-	@Truck UNIQUEIDENTIFIER
+	@Truck UNIQUEIDENTIFIER,
+	@LastUpdateByUser UNIQUEIDENTIFIER
 AS
 	IF(@IsNew = 1)
 	BEGIN
@@ -38,13 +39,13 @@ AS
 							Difference,DistanceDFDS,DistanceGpl,DistanceGPS,EstimatedConsumption,FueledDieseKMLiters,
 							FinalGPSKM,FueledKM,GPSFinalConsumption,GPSConsumption,GPSInitialConsumption,InitialGPSKM,
 							LoadingPlace,PayedCosts,RealConsumption,Reason,SettlementCosts,TotalPayments,Truck,Vlaplan,
-							Vlaref,WeightInTons,Worker,WorkerCosts)
+							Vlaref,WeightInTons,Worker,WorkerCosts,LastUpdateByUser)
 		VALUES
 		(@Id,@Date,@Destination,@AdblueLiters,@AdblueValue,@CostsSpecification,@DieselValue,
 		@Difference,@DistanceDFDS,@DistanceGpl,@DistanceGPS,@EstimatedConsumption,@FueledDieseKMLiters,
 		@FinalGPSKM,@FueledKM,@GPSFinalConsumption,@GPSConsumption,@GPSInitialConsumption,@InitialGPSKM,
 		@LoadingPlace,@PayedCosts,@RealConsumption,@Reason,@SettlementCosts,@TotalPayments,@Truck,@Vlaplan,
-		@Vlaref,@WeightInTons,@Worker,@WorkerCosts)
+		@Vlaref,@WeightInTons,@Worker,@WorkerCosts,@LastUpdateByUser)
 	END
 	ELSE
 	BEGIN
@@ -78,6 +79,7 @@ AS
 			Vlaref = @Vlaref,
 			WeightInTons = @WeightInTons,
 			WorkerCosts = @WorkerCosts,
-			Worker = @Worker
+			Worker = @Worker,
+			LastUpdateByUser = @LastUpdateByUser
 			WHERE Id = @Id
 	END
