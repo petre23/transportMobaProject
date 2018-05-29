@@ -81,15 +81,22 @@
         }
     },
     validateAndSaveUser: function () {
-        var userInfo = {
-            Id: this.userId,
-            Username: $("#username").val(),
-            FirstName: $("#firstName").val(),
-            SurName: $("#surName").val(),
-            Password: $("#password").val(),
-            HasAdminRole: $("#hasAdminRole").prop('checked')
-        };
-        this.saveUser(userInfo);
+        if ($("#password").val() != $("#confirmPassword").val())
+        {
+            alert("Parola si Confirma parola trebuie sa fie identice!");
+        }
+        else
+        {
+            var userInfo = {
+                Id: this.userId,
+                Username: $("#username").val(),
+                FirstName: $("#firstName").val(),
+                SurName: $("#surName").val(),
+                Password: $("#password").val(),
+                HasAdminRole: $("#hasAdminRole").prop('checked')
+            };
+            this.saveUser(userInfo);
+        }
     },
     confirmCancel: function () {
         var txt;
