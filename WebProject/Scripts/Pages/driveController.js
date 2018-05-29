@@ -2,7 +2,7 @@
     {
         selectedDrive: "",
         page: 1,
-        pageSize: 30,
+        pageSize: 50,
         initGrid: function (drives) {
             $("#editDriveButton").prop('disabled', true);
             $("#deleteDriveButton").prop('disabled', true);
@@ -59,7 +59,7 @@
                     { name: "LoadingPlace", title: 'Locatie incarcare', type: "text", width: 100 },
                     { name: "Destination", title: 'Destinatie', type: "text", width: 100 },
                     { name: "WeightInTons", title: 'Tonaj', type: "text", width: 100 },
-                    { name: "LastUpdateByUserName", title: 'Ultima modificare facuta de', type: "text", width: 150 },
+                    { name: "LastUpdateByUserName", title: 'Modificat de', type: "text", width: 100 },
                 ]
             });
         },

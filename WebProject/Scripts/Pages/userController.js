@@ -24,6 +24,9 @@
                 sorting: true,
                 paging: false,
                 rowClick: function (args) {
+                    $("#editButton").prop('disabled', true);
+                    $("#deleteButton").prop('disabled', true);
+
                     $("#userGrid tr").removeClass("selected-row")
                     $selectedRow = $(args.event.target).closest("tr");
                     $selectedRow.addClass("selected-row");

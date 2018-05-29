@@ -27,6 +27,7 @@ namespace WebProject.Controllers
                 {
                     Session["UserId"] = correctUser.Id.ToString();
                     Session["Username"] = correctUser.Username;
+                    Session["UserFullName"] = correctUser.FullName;
                     Session["HasAdminRole"] = correctUser.HasAdminRole;
 
                     var notifications = _dataAccessLayer.GetNotifications();
