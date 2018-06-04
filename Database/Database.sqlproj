@@ -95,5 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />
+    <None Include="dbo\Scripts\Beta_Update.sql" />
   </ItemGroup>
 </Project>

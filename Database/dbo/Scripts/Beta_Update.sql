@@ -1,4 +1,44 @@
-﻿CREATE PROCEDURE [dbo].[SaveDrive]
+﻿drop table dbo.drive
+CREATE TABLE [dbo].[Drive]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[Worker] UNIQUEIDENTIFIER NOT NULL,
+	[Truck] UNIQUEIDENTIFIER NOT NULL,
+	[Date] DATETIME NOT NULL,
+	[Vlaplan] nvarchar(255) NOT NULL,
+	[Vlaref] nvarchar(255) NOT NULL,
+	[LoadingPlace] nvarchar(255) NOT NULL,
+	[Destination] nvarchar(255) NOT NULL,
+	[InitialGPSKM] decimal(12,2) NOT NULL,
+	[FinalGPSKM] decimal(12,2) NULL,
+	[DistanceGPS] decimal(12,2) NULL,
+	[DistanceGpl] decimal(12,2) NULL,
+	[DistanceDFDS] decimal(12,2) NULL,
+	[Difference] decimal(12,2) NULL,
+	[Reason] nvarchar(MAX) NULL,
+	[WeightInTons] decimal(12,2) NOT NULL,
+	[WorkerCosts] decimal(18,3) NULL,
+	[CostsSpecification] nvarchar(MAX) NULL,
+	[PayedCosts] decimal(18,3) NULL,
+	[SettlementCosts] decimal(18,3) NULL,
+	[TotalPayments] decimal(18,3) NULL,
+    [GPSInitialConsumption] decimal(12,2) NOT NULL,
+	[GPSFinalConsumption] decimal(12,2) NULL,
+	[GPSConsumption] decimal(12,2) NULL,
+	[EstimatedConsumption] decimal(12,2) NOT NULL,
+	[FueledKM] decimal(12,2) NULL,
+	[FueledDieseKMLiters] decimal(12,2) NULL,
+	[DieselValue] decimal(12,3) NULL,
+	[RealConsumption] decimal(12,2) NULL,
+	[AdblueLiters] decimal(12,2) NULL,
+	[AdblueValue] decimal(12,2) NULL,
+	[LastUpdateByUser] UNIQUEIDENTIFIER NOT NULL
+	CONSTRAINT FK_DRIVE_WORKER FOREIGN KEY (Worker) REFERENCES dbo.Worker (Id),
+	CONSTRAINT FK_DRIVE_Truck FOREIGN KEY (Truck) REFERENCES dbo.Trucks (Id),
+	CONSTRAINT FK_DRIVE_User FOREIGN KEY (LastUpdateByUser) REFERENCES dbo.Users (Id)
+)
+GO
+ALTER PROCEDURE [dbo].[SaveDrive]
 	@IsNew bit = 1,
 	@Id UNIQUEIDENTIFIER,
 	@Date DATETIME,
@@ -83,3 +123,51 @@ AS
 			LastUpdateByUser = @LastUpdateByUser
 			WHERE Id = @Id
 	END
+GO
+
+ALTER PROCEDURE [dbo].[SaveTruck]
+	@IsNew bit = 1,
+	@Id Uniqueidentifier,
+	@RegistrationNumber nvarchar(255),
+	@Brand UNIQUEIDENTIFIER,
+	@ManufacturingYear DATETIME = null,
+	@ITPExpirationDate DATETIME = null,
+	@InsuranceExpirationDate DATETIME = null,
+	@TachographExpirationDate DATETIME = null,
+	@VignetteExpirationDateUK DATETIME = null,
+	@VignetteExpirationDateNL DATETIME = null,
+	@ConformCopyExpirationDate DATETIME = null
+AS
+BEGIN
+	IF(@IsNew = 1)
+	BEGIN
+		INSERT INTO dbo.Trucks(Id,RegistrationNumber,Brand,ManufacturingYear,ITPExpirationDate,InsuranceExpirationDate,TachographExpirationDate,VignetteExpirationDateUK,VignetteExpirationDateNL,ConformCopyExpirationDate) VALUES
+		(
+			@Id,
+			@RegistrationNumber,
+			@Brand,
+			@ManufacturingYear,
+			@ITPExpirationDate,
+			@InsuranceExpirationDate,
+			@TachographExpirationDate,
+			@VignetteExpirationDateUK,
+			@VignetteExpirationDateNL,
+			@ConformCopyExpirationDate
+		)
+	END
+	ELSE
+	BEGIN
+		UPDATE dbo.Trucks SET
+			RegistrationNumber = @RegistrationNumber,
+			Brand = @Brand,
+			ManufacturingYear = @ManufacturingYear,
+			ITPExpirationDate = @ITPExpirationDate,
+			InsuranceExpirationDate = @InsuranceExpirationDate,
+			TachographExpirationDate = @TachographExpirationDate,
+			VignetteExpirationDateUK = @VignetteExpirationDateUK,
+			VignetteExpirationDateNL = @VignetteExpirationDateNL,
+			ConformCopyExpirationDate = @ConformCopyExpirationDate
+			WHERE Id = @Id
+	END
+END
+GO
