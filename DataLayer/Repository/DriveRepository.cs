@@ -88,7 +88,6 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@LastUpdateByUser", drive.LastUpdateByUser);
                     cmd.Parameters.AddWithValue("@AdblueLiters", drive.AdblueLiters);
                     cmd.Parameters.AddWithValue("@AdblueValue", drive.AdblueValue);
-                    cmd.Parameters.AddWithValue("@CostsSpecification", drive.CostsSpecification);
                     cmd.Parameters.AddWithValue("@Date", drive.Date);
                     cmd.Parameters.AddWithValue("@Destination", drive.Destination);
                     cmd.Parameters.AddWithValue("@DieselValue", drive.DieselValue);
@@ -116,6 +115,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@WeightInTons", drive.WeightInTons);
                     cmd.Parameters.AddWithValue("@Worker", drive.Worker);
                     cmd.Parameters.AddWithValue("@WorkerCosts", drive.WorkerCosts);
+                    cmd.Parameters.AddWithValue("@CostsSpecification", drive.CostsSpecification);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();

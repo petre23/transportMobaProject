@@ -3,13 +3,13 @@
 	@Id Uniqueidentifier,
 	@RegistrationNumber nvarchar(255),
 	@Brand UNIQUEIDENTIFIER,
-	@ManufacturingYear DATETIME,
-	@ITPExpirationDate DATETIME,
-	@InsuranceExpirationDate DATETIME,
-	@TachographExpirationDate DATETIME,
-	@VignetteExpirationDateUK DATETIME,
-	@VignetteExpirationDateNL DATETIME,
-	@ConformCopyExpirationDate DATETIME
+	@ManufacturingYear DATETIME = null,
+	@ITPExpirationDate DATETIME = null,
+	@InsuranceExpirationDate DATETIME = null,
+	@TachographExpirationDate DATETIME = null,
+	@VignetteExpirationDateUK DATETIME = null,
+	@VignetteExpirationDateNL DATETIME = null,
+	@ConformCopyExpirationDate DATETIME = null
 AS
 BEGIN
 	IF(@IsNew = 1)

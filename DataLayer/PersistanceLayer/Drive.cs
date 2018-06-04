@@ -29,23 +29,23 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string InitialGPSKMString { get; set; }
         [DataMember]
-        public decimal FinalGPSKM { get; set; }
+        public decimal? FinalGPSKM { get; set; }
         [DataMember]
         public string FinalGPSKMString { get; set; }
         [DataMember]
-        public decimal DistanceGPS { get; set; }
+        public decimal? DistanceGPS { get; set; }
         [DataMember]
         public string DistanceGPSString { get; set; }
         [DataMember]
-        public decimal DistanceGpl { get; set; }
+        public decimal? DistanceGpl { get; set; }
         [DataMember]
         public string DistanceGplString { get; set; }
         [DataMember]
-        public decimal DistanceDFDS { get; set; }
+        public decimal? DistanceDFDS { get; set; }
         [DataMember]
         public string DistanceDFDSString { get; set; }
         [DataMember]
-        public decimal Difference { get; set; }
+        public decimal? Difference { get; set; }
         [DataMember]
         public string DifferenceString { get; set; }
         [DataMember]
@@ -55,21 +55,21 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string WeightInTonsString { get; set; }
         [DataMember]
-        public decimal WorkerCosts { get; set; }
+        public decimal? WorkerCosts { get; set; }
         [DataMember]
         public string WorkerCostsString { get; set; }
         [DataMember]
         public string CostsSpecification { get; set; }
         [DataMember]
-        public decimal PayedCosts { get; set; }
+        public decimal? PayedCosts { get; set; }
         [DataMember]
         public string PayedCostsString { get; set; }
         [DataMember]
-        public decimal SettlementCosts { get; set; }
+        public decimal? SettlementCosts { get; set; }
         [DataMember]
         public string SettlementCostsString { get; set; }
         [DataMember]
-        public decimal TotalPayments { get; set; }
+        public decimal? TotalPayments { get; set; }
         [DataMember]
         public string TotalPaymentsString { get; set; }
         [DataMember]
@@ -77,11 +77,11 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string GPSInitialConsumptionString { get; set; }
         [DataMember]
-        public decimal GPSFinalConsumption { get; set; }
+        public decimal? GPSFinalConsumption { get; set; }
         [DataMember]
         public string GPSFinalConsumptionString { get; set; }
         [DataMember]
-        public decimal GPSConsumption { get; set; }
+        public decimal? GPSConsumption { get; set; }
         [DataMember]
         public string GPSConsumptionString { get; set; }
         [DataMember]
@@ -89,27 +89,27 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string EstimatedConsumptionString { get; set; }
         [DataMember]
-        public decimal FueledKM { get; set; }
+        public decimal? FueledKM { get; set; }
         [DataMember]
         public string FueledKMString { get; set; }
         [DataMember]
-        public decimal FueledDieseKMLiters { get; set; }
+        public decimal? FueledDieseKMLiters { get; set; }
         [DataMember]
         public string FueledDieseKMLitersString { get; set; }
         [DataMember]
-        public decimal DieselValue { get; set; }
+        public decimal? DieselValue { get; set; }
         [DataMember]
         public string DieselValueString { get; set; }
         [DataMember]
-        public decimal RealConsumption { get; set; }
+        public decimal? RealConsumption { get; set; }
         [DataMember]
         public string RealConsumptionString { get; set; }
         [DataMember]
-        public decimal AdblueLiters { get; set; }
+        public decimal? AdblueLiters { get; set; }
         [DataMember]
         public string AdblueLitersString { get; set; }
         [DataMember]
-        public decimal AdblueValue { get; set; }
+        public decimal? AdblueValue { get; set; }
         [DataMember]
         public string AdblueValueString { get; set; }
         [DataMember]
