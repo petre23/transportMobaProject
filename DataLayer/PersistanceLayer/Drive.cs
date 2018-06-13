@@ -15,12 +15,14 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public DateTime Date { get; set; }
         [DataMember]
+        [System.ComponentModel.DisplayName("Data")]
         public string DateString { get { return Date.ToString("dd/MM/yyyy"); } }
         [DataMember]
         public string Vlaplan { get; set; }
         [DataMember]
         public string Vlaref { get; set; }
         [DataMember]
+        [System.ComponentModel.DisplayName("Loc Incarcare")]
         public string LoadingPlace { get; set; }
         [DataMember]
         public string Destination { get; set; }

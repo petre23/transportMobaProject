@@ -11,7 +11,7 @@ namespace DataLayer.Repository
 {
     public class DriveRepository: BaseRepository
     {
-        public List<Drive> GetDrives(int pageNumber = 0,int pageSize = 50)
+        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50)
         {
             var totalDrivesCount = GetDrivesTotalCount();
             using (SqlConnection con = new SqlConnection(ConnectionString))

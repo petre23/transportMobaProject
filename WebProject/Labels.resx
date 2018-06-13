@@ -312,4 +312,10 @@
   <data name="Vlarref" xml:space="preserve">
     <value>Vlarref</value>
   </data>
+  <data name="ExportAll" xml:space="preserve">
+    <value>Export curse</value>
+  </data>
+  <data name="ExportWorker" xml:space="preserve">
+    <value>Export curse sofer</value>
+  </data>
 </root>

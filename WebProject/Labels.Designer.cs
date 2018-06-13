@@ -376,6 +376,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export curse.
+        /// </summary>
+        public static string ExportAll {
+            get {
+                return ResourceManager.GetString("ExportAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export curse sofer.
+        /// </summary>
+        public static string ExportWorker {
+            get {
+                return ResourceManager.GetString("ExportWorker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Firma.
         /// </summary>
         public static string Firma {

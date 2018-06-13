@@ -1,27 +1,33 @@
 ﻿
-@{    ViewBag.Title = "Curse";
+@{ ViewBag.Title = "Curse";
 }
-
-<nav class="navbar navbar-inverse nav-bar">
-    <div class="container-fluid">
-        <div class="navbar-header" style="margin-top: 5px;">
-            <a class="navbar-brand nav-bar-text" href="#">@ViewBag.Title</a>
-        </div>
-        <div class="button-group right-side" style="margin-top: 5px;">
-            <div class="btn-group">
-                <button class="btn btn-success" id="addDriveButton" onclick="driveController.addNewDrive();"><span class="glyphicon glyphicon glyphicon-plus"></span> @Resources.Labels.Adauga</button>
-                <button class="btn btn-success" id="editDriveButton" disabled onclick="driveController.editDrive();"><span class="glyphicon glyphicon glyphicon-edit"></span> @Resources.Labels.Editeaza</button>
-                <button class="btn btn-danger" id="deleteDriveButton" disabled onclick="driveController.deleteDrive();"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Sterge</button>
+    <nav class="navbar navbar-inverse nav-bar">
+        <div class="container-fluid">
+            <div class="navbar-header" style="margin-top: 5px;">
+                <a class="navbar-brand nav-bar-text" href="#">@ViewBag.Title</a>
             </div>
-            <button class="btn btn-primary" style="margin-right:10px;"><span class="glyphicon glyphicon-log-out"> @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration" })  </span></button>
+            <div class="button-group right-side" style="margin-top: 5px;">
+                <div class="btn-group">
+                    <button class="btn btn-success" id="addDriveButton" onclick="driveController.addNewDrive();"><span class="glyphicon glyphicon glyphicon-plus"></span> @Resources.Labels.Adauga</button>
+                    <button class="btn btn-success" id="editDriveButton" disabled onclick="driveController.editDrive();"><span class="glyphicon glyphicon glyphicon-edit"></span> @Resources.Labels.Editeaza</button>
+                    <button class="btn btn-danger" id="deleteDriveButton" disabled onclick="driveController.deleteDrive();"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Sterge</button>
+                </div>
+                <button class="btn btn-primary" style="margin-right:10px;"><span class="glyphicon glyphicon-log-out"> @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration" })  </span></button>
+            </div>
         </div>
-
+    </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="button-group">
+                <div class="btn-group" style="display:inline-flex;padding-bottom:7px;">
+                    @using (Html.BeginForm("ExportToExcel", "Drive", FormMethod.Post))
+                    {
+                    <button class="btn btn-default" id="exportToExcel" type="submit"><i class="fas fa-file-excel"></i> @Resources.Labels.ExportAll</button>
+                    }
+                    <button class="btn btn-default" id="exportWorkerToExcel" type="submit"><i class="fas fa-file-excel"></i> @Resources.Labels.ExportWorker</button>
+                </div>
+            </div>
+            <div id="driveGrid"></div>
+        </div>
     </div>
-</nav>
-<div class="row">
-    <div class="col-md-12">
-        <div id="driveGrid"></div>
-    </div>
-</div>
-
-<script src="~/Scripts/Pages/driveController.js"></script>
+    <script src="~/Scripts/Pages/driveController.js"></script>
