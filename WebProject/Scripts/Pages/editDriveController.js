@@ -46,7 +46,7 @@
         $("#KMGpsInitiali").val(drive.InitialGPSKM);
         $("#KMGpsFinal").val(drive.FinalGPSKM);
         $("#KMGps").val(drive.DistanceGPS);
-        $("#KMGpl").val(drive.DistanceGpl);
+        $("#KMGgl").val(drive.DistanceGgl);
         $("#KMDFSD").val(drive.DistanceDFDS);
         $("#difference").val(drive.Difference);
         $("#reason").val(drive.Reason);
@@ -56,16 +56,6 @@
         $("#payedCosts").val(drive.PayedCosts);
         $("#settlementCosts").val(drive.SettlementCosts);
         $("#totalCosts").val(drive.TotalPayments);
-        $("#GPSInitialConsumption").val(drive.GPSInitialConsumption);
-        $("#GPSFinalConsumption").val(drive.GPSFinalConsumption);
-        $("#GPSConsumption").val(drive.GPSConsumption);
-        $("#etimatedConsumption").val(drive.EstimatedConsumption);
-        $("#FueledKM").val(drive.FueledKM);
-        $("#fueledDieseEWLiters").val(drive.FueledDieseKMLiters);
-        $("#dieselValue").val(drive.DieselValue);
-        $("#realConsumption").val(drive.RealConsumption);
-        $("#adblueLiters").val(drive.AdblueLiters);
-        $("#adblueValue").val(drive.AdblueValue);
     },
     getCorrectDateFormat: function (dateString) {
         var parts = dateString.split("/");
@@ -96,7 +86,7 @@
         $("#KMGpsInitiali").val("");
         $("#KMGpsFinal").val("");
         $("#KMGps").val("");
-        $("#KMGpl").val("");
+        $("#KMGgl").val("");
         $("#KMDFSD").val("");
         $("#difference").val("");
         $("#reason").val("");
@@ -106,16 +96,6 @@
         $("#payedCosts").val("");
         $("#settlementCosts").val("");
         $("#totalCosts").val("");
-        $("#GPSInitialConsumption").val("");
-        $("#GPSFinalConsumption").val("");
-        $("#GPSConsumption").val("");
-        $("#etimatedConsumption").val("");
-        $("#FueledKM").val("");
-        $("#fueledDieseEWLiters").val("");
-        $("#dieselValue").val("");
-        $("#realConsumption").val("");
-        $("#adblueLiters").val("");
-        $("#adblueValue").val("");
     },
     initDrive: function () {
         var url = new URL(window.location.href);
@@ -165,7 +145,7 @@
             InitialGPSKMString: $("#KMGpsInitiali").val(),
             FinalGPSKMString: $("#KMGpsFinal").val(),
             DistanceGPSString: $("#KMGps").val(),
-            DistanceGplString: $("#KMGpl").val(),
+            DistanceGglString: $("#KMGgl").val(),
             DistanceDFDSString: $("#KMDFSD").val(),
             DifferenceString: $("#difference").val(),
             Reason: $("#reason").val(),
@@ -175,16 +155,6 @@
             PayedCostsString: $("#payedCosts").val(),
             SettlementCostsString: $("#settlementCosts").val(),
             TotalPaymentsString: $("#totalCosts").val(),
-            GPSInitialConsumptionString: $("#GPSInitialConsumption").val(),
-            GPSFinalConsumptionString: $("#GPSFinalConsumption").val(),
-            GPSConsumptionString: $("#GPSConsumption").val(),
-            EstimatedConsumptionString: $("#etimatedConsumption").val(),
-            FueledKMString: $("#FueledKM").val(),
-            FueledDieseKMLitersString: $("#fueledDieseEWLiters").val(),
-            DieselValueString: $("#dieselValue").val(),
-            RealConsumptionString: $("#realConsumption").val(),
-            AdblueLitersString: $("#adblueLiters").val(),
-            AdblueValueString: $("#adblueValue").val(),
         };
         this.saveDrive(driveInfo);
     },

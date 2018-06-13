@@ -262,13 +262,13 @@
     <value>Diferenta</value>
   </data>
   <data name="KMAlimentati" xml:space="preserve">
-    <value>KM alimentati</value>
+    <value>Km la alimentare</value>
   </data>
   <data name="KMDFSD" xml:space="preserve">
     <value>KMDFSD</value>
   </data>
-  <data name="KMGpl" xml:space="preserve">
-    <value>KM Gpl</value>
+  <data name="KMGgl" xml:space="preserve">
+    <value>KM Ggl</value>
   </data>
   <data name="KMGps" xml:space="preserve">
     <value>KM GPS</value>

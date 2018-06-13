@@ -1,0 +1,27 @@
+﻿
+@{ ViewBag.Title = "Consum si Alimentari";
+}
+
+<nav class="navbar navbar-inverse nav-bar">
+    <div class="container-fluid">
+        <div class="navbar-header" style="margin-top: 5px;">
+            <a class="navbar-brand nav-bar-text" href="#">@ViewBag.Title</a>
+        </div>
+        <div class="button-group right-side" style="margin-top: 5px;">
+            <div class="btn-group">
+                <button class="btn btn-success" id="addFuelButton" onclick="fuelController.addNewFuel();"><span class="glyphicon glyphicon glyphicon-plus"></span> @Resources.Labels.Adauga</button>
+                <button class="btn btn-success" id="editFuelButton" disabled onclick="fuelController.editFuel();"><span class="glyphicon glyphicon glyphicon-edit"></span> @Resources.Labels.Editeaza</button>
+                <button class="btn btn-danger" id="deleteFuelButton" disabled onclick="fuelController.deleteFuel();"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Sterge</button>
+            </div>
+            <button class="btn btn-primary" style="margin-right:10px;"><span class="glyphicon glyphicon-log-out"> @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration" })  </span></button>
+        </div>
+
+    </div>
+</nav>
+<div class="row">
+    <div class="col-md-12">
+        <div id="fuelGrid"></div>
+    </div>
+</div>
+
+<script src="~/Scripts/Pages/fuelController.js"></script>

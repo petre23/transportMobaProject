@@ -421,7 +421,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KM alimentati.
+        ///   Looks up a localized string similar to Km la alimentare.
         /// </summary>
         public static string KMAlimentati {
             get {
@@ -439,11 +439,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KM Gpl.
+        ///   Looks up a localized string similar to KM Ggl.
         /// </summary>
-        public static string KMGpl {
+        public static string KMGgl {
             get {
-                return ResourceManager.GetString("KMGpl", resourceCulture);
+                return ResourceManager.GetString("KMGgl", resourceCulture);
             }
         }
         

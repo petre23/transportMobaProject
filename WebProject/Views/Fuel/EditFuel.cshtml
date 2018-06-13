@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "Editare Consum si Alimentari";
+}
+<script src="~/Scripts/Pages/editFuelController.js"></script>
+
+<div class="row">
+    <div class="col-md-12">
+        <nav class="navbar navbar-inverse nav-bar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a id="headerLabel" class="navbar-brand nav-bar-text" href="#"></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<form name="saveFuel" id="saveFuel" class="edit-panel" onsubmit="editFuelController.validateAndSaveFuel();">
+
+    <div class="consumptionDetails">
+        <h3 class="details-header">@Resources.Labels.ConsumAndAlimentari</h3>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumGPSInitial</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSInitial" step="0.01" id="GPSInitialConsumption" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumGPSFinal</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSFinal" step="0.01" id="GPSFinalConsumption" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumGPS</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPS" step="0.01" id="GPSConsumption" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumEstimat</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="etimatedConsumption" type="number" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMAlimentati</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMAlimentati" step="0.01" id="FueledKM" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.AlimentareDieselEWlitrii</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.AlimentareDieselEWlitrii" step="0.01" id="fueledDieseEWLiters" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ValoareDiesel</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ValoareDiesel" step="0.01" id="dieselValue" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ConsumReal</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumReal" step="0.01" id="realConsumption" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.AdblueLitri</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" step="0.01" id="adblueLiters" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.ValoareAdblue</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" step="0.01" id="adblueValue" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
