@@ -72,5 +72,17 @@ namespace DataAccessLayer
 
         [OperationContract]
         void DeleteUser(Guid userId);
+
+        [OperationContract]
+        Fuel GetFuelById(Guid fuelId);
+
+        [OperationContract]
+        List<Fuel> GetFuelInfo();
+
+        [OperationContract]
+        Guid SaveFuel(Fuel fuel);
+
+        [OperationContract]
+        void DeleteFuel(Guid fuelId);
     }
 }

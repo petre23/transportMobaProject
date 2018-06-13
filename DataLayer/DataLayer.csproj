@@ -45,6 +45,7 @@
     <Compile Include="PersistanceLayer\Brand.cs" />
     <Compile Include="PersistanceLayer\Commons.cs" />
     <Compile Include="PersistanceLayer\Employer.cs" />
+    <Compile Include="PersistanceLayer\Fuel.cs" />
     <Compile Include="PersistanceLayer\Notification.cs" />
     <Compile Include="PersistanceLayer\User.cs" />
     <Compile Include="PersistanceLayer\Worker.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\BrandRepository.cs" />
     <Compile Include="Repository\EmployerRepository.cs" />
+    <Compile Include="Repository\FuelRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\WorkerRepository.cs" />
     <Compile Include="Repository\DriveRepository.cs" />

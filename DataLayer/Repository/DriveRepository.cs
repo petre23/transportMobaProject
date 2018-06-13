@@ -29,27 +29,17 @@ namespace DataLayer.Repository
                         var drive = new Drive()
                         {
                             Id = Guid.Parse(reader["Id"].ToString()),
-                            AdblueLiters = Convert.ToDecimal(reader["AdblueLiters"].ToString()),
-                            AdblueValue = Convert.ToDecimal(reader["AdblueValue"].ToString()),
                             CostsSpecification = reader["CostsSpecification"].ToString(),
                             Date = Convert.ToDateTime(reader["Date"].ToString()),
                             Destination = reader["Destination"].ToString(),
-                            DieselValue = Convert.ToDecimal(reader["DieselValue"].ToString()),
                             Difference = Convert.ToDecimal(reader["Difference"].ToString()),
                             DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString()),
                             DistanceGpl = Convert.ToDecimal(reader["DistanceGpl"].ToString()),
                             DistanceGPS = Convert.ToDecimal(reader["DistanceGPS"].ToString()),
-                            EstimatedConsumption = Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
                             FinalGPSKM = Convert.ToDecimal(reader["FinalGPSKM"].ToString()),
-                            FueledDieseKMLiters = Convert.ToDecimal(reader["FueledDieseKMLiters"].ToString()),
-                            FueledKM = Convert.ToDecimal(reader["FueledKM"].ToString()),
-                            GPSConsumption = Convert.ToDecimal(reader["GPSConsumption"].ToString()),
-                            GPSFinalConsumption = Convert.ToDecimal(reader["GPSFinalConsumption"].ToString()),
-                            GPSInitialConsumption = Convert.ToDecimal(reader["GPSInitialConsumption"].ToString()),
                             InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),
                             LoadingPlace = reader["LoadingPlace"].ToString(),
                             PayedCosts = Convert.ToDecimal(reader["PayedCosts"].ToString()),
-                            RealConsumption = Convert.ToDecimal(reader["RealConsumption"].ToString()),
                             Reason = reader["Reason"].ToString(),
                             SettlementCosts = Convert.ToDecimal(reader["SettlementCosts"].ToString()),
                             TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),
@@ -86,26 +76,16 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@IsNew", isNew);
                     cmd.Parameters.AddWithValue("@Id", drive.Id);
                     cmd.Parameters.AddWithValue("@LastUpdateByUser", drive.LastUpdateByUser);
-                    cmd.Parameters.AddWithValue("@AdblueLiters", drive.AdblueLiters);
-                    cmd.Parameters.AddWithValue("@AdblueValue", drive.AdblueValue);
                     cmd.Parameters.AddWithValue("@Date", drive.Date);
                     cmd.Parameters.AddWithValue("@Destination", drive.Destination);
-                    cmd.Parameters.AddWithValue("@DieselValue", drive.DieselValue);
                     cmd.Parameters.AddWithValue("@Difference", drive.Difference);
                     cmd.Parameters.AddWithValue("@DistanceDFDS", drive.DistanceDFDS);
                     cmd.Parameters.AddWithValue("@DistanceGpl", drive.DistanceGpl);
                     cmd.Parameters.AddWithValue("@DistanceGPS", drive.DistanceGPS);
-                    cmd.Parameters.AddWithValue("@EstimatedConsumption", drive.EstimatedConsumption);
                     cmd.Parameters.AddWithValue("@FinalGPSKM", drive.FinalGPSKM);
-                    cmd.Parameters.AddWithValue("@FueledDieseKMLiters", drive.FueledDieseKMLiters);
-                    cmd.Parameters.AddWithValue("@FueledKM", drive.FueledKM);
-                    cmd.Parameters.AddWithValue("@GPSConsumption", drive.GPSConsumption);
-                    cmd.Parameters.AddWithValue("@GPSFinalConsumption", drive.GPSFinalConsumption);
-                    cmd.Parameters.AddWithValue("@GPSInitialConsumption", drive.GPSInitialConsumption);
                     cmd.Parameters.AddWithValue("@InitialGPSKM", drive.InitialGPSKM);
                     cmd.Parameters.AddWithValue("@LoadingPlace", drive.LoadingPlace);
                     cmd.Parameters.AddWithValue("@PayedCosts", drive.PayedCosts);
-                    cmd.Parameters.AddWithValue("@RealConsumption", drive.RealConsumption);
                     cmd.Parameters.AddWithValue("@Reason", drive.Reason);
                     cmd.Parameters.AddWithValue("@SettlementCosts", drive.SettlementCosts);
                     cmd.Parameters.AddWithValue("@TotalPayments", drive.TotalPayments);
@@ -141,27 +121,17 @@ namespace DataLayer.Repository
                         var drive = new Drive()
                         {
                             Id = Guid.Parse(reader["Id"].ToString()),
-                            AdblueLiters = Convert.ToDecimal(reader["AdblueLiters"].ToString()),
-                            AdblueValue = Convert.ToDecimal(reader["AdblueValue"].ToString()),
                             CostsSpecification = reader["CostsSpecification"].ToString(),
                             Date = Convert.ToDateTime(reader["Date"].ToString()),
                             Destination = reader["Destination"].ToString(),
-                            DieselValue = Convert.ToDecimal(reader["DieselValue"].ToString()),
                             Difference = Convert.ToDecimal(reader["Difference"].ToString()),
                             DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString()),
                             DistanceGpl = Convert.ToDecimal(reader["DistanceGpl"].ToString()),
                             DistanceGPS = Convert.ToDecimal(reader["DistanceGPS"].ToString()),
-                            EstimatedConsumption = Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
                             FinalGPSKM = Convert.ToDecimal(reader["FinalGPSKM"].ToString()),
-                            FueledDieseKMLiters = Convert.ToDecimal(reader["FueledDieseKMLiters"].ToString()),
-                            FueledKM = Convert.ToDecimal(reader["FueledKM"].ToString()),
-                            GPSConsumption = Convert.ToDecimal(reader["GPSConsumption"].ToString()),
-                            GPSFinalConsumption = Convert.ToDecimal(reader["GPSFinalConsumption"].ToString()),
-                            GPSInitialConsumption = Convert.ToDecimal(reader["GPSInitialConsumption"].ToString()),
                             InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),
                             LoadingPlace = reader["LoadingPlace"].ToString(),
                             PayedCosts = Convert.ToDecimal(reader["PayedCosts"].ToString()),
-                            RealConsumption = Convert.ToDecimal(reader["RealConsumption"].ToString()),
                             Reason = reader["Reason"].ToString(),
                             SettlementCosts = Convert.ToDecimal(reader["SettlementCosts"].ToString()),
                             TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),

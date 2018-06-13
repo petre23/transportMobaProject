@@ -8,9 +8,9 @@ var fuelController =
             $.ajax({
                 type: 'post',
                 dataType: 'json',
-                url: "/Fuel/GetFuel",
+                url: "/Fuel/GetFuelInfo",
                 success: function (res) {
-                    fuelController.initGrid(res.fuel);
+                    fuelController.initGrid(res.fuelData);
                 },
                 error: function (jqXHR, textStatus, exception, errorThrown) {
                     $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
@@ -19,8 +19,8 @@ var fuelController =
             });
         },
         initGrid: function (fuel) {
-            $("#editButton").prop('disabled', true);
-            $("#deleteButton").prop('disabled', true);
+            $("#editFuelButton").prop('disabled', true);
+            $("#deleteFuelButton").prop('disabled', true);
 
             $("#fuelGrid").jsGrid({
                 width: "100%",
@@ -37,21 +37,24 @@ var fuelController =
 
                     fuelController.selectedFuel = args.item.Id;
 
-                    $("#editButton").prop('disabled', false);
-                    $("#deleteButton").prop('disabled', false);
+                    $("#editFuelButton").prop('disabled', false);
+                    $("#deleteFuelButton").prop('disabled', false);
                 },
                 data: fuel,
                 fields: [
                     { name: "Id", title: 'Id', type: "text", css: "hide" },
-                    { name: "ConsumGPSInitial", title: 'Consum GPS Initial', type: "text", width: 80 },
-                    { name: "ConsumGPSFinal", title: 'Consum GPS Final', type: "text", width: 80 },
-                    { name: "ConsumGPS", title: 'Consum GPS', type: "text", width: 60 },
-                    { name: "KMAlimentati", title: 'Km la Alimentare', type: "text", width: 80 },
-                    { name: "AlimentareDieselEWlitrii", title: 'Alimentare Diesel EW litrii', type: "text", width: 100 },
-                    { name: "ValoareDiesel", title: 'Valoare Diesel', type: "text", width: 100 },
-                    { name: "ConsumReal", title: 'Consum Real', type: "text", width: 100 },
-                    { name: "AdblueLitri", title: 'Adblue Litri', type: "text", width: 100 },
-                    { name: "ValoareAdblue", title: 'Valoare Adblue', type: "text", width: 100 },
+                    { name: "WorkerName", title: 'Sofer', type: "text", width: 80 },
+                    { name: "DateString", title: 'Data', type: "text", width: 80},
+                    { name: "GPSInitialConsumption", title: 'Consum GPS Initial', type: "text", width: 80 },
+                    { name: "GPSFinalConsumption", title: 'Consum GPS Final', type: "text", width: 80 },
+                    { name: "GPSConsumption", title: 'Consum GPS', type: "text", width: 60 },
+                    { name: "FueledKM", title: 'Km la Alimentare', type: "text", width: 80 },
+                    { name: "FueledDieseKMLitersString", title: 'Alimentare Diesel EW litrii', type: "text", width: 100 },
+                    { name: "DieselValue", title: 'Valoare Diesel', type: "text", width: 100 },
+                    { name: "RealConsumption", title: 'Consum Real', type: "text", width: 100 },
+                    { name: "AdblueLiters", title: 'Adblue Litri', type: "text", width: 100 },
+                    { name: "AdblueValue", title: 'Valoare Adblue', type: "text", width: 100 },
+                    { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 100 }
                 ]
             });
         },

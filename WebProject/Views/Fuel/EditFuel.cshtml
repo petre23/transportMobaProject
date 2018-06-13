@@ -27,6 +27,40 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
+                                    <label>@Resources.Labels.Sofer</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control" placeholder="@Resources.Labels.Sofer" id="worker" required>
+                                        <option selected disabled hidden style='display: none' value=''></option>
+                                        @foreach (var worker in ViewBag.WorkersForDropDown)
+                                        {
+                                            <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Data</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="date" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label>@Resources.Labels.ConsumGPSInitial</label>
                                 </div>
                                 <div class="col-md-6">
@@ -171,5 +205,14 @@
             </div>
         </div>
     </div>
+    <nav class="navbar navbar navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="btn-group right-side">
+                <button type="submit" id="btnSaveFuel" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> @Resources.Labels.Salvare</button>
+                <button type="button" onclick="editFuelController.cancelEdit();" id="btnCancelSaveFuel" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Anulare</button>
+            </div>
+        </div>
+    </nav>
+</form>
 
-    </form>
+<script src="~/Scripts/Pages/editFuelController.js"></script>

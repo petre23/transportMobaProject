@@ -19,9 +19,9 @@
         $.ajax({
             type: 'post',
             dataType: 'json',
-            url: "/Fuel/GetFuel",
+            url: "/Fuel/GetFuelById",
             data: {
-                idFuel: this.getParameterByName("fuelId", new URL(window.location.href)),
+                fuelId: this.getParameterByName("fuelId", new URL(window.location.href)),
             },
             success: function (res) {
                 editFuelController.fuelId = res.fuel.Id;
@@ -46,6 +46,8 @@
         $("#realConsumption").val(fuel.RealConsumption);
         $("#adblueLiters").val(fuel.AdblueLiters);
         $("#adblueValue").val(fuel.AdblueValue);
+        $("#worker").val(fuel.Worker);
+        $("#date").val(fuel.DateString);
     },
     getCorrectDateFormat: function (dateString) {
         var parts = dateString.split("/");
@@ -67,6 +69,8 @@
         $("#realConsumption").val("");
         $("#adblueLiters").val("");
         $("#adblueValue").val("");
+        $("#worker").val("");
+        $("#date").val("");
     },
     initFuel: function () {
         var url = new URL(window.location.href);
@@ -88,6 +92,8 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     },
     initControls: function () {
+        $("#date").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+
         $("#saveFuel").on("submit", function () {
             return false;
         });
@@ -110,6 +116,8 @@
             RealConsumptionString: $("#realConsumption").val(),
             AdblueLitersString: $("#adblueLiters").val(),
             AdblueValueString: $("#adblueValue").val(),
+            Worker: $("#worker").val(),
+            Date: $("#date").val(),
         };
         this.saveFuel(fuelInfo);
     },

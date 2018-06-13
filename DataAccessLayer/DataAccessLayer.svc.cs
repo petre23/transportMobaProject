@@ -19,6 +19,7 @@ namespace DataAccessLayer
         DriveBL _driveLogic;
         UserBL _userLogic;
         NotificationBL _notificationLogic;
+        FuelBL _fuelLogic;
 
         public DataAccessLayer()
         {
@@ -27,6 +28,7 @@ namespace DataAccessLayer
             _driveLogic = new DriveBL();
             _userLogic = new UserBL();
             _notificationLogic = new NotificationBL();
+            _fuelLogic = new FuelBL();
         }
 
         public List<Worker> GetWorkers()
@@ -127,6 +129,26 @@ namespace DataAccessLayer
         public void DeleteUser(Guid userId)
         {
             _userLogic.DeleteUser(userId);
+        }
+
+        public Fuel GetFuelById(Guid fuelId)
+        {
+            return _fuelLogic.GetFuelInfoById(fuelId);
+        }
+
+        public List<Fuel> GetFuelInfo()
+        {
+            return _fuelLogic.GetFuelInfo();
+        }
+
+        public Guid SaveFuel(Fuel fuel)
+        {
+            return _fuelLogic.SaveFuelInfo(fuel);
+        }
+
+        public void DeleteFuel(Guid fuelId)
+        {
+            _fuelLogic.DeleteFuel(fuelId);
         }
     }
 }

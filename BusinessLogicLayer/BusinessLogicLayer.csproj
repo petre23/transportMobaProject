@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\DriveHelper.cs" />
+    <Compile Include="Helpers\FuelHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Helpers\NotificationHelper.cs" />
     <Compile Include="Helpers\NotificationWarnnings.Designer.cs">
@@ -49,6 +50,7 @@
       <DependentUpon>NotificationWarnnings.resx</DependentUpon>
     </Compile>
     <Compile Include="Logic\DriveBL.cs" />
+    <Compile Include="Logic\FuelBL.cs" />
     <Compile Include="Logic\NotificationBL.cs" />
     <Compile Include="Logic\WorkerBL.cs" />
     <Compile Include="Logic\TruckBL.cs" />

@@ -75,46 +75,6 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string TotalPaymentsString { get; set; }
         [DataMember]
-        public decimal GPSInitialConsumption { get; set; }
-        [DataMember]
-        public string GPSInitialConsumptionString { get; set; }
-        [DataMember]
-        public decimal? GPSFinalConsumption { get; set; }
-        [DataMember]
-        public string GPSFinalConsumptionString { get; set; }
-        [DataMember]
-        public decimal? GPSConsumption { get; set; }
-        [DataMember]
-        public string GPSConsumptionString { get; set; }
-        [DataMember]
-        public decimal EstimatedConsumption { get; set; }
-        [DataMember]
-        public string EstimatedConsumptionString { get; set; }
-        [DataMember]
-        public decimal? FueledKM { get; set; }
-        [DataMember]
-        public string FueledKMString { get; set; }
-        [DataMember]
-        public decimal? FueledDieseKMLiters { get; set; }
-        [DataMember]
-        public string FueledDieseKMLitersString { get; set; }
-        [DataMember]
-        public decimal? DieselValue { get; set; }
-        [DataMember]
-        public string DieselValueString { get; set; }
-        [DataMember]
-        public decimal? RealConsumption { get; set; }
-        [DataMember]
-        public string RealConsumptionString { get; set; }
-        [DataMember]
-        public decimal? AdblueLiters { get; set; }
-        [DataMember]
-        public string AdblueLitersString { get; set; }
-        [DataMember]
-        public decimal? AdblueValue { get; set; }
-        [DataMember]
-        public string AdblueValueString { get; set; }
-        [DataMember]
         public Guid LastUpdateByUser { get; set; }
         [DataMember]
         public string LastUpdateByUserName { get; set; }
