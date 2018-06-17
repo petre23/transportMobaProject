@@ -219,7 +219,7 @@
                                     <label>@Resources.Labels.Remorca</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="trail" placeholder="@Resources.Labels.Remorca" step="0.01" type="number" required />
+                                    <input class="form-control" id="trailer" placeholder="@Resources.Labels.Remorca" step="0.01" type="text" required />
                                 </div>
                             </div>
                         </div>
@@ -279,7 +279,7 @@
                                     <label>@Resources.Labels.StareCursa</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" placeholder="@Resources.Labels.StareCursa" onchange="editDriveController.setTruckForWorker();" id="driver" required>
+                                    <select class="form-control" placeholder="@Resources.Labels.StareCursa" onchange="editDriveController.setTruckForWorker();" id="driver">
                                         <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var worker in ViewBag.WorkersForDropDown)
                                         {

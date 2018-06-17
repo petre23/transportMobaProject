@@ -31,6 +31,7 @@
                 },
                 controller: {
                     loadData: function (filter) {
+                        filter.searchText = $("#searchText").val();
                         var deferred = $.Deferred();
                         $.ajax({
                             type: "post",
@@ -53,6 +54,8 @@
                     { name: "Id", title: 'Id', type: "text", css: "hide" },
                     { name: "WorkerName", title: 'Sofer', type: "text", width: 200 },
                     { name: "TruckRegistrationNumber", title: 'Camion', type: "text", width: 200 },
+                    { name: "Trailer", title: 'Remorca', type: "text", width: 200 },
+                    { name: "Status", title: 'DriveStatus', type: "text", width: 200 },
                     { name: "DateString", title: 'Data', type: "text", width: 150 },
                     { name: "Vlaplan", title: 'Vlaplan', type: "text", width: 150 },
                     { name: "Vlaref", title: 'Vlaref', type: "text", width: 100 },
@@ -66,11 +69,15 @@
                     { name: "KMDFSD", title: 'KMDFSD', type: "text", width: 100 },
                     { name: "Difference", title: 'Diferenta', type: "text", width: 100 },
                     { name: "Reason", title: 'Motiv', type: "text", width: 200 },
-                    { name: "WorkerCosts", title: 'Cheltuieli Sofer', type: "text", width: 100 },
+                    { name: "WorkerCosts", title: 'Cheltuieli Sofer €', type: "text", width: 100 },
+                    { name: "WorkerCostsPounds", title: 'Cheltuieli Sofer £', type: "text", width: 100 },
                     { name: "CostsSpecifications", title: 'Specificatie cheltuieli', type: "text", width: 200 },
-                    { name: "PayedCosts", title: 'Cheltuieli platite', type: "text", width: 100 },
-                    { name: "SettlementCosts", title: 'Cheltuieli de decontat', type: "text", width: 100 },
-                    { name: "TotalCosts", title: 'Total Plati', type: "text", width: 100 }, 
+                    { name: "PayedCosts", title: 'Cheltuieli platite €', type: "text", width: 100 },
+                    { name: "PayedCostsPounds", title: 'Cheltuieli platite £', type: "text", width: 100 },
+                    { name: "SettlementCosts", title: 'Cheltuieli de decontat €', type: "text", width: 100 },
+                    { name: "SettlementCostsPounds", title: 'Cheltuieli de decontat £', type: "text", width: 100 },
+                    { name: "TotalCosts", title: 'Total Plati €', type: "text", width: 100 }, 
+                    { name: "TotalCostsPounds", title: 'Total Plati £', type: "text", width: 100 }, 
                     { name: "LastUpdateByUserName", title: 'Modificat de', type: "text", width: 200 }
 
                 ]
@@ -109,6 +116,16 @@
             } else {
                 return false;
             }
+        },
+        initExportControls: function ()
+        {
+            $("#startDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+            $("#endDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+        },
+        initDrivePage: function ()
+        {
+            this.initGrid();
+            this.initExportControls();
         }
     };
-driveController.initGrid();
+driveController.initDrivePage();

@@ -81,9 +81,9 @@ namespace DataAccessLayer
             return _truckLogic.GetTrucksForDropDown();
         }
 
-        public List<Drive> GetDrives(int pageSize = 0, int pageNumber = 50)
+        public List<Drive> GetDrives(int pageSize = 0, int pageNumber = 50, string searchText = null)
         {
-            return _driveLogic.GetDrives(pageSize,pageNumber);
+            return _driveLogic.GetDrives(pageSize,pageNumber, searchText);
         }
 
         public Guid SaveDrive(Drive drive)
@@ -154,6 +154,11 @@ namespace DataAccessLayer
         public List<Drive> GetDrivesForWorkerByDateInterval(Guid workerId, DateTime startDate, DateTime endDate)
         {
             return _driveLogic.GetDrivesForWorkerByDateInterval(workerId, startDate, endDate);
+        }
+
+        public List<DriveStatus> GetDriveStatuses()
+        {
+            return _driveLogic.GetDriveStatuses();
         }
     }
 }

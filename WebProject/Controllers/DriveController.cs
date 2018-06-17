@@ -32,11 +32,11 @@ namespace WebProject.Controllers
             return View();
         }
         [AuthorizationAttribute]
-        public ActionResult GetDrives(string pageIndex, string pageSize)
+        public ActionResult GetDrives(string pageIndex, string pageSize,string searchText)
         {
             try
             {
-                return Json(new { drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1) });
+                return Json(new { drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, searchText) });
             }
             catch (Exception ex)
             {
@@ -107,6 +107,8 @@ namespace WebProject.Controllers
                 Response.Output.Write(objStringWriter.ToString());
                 Response.Flush();
                 Response.End();
+
+                ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
                 return View("Index");
             }
             catch (Exception ex)
@@ -134,6 +136,8 @@ namespace WebProject.Controllers
                 Response.Output.Write(objStringWriter.ToString());
                 Response.Flush();
                 Response.End();
+
+                ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
                 return View("Index");
             }
             catch (Exception ex)

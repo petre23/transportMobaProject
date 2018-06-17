@@ -12,9 +12,9 @@ namespace BusinessLogicLayer.Logic
     public class DriveBL
     {
         DriveRepository _driveRepository = new DriveRepository();
-        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50)
+        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50,string searchText = null)
         {
-            return _driveRepository.GetDrives(pageSize,pageNumber);
+            return _driveRepository.GetDrives(pageSize,pageNumber, searchText);
         }
 
         public Guid SaveDrive(Drive drive)
@@ -36,6 +36,11 @@ namespace BusinessLogicLayer.Logic
         public List<Drive> GetDrivesForWorkerByDateInterval(Guid workerId,DateTime startDate,DateTime endDate)
         {
             return _driveRepository.GetDrivesForWorkerByDateInterval(workerId, startDate, endDate);
+        }
+
+        public List<DriveStatus> GetDriveStatuses()
+        {
+            return _driveRepository.GetDriveStatuses();
         }
     }
 }

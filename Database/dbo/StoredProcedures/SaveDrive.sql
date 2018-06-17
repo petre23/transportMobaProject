@@ -21,19 +21,27 @@
 	@WorkerCosts decimal(18,3) = null,
 	@Worker UNIQUEIDENTIFIER,
 	@Truck UNIQUEIDENTIFIER,
-	@LastUpdateByUser UNIQUEIDENTIFIER
+	@LastUpdateByUser UNIQUEIDENTIFIER,
+	@PayedCostsPounds decimal(12,2) = null,
+	@SettlementCostsPounds decimal(12,2) = null,
+	@WorkerCostsPounds decimal(12,2) = null,
+	@TotalPaymentsPounds decimal(12,2) = null,
+	@DriveStatus UNIQUEIDENTIFIER = null,
+	@Trailer NVARCHAR(255)
 AS
 	IF(@IsNew = 1)
 	BEGIN
 		INSERT INTO dbo.Drive(Id,Date,Destination,CostsSpecification,
 							Difference,DistanceDFDS,DistanceGpl,DistanceGPS,
 							FinalGPSKM,InitialGPSKM,LoadingPlace,PayedCosts,Reason,SettlementCosts,TotalPayments,Truck,Vlaplan,
-							Vlaref,WeightInTons,Worker,WorkerCosts,LastUpdateByUser)
+							Vlaref,WeightInTons,Worker,WorkerCosts,LastUpdateByUser,WorkerCostsPounds,PayedCostsPounds,
+							SettlementCostsPounds,TotalPaymentsPounds,Trailer,DriveStatus)
 		VALUES
 		(@Id,@Date,@Destination,@CostsSpecification,
 		@Difference,@DistanceDFDS,@DistanceGpl,@DistanceGPS,
 		@FinalGPSKM,@InitialGPSKM,@LoadingPlace,@PayedCosts,@Reason,@SettlementCosts,@TotalPayments,@Truck,@Vlaplan,
-		@Vlaref,@WeightInTons,@Worker,@WorkerCosts,@LastUpdateByUser)
+		@Vlaref,@WeightInTons,@Worker,@WorkerCosts,@LastUpdateByUser,@WorkerCostsPounds,@PayedCostsPounds
+		,@SettlementCostsPounds,@TotalPaymentsPounds,@Trailer,@DriveStatus)
 	END
 	ELSE
 	BEGIN
@@ -58,6 +66,12 @@ AS
 			WeightInTons = @WeightInTons,
 			WorkerCosts = @WorkerCosts,
 			Worker = @Worker,
-			LastUpdateByUser = @LastUpdateByUser
+			LastUpdateByUser = @LastUpdateByUser,
+			PayedCostsPounds = @PayedCostsPounds,
+			WorkerCostsPounds = @WorkerCostsPounds,
+			SettlementCostsPounds = @SettlementCostsPounds,
+			TotalPaymentsPounds = @TotalPaymentsPounds,
+			Trailer = @Trailer,
+			DriveStatus = @DriveStatus
 			WHERE Id = @Id
 	END

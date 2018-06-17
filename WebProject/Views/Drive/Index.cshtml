@@ -30,9 +30,9 @@
     </div>
     <div class="col-md-6">
         <div class="input-group" style="padding-top:7px;">
-            <input type="text" class="form-control my-search" placeholder="Cauta curse..." style="float:right">
+            <input type="text" id="searchText" class="form-control my-search" placeholder="Cauta curse..." style="float:right">
             <span class="input-group-btn">
-                <button class="btn btn-primary" type="button"><span><i class="glyphicon glyphicon-search"></i></span></button>
+                <button class="btn btn-primary" onclick="driveController.initGrid();" type="button"><span><i class="glyphicon glyphicon-search"></i></span></button>
             </span>
         </div>
     </div>
@@ -58,7 +58,7 @@
                             <label>@Resources.Labels.Sofer</label>
                         </div>
                         <div class="col-md-6">
-                            <select class="form-control" placeholder="@Resources.Labels.Sofer" onchange="editDriveController.setTruckForWorker();" id="worker" name="workerId" required>
+                            <select class="form-control" placeholder="@Resources.Labels.Sofer" id="worker" name="workerId" required>
                                 <option selected disabled hidden style='display: none' value=''></option>
                                 @foreach (var worker in ViewBag.WorkersForDropDown)
                                 {

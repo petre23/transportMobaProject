@@ -44,7 +44,7 @@ namespace DataAccessLayer
         List<Truck> GetTrucksForDropDown();
 
         [OperationContract]
-        List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50);
+        List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50,string searchText = null);
 
         [OperationContract]
         Guid SaveDrive(Drive drive);
@@ -87,5 +87,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         List<Drive> GetDrivesForWorkerByDateInterval(Guid workerId,DateTime startDate,DateTime endDate);
+
+        [OperationContract]
+        List<DriveStatus> GetDriveStatuses();
     }
 }

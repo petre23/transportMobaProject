@@ -52,10 +52,15 @@
         $("#reason").val(drive.Reason);
         $("#tons").val(drive.WeightInTons);
         $("#workerCosts").val(drive.WorkerCosts);
+        $("#workerCostsPounds").val(drive.WorkerCostsPounds);
         $("#costsSpecifications").val(drive.CostsSpecification);
         $("#payedCosts").val(drive.PayedCosts);
+        $("#payedCostsPounds").val(drive.PayedCostsPounds);
         $("#settlementCosts").val(drive.SettlementCosts);
+        $("#settlementCostsPounds").val(drive.SettlementCostsPounds);
         $("#totalCosts").val(drive.TotalPayments);
+        $("#totalCostsPounds").val(drive.TotalPaymentsPounds);
+        $("#trailer").val(drive.Trailer);
     },
     getCorrectDateFormat: function (dateString) {
         var parts = dateString.split("/");
@@ -92,10 +97,15 @@
         $("#reason").val("");
         $("#tons").val("");
         $("#workerCosts").val("");
+        $("#workerCostsPounds").val("");
         $("#costsSpecifications").val("");
         $("#payedCosts").val("");
+        $("#payedCostsPounds").val("");
         $("#settlementCosts").val("");
+        $("#settlementCostsPounds").val("");
         $("#totalCosts").val("");
+        $("#totalCostsPounds").val("");
+        $("#trailer").val("");
     },
     initDrive: function () {
         var url = new URL(window.location.href);
@@ -151,10 +161,15 @@
             Reason: $("#reason").val(),
             WeightInTonsString: $("#tons").val(),
             WorkerCostsString: $("#workerCosts").val(),
+            WorkerCostsPoundsString: $("#workerCostsPounds").val(),
             CostsSpecification: $("#costsSpecifications").val(),
+            PayedCostsPoundsString: $("#payedCostsPounds").val(),
             PayedCostsString: $("#payedCosts").val(),
             SettlementCostsString: $("#settlementCosts").val(),
+            SettlementCostsPoundsString: $("#settlementPoundsCosts").val(),
             TotalPaymentsString: $("#totalCosts").val(),
+            TotalPaymentsPoundsString: $("#totalPoundsCosts").val(),
+            Trailer: $("#trailer").val()
         };
         this.saveDrive(driveInfo);
     },

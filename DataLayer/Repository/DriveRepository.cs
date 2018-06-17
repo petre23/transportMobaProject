@@ -11,7 +11,7 @@ namespace DataLayer.Repository
 {
     public class DriveRepository: BaseRepository
     {
-        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50)
+        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50,string searchText = null)
         {
             var totalDrivesCount = GetDrivesTotalCount();
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -21,6 +21,7 @@ namespace DataLayer.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PageNumber", pageNumber);
                     cmd.Parameters.AddWithValue("@PageSize", pageSize);
+                    cmd.Parameters.AddWithValue("@SearchText", searchText);
                     con.Open();
                     var reader = cmd.ExecuteReader();
                     var drives = new List<Drive>();
@@ -40,20 +41,27 @@ namespace DataLayer.Repository
                             InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),
                             LoadingPlace = reader["LoadingPlace"].ToString(),
                             PayedCosts = Convert.ToDecimal(reader["PayedCosts"].ToString()),
+                            PayedCostsPounds = Convert.ToDecimal(reader["PayedCostsPounds"].ToString()),
                             Reason = reader["Reason"].ToString(),
                             SettlementCosts = Convert.ToDecimal(reader["SettlementCosts"].ToString()),
+                            SettlementCostsPounds = Convert.ToDecimal(reader["SettlementCostsPounds"].ToString()),
                             TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),
+                            TotalPaymentsPounds = Convert.ToDecimal(reader["TotalPaymentsPounds"].ToString()),
                             Truck = Guid.Parse(reader["Truck"].ToString()),
                             Vlaplan = reader["Vlaplan"].ToString(),
                             Vlaref = reader["Vlaref"].ToString(),
                             WeightInTons = Convert.ToDecimal(reader["WeightInTons"].ToString()),
                             Worker = Guid.Parse(reader["Worker"].ToString()),
                             WorkerCosts = Convert.ToDecimal(reader["WorkerCosts"].ToString()),
+                            WorkerCostsPounds = Convert.ToDecimal(reader["WorkerCostsPounds"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             TruckRegistrationNumber = reader["RegistrationNumber"].ToString(),
                             LastUpdateByUserName = reader["LastUpdateByUserName"].ToString(),
-                            TotalRows = totalDrivesCount
+                            Trailer = reader["Trailer"].ToString(),
+                            DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
+                            DriveStatusName = reader["DriveStatusName"].ToString(),
+                            TotalRows = totalDrivesCount,
                         };
                         drives.Add(drive);
                     }
@@ -93,19 +101,25 @@ namespace DataLayer.Repository
                             InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),
                             LoadingPlace = reader["LoadingPlace"].ToString(),
                             PayedCosts = Convert.ToDecimal(reader["PayedCosts"].ToString()),
+                            PayedCostsPounds = Convert.ToDecimal(reader["PayedCostsPounds"].ToString()),
                             Reason = reader["Reason"].ToString(),
                             SettlementCosts = Convert.ToDecimal(reader["SettlementCosts"].ToString()),
+                            SettlementCostsPounds = Convert.ToDecimal(reader["SettlementCostsPounds"].ToString()),
                             TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),
+                            TotalPaymentsPounds = Convert.ToDecimal(reader["TotalPaymentsPounds"].ToString()),
                             Truck = Guid.Parse(reader["Truck"].ToString()),
                             Vlaplan = reader["Vlaplan"].ToString(),
                             Vlaref = reader["Vlaref"].ToString(),
                             WeightInTons = Convert.ToDecimal(reader["WeightInTons"].ToString()),
                             Worker = Guid.Parse(reader["Worker"].ToString()),
                             WorkerCosts = Convert.ToDecimal(reader["WorkerCosts"].ToString()),
+                            WorkerCostsPounds = Convert.ToDecimal(reader["WorkerCostsPounds"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             TruckRegistrationNumber = reader["RegistrationNumber"].ToString(),
-                            LastUpdateByUserName = reader["LastUpdateByUserName"].ToString(),
+                            Trailer = reader["Trailer"].ToString(),
+                            DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
+                            DriveStatusName = reader["DriveStatusName"].ToString()
                         };
                         drives.Add(drive);
                     }
@@ -148,6 +162,12 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@Worker", drive.Worker);
                     cmd.Parameters.AddWithValue("@WorkerCosts", drive.WorkerCosts);
                     cmd.Parameters.AddWithValue("@CostsSpecification", drive.CostsSpecification);
+                    cmd.Parameters.AddWithValue("@PayedCostsPounds", drive.PayedCostsPounds);
+                    cmd.Parameters.AddWithValue("@SettlementCostsPounds", drive.SettlementCostsPounds);
+                    cmd.Parameters.AddWithValue("@TotalPaymentsPounds", drive.TotalPaymentsPounds);
+                    cmd.Parameters.AddWithValue("@WorkerCostsPounds", drive.WorkerCostsPounds);
+                    cmd.Parameters.AddWithValue("@Trailer", drive.Trailer);
+                    cmd.Parameters.AddWithValue("@DriveStatus", drive.DriveStatus);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -184,18 +204,25 @@ namespace DataLayer.Repository
                             InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),
                             LoadingPlace = reader["LoadingPlace"].ToString(),
                             PayedCosts = Convert.ToDecimal(reader["PayedCosts"].ToString()),
+                            PayedCostsPounds = Convert.ToDecimal(reader["PayedCostsPounds"].ToString()),
                             Reason = reader["Reason"].ToString(),
                             SettlementCosts = Convert.ToDecimal(reader["SettlementCosts"].ToString()),
+                            SettlementCostsPounds = Convert.ToDecimal(reader["SettlementCostsPounds"].ToString()),
                             TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),
+                            TotalPaymentsPounds = Convert.ToDecimal(reader["TotalPaymentsPounds"].ToString()),
                             Truck = Guid.Parse(reader["Truck"].ToString()),
                             Vlaplan = reader["Vlaplan"].ToString(),
                             Vlaref = reader["Vlaref"].ToString(),
                             WeightInTons = Convert.ToDecimal(reader["WeightInTons"].ToString()),
                             Worker = Guid.Parse(reader["Worker"].ToString()),
                             WorkerCosts = Convert.ToDecimal(reader["WorkerCosts"].ToString()),
+                            WorkerCostsPounds = Convert.ToDecimal(reader["WorkerCostsPounds"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             TruckRegistrationNumber = reader["RegistrationNumber"].ToString(),
+                            Trailer = reader["Trailer"].ToString(),
+                            DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
+                            DriveStatusName = reader["DriveStatusName"].ToString()
                         };
                         drives.Add(drive);
                     }
@@ -240,6 +267,31 @@ namespace DataLayer.Repository
             }
 
             return totalDrivesCount;
+        }
+
+        public List<DriveStatus> GetDriveStatuses()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                var driveStatuses = new List<DriveStatus>();
+                using (SqlCommand cmd = new SqlCommand("GetDriveStatuses", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var driveStatus = new DriveStatus()
+                        {
+                            Id = Guid.Parse(reader["Id"].ToString()),
+                            Status = reader["Status"].ToString()
+                        };
+                        driveStatuses.Add(driveStatus);
+                    }
+                    con.Close();
+                }
+                return driveStatuses;
+            }
         }
     }
 }

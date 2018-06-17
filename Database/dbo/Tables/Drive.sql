@@ -17,12 +17,19 @@
 	[Reason] nvarchar(MAX) NULL,
 	[WeightInTons] decimal(12,2) NOT NULL,
 	[WorkerCosts] decimal(18,3) NULL,
+	[WorkerCostsPounds] decimal(18,3) NULL,
 	[CostsSpecification] nvarchar(MAX) NULL,
 	[PayedCosts] decimal(18,3) NULL,
+	[PayedCostsPounds] decimal(18,3) NULL,
 	[SettlementCosts] decimal(18,3) NULL,
+	[SettlementCostsPounds] decimal(18,3) NULL,
 	[TotalPayments] decimal(18,3) NULL,
-	[LastUpdateByUser] UNIQUEIDENTIFIER NOT NULL
+	[TotalPaymentsPounds] decimal(18,3) NULL,
+	[LastUpdateByUser] UNIQUEIDENTIFIER NOT NULL,
+	[Trailer] NVARCHAR(255) NOT NULL,
+	[DriveStatus] UNIQUEIDENTIFIER NULL,
 	CONSTRAINT FK_DRIVE_WORKER FOREIGN KEY (Worker) REFERENCES dbo.Worker (Id),
 	CONSTRAINT FK_DRIVE_Truck FOREIGN KEY (Truck) REFERENCES dbo.Trucks (Id),
-	CONSTRAINT FK_DRIVE_User FOREIGN KEY (LastUpdateByUser) REFERENCES dbo.Users (Id)
+	CONSTRAINT FK_DRIVE_User FOREIGN KEY (LastUpdateByUser) REFERENCES dbo.Users (Id),
+	CONSTRAINT FK_DRIVE_DriveStatus FOREIGN KEY (DriveStatus) REFERENCES dbo.DriveStatus (Id)
 )
