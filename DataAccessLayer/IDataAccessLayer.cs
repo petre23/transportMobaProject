@@ -84,5 +84,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         void DeleteFuel(Guid fuelId);
+
+        [OperationContract]
+        List<Drive> GetDrivesForWorkerByDateInterval(Guid workerId,DateTime startDate,DateTime endDate);
     }
 }

@@ -318,4 +318,19 @@
   <data name="ExportWorker" xml:space="preserve">
     <value>Export curse sofer</value>
   </data>
+  <data name="ExportWorkerSettings" xml:space="preserve">
+    <value>Optiuni export sofer</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Inchide</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Data sfarsit</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Data inceput</value>
+  </data>
+  <data name="GenerateExcel" xml:space="preserve">
+    <value>Descarca excel</value>
+  </data>
 </root>

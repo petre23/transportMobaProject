@@ -64,6 +64,58 @@ namespace DataLayer.Repository
             }
         }
 
+        public List<Drive> GetDrivesForWorkerByDateInterval(Guid workerId,DateTime startDate,DateTime endDate)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetDrivesForWorkerByDateInterval", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@WorkerId", workerId);
+                    cmd.Parameters.AddWithValue("@StartDate", startDate);
+                    cmd.Parameters.AddWithValue("@EndDate", endDate);
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    var drives = new List<Drive>();
+                    while (reader.Read())
+                    {
+                        var drive = new Drive()
+                        {
+                            Id = Guid.Parse(reader["Id"].ToString()),
+                            CostsSpecification = reader["CostsSpecification"].ToString(),
+                            Date = Convert.ToDateTime(reader["Date"].ToString()),
+                            Destination = reader["Destination"].ToString(),
+                            Difference = Convert.ToDecimal(reader["Difference"].ToString()),
+                            DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString()),
+                            DistanceGpl = Convert.ToDecimal(reader["DistanceGpl"].ToString()),
+                            DistanceGPS = Convert.ToDecimal(reader["DistanceGPS"].ToString()),
+                            FinalGPSKM = Convert.ToDecimal(reader["FinalGPSKM"].ToString()),
+                            InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),
+                            LoadingPlace = reader["LoadingPlace"].ToString(),
+                            PayedCosts = Convert.ToDecimal(reader["PayedCosts"].ToString()),
+                            Reason = reader["Reason"].ToString(),
+                            SettlementCosts = Convert.ToDecimal(reader["SettlementCosts"].ToString()),
+                            TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),
+                            Truck = Guid.Parse(reader["Truck"].ToString()),
+                            Vlaplan = reader["Vlaplan"].ToString(),
+                            Vlaref = reader["Vlaref"].ToString(),
+                            WeightInTons = Convert.ToDecimal(reader["WeightInTons"].ToString()),
+                            Worker = Guid.Parse(reader["Worker"].ToString()),
+                            WorkerCosts = Convert.ToDecimal(reader["WorkerCosts"].ToString()),
+                            FirstName = reader["FirstName"].ToString(),
+                            Surname = reader["Surname"].ToString(),
+                            TruckRegistrationNumber = reader["RegistrationNumber"].ToString(),
+                            LastUpdateByUserName = reader["LastUpdateByUserName"].ToString(),
+                        };
+                        drives.Add(drive);
+                    }
+                    con.Close();
+
+                    return drives;
+                }
+            }
+        }
+
         public Guid SaveDrive(Drive drive)
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))

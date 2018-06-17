@@ -15,6 +15,10 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public DateTime Date { get; set; }
         [DataMember]
+        public string WorkerName { get { return string.Format("{0} {1}", FirstName, Surname); } }
+        [DataMember]
+        public string TruckRegistrationNumber { get; set; }
+        [DataMember]
         [System.ComponentModel.DisplayName("Data")]
         public string DateString { get { return Date.ToString("dd/MM/yyyy"); } }
         [DataMember]
@@ -82,10 +86,6 @@ namespace DataLayer.PersistanceLayer
         public string FirstName { get; set; }
         [DataMember]
         public string Surname { get; set; }
-        [DataMember]
-        public string WorkerName { get { return string.Format("{0} {1}", FirstName, Surname); } }
-        [DataMember]
-        public string TruckRegistrationNumber { get; set; }
 
         [DataMember]
         public int TotalRows { get; set; }

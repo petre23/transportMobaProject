@@ -169,6 +169,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inchide.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CNP.
         /// </summary>
         public static string CNP {
@@ -376,6 +385,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data sfarsit.
+        /// </summary>
+        public static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export curse.
         /// </summary>
         public static string ExportAll {
@@ -394,11 +412,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Optiuni export sofer.
+        /// </summary>
+        public static string ExportWorkerSettings {
+            get {
+                return ResourceManager.GetString("ExportWorkerSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Firma.
         /// </summary>
         public static string Firma {
             get {
                 return ResourceManager.GetString("Firma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descarca excel.
+        /// </summary>
+        public static string GenerateExcel {
+            get {
+                return ResourceManager.GetString("GenerateExcel", resourceCulture);
             }
         }
         
@@ -588,6 +624,15 @@ namespace Resources {
         public static string SpecificatieCheltuieli {
             get {
                 return ResourceManager.GetString("SpecificatieCheltuieli", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data inceput.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
             }
         }
         

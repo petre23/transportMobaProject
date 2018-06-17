@@ -97,6 +97,7 @@
     <Build Include="dbo\StoredProcedures\GetFuelInfoById.sql" />
     <Build Include="dbo\StoredProcedures\SaveFuel.sql" />
     <Build Include="dbo\StoredProcedures\DeleteFuel.sql" />
+    <Build Include="dbo\StoredProcedures\GetDrivesForWorkerByDateInterval.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

@@ -21,6 +21,7 @@ namespace WebProject.Controllers
         [AuthorizationAttribute]
         public ActionResult Index()
         {
+            ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             return View();
         }
         [AuthorizationAttribute]
@@ -93,14 +94,65 @@ namespace WebProject.Controllers
         {
             try
             {
-                var gv = new GridView();
-                gv.DataSource = _dataAccessLayer.GetDrives(9000, 0);
-                gv.DataBind();
+                var gv = AdaptGridViewForExport(_dataAccessLayer.GetDrives(99999, 0));
 
-                gv.HeaderRow.Cells[0].Visible = false;
-                gv.HeaderRow.Cells[1].Visible = false;
-                gv.HeaderRow.Cells[2].Visible = false;
-                gv.HeaderRow.Cells[3].Visible = false;
+                Response.ClearContent();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment; filename=Drives.xls");
+                Response.ContentType = "application/ms-excel";
+                Response.Charset = "";
+                StringWriter objStringWriter = new StringWriter();
+                HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+                gv.RenderControl(objHtmlTextWriter);
+                Response.Output.Write(objStringWriter.ToString());
+                Response.Flush();
+                Response.End();
+                return View("Index");
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
+            }
+        }
+
+        [AuthorizationAttribute]
+        public ActionResult GetDrivesForWorkerByDateInterval(Guid workerId, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                var gv = AdaptGridViewForExport(_dataAccessLayer.GetDrivesForWorkerByDateInterval(workerId, startDate,endDate));
+
+                Response.ClearContent();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment; filename=Sofer.xls");
+                Response.ContentType = "application/ms-excel";
+                Response.Charset = "";
+                StringWriter objStringWriter = new StringWriter();
+                HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+                gv.RenderControl(objHtmlTextWriter);
+                Response.Output.Write(objStringWriter.ToString());
+                Response.Flush();
+                Response.End();
+                return View("Index");
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new
+                {
+                    error = _errorHelper.GetErrorMessage(ex)
+                });
+            }
+        }
+
+        private GridView AdaptGridViewForExport(List<Drive> drivesToBeExported)
+        {
+            var gv = new GridView();
+            gv.DataSource = drivesToBeExported;
+            gv.DataBind();
+            if (drivesToBeExported.Any())
+            {
                 gv.HeaderRow.Cells[0].Visible = false;
                 gv.HeaderRow.Cells[1].Visible = false;
                 gv.HeaderRow.Cells[2].Visible = false;
@@ -118,16 +170,23 @@ namespace WebProject.Controllers
                 gv.HeaderRow.Cells[32].Visible = false;
                 gv.HeaderRow.Cells[33].Visible = false;
                 gv.HeaderRow.Cells[34].Visible = false;
+                gv.HeaderRow.Cells[35].Visible = false;
                 gv.HeaderRow.Cells[36].Visible = false;
-                gv.HeaderRow.Cells[4].Text = Resources.Labels.Data;
+                gv.HeaderRow.Cells[37].Visible = false;
+                gv.HeaderRow.Cells[38].Visible = false;
+                gv.HeaderRow.Cells[39].Visible = false;
+                gv.HeaderRow.Cells[4].Text = Resources.Labels.Sofer;
+                gv.HeaderRow.Cells[5].Text = Resources.Labels.NumarInmatriculare;
+                gv.HeaderRow.Cells[6].Text = Resources.Labels.Data;
                 gv.HeaderRow.Cells[7].Text = Resources.Labels.LocIncarcare;
                 gv.HeaderRow.Cells[8].Text = Resources.Labels.LocDescarcare;
                 gv.HeaderRow.Cells[9].Text = Resources.Labels.KMGpsInitiali;
                 gv.HeaderRow.Cells[11].Text = Resources.Labels.KMGpsFinal;
                 gv.HeaderRow.Cells[13].Text = Resources.Labels.KMGps;
-                gv.HeaderRow.Cells[15].Text = Resources.Labels.KMGgl;
-                gv.HeaderRow.Cells[17].Text = Resources.Labels.KMDFSD;
-                gv.HeaderRow.Cells[19].Text = Resources.Labels.Diferenta;
+                gv.HeaderRow.Cells[14].Text = Resources.Labels.KMGgl;
+                gv.HeaderRow.Cells[16].Text = Resources.Labels.KMDFSD;
+                gv.HeaderRow.Cells[18].Text = Resources.Labels.Diferenta;
+                gv.HeaderRow.Cells[20].Text = Resources.Labels.Motiv;
                 gv.HeaderRow.Cells[21].Text = Resources.Labels.Motiv;
                 gv.HeaderRow.Cells[22].Text = Resources.Labels.Tonaj;
                 gv.HeaderRow.Cells[24].Text = Resources.Labels.CheltuieliSofer;
@@ -155,27 +214,14 @@ namespace WebProject.Controllers
                     row.Cells[32].Visible = false;
                     row.Cells[33].Visible = false;
                     row.Cells[34].Visible = false;
+                    row.Cells[35].Visible = false;
                     row.Cells[36].Visible = false;
+                    row.Cells[37].Visible = false;
+                    row.Cells[38].Visible = false;
+                    row.Cells[39].Visible = false;
                 }
-
-                Response.ClearContent();
-                Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=Drives.xls");
-                Response.ContentType = "application/ms-excel";
-                Response.Charset = "";
-                StringWriter objStringWriter = new StringWriter();
-                HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
-                gv.RenderControl(objHtmlTextWriter);
-                Response.Output.Write(objStringWriter.ToString());
-                Response.Flush();
-                Response.End();
-                return View("Index");
             }
-            catch (Exception ex)
-            {
-                Response.StatusCode = 500;
-                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
-            }
+            return gv;
         }
     }
 }

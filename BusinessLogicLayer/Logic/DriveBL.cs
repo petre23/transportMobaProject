@@ -32,5 +32,10 @@ namespace BusinessLogicLayer.Logic
         {
             _driveRepository.DeleteDrive(driveId);
         }
+
+        public List<Drive> GetDrivesForWorkerByDateInterval(Guid workerId,DateTime startDate,DateTime endDate)
+        {
+            return _driveRepository.GetDrivesForWorkerByDateInterval(workerId, startDate, endDate);
+        }
     }
 }

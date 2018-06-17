@@ -150,5 +150,10 @@ namespace DataAccessLayer
         {
             _fuelLogic.DeleteFuel(fuelId);
         }
+
+        public List<Drive> GetDrivesForWorkerByDateInterval(Guid workerId, DateTime startDate, DateTime endDate)
+        {
+            return _driveLogic.GetDrivesForWorkerByDateInterval(workerId, startDate, endDate);
+        }
     }
 }
