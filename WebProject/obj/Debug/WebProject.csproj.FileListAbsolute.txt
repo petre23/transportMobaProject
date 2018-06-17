@@ -307,3 +307,16 @@ C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\D
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\Debug\WebProject.csproj.CopyComplete
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\Debug\WebProject.dll
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\WebProject\obj\Debug\WebProject.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\Content\Images\login-icon.png
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\ClosedXML.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\DocumentFormat.OpenXml.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\ExcelNumberFormat.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\FastMember.Signed.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\System.IO.FileSystem.Primitives.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\System.IO.Packaging.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\BusinessLogicLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\ClosedXML.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\ClosedXML.xml
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\DocumentFormat.OpenXml.xml
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\ExcelNumberFormat.xml
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\WebProject\bin\BusinessLogicLayer.pdb

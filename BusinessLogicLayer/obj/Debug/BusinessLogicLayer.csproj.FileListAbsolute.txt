@@ -7,3 +7,14 @@ C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLay
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\bin\Debug\DataLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\bin\Debug\DataLayer.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.Helpers.NotificationWarnnings.resources
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.GenerateResource.cache
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

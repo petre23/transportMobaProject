@@ -333,4 +333,10 @@
   <data name="GenerateExcel" xml:space="preserve">
     <value>Descarca excel</value>
   </data>
+  <data name="Remorca" xml:space="preserve">
+    <value>Nr. inmatriculare remorca</value>
+  </data>
+  <data name="StareCursa" xml:space="preserve">
+    <value>Stare cursa</value>
+  </data>
 </root>

@@ -17,7 +17,7 @@
     </div>
 </nav>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="button-group">
             <div class="btn-group" style="display:inline-flex;padding-bottom:7px;">
                 @using (Html.BeginForm("ExportToExcel", "Drive", FormMethod.Post))
@@ -27,6 +27,18 @@
                 <button class="btn btn-default" data-toggle="modal" data-target="#exportWorkerToExcelModal" id="exportWorker" type="submit"><i class="fas fa-file-excel"></i> @Resources.Labels.ExportWorker</button>
             </div>
         </div>
+    </div>
+    <div class="col-md-6">
+        <div class="input-group" style="padding-top:7px;">
+            <input type="text" class="form-control my-search" placeholder="Cauta curse..." style="float:right">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button"><span><i class="glyphicon glyphicon-search"></i></span></button>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
         <div id="driveGrid"></div>
     </div>
 </div>

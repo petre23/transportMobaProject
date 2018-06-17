@@ -10,3 +10,15 @@ C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Petre\source\repos\Transport-Moba\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\bin\DataAccessLayer.dll.config
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\bin\DataAccessLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\bin\DataAccessLayer.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\bin\BusinessLogicLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\bin\DataLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\bin\BusinessLogicLayer.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\bin\DataLayer.pdb
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Remus\Desktop\My Project Truck\transportMobaProject\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

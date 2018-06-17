@@ -601,6 +601,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nr. inmatriculare remorca.
+        /// </summary>
+        public static string Remorca {
+            get {
+                return ResourceManager.GetString("Remorca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salvare.
         /// </summary>
         public static string Salvare {
@@ -624,6 +633,15 @@ namespace Resources {
         public static string SpecificatieCheltuieli {
             get {
                 return ResourceManager.GetString("SpecificatieCheltuieli", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stare cursa.
+        /// </summary>
+        public static string StareCursa {
+            get {
+                return ResourceManager.GetString("StareCursa", resourceCulture);
             }
         }
         
