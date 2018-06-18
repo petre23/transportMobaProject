@@ -207,7 +207,7 @@ namespace WebProject.Controllers
                 gv.HeaderRow.Cells[37].Text = Resources.Labels.CheltuieliDeDecontat + " lire";
                 gv.HeaderRow.Cells[39].Text = Resources.Labels.TotalPlati + " euro";
                 gv.HeaderRow.Cells[41].Text = Resources.Labels.TotalPlati + " lire";
-                gv.HeaderRow.Cells[48].Text = Resources.Labels.Remorca;
+                gv.HeaderRow.Cells[47].Text = Resources.Labels.Remorca;
                 gv.HeaderRow.Cells[49].Text = Resources.Labels.StareCursa;
 
                 foreach (GridViewRow row in gv.Rows)
