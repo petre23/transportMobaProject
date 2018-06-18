@@ -171,3 +171,15 @@ BEGIN
 	END
 END
 GO
+
+INSERT INTO dbo.DriveStatus VALUES
+(
+	NEWID(),
+	'Anulat - ajuns'
+)
+
+INSERT INTO dbo.DriveStatus VALUES
+(
+	NEWID(),
+	'Anulat - nu a ajuns'
+)

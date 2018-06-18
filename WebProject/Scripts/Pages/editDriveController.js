@@ -61,6 +61,7 @@
         $("#totalCosts").val(drive.TotalPayments);
         $("#totalCostsPounds").val(drive.TotalPaymentsPounds);
         $("#trailer").val(drive.Trailer);
+        $("#driveStatus").val(drive.DriveStatus);
     },
     getCorrectDateFormat: function (dateString) {
         var parts = dateString.split("/");
@@ -106,6 +107,7 @@
         $("#totalCosts").val("");
         $("#totalCostsPounds").val("");
         $("#trailer").val("");
+        $("#driveStatus").val("");
     },
     initDrive: function () {
         var url = new URL(window.location.href);
@@ -166,10 +168,11 @@
             PayedCostsPoundsString: $("#payedCostsPounds").val(),
             PayedCostsString: $("#payedCosts").val(),
             SettlementCostsString: $("#settlementCosts").val(),
-            SettlementCostsPoundsString: $("#settlementPoundsCosts").val(),
+            SettlementCostsPoundsString: $("#settlementCostsPounds").val(),
             TotalPaymentsString: $("#totalCosts").val(),
-            TotalPaymentsPoundsString: $("#totalPoundsCosts").val(),
-            Trailer: $("#trailer").val()
+            TotalPaymentsPoundsString: $("#totalCostsPounds").val(),
+            Trailer: $("#trailer").val(),
+            DriveStatus: $("#driveStatus").val()
         };
         this.saveDrive(driveInfo);
     },
@@ -200,6 +203,30 @@
         else
         {
             $("#difference").removeClass("red-border");
+        }
+    },
+    calculateTotalCosts: function (isEuro)
+    {
+        var totalCosts = 0;
+        var workerCosts = 0;
+        var payedCosts = 0;
+        var settlementCosts = 0;
+
+        if (isEuro) {
+            workerCosts = $("#workerCosts").val() !== null && $("#workerCosts").val() !== "" ? parseFloat($("#workerCosts").val()) : 0;
+            payedCosts = $("#payedCosts").val() !== null && $("#payedCosts").val() !== "" ? parseFloat($("#payedCosts").val()) : 0;
+            settlementCosts = $("#settlementCosts").val() !== null && $("#settlementCosts").val() !== "" ? parseFloat($("#settlementCosts").val()) : 0;
+
+            totalCosts = workerCosts + payedCosts + settlementCosts;
+            $("#totalCosts").val(totalCosts);
+        }
+        else {
+            workerCosts = $("#workerCostsPounds").val() !== null && $("#workerCostsPounds").val() !== "" ? parseFloat($("#workerCostsPounds").val()) : 0;
+            payedCosts = $("#payedCostsPounds").val() !== null && $("#payedCostsPounds").val() !== "" ? parseFloat($("#payedCostsPounds").val()) : 0;
+            settlementCosts = $("#settlementCostsPounds").val() !== null && $("#settlementCostsPounds").val() !== "" ? parseFloat($("#settlementCostsPounds").val()) : 0;
+
+            totalCosts = workerCosts + payedCosts + settlementCosts;
+            $("#totalCostsPounds").val(totalCosts);
         }
     }
 }

@@ -129,7 +129,7 @@
                                     <label>@Resources.Labels.KMGpsInitiali</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsInitiali" id="KMGpsInitiali" step="0.01" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGpsInitiali" id="KMGpsInitiali" step="0.01" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -279,12 +279,12 @@
                                     <label>@Resources.Labels.StareCursa</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" placeholder="@Resources.Labels.StareCursa" onchange="editDriveController.setTruckForWorker();" id="driver">
+                                    <select class="form-control" placeholder="@Resources.Labels.StareCursa" onchange="editDriveController.setTruckForWorker();" id="driveStatus">
                                         <option selected disabled hidden style='display: none' value=''></option>
-                                        @foreach (var worker in ViewBag.WorkersForDropDown)
-    {
-                                    <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
-}
+                                        @foreach (var driveStatus in ViewBag.DriveStatusesForDropDown)
+                                        {
+                                        <option value="@driveStatus.Id" id="@driveStatus.Id" >@driveStatus.Status</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -307,13 +307,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <input class="form-control" step="0.01" id="workerCosts" type="number" />
+                                        <input class="form-control" step="0.01" id="workerCosts" oninput="editDriveController.calculateTotalCosts(true);" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <input class="form-control" step="0.01" id="workerCosts" type="number" />
+                                        <input class="form-control" step="0.01" id="workerCostsPounds" oninput="editDriveController.calculateTotalCosts(false);" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
                                     </div>
                                 </div>
@@ -346,13 +346,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <input class="form-control" step="0.01" id="payedCosts" type="number" />
+                                        <input class="form-control" step="0.01" id="payedCosts" oninput="editDriveController.calculateTotalCosts(true);" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <input class="form-control" step="0.01" id="payedCosts" type="number" />
+                                        <input class="form-control" step="0.01" id="payedCostsPounds" oninput="editDriveController.calculateTotalCosts(false);" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
                                     </div>
                                 </div>
@@ -367,13 +367,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <input class="form-control" step="0.01" id="settlementCosts" type="number" />
+                                        <input class="form-control" step="0.01" id="settlementCosts" oninput="editDriveController.calculateTotalCosts(true);" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <input class="form-control" step="0.01" id="settlementCosts" type="number" />
+                                        <input class="form-control" step="0.01" id="settlementCostsPounds" oninput="editDriveController.calculateTotalCosts(false);" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
                                     </div>
                                 </div>
@@ -403,8 +403,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
-                                        <input class="form-control" step="0.01" id="totalCosts" type="number" />
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                                        <input class="form-control" step="0.01" id="totalCostsPounds" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
                                     </div>
                                 </div>
                             </div>
