@@ -76,8 +76,8 @@
                     { name: "PayedCostsPounds", title: 'Cheltuieli platite £', type: "text", width: 100 },
                     { name: "SettlementCosts", title: 'Cheltuieli de decontat €', type: "text", width: 100 },
                     { name: "SettlementCostsPounds", title: 'Cheltuieli de decontat £', type: "text", width: 100 },
-                    { name: "TotalCosts", title: 'Total Plati €', type: "text", width: 100 }, 
-                    { name: "TotalCostsPounds", title: 'Total Plati £', type: "text", width: 100 }, 
+                    { name: "TotalPayments", title: 'Total Plati €', type: "text", width: 100 }, 
+                    { name: "TotalPaymentsPounds", title: 'Total Plati £', type: "text", width: 100 }, 
                     { name: "LastUpdateByUserName", title: 'Modificat de', type: "text", width: 200 }
 
                 ]
