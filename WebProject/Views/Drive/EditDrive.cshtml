@@ -282,9 +282,9 @@
                                     <select class="form-control" placeholder="@Resources.Labels.StareCursa" onchange="editDriveController.setTruckForWorker();" id="driver">
                                         <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var worker in ViewBag.WorkersForDropDown)
-                                        {
-                                            <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
-                                        }
+    {
+                                    <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
+}
                                     </select>
                                 </div>
                             </div>
@@ -344,8 +344,17 @@
                                 <div class="col-md-6">
                                     <label>@Resources.Labels.CheltuieliPlatite</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.SpecificatieCheltuieli" step="0.01" id="payedCosts" type="number" />
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input class="form-control" step="0.01" id="payedCosts" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input class="form-control" step="0.01" id="payedCosts" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -356,12 +365,22 @@
                                 <div class="col-md-6">
                                     <label>@Resources.Labels.CheltuieliDeDecontat</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.CheltuieliDeDecontat" step="0.01" id="settlementCosts" type="number" />
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input class="form-control" step="0.01" id="settlementCosts" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input class="form-control" step="0.01" id="settlementCosts" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -376,8 +395,17 @@
                                 <div class="col-md-6">
                                     <label>@Resources.Labels.TotalPlati</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.TotalPlati" step="0.01" id="totalCosts" type="number" />
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input class="form-control" step="0.01" id="totalCosts" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input class="form-control" step="0.01" id="totalCosts" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -386,6 +414,7 @@
             </div>
         </div>
     </div>
+    <br>
     <nav class="navbar navbar navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="btn-group right-side">
