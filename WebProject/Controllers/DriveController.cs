@@ -37,7 +37,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, searchText) });
+                return Json(new { drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, searchText), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drive = _dataAccessLayer.GetDrive(idDrive) });
+                return Json(new { drive = _dataAccessLayer.GetDrive(idDrive), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {

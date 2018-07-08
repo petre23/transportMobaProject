@@ -31,7 +31,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { workers = _dataAccessLayer.GetWorkers() });
+                return Json(new { workers = _dataAccessLayer.GetWorkers(), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { worker = _dataAccessLayer.GetWorker(idWorker) });
+                return Json(new { worker = _dataAccessLayer.GetWorker(idWorker), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {

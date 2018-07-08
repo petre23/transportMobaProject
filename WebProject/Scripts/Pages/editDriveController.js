@@ -63,14 +63,6 @@
         $("#trailer").val(drive.Trailer);
         $("#driveStatus").val(drive.DriveStatus);
     },
-    getCorrectDateFormat: function (dateString) {
-        var parts = dateString.split("/");
-        var date = new Date(parts[2], parts[1] - 1, parts[0]);
-        if (date) {
-            return date.toISOString();
-        }
-        return "";
-    },
     getParameterByName: function (name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
@@ -137,10 +129,12 @@
         }
     },
     getCorrectDateFormat: function (dateString) {
-        var parts = dateString.split("/");
-        var date = new Date(parts[2], parts[1] - 1, parts[0]);
-        if (date) {
-            return date.toISOString();
+        if (dateString) {
+            var parts = dateString.split("/");
+            var date = new Date(parts[2], parts[1] - 1, parts[0]);
+            if (date) {
+                return date.toISOString();
+            }
         }
         return "";
     },

@@ -129,6 +129,19 @@
         } else {
             return false;
         }
-    }
+    },
+    calculateDifference: function () {
+        var GPSFinal = parseInt($("#GPSFinalConsumption").val());
+        var GPSInitial = parseInt($("#GPSInitialConsumption").val());
+        var difference = GPSFinal - GPSInitial;
+
+        $("#GPSConsumption").val(difference);
+        if (difference < 0) {
+            $("#GPSConsumption").addClass("red-border");
+        }
+        else {
+            $("#GPSConsumption").removeClass("red-border");
+        }
+    },
 };
 editFuelController.initFuel();

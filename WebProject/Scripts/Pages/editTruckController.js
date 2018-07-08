@@ -87,6 +87,7 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     },
     initControls: function () {
+        $("#registrationYear").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#ITPExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#insuranceExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#tachographExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
@@ -108,7 +109,7 @@
             Id: this.truckId,
             RegistrationNumber : $("#registrationNumber").val(),
             BrandDropDownValue : $("#brands").val(),
-            ManufacturingYear: new Date($("#registrationYear").val()).toISOString(),
+            ManufacturingYear: this.getCorrectDateFormat($("#registrationYear").val()),
             ITPExpirationDate: this.getCorrectDateFormat($("#ITPExpirationDate").val()),
             InsuranceExpirationDate: this.getCorrectDateFormat($("#insuranceExpirationDate").val()),
             TachographExpirationDate: this.getCorrectDateFormat($("#tachographExpirationDate").val()),

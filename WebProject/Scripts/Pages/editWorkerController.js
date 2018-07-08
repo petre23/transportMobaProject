@@ -50,12 +50,14 @@
         $("#medicalTestsExpirationDate").val(worker.MedicalTestsExpirationDateString);
     },
     getCorrectDateFormat: function (dateString) {
-        var parts = dateString.split("/");
-        var date = new Date(parts[2], parts[1] - 1, parts[0]);
-        if (date) {
-            return date.toISOString();
+        if (dateString) {
+            var parts = dateString.split("/");
+            var date = new Date(parts[2], parts[1] - 1, parts[0]);
+            if (date) {
+                return date.toISOString();
+            }
         }
-        return "";
+        return null;
     },
     getParameterByName: function (name, url) {
         if (!url) url = window.location.href;

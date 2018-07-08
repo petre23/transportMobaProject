@@ -23,7 +23,7 @@ namespace DataLayer.PersistanceLayer
         {
             get
             {
-                return ManufacturingYear.HasValue ? ManufacturingYear.Value.Year.ToString() : string.Empty;
+                return ManufacturingYear.HasValue ? ManufacturingYear.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]

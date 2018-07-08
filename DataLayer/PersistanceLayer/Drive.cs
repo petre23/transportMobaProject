@@ -9,18 +9,18 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public Guid Id { get; set; }
         [DataMember]
-        public Guid Worker { get; set; }
+        public Guid? Worker { get; set; }
         [DataMember]
-        public Guid Truck { get; set; }
+        public Guid? Truck { get; set; }
         [DataMember]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
         [DataMember]
         public string WorkerName { get { return string.Format("{0} {1}", FirstName, Surname); } }
         [DataMember]
         public string TruckRegistrationNumber { get; set; }
         [DataMember]
         [System.ComponentModel.DisplayName("Data")]
-        public string DateString { get { return Date.ToString("dd/MM/yyyy"); } }
+        public string DateString { get { return Date.HasValue ? Date.Value.ToString("dd/MM/yyyy") : string.Empty; } }
         [DataMember]
         public string Vlaplan { get; set; }
         [DataMember]

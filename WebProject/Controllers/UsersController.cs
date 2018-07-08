@@ -28,7 +28,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { users = _dataAccessLayer.GetUsers() });
+                return Json(new { users = _dataAccessLayer.GetUsers(), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { user = _dataAccessLayer.GetUser(userId) });
+                return Json(new { user = _dataAccessLayer.GetUser(userId), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {

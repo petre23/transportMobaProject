@@ -55,7 +55,7 @@
                     { name: "WorkerName", title: 'Sofer', type: "text", width: 200 },
                     { name: "TruckRegistrationNumber", title: 'Camion', type: "text", width: 200 },
                     { name: "Trailer", title: 'Remorca', type: "text", width: 200 },
-                    { name: "Status", title: 'DriveStatus', type: "text", width: 200 },
+                    { name: "DriveStatusName", title: 'Status', type: "text", width: 200 },
                     { name: "DateString", title: 'Data', type: "text", width: 150 },
                     { name: "Vlaplan", title: 'Vlaplan', type: "text", width: 150 },
                     { name: "Vlaref", title: 'Vlaref', type: "text", width: 100 },
@@ -79,7 +79,6 @@
                     { name: "TotalPayments", title: 'Total Plati €', type: "text", width: 100 }, 
                     { name: "TotalPaymentsPounds", title: 'Total Plati £', type: "text", width: 100 }, 
                     { name: "LastUpdateByUserName", title: 'Modificat de', type: "text", width: 200 }
-
                 ]
             });
         },

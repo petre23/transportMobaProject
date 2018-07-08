@@ -18,6 +18,6 @@ BEGIN
 		   w.Surname,
 		   f.Date
 		FROM dbo.Fuel f
-		INNER JOIN dbo.Worker w ON w.Id = f.Worker
+		LEFT JOIN dbo.Worker w ON w.Id = f.Worker
 		WHERE f.Id = @FuelId
 END

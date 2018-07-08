@@ -19,5 +19,5 @@ BEGIN
 		  ,w.CNP
 		FROM dbo.Worker w
 		INNER JOIN dbo.Employers e on e.Id = w.Employer
-		INNER JOIN dbo.Trucks t on t.Id = w.Truck
+		LEFT JOIN dbo.Trucks t on t.Id = w.Truck
 END

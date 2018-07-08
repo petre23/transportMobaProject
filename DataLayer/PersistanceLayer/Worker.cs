@@ -17,13 +17,13 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string Surname { get; set; }
         [DataMember]
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
         [DataMember]
         public string BirthDayString
         {
             get
             {
-                return BirthDay.ToString("dd/MM/yyyy");
+                return BirthDay.HasValue ? BirthDay.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]
@@ -31,59 +31,59 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string CNP { get; set; }
         [DataMember]
-        public DateTime CertificateExpirationDate { get; set; }
+        public DateTime? CertificateExpirationDate { get; set; }
         [DataMember]
         public string CertificateExpirationDateString
         {
             get
             {
-                return CertificateExpirationDate.ToString("dd/MM/yyyy");
+                return CertificateExpirationDate.HasValue ? CertificateExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]
-        public DateTime DrivingLicenseExpirationDate { get; set; }
+        public DateTime? DrivingLicenseExpirationDate { get; set; }
         [DataMember]
         public string DrivingLicenseExpirationDateString
         {
             get
             {
-                return DrivingLicenseExpirationDate.ToString("dd/MM/yyyy");
+                return DrivingLicenseExpirationDate.HasValue ? DrivingLicenseExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]
-        public DateTime EmploymentDate { get; set; }
+        public DateTime? EmploymentDate { get; set; }
         [DataMember]
         public string EmploymentDateString
         {
             get
             {
-                return EmploymentDate.ToString("dd/MM/yyyy");
+                return EmploymentDate.HasValue ? EmploymentDate.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]
-        public DateTime MedicalTestsExpirationDate { get; set; }
+        public DateTime? MedicalTestsExpirationDate { get; set; }
         [DataMember]
         public string MedicalTestsExpirationDateString
         {
             get
             {
-                return MedicalTestsExpirationDate.ToString("dd/MM/yyyy");
+                return MedicalTestsExpirationDate.HasValue ? MedicalTestsExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]
-        public DateTime TachographCardExpirationDate { get; set; }
+        public DateTime? TachographCardExpirationDate { get; set; }
         [DataMember]
         public string TachographCardExpirationDateString
         {
             get
             {
-                return TachographCardExpirationDate.ToString("dd/MM/yyyy");
+                return TachographCardExpirationDate.HasValue ? TachographCardExpirationDate.Value.ToString("dd/MM/yyyy") : string.Empty;
             }
         }
         [DataMember]
         public Guid Employer { get; set; }
         [DataMember]
-        public Guid Truck { get; set; }
+        public Guid? Truck { get; set; }
         [DataMember]
         public string TruckRegistrationNumber { get; set; }
         [DataMember]

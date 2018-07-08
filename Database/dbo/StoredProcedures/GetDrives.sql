@@ -37,11 +37,11 @@ SELECT d.Id,
 		   d.Trailer,
 		   (u.FirstName + ' ' + u.SurName) LastUpdateByUserName
 	FROM dbo.Drive d
-	INNER JOIN dbo.Worker w ON d.Worker = w.Id
-	INNER JOIN dbo.Trucks t ON d.Truck = t.Id
+	LEFT JOIN dbo.Worker w ON d.Worker = w.Id
+	LEFT JOIN dbo.Trucks t ON d.Truck = t.Id
 	LEFT JOIN dbo.DriveStatus ds ON ds.Id = d.DriveStatus
 	INNER JOIN dbo.Users u ON u.Id = d.LastUpdateByUser
-	WHERE @SearchText IS NULL 
+	WHERE (@SearchText IS NULL OR @SearchText = '')
 	OR (t.RegistrationNumber like '%'+@SearchText+'%' OR d.Vlaref like '%'+@SearchText+'%' OR d.Trailer like '%'+@SearchText+'%')
 	ORDER BY d.Date 
 	OFFSET (@PageSize*@PageNumber) ROWS

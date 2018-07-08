@@ -64,7 +64,7 @@
                                     <label>@Resources.Labels.ConsumGPSInitial</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSInitial" step="0.01" id="GPSInitialConsumption" type="number" required />
+                                    <input class="form-control" oninput="editFuelController.calculateDifference();" placeholder="@Resources.Labels.ConsumGPSInitial" step="0.01" id="GPSInitialConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                                     <label>@Resources.Labels.ConsumGPSFinal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumGPSFinal" step="0.01" id="GPSFinalConsumption" type="number" />
+                                    <input class="form-control" oninput="editFuelController.calculateDifference();" placeholder="@Resources.Labels.ConsumGPSFinal" step="0.01" id="GPSFinalConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                     <label>@Resources.Labels.ConsumEstimat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="etimatedConsumption" type="number" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="etimatedConsumption" type="number" />
                                 </div>
                             </div>
                         </div>

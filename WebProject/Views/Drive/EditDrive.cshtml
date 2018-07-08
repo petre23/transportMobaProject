@@ -27,7 +27,7 @@
                                     <label>@Resources.Labels.Sofer</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" placeholder="@Resources.Labels.Sofer" onchange="editDriveController.setTruckForWorker();" id="driver" required>
+                                    <select class="form-control" placeholder="@Resources.Labels.Sofer" onchange="editDriveController.setTruckForWorker();" id="driver">
                                         <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var worker in ViewBag.WorkersForDropDown)
                                         {
@@ -45,7 +45,7 @@
                                     <label>@Resources.Labels.Camion</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" placeholder="@Resources.Labels.Camion" name="truck" id="truck" required>
+                                    <select class="form-control" placeholder="@Resources.Labels.Camion" name="truck" id="truck">
                                         <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var truck in ViewBag.TrucksForDropDown)
                                         {
@@ -69,7 +69,7 @@
                                     <label>@Resources.Labels.Vlaplan</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.Vlaplan" id="vlaplan" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.Vlaplan" id="vlaplan" type="text" />
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                     <label>@Resources.Labels.Vlarref</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.Vlarref" id="vlaref" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.Vlarref" id="vlaref" type="text" />
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                                     <label>@Resources.Labels.LocIncarcare</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.LocIncarcare" id="loadingPlace" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.LocIncarcare" id="loadingPlace" type="text" />
                                 </div>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                                     <label>@Resources.Labels.LocDescarcare</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.LocDescarcare" id="destination" type="text" required />
+                                    <input class="form-control" placeholder="@Resources.Labels.LocDescarcare" id="destination" type="text" />
                                 </div>
                             </div>
                         </div>
@@ -219,7 +219,7 @@
                                     <label>@Resources.Labels.Remorca</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="trailer" placeholder="@Resources.Labels.Remorca" step="0.01" type="text" required />
+                                    <input class="form-control" id="trailer" placeholder="@Resources.Labels.Remorca" step="0.01" type="text" />
                                 </div>
                             </div>
                         </div>
@@ -249,7 +249,7 @@
                                     <label>@Resources.Labels.Data</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="date" type="text" required />
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="date" type="text" required/>
                                 </div>
                             </div>
                         </div>
@@ -261,7 +261,7 @@
                                     <label>@Resources.Labels.Tonaj</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="tons" placeholder="@Resources.Labels.Tonaj" step="0.01" type="number" required />
+                                    <input class="form-control" id="tons" placeholder="@Resources.Labels.Tonaj" step="0.01" type="number" />
                                 </div>
                             </div>
                         </div>

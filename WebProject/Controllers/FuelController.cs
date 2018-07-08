@@ -31,7 +31,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { fuelData = _dataAccessLayer.GetFuelInfo() });
+                return Json(new { fuelData = _dataAccessLayer.GetFuelInfo(), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { fuel = _dataAccessLayer.GetFuelById(fuelId) });
+                return Json(new { fuel = _dataAccessLayer.GetFuelById(fuelId), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {

@@ -14,7 +14,6 @@
         initGrid: function (workers) {
             $("#editButton").prop('disabled', true);
             $("#deleteButton").prop('disabled', true);
-
             $("#workerGrid").jsGrid({
                 width: "100%",
                 height: "80vh",

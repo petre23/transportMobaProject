@@ -31,16 +31,15 @@ namespace DataLayer.Repository
                             Employer = Guid.Parse(reader["Employer"].ToString()),
                             EmployerDropDownValue = Convert.ToInt32(reader["EmployerDropDownValue"]),
                             EmployerName = reader["EmployerName"].ToString(),
-                            EmploymentDate = Convert.ToDateTime(reader["EmploymentDate"].ToString()),
-                            BirthDay = Convert.ToDateTime(reader["BirthDay"].ToString()),
-                            CertificateExpirationDate = Convert.ToDateTime(reader["CertificateExpirationDate"].ToString()),
-                            DrivingLicenseExpirationDate = Convert.ToDateTime(reader["DrivingLicenseExpirationDate"].ToString()),
-                            MedicalTestsExpirationDate = Convert.ToDateTime(reader["MedicalTestsExpirationDate"].ToString()),
-                            TachographCardExpirationDate = Convert.ToDateTime(reader["TachographCardExpirationDate"].ToString()),
+                            EmploymentDate = !string.IsNullOrEmpty(reader["EmploymentDate"].ToString()) ? Convert.ToDateTime(reader["EmploymentDate"].ToString()) : (DateTime?)null,
+                            BirthDay = !string.IsNullOrEmpty(reader["BirthDay"].ToString()) ? Convert.ToDateTime(reader["BirthDay"].ToString()) : (DateTime?)null,
+                            CertificateExpirationDate = !string.IsNullOrEmpty(reader["CertificateExpirationDate"].ToString()) ? Convert.ToDateTime(reader["CertificateExpirationDate"].ToString()) : (DateTime?)null,
+                            DrivingLicenseExpirationDate = !string.IsNullOrEmpty(reader["DrivingLicenseExpirationDate"].ToString()) ? Convert.ToDateTime(reader["DrivingLicenseExpirationDate"].ToString()) : (DateTime?)null,
+                            MedicalTestsExpirationDate = !string.IsNullOrEmpty(reader["MedicalTestsExpirationDate"].ToString()) ? Convert.ToDateTime(reader["MedicalTestsExpirationDate"].ToString()) : (DateTime?)null,
                             FirstName = reader["FirstName"].ToString(),
                             CNP = reader["CNP"].ToString(),
                             Surname = reader["Surname"].ToString(),
-                            Truck = Guid.Parse(reader["Truck"].ToString()),
+                            Truck = string.IsNullOrEmpty(reader["Truck"].ToString()) ? (Guid?)null : Guid.Parse(reader["Truck"].ToString()),
                             TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString(),
                             IdentityDocument = reader["IdentityDocument"].ToString()
                         };
@@ -116,7 +115,7 @@ namespace DataLayer.Repository
                             FirstName = reader["FirstName"].ToString(),
                             CNP = reader["CNP"].ToString(),
                             Surname = reader["Surname"].ToString(),
-                            Truck = Guid.Parse(reader["Truck"].ToString()),
+                            Truck = string.IsNullOrEmpty(reader["Truck"].ToString())? (Guid?)null: Guid.Parse(reader["Truck"].ToString()),
                             TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString(),
                             IdentityDocument = reader["IdentityDocument"].ToString()
                         };
@@ -161,7 +160,7 @@ namespace DataLayer.Repository
                             Id = Guid.Parse(reader["Id"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
-                            Truck = Guid.Parse(reader["Truck"].ToString())
+                            Truck = string.IsNullOrEmpty(reader["Truck"].ToString()) ? (Guid?)null : Guid.Parse(reader["Truck"].ToString()),
                         };
                         workers.Add(worker);
                     }

@@ -32,7 +32,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { trucks = _dataAccessLayer.GetTrucks() });
+                return Json(new { trucks = _dataAccessLayer.GetTrucks(), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {
@@ -63,7 +63,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { truck = _dataAccessLayer.GetTruck(idTruck) });
+                return Json(new { truck = _dataAccessLayer.GetTruck(idTruck), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {
@@ -95,7 +95,7 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { trucksForDropDown = _dataAccessLayer.GetTrucksForDropDown() });
+                return Json(new { trucksForDropDown = _dataAccessLayer.GetTrucksForDropDown(), JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {

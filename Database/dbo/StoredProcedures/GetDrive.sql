@@ -34,8 +34,8 @@ BEGIN
 		   ds.Status AS DriveStatusName,
 		   d.Trailer
 	FROM dbo.Drive d
-	INNER JOIN dbo.Worker w ON d.Worker = w.Id
-	INNER JOIN dbo.Trucks t ON d.Truck = t.Id
+	LEFT JOIN dbo.Worker w ON d.Worker = w.Id
+	LEFT JOIN dbo.Trucks t ON d.Truck = t.Id
 	LEFT JOIN dbo.DriveStatus ds ON ds.Id = d.DriveStatus
 	WHERE d.Id = @DriveId
 END
