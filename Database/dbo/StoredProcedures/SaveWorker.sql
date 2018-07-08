@@ -3,16 +3,16 @@
 	@Id Uniqueidentifier,
 	@FirstName nvarchar(255),
 	@Surname nvarchar(255),
-	@BirthDay DATETIME NULL,
-	@IdentityDocument nvarchar(255) NULL,
-	@CertificateExpirationDate DATETIME NULL,
-	@DrivingLicenseExpirationDate DATETIME NULL,
-	@EmploymentDate DATETIME NULL,
-	@MedicalTestsExpirationDate DATETIME NULL,
-	@TachographCardExpirationDate DATETIME NULL,
+	@BirthDay DATETIME = NULL,
+	@IdentityDocument nvarchar(255) = NULL,
+	@CertificateExpirationDate DATETIME = NULL,
+	@DrivingLicenseExpirationDate DATETIME = NULL,
+	@EmploymentDate DATETIME = NULL,
+	@MedicalTestsExpirationDate DATETIME = NULL,
+	@TachographCardExpirationDate DATETIME = NULL,
 	@Employer Uniqueidentifier,
-	@Truck Uniqueidentifier NULL,
-	@CNP nvarchar(255) NULL
+	@Truck Uniqueidentifier = NULL,
+	@CNP nvarchar(255) = NULL
 AS
 BEGIN
 	IF(@IsNew = 1)
@@ -52,4 +52,5 @@ BEGIN
 			WHERE Id = @Id
 	END
 END
+GO
 
