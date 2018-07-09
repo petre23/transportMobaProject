@@ -27,7 +27,8 @@
 	@WorkerCostsPounds decimal(12,2) = null,
 	@TotalPaymentsPounds decimal(12,2) = null,
 	@DriveStatus UNIQUEIDENTIFIER = null,
-	@Trailer NVARCHAR(255) = null
+	@Trailer NVARCHAR(255) = null,
+	@EstimatedConsumption decimal(12,2) = null
 AS
 	IF(@IsNew = 1)
 	BEGIN
@@ -35,13 +36,13 @@ AS
 							Difference,DistanceDFDS,DistanceGpl,DistanceGPS,
 							FinalGPSKM,InitialGPSKM,LoadingPlace,PayedCosts,Reason,SettlementCosts,TotalPayments,Truck,Vlaplan,
 							Vlaref,WeightInTons,Worker,WorkerCosts,LastUpdateByUser,WorkerCostsPounds,PayedCostsPounds,
-							SettlementCostsPounds,TotalPaymentsPounds,Trailer,DriveStatus)
+							SettlementCostsPounds,TotalPaymentsPounds,Trailer,DriveStatus,EstimatedConsumption)
 		VALUES
 		(@Id,@Date,@Destination,@CostsSpecification,
 		@Difference,@DistanceDFDS,@DistanceGpl,@DistanceGPS,
 		@FinalGPSKM,@InitialGPSKM,@LoadingPlace,@PayedCosts,@Reason,@SettlementCosts,@TotalPayments,@Truck,@Vlaplan,
 		@Vlaref,@WeightInTons,@Worker,@WorkerCosts,@LastUpdateByUser,@WorkerCostsPounds,@PayedCostsPounds
-		,@SettlementCostsPounds,@TotalPaymentsPounds,@Trailer,@DriveStatus)
+		,@SettlementCostsPounds,@TotalPaymentsPounds,@Trailer,@DriveStatus,@EstimatedConsumption)
 	END
 	ELSE
 	BEGIN
@@ -72,6 +73,7 @@ AS
 			SettlementCostsPounds = @SettlementCostsPounds,
 			TotalPaymentsPounds = @TotalPaymentsPounds,
 			Trailer = @Trailer,
-			DriveStatus = @DriveStatus
+			DriveStatus = @DriveStatus,
+			EstimatedConsumption = @EstimatedConsumption
 			WHERE Id = @Id
 	END

@@ -35,7 +35,8 @@ SELECT d.Id,
 		   d.DriveStatus,
 		   ds.Status AS DriveStatusName,
 		   d.Trailer,
-		   (u.FirstName + ' ' + u.SurName) LastUpdateByUserName
+		   (u.FirstName + ' ' + u.SurName) LastUpdateByUserName,
+		   d.EstimatedConsumption
 	FROM dbo.Drive d
 	LEFT JOIN dbo.Worker w ON d.Worker = w.Id
 	LEFT JOIN dbo.Trucks t ON d.Truck = t.Id

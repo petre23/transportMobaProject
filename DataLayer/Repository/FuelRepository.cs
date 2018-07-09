@@ -24,19 +24,22 @@ namespace DataLayer.Repository
                         {
                             Id = Guid.Parse(reader["Id"].ToString()),
                             Worker = Guid.Parse(reader["Worker"].ToString()),
+                            Truck = !string.IsNullOrEmpty(reader["Truck"].ToString()) ? Guid.Parse(reader["Truck"].ToString()) : (Guid?)null,
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
-                            AdblueLiters = Convert.ToDecimal(reader["AdblueLiters"].ToString()),
-                            AdblueValue = Convert.ToDecimal(reader["AdblueValue"].ToString()),
-                            DieselValue = Convert.ToDecimal(reader["DieselValue"].ToString()),
-                            EstimatedConsumption = Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
-                            FueledDieseKMLiters = Convert.ToDecimal(reader["FueledDieseKMLiters"].ToString()),
-                            FueledKM = Convert.ToDecimal(reader["FueledKM"].ToString()),
-                            GPSConsumption = Convert.ToDecimal(reader["GPSConsumption"].ToString()),
-                            GPSFinalConsumption = Convert.ToDecimal(reader["GPSFinalConsumption"].ToString()),
-                            GPSInitialConsumption = Convert.ToDecimal(reader["GPSInitialConsumption"].ToString()),
-                            RealConsumption = Convert.ToDecimal(reader["RealConsumption"].ToString()),
-                            Date = Convert.ToDateTime(reader["Date"].ToString())
+                            AdblueLiters = string.IsNullOrEmpty(reader["AdblueLiters"].ToString()) ? 0 : Convert.ToDecimal(reader["AdblueLiters"].ToString()),
+                            AdblueValue = string.IsNullOrEmpty(reader["AdblueValue"].ToString()) ? 0 : Convert.ToDecimal(reader["AdblueValue"].ToString()),
+                            DieselValue = string.IsNullOrEmpty(reader["DieselValue"].ToString()) ? 0 : Convert.ToDecimal(reader["DieselValue"].ToString()),
+                            EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
+                            FueledDieseKMLiters = string.IsNullOrEmpty(reader["FueledDieseKMLiters"].ToString()) ? 0 : Convert.ToDecimal(reader["FueledDieseKMLiters"].ToString()),
+                            FueledKM = string.IsNullOrEmpty(reader["FueledKM"].ToString()) ? 0 : Convert.ToDecimal(reader["FueledKM"].ToString()),
+                            GPSConsumption = string.IsNullOrEmpty(reader["GPSConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["GPSConsumption"].ToString()),
+                            GPSFinalConsumption = string.IsNullOrEmpty(reader["GPSFinalConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["GPSFinalConsumption"].ToString()),
+                            GPSInitialConsumption = string.IsNullOrEmpty(reader["GPSInitialConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["GPSInitialConsumption"].ToString()),
+                            RealConsumption = string.IsNullOrEmpty(reader["RealConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["RealConsumption"].ToString()),
+                            Date = Convert.ToDateTime(reader["Date"].ToString()),
+                            DistanceGPS = string.IsNullOrEmpty(reader["DistanceGPS"].ToString()) ? 0 : Convert.ToDecimal(reader["DistanceGPS"].ToString()),
+                            TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString()
                         };
                         fuelInfoList.Add(fuelInfo);
                     }
@@ -59,6 +62,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@IsNew", isNew);
                     cmd.Parameters.AddWithValue("@Id", fuel.Id);
                     cmd.Parameters.AddWithValue("@Worker", fuel.Worker);
+                    cmd.Parameters.AddWithValue("@Truck", fuel.Truck);
                     cmd.Parameters.AddWithValue("@AdblueLiters", fuel.AdblueLiters);
                     cmd.Parameters.AddWithValue("@AdblueValue", fuel.AdblueValue);
                     cmd.Parameters.AddWithValue("@DieselValue", fuel.DieselValue);
@@ -70,6 +74,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@GPSInitialConsumption", fuel.GPSInitialConsumption);
                     cmd.Parameters.AddWithValue("@RealConsumption", fuel.RealConsumption);
                     cmd.Parameters.AddWithValue("@Date", fuel.Date);
+                    cmd.Parameters.AddWithValue("@DistanceGPS", fuel.DistanceGPS);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -96,6 +101,7 @@ namespace DataLayer.Repository
                         {
                             Id = Guid.Parse(reader["Id"].ToString()),
                             Worker = Guid.Parse(reader["Worker"].ToString()),
+                            Truck = !string.IsNullOrEmpty(reader["Truck"].ToString()) ? Guid.Parse(reader["Truck"].ToString()) : (Guid?)null,
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             AdblueLiters = Convert.ToDecimal(reader["AdblueLiters"].ToString()),
@@ -108,7 +114,9 @@ namespace DataLayer.Repository
                             GPSFinalConsumption = Convert.ToDecimal(reader["GPSFinalConsumption"].ToString()),
                             GPSInitialConsumption = Convert.ToDecimal(reader["GPSInitialConsumption"].ToString()),
                             RealConsumption = Convert.ToDecimal(reader["RealConsumption"].ToString()),
-                            Date = Convert.ToDateTime(reader["Date"].ToString())
+                            Date = Convert.ToDateTime(reader["Date"].ToString()),
+                            DistanceGPS = string.IsNullOrEmpty(reader["DistanceGPS"].ToString()) ? 0 : Convert.ToDecimal(reader["DistanceGPS"].ToString()),
+                            TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString()
                         };
                         fueledInfoList.Add(fuleInfo);
                     }

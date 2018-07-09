@@ -15,7 +15,11 @@ BEGIN
 		   f.RealConsumption,
 		   w.FirstName,
 		   w.Surname,
-		   f.Date
+		   f.Date,
+		   f.DistanceGPS,
+		   f.Truck,
+		   t.RegistrationNumber AS TruckRegistrationNumber
 		FROM dbo.Fuel f
 		LEFT JOIN dbo.Worker w ON w.Id = f.Worker
+		LEFT JOIN dbo.Trucks t ON t.Id = f.Truck
 END

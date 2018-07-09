@@ -22,6 +22,8 @@ namespace BusinessLogicLayer.Helpers
             adaptedFuel.GPSFinalConsumption = !string.IsNullOrEmpty(fuel.GPSFinalConsumptionString) ? Convert.ToDecimal(fuel.GPSFinalConsumptionString) : 0;
             adaptedFuel.GPSInitialConsumption = !string.IsNullOrEmpty(fuel.GPSInitialConsumptionString) ? Convert.ToDecimal(fuel.GPSInitialConsumptionString) : 0;
             adaptedFuel.RealConsumption = !string.IsNullOrEmpty(fuel.RealConsumptionString) ? Convert.ToDecimal(fuel.RealConsumptionString) : 0;
+            adaptedFuel.DistanceGPS = !string.IsNullOrEmpty(fuel.DistanceGPSString) ? Convert.ToDecimal(fuel.DistanceGPSString) : 0;
+
             return adaptedFuel;
         }
     }

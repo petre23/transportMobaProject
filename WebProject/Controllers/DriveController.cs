@@ -99,7 +99,7 @@ namespace WebProject.Controllers
 
                 Response.ClearContent();
                 Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=Drives.xls");
+                Response.AddHeader("content-disposition", "attachment; filename=Curse.xls");
                 Response.ContentType = "application/ms-excel";
                 Response.Charset = "";
                 StringWriter objStringWriter = new StringWriter();
@@ -124,11 +124,14 @@ namespace WebProject.Controllers
         {
             try
             {
+                var worker = _dataAccessLayer.GetWorker(workerId);
+                var fileName = string.Format("Curse-{0}.xls", worker.WorkerName);
+
                 var gv = AdaptGridViewForExport(_dataAccessLayer.GetDrivesForWorkerByDateInterval(workerId, startDate,endDate));
 
                 Response.ClearContent();
                 Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=Sofer.xls");
+                Response.AddHeader("content-disposition", "attachment; filename="+fileName);
                 Response.ContentType = "application/ms-excel";
                 Response.Charset = "";
                 StringWriter objStringWriter = new StringWriter();
@@ -182,7 +185,8 @@ namespace WebProject.Controllers
                 gv.HeaderRow.Cells[45].Visible = false;
                 gv.HeaderRow.Cells[46].Visible = false;
                 gv.HeaderRow.Cells[48].Visible = false;
-                gv.HeaderRow.Cells[50].Visible = false;
+                gv.HeaderRow.Cells[51].Visible = false;
+                gv.HeaderRow.Cells[52].Visible = false;
                 gv.HeaderRow.Cells[4].Text = Resources.Labels.Sofer;
                 gv.HeaderRow.Cells[5].Text = Resources.Labels.NumarInmatriculare;
                 gv.HeaderRow.Cells[6].Text = Resources.Labels.Data;
@@ -209,6 +213,7 @@ namespace WebProject.Controllers
                 gv.HeaderRow.Cells[41].Text = Resources.Labels.TotalPlati + " lire";
                 gv.HeaderRow.Cells[47].Text = Resources.Labels.Remorca;
                 gv.HeaderRow.Cells[49].Text = Resources.Labels.StareCursa;
+                gv.HeaderRow.Cells[50].Text = Resources.Labels.ConsumEstimat;
 
                 foreach (GridViewRow row in gv.Rows)
                 {
@@ -236,7 +241,8 @@ namespace WebProject.Controllers
                     row.Cells[45].Visible = false;
                     row.Cells[46].Visible = false;
                     row.Cells[48].Visible = false;
-                    row.Cells[50].Visible = false;
+                    row.Cells[51].Visible = false;
+                    row.Cells[52].Visible = false;
                 }
             }
             return gv;

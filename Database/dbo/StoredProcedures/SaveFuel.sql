@@ -5,14 +5,16 @@
 	@AdblueLiters decimal(12,2) = null,
 	@AdblueValue decimal(12,2) = null,
 	@DieselValue decimal(12,3) = null,
-	@EstimatedConsumption decimal(12,2),
+	@EstimatedConsumption decimal(12,2) = null,
 	@FueledDieseKMLiters decimal(12,2) = null,
 	@GPSConsumption decimal(12,2) = null,
 	@GPSFinalConsumption decimal(12,2) = null,
 	@GPSInitialConsumption decimal(12,2),
 	@RealConsumption decimal(12,2) = null,
 	@FueledKM decimal(12,2) = null,
-	@Date datetime
+	@Date datetime,
+	@DistanceGPS decimal(12,2) = null,
+	@Truck uniqueidentifier = null
 AS
 BEGIN
 	IF(@IsNew = 1)
@@ -30,7 +32,9 @@ BEGIN
 			GPSFinalConsumption,
 			GPSInitialConsumption,
 			RealConsumption,
-			Date)
+			Date,
+			DistanceGPS,
+			Truck)
 		VALUES(
 			@Id,
 			@Worker,
@@ -44,7 +48,9 @@ BEGIN
 			@GPSFinalConsumption,
 			@GPSInitialConsumption,
 			@RealConsumption,
-			@Date)
+			@Date,
+			@DistanceGPS,
+			@Truck)
 	END
 	ELSE
 	BEGIN
@@ -60,7 +66,9 @@ BEGIN
 			GPSConsumption = @GPSConsumption,
 			GPSInitialConsumption = @GPSInitialConsumption,
 			RealConsumption = @RealConsumption,
-			Date = @Date
+			Date = @Date,
+			DistanceGPS = @DistanceGPS,
+			Truck = @Truck
 			WHERE Id = @Id
 	END
 END

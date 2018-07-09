@@ -23,6 +23,7 @@ namespace BusinessLogicLayer.Helpers
             adaptedDrive.WeightInTons = !string.IsNullOrEmpty(drive.WeightInTonsString) ? Convert.ToDecimal(drive.WeightInTonsString): 0;
             adaptedDrive.WorkerCosts = !string.IsNullOrEmpty(drive.WorkerCostsString) ? Convert.ToDecimal(drive.WorkerCostsString): 0;
             adaptedDrive.WorkerCostsPounds = !string.IsNullOrEmpty(drive.WorkerCostsPoundsString) ? Convert.ToDecimal(drive.WorkerCostsPoundsString): 0;
+            adaptedDrive.EstimatedConsumption = !string.IsNullOrEmpty(drive.EstimatedConsumptionString) ? Convert.ToDecimal(drive.EstimatedConsumptionString) : 0;
 
             return adaptedDrive;
         }

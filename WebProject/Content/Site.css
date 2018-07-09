@@ -424,7 +424,7 @@ i {
 }
 
 .notification-list {
-    height: 200px;
+    height: 350px;
     overflow-y: scroll;
 }
 .modal-footer{
@@ -447,4 +447,19 @@ i {
 
 .my-search{
     height:33.5px;
+}
+
+.notification-padding {
+    padding: 5px!important;
+    margin-bottom: 4px!important;
+}
+
+.warning-background-cell {
+    background-color: #d49200;
+    color: #d49200;
+}
+
+.danger-background-cell {
+    background-color: #c91010;
+    color: #c91010;
 }

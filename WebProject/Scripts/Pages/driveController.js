@@ -67,6 +67,7 @@
                     { name: "KMGps", title: 'KM Gps', type: "text", width: 100 },
                     { name: "KMGgl", title: 'KM Ggl', type: "text", width: 100 },
                     { name: "KMDFSD", title: 'KMDFSD', type: "text", width: 100 },
+                    { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 100 },
                     { name: "Difference", title: 'Diferenta', type: "text", width: 100 },
                     { name: "Reason", title: 'Motiv', type: "text", width: 200 },
                     { name: "WorkerCosts", title: 'Cheltuieli Sofer €', type: "text", width: 100 },

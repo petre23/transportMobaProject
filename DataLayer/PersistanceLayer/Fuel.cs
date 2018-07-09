@@ -15,6 +15,8 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public Guid Worker { get; set; }
         [DataMember]
+        public Guid? Truck { get; set; }
+        [DataMember]
         public string FirstName { get; set; }
         [DataMember]
         public string Surname { get; set; }
@@ -64,5 +66,11 @@ namespace DataLayer.PersistanceLayer
         public DateTime Date { get; set; }
         [DataMember]
         public string DateString { get { return Date.ToString("dd/MM/yyyy"); } }
+        [DataMember]
+        public decimal? DistanceGPS { get; set; }
+        [DataMember]
+        public string DistanceGPSString { get; set; }
+        [DataMember]
+        public string TruckRegistrationNumber { get; set; }
     }
 }

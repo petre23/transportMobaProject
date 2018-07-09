@@ -61,6 +61,7 @@ namespace DataLayer.Repository
                         drive.DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null;
                         drive.DriveStatusName = reader["DriveStatusName"].ToString();
                         drive.TotalRows = totalDrivesCount;
+                        drive.EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString());
 
                         drives.Add(drive);
                     }
@@ -106,11 +107,11 @@ namespace DataLayer.Repository
                             SettlementCostsPounds = string.IsNullOrEmpty(reader["SettlementCostsPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["SettlementCostsPounds"].ToString()),
                             TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),
                             TotalPaymentsPounds = string.IsNullOrEmpty(reader["TotalPaymentsPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["TotalPaymentsPounds"].ToString()),
-                            Truck = Guid.Parse(reader["Truck"].ToString()),
+                            Truck = !string.IsNullOrEmpty(reader["Truck"].ToString()) ? Guid.Parse(reader["Truck"].ToString()) : (Guid?)null,
                             Vlaplan = reader["Vlaplan"].ToString(),
                             Vlaref = reader["Vlaref"].ToString(),
                             WeightInTons = Convert.ToDecimal(reader["WeightInTons"].ToString()),
-                            Worker = Guid.Parse(reader["Worker"].ToString()),
+                            Worker = !string.IsNullOrEmpty(reader["Worker"].ToString()) ? Guid.Parse(reader["Worker"].ToString()) : (Guid?)null,
                             WorkerCosts = Convert.ToDecimal(reader["WorkerCosts"].ToString()),
                             WorkerCostsPounds = string.IsNullOrEmpty(reader["WorkerCostsPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerCostsPounds"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
@@ -118,7 +119,8 @@ namespace DataLayer.Repository
                             TruckRegistrationNumber = reader["RegistrationNumber"].ToString(),
                             Trailer = reader["Trailer"].ToString(),
                             DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
-                            DriveStatusName = reader["DriveStatusName"].ToString()
+                            DriveStatusName = reader["DriveStatusName"].ToString(),
+                            EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString())
                         };
                         drives.Add(drive);
                     }
@@ -167,6 +169,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@WorkerCostsPounds", drive.WorkerCostsPounds);
                     cmd.Parameters.AddWithValue("@Trailer", drive.Trailer);
                     cmd.Parameters.AddWithValue("@DriveStatus", drive.DriveStatus);
+                    cmd.Parameters.AddWithValue("@EstimatedConsumption", drive.EstimatedConsumption);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -209,11 +212,11 @@ namespace DataLayer.Repository
                             SettlementCostsPounds = string.IsNullOrEmpty(reader["SettlementCostsPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["SettlementCostsPounds"].ToString()),
                             TotalPayments = Convert.ToDecimal(reader["TotalPayments"].ToString()),
                             TotalPaymentsPounds = string.IsNullOrEmpty(reader["TotalPaymentsPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["TotalPaymentsPounds"].ToString()),
-                            Truck = Guid.Parse(reader["Truck"].ToString()),
+                            Truck = !string.IsNullOrEmpty(reader["Truck"].ToString()) ? Guid.Parse(reader["Truck"].ToString()) : (Guid?)null,
                             Vlaplan = reader["Vlaplan"].ToString(),
                             Vlaref = reader["Vlaref"].ToString(),
                             WeightInTons = Convert.ToDecimal(reader["WeightInTons"].ToString()),
-                            Worker = Guid.Parse(reader["Worker"].ToString()),
+                            Worker = !string.IsNullOrEmpty(reader["Worker"].ToString()) ? Guid.Parse(reader["Worker"].ToString()) : (Guid?)null,
                             WorkerCosts = Convert.ToDecimal(reader["WorkerCosts"].ToString()),
                             WorkerCostsPounds = string.IsNullOrEmpty(reader["WorkerCostsPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerCostsPounds"].ToString()),
                             FirstName = reader["FirstName"].ToString(),
@@ -221,7 +224,8 @@ namespace DataLayer.Repository
                             TruckRegistrationNumber = reader["RegistrationNumber"].ToString(),
                             Trailer = reader["Trailer"].ToString(),
                             DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
-                            DriveStatusName = reader["DriveStatusName"].ToString()
+                            DriveStatusName = reader["DriveStatusName"].ToString(),
+                            EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
                         };
                         drives.Add(drive);
                     }

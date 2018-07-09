@@ -19,9 +19,84 @@
     </div>
 </nav>
 <div class="row">
+    <div class="col-md-6">
+        <div class="button-group">
+            <div class="btn-group" style="display:inline-flex;padding-bottom:7px;">
+                @using (Html.BeginForm("ExportFuelData", "Fuel", FormMethod.Post))
+                {
+                <button class="btn btn-default" id="exportToExcel" type="submit"><i class="fas fa-file-excel"></i> @Resources.Labels.ExportFuel</button>
+                }
+                <button class="btn btn-default" data-toggle="modal" data-target="#exportWorkerToExcelModal" id="exportWorker" type="submit"><i class="fas fa-file-excel"></i> @Resources.Labels.ExportFuelWorker</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12">
         <div id="fuelGrid"></div>
     </div>
 </div>
-
+<div class="modal fade" id="exportWorkerToExcelModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content modal-custom">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">@Resources.Labels.ExportFuelWorkerSettings</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("ExportFuelDataForWorkerByDateInterval", "Fuel", FormMethod.Post))
+                {
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <label>@Resources.Labels.Sofer</label>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-control" placeholder="@Resources.Labels.Sofer" id="worker" name="workerId" required>
+                                    <option selected disabled hidden style='display: none' value=''></option>
+                                    @foreach (var worker in ViewBag.WorkersForDropDown)
+                                    {
+                                        <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <label>@Resources.Labels.StartDate</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="dd/MM/yyyy" id="startDate" name="startDate" type="text" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <label>@Resources.Labels.EndDate</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="dd/MM/yyyy" id="endDate" name="endDate" type="text" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" id="exportWorkerToExcel"><i class="fas fa-file-excel"></i> @Resources.Labels.GenerateExcel</button>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Labels.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="~/Scripts/Pages/fuelController.js"></script>

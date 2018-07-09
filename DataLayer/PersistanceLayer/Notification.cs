@@ -8,5 +8,6 @@ namespace DataLayer.PersistanceLayer
         public string NotificationText { get; set; }
         public int NotificationType { get; set; }
         public string NotificationLink { get; set; }
+        public DateTime NotificationDate { get; set; }
     }
 }

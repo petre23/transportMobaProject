@@ -403,6 +403,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export alimentari.
+        /// </summary>
+        public static string ExportFuel {
+            get {
+                return ResourceManager.GetString("ExportFuel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export alimentari pentru sofer.
+        /// </summary>
+        public static string ExportFuelWorker {
+            get {
+                return ResourceManager.GetString("ExportFuelWorker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optiuni export alimentari sofer.
+        /// </summary>
+        public static string ExportFuelWorkerSettings {
+            get {
+                return ResourceManager.GetString("ExportFuelWorkerSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Export curse sofer.
         /// </summary>
         public static string ExportWorker {

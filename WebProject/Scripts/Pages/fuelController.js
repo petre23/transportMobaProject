@@ -54,7 +54,8 @@ var fuelController =
                     { name: "RealConsumption", title: 'Consum Real', type: "text", width: 100 },
                     { name: "AdblueLiters", title: 'Adblue Litri', type: "text", width: 100 },
                     { name: "AdblueValue", title: 'Valoare Adblue', type: "text", width: 100 },
-                    { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 100 }
+                    { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 100 },
+                    { name: "TruckRegistrationNumber", title: 'Nr. Inmatriculare Camion', type: "text", width: 100 }
                 ]
             });
         },

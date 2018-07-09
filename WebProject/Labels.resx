@@ -339,4 +339,13 @@
   <data name="StareCursa" xml:space="preserve">
     <value>Stare cursa</value>
   </data>
+  <data name="ExportFuel" xml:space="preserve">
+    <value>Export alimentari</value>
+  </data>
+  <data name="ExportFuelWorker" xml:space="preserve">
+    <value>Export alimentari pentru sofer</value>
+  </data>
+  <data name="ExportFuelWorkerSettings" xml:space="preserve">
+    <value>Optiuni export alimentari sofer</value>
+  </data>
 </root>

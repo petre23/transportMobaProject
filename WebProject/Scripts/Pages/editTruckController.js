@@ -47,12 +47,14 @@
         $("#conformCopyExpirationDate").val(truck.ConformCopyExpirationDateString);
     },
     getCorrectDateFormat: function (dateString) {
-        var parts = dateString.split("/");
-        var date = new Date(parts[2], parts[1] - 1, parts[0]);
-        if (date) {
-            return date.toISOString();
+        if (dateString) {
+            var parts = dateString.split("/");
+            var date = new Date(parts[2], parts[1] - 1, parts[0]);
+            if (date) {
+                return date.toISOString();
+            }
         }
-        return "";
+        return null;
     },
     setupNewTruckInfo: function () {
         this.truckId = null;

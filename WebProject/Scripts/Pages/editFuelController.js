@@ -39,7 +39,7 @@
         $("#GPSInitialConsumption").val(fuel.GPSInitialConsumption);
         $("#GPSFinalConsumption").val(fuel.GPSFinalConsumption);
         $("#GPSConsumption").val(fuel.GPSConsumption);
-        $("#etimatedConsumption").val(fuel.EstimatedConsumption);
+        $("#estimatedConsumption").val(fuel.EstimatedConsumption);
         $("#FueledKM").val(fuel.FueledKM);
         $("#fueledDieseEWLiters").val(fuel.FueledDieseKMLiters);
         $("#dieselValue").val(fuel.DieselValue);
@@ -48,6 +48,8 @@
         $("#adblueValue").val(fuel.AdblueValue);
         $("#worker").val(fuel.Worker);
         $("#date").val(fuel.DateString);
+        $("#KMGPS").val(fuel.DistanceGPS);
+        $("#truck").val(fuel.Truck);
     },
     getCorrectDateFormat: function (dateString) {
         var parts = dateString.split("/");
@@ -62,7 +64,7 @@
         $("#GPSInitialConsumption").val("");
         $("#GPSFinalConsumption").val("");
         $("#GPSConsumption").val("");
-        $("#etimatedConsumption").val("");
+        $("#estimatedConsumption").val("");
         $("#FueledKM").val("");
         $("#fueledDieseEWLiters").val("");
         $("#dieselValue").val("");
@@ -71,6 +73,8 @@
         $("#adblueValue").val("");
         $("#worker").val("");
         $("#date").val("");
+        $("#KMGPS").val("");
+        $("#truck").val("");
     },
     initFuel: function () {
         var url = new URL(window.location.href);
@@ -109,7 +113,7 @@
             GPSInitialConsumptionString: $("#GPSInitialConsumption").val(),
             GPSFinalConsumptionString: $("#GPSFinalConsumption").val(),
             GPSConsumptionString: $("#GPSConsumption").val(),
-            EstimatedConsumptionString: $("#etimatedConsumption").val(),
+            EstimatedConsumptionString: $("#estimatedConsumption").val(),
             FueledKMString: $("#FueledKM").val(),
             FueledDieseKMLitersString: $("#fueledDieseEWLiters").val(),
             DieselValueString: $("#dieselValue").val(),
@@ -118,6 +122,8 @@
             AdblueValueString: $("#adblueValue").val(),
             Worker: $("#worker").val(),
             Date: $("#date").val(),
+            DistanceGPSString: $("#KMGPS").val(),
+            Truck: $("#truck").val()
         };
         this.saveFuel(fuelInfo);
     },

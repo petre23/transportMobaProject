@@ -34,7 +34,8 @@ BEGIN
 		   d.WorkerCostsPounds,
 		   d.DriveStatus,
 		   ds.Status AS DriveStatusName,
-		   d.Trailer
+		   d.Trailer,
+		   d.EstimatedConsumption
 	FROM dbo.Drive d
 	INNER JOIN dbo.Worker w ON d.Worker = w.Id
 	INNER JOIN dbo.Trucks t ON d.Truck = t.Id

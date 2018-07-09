@@ -108,7 +108,10 @@ namespace DataLayer.PersistanceLayer
         public Guid? DriveStatus { get; set; }
         [DataMember]
         public string DriveStatusName { get; set; }
-
+        [DataMember]
+        public decimal EstimatedConsumption { get; set; }
+        [DataMember]
+        public string EstimatedConsumptionString { get; set; }
         [DataMember]
         public int TotalRows { get; set; }
     }

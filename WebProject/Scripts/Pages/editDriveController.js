@@ -62,6 +62,7 @@
         $("#totalCostsPounds").val(drive.TotalPaymentsPounds);
         $("#trailer").val(drive.Trailer);
         $("#driveStatus").val(drive.DriveStatus);
+        $("#estimatedConsumption").val(drive.EstimatedConsumption);
     },
     getParameterByName: function (name, url) {
         if (!url) url = window.location.href;
@@ -100,6 +101,7 @@
         $("#totalCostsPounds").val("");
         $("#trailer").val("");
         $("#driveStatus").val("");
+        $("#estimatedConsumption").val("");
     },
     initDrive: function () {
         var url = new URL(window.location.href);
@@ -166,7 +168,8 @@
             TotalPaymentsString: $("#totalCosts").val(),
             TotalPaymentsPoundsString: $("#totalCostsPounds").val(),
             Trailer: $("#trailer").val(),
-            DriveStatus: $("#driveStatus").val()
+            DriveStatus: $("#driveStatus").val(),
+            EstimatedConsumptionString: $("#estimatedConsumption").val()
         };
         this.saveDrive(driveInfo);
     },
@@ -183,6 +186,24 @@
             return false;
         }
     },
+    calculateEstimatedConsumption: function () {
+        var GPSkm = parseInt($("#KMGps").val());
+        var tonaj = parseInt($("#tons").val());
+
+        if (GPSkm && tonaj)
+        {
+            var estimatedConsumption = (parseInt(GPSkm) * (25 + 0.5 * parseInt(tonaj)) / 100).toFixed(2);
+            $("#estimatedConsumption").val(estimatedConsumption);
+        }
+    },
+    calculateKMGPS: function () {
+        var KMInitiali = parseInt($("#KMGpsInitiali").val());
+        var KMFinali = parseInt($("#KMGpsFinal").val());
+        if (KMInitiali && KMFinali) {
+            var difference = parseInt(KMFinali) - parseInt(KMInitiali);
+            $("#KMGps").val(difference);
+        }
+    },
     calculateDifference: function ()
     {
         var GPSkm = parseInt($("#KMGps").val());
@@ -197,30 +218,6 @@
         else
         {
             $("#difference").removeClass("red-border");
-        }
-    },
-    calculateTotalCosts: function (isEuro)
-    {
-        var totalCosts = 0;
-        var workerCosts = 0;
-        var payedCosts = 0;
-        var settlementCosts = 0;
-
-        if (isEuro) {
-            workerCosts = $("#workerCosts").val() !== null && $("#workerCosts").val() !== "" ? parseFloat($("#workerCosts").val()) : 0;
-            payedCosts = $("#payedCosts").val() !== null && $("#payedCosts").val() !== "" ? parseFloat($("#payedCosts").val()) : 0;
-            settlementCosts = $("#settlementCosts").val() !== null && $("#settlementCosts").val() !== "" ? parseFloat($("#settlementCosts").val()) : 0;
-
-            totalCosts = workerCosts + payedCosts + settlementCosts;
-            $("#totalCosts").val(totalCosts);
-        }
-        else {
-            workerCosts = $("#workerCostsPounds").val() !== null && $("#workerCostsPounds").val() !== "" ? parseFloat($("#workerCostsPounds").val()) : 0;
-            payedCosts = $("#payedCostsPounds").val() !== null && $("#payedCostsPounds").val() !== "" ? parseFloat($("#payedCostsPounds").val()) : 0;
-            settlementCosts = $("#settlementCostsPounds").val() !== null && $("#settlementCostsPounds").val() !== "" ? parseFloat($("#settlementCostsPounds").val()) : 0;
-
-            totalCosts = workerCosts + payedCosts + settlementCosts;
-            $("#totalCostsPounds").val(totalCosts);
         }
     }
 }

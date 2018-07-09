@@ -31,14 +31,14 @@ namespace DataLayer.Repository
                             Brand = Guid.Parse(reader["Brand"].ToString()),
                             BrandDropDownValue = Convert.ToInt32(reader["BrandDropDownValue"]),
                             BrandName = reader["BrandName"].ToString(),
-                            ConformCopyExpirationDate = Convert.ToDateTime(reader["ConformCopyExpirationDate"].ToString()),
-                            InsuranceExpirationDate = Convert.ToDateTime(reader["InsuranceExpirationDate"].ToString()),
-                            ITPExpirationDate = Convert.ToDateTime(reader["ITPExpirationDate"].ToString()),
-                            ManufacturingYear = Convert.ToDateTime(reader["ManufacturingYear"].ToString()),
+                            ConformCopyExpirationDate = !string.IsNullOrEmpty(reader["ConformCopyExpirationDate"].ToString()) ? Convert.ToDateTime(reader["ConformCopyExpirationDate"].ToString()) : (DateTime?)null,
+                            InsuranceExpirationDate = !string.IsNullOrEmpty(reader["InsuranceExpirationDate"].ToString()) ? Convert.ToDateTime(reader["InsuranceExpirationDate"].ToString()) : (DateTime?)null,
+                            ITPExpirationDate = !string.IsNullOrEmpty(reader["ITPExpirationDate"].ToString()) ? Convert.ToDateTime(reader["ITPExpirationDate"].ToString()) : (DateTime?)null,
+                            ManufacturingYear = !string.IsNullOrEmpty(reader["ManufacturingYear"].ToString()) ? Convert.ToDateTime(reader["ManufacturingYear"].ToString()) : (DateTime?)null,
                             RegistrationNumber = reader["RegistrationNumber"].ToString(),
-                            TachographExpirationDate = Convert.ToDateTime(reader["TachographExpirationDate"].ToString()),
-                            VignetteExpirationDateUK = Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()),
-                            VignetteExpirationDateNL = Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString())
+                            TachographExpirationDate = !string.IsNullOrEmpty(reader["TachographExpirationDate"].ToString()) ? Convert.ToDateTime(reader["TachographExpirationDate"].ToString()) : (DateTime?)null,
+                            VignetteExpirationDateUK = !string.IsNullOrEmpty(reader["VignetteExpirationDateUK"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()) : (DateTime?)null,
+                            VignetteExpirationDateNL = !string.IsNullOrEmpty(reader["VignetteExpirationDateNL"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString()) : (DateTime?)null,
                         };
                         trucks.Add(truck);
                     }
@@ -100,14 +100,14 @@ namespace DataLayer.Repository
                             Brand = Guid.Parse(reader["Brand"].ToString()),
                             BrandDropDownValue = Convert.ToInt32(reader["BrandDropDownValue"]),
                             BrandName = reader["BrandName"].ToString(),
-                            ConformCopyExpirationDate = Convert.ToDateTime(reader["ConformCopyExpirationDate"].ToString()),
-                            InsuranceExpirationDate = Convert.ToDateTime(reader["InsuranceExpirationDate"].ToString()),
-                            ITPExpirationDate = Convert.ToDateTime(reader["ITPExpirationDate"].ToString()),
-                            ManufacturingYear = Convert.ToDateTime(reader["ManufacturingYear"].ToString()),
+                            ConformCopyExpirationDate = !string.IsNullOrEmpty(reader["ConformCopyExpirationDate"].ToString()) ? Convert.ToDateTime(reader["ConformCopyExpirationDate"].ToString()) : (DateTime?)null,
+                            InsuranceExpirationDate = !string.IsNullOrEmpty(reader["InsuranceExpirationDate"].ToString()) ? Convert.ToDateTime(reader["InsuranceExpirationDate"].ToString()) : (DateTime?)null,
+                            ITPExpirationDate = !string.IsNullOrEmpty(reader["ITPExpirationDate"].ToString()) ? Convert.ToDateTime(reader["ITPExpirationDate"].ToString()) : (DateTime?)null,
+                            ManufacturingYear = !string.IsNullOrEmpty(reader["ManufacturingYear"].ToString()) ? Convert.ToDateTime(reader["ManufacturingYear"].ToString()) : (DateTime?)null,
                             RegistrationNumber = reader["RegistrationNumber"].ToString(),
-                            TachographExpirationDate = Convert.ToDateTime(reader["TachographExpirationDate"].ToString()),
-                            VignetteExpirationDateUK = Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()),
-                            VignetteExpirationDateNL = Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString()),
+                            TachographExpirationDate = !string.IsNullOrEmpty(reader["TachographExpirationDate"].ToString()) ? Convert.ToDateTime(reader["TachographExpirationDate"].ToString()) : (DateTime?)null,
+                            VignetteExpirationDateUK = !string.IsNullOrEmpty(reader["VignetteExpirationDateUK"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()) : (DateTime?)null,
+                            VignetteExpirationDateNL = !string.IsNullOrEmpty(reader["VignetteExpirationDateNL"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString()) : (DateTime?)null
                         };
                         trucks.Add(truck);
                     }

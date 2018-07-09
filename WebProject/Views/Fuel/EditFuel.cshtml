@@ -33,9 +33,9 @@
                                     <select class="form-control" placeholder="@Resources.Labels.Sofer" id="worker" required>
                                         <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var worker in ViewBag.WorkersForDropDown)
-                                        {
-                                            <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
-                                        }
+                                    {
+                                        <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
+                                }
                                     </select>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                                     <label>@Resources.Labels.ConsumEstimat</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="etimatedConsumption" type="number" />
+                                    <input class="form-control" placeholder="@Resources.Labels.ConsumEstimat" step="0.01" id="estimatedConsumption" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -197,6 +197,42 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input class="form-control" placeholder="@Resources.Labels.AdblueLitri" step="0.01" id="adblueValue" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.KMGps</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="@Resources.Labels.KMGps" step="0.01" id="KMGPS" type="number" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Camion</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control" placeholder="@Resources.Labels.Camion" name="truck" id="truck">
+                                        <option selected disabled hidden style='display: none' value=''></option>
+                                        @foreach (var truck in ViewBag.TrucksForDropDown)
+                                        {
+                                            <option value="@truck.Id">@truck.RegistrationNumber</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
