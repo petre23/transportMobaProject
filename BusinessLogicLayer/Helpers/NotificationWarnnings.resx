@@ -177,4 +177,10 @@
   <data name="VignetteUKWillExpire" xml:space="preserve">
     <value>Vigneta UK a camionului cu numarul de inmatriculare {0} va expira pe data de {1} .</value>
   </data>
+  <data name="VignetteROExpired" xml:space="preserve">
+    <value>Vigneta RO a camionului cu numarul de inmatriculare {0} a expirat pe data de {1}.</value>
+  </data>
+  <data name="VignetteROWillExpire" xml:space="preserve">
+    <value>Vigneta RO a camionului cu numarul de inmatriculare {0} va expira pe data de {1} .</value>
+  </data>
 </root>

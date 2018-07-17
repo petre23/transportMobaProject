@@ -87,6 +87,17 @@ namespace DataLayer.PersistanceLayer
             }
         }
         [DataMember]
+        public DateTime? VignetteExpirationDateRO { get; set; }
+        [DataMember]
+        public string VignetteExpirationDateROString
+        {
+            get
+            {
+                return VignetteExpirationDateRO.HasValue ? VignetteExpirationDateRO.Value.ToString("dd/MM/yyyy") : string.Empty;
+            }
+        }
+
+        [DataMember]
         public string BrandName { get; set; }
         [DataMember]
         public int BrandDropDownValue { get; set; }

@@ -39,6 +39,7 @@ namespace DataLayer.Repository
                             TachographExpirationDate = !string.IsNullOrEmpty(reader["TachographExpirationDate"].ToString()) ? Convert.ToDateTime(reader["TachographExpirationDate"].ToString()) : (DateTime?)null,
                             VignetteExpirationDateUK = !string.IsNullOrEmpty(reader["VignetteExpirationDateUK"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()) : (DateTime?)null,
                             VignetteExpirationDateNL = !string.IsNullOrEmpty(reader["VignetteExpirationDateNL"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString()) : (DateTime?)null,
+                            VignetteExpirationDateRO = !string.IsNullOrEmpty(reader["VignetteExpirationDateRO"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateRO"].ToString()) : (DateTime?)null,
                         };
                         trucks.Add(truck);
                     }
@@ -69,6 +70,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@TachographExpirationDate", truck.TachographExpirationDate);
                     cmd.Parameters.AddWithValue("@VignetteExpirationDateUK", truck.VignetteExpirationDateUK);
                     cmd.Parameters.AddWithValue("@VignetteExpirationDateNL", truck.VignetteExpirationDateNL);
+                    cmd.Parameters.AddWithValue("@VignetteExpirationDateRO", truck.VignetteExpirationDateRO);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -104,7 +106,8 @@ namespace DataLayer.Repository
                             RegistrationNumber = reader["RegistrationNumber"].ToString(),
                             TachographExpirationDate = !string.IsNullOrEmpty(reader["TachographExpirationDate"].ToString()) ? Convert.ToDateTime(reader["TachographExpirationDate"].ToString()) : (DateTime?)null,
                             VignetteExpirationDateUK = !string.IsNullOrEmpty(reader["VignetteExpirationDateUK"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateUK"].ToString()) : (DateTime?)null,
-                            VignetteExpirationDateNL = !string.IsNullOrEmpty(reader["VignetteExpirationDateNL"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString()) : (DateTime?)null
+                            VignetteExpirationDateNL = !string.IsNullOrEmpty(reader["VignetteExpirationDateNL"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateNL"].ToString()) : (DateTime?)null,
+                            VignetteExpirationDateRO = !string.IsNullOrEmpty(reader["VignetteExpirationDateRO"].ToString()) ? Convert.ToDateTime(reader["VignetteExpirationDateRO"].ToString()) : (DateTime?)null
                         };
                         trucks.Add(truck);
                     }

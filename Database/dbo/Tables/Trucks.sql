@@ -9,6 +9,7 @@
 	[TachographExpirationDate] DATETIME NULL,
 	[VignetteExpirationDateUK] DATETIME NULL,
 	[VignetteExpirationDateNL] DATETIME NULL,
+	[VignetteExpirationDateRO] DATETIME NULL,
 	[ConformCopyExpirationDate] DATETIME NULL,
 	PRIMARY KEY([Id]),
 	CONSTRAINT FK_TRUCKS_BRANDS FOREIGN KEY (Brand) REFERENCES dbo.Brands (Id)

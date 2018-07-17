@@ -223,6 +223,24 @@ namespace BusinessLogicLayer.Helpers {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vigneta RO a camionului cu numarul de inmatriculare {0} a expirat pe data de {1}..
+        /// </summary>
+        internal static string VignetteROExpired {
+            get {
+                return ResourceManager.GetString("VignetteROExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vigneta RO a camionului cu numarul de inmatriculare {0} va expira pe data de {1} ..
+        /// </summary>
+        internal static string VignetteROWillExpire {
+            get {
+                return ResourceManager.GetString("VignetteROWillExpire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vigneta UK a camionului cu numarul de inmatriculare {0} a expirat pe data de {1}..
         /// </summary>
         internal static string VignetteUKExpired {

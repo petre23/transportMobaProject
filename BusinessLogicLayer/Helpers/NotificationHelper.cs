@@ -26,6 +26,7 @@ namespace BusinessLogicLayer.Helpers
                 notifications.Add(GetNotificationForDate(NotificationWarnnings.TahografWillExpire, NotificationWarnnings.TahografExpired, truck.TachographExpirationDate, truck.TachographExpirationDateString, truck.RegistrationNumber, pageLink, true));
                 notifications.Add(GetNotificationForDate(NotificationWarnnings.ConformCopyWillExpire, NotificationWarnnings.ConformCopyWillExpire, truck.ConformCopyExpirationDate, truck.ConformCopyExpirationDateString, truck.RegistrationNumber, pageLink, true));
                 notifications.Add(GetNotificationForDate(NotificationWarnnings.VignetteNLWillExpire, NotificationWarnnings.VignetteNLWillExpire, truck.VignetteExpirationDateNL, truck.VignetteExpirationDateNLString, truck.RegistrationNumber, pageLink, true));
+                notifications.Add(GetNotificationForDate(NotificationWarnnings.VignetteROWillExpire, NotificationWarnnings.VignetteROWillExpire, truck.VignetteExpirationDateRO, truck.VignetteExpirationDateROString, truck.RegistrationNumber, pageLink, true));
                 notifications.Add(GetNotificationForDate(NotificationWarnnings.VignetteUKWillExpire, NotificationWarnnings.VignetteUKExpired, truck.VignetteExpirationDateUK, truck.VignetteExpirationDateUKString, truck.RegistrationNumber, pageLink, true));
             }
             foreach (var worker in workers)
