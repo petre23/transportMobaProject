@@ -20,6 +20,7 @@ namespace DataAccessLayer
         UserBL _userLogic;
         NotificationBL _notificationLogic;
         FuelBL _fuelLogic;
+        BrandsBL _brandLogic;
 
         public DataAccessLayer()
         {
@@ -29,6 +30,7 @@ namespace DataAccessLayer
             _userLogic = new UserBL();
             _notificationLogic = new NotificationBL();
             _fuelLogic = new FuelBL();
+            _brandLogic = new BrandsBL();
         }
 
         public List<Worker> GetWorkers()
@@ -159,6 +161,16 @@ namespace DataAccessLayer
         public List<DriveStatus> GetDriveStatuses()
         {
             return _driveLogic.GetDriveStatuses();
+        }
+
+        public List<Brand> GetBrands()
+        {
+            return _brandLogic.GetBrands();
+        }
+
+        public Guid SaveBrand(Brand brand)
+        {
+            return _brandLogic.SaveBrand(brand);
         }
     }
 }

@@ -100,6 +100,7 @@
     <Build Include="dbo\StoredProcedures\GetDrivesForWorkerByDateInterval.sql" />
     <Build Include="dbo\Tables\DriveStatus.sql" />
     <Build Include="dbo\StoredProcedures\GetDriveStatuses.sql" />
+    <Build Include="dbo\StoredProcedures\InsertNewBrand.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

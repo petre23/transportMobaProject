@@ -1,5 +1,6 @@
 ﻿var editTruckController = {
-    truckId : null,
+    truckId: null,
+    previousBrand: null,
     saveTruck: function (truck) {
         $.ajax({
             type: 'post',
@@ -37,7 +38,7 @@
     },
     setTruckDetails: function (truck) {
         $("#registrationNumber").val(truck.RegistrationNumber);
-        $("#brands").val(truck.BrandDropDownValue);
+        $("#brand").val(truck.BrandName);
         $("#registrationYear").val(truck.ManufacturingYearString);
         $("#ITPExpirationDate").val(truck.ITPExpirationDateString);
         $("#insuranceExpirationDate").val(truck.InsuranceExpirationDateString);
@@ -59,7 +60,7 @@
     setupNewTruckInfo: function () {
         this.truckId = null;
         $("#registrationNumber").val("");
-        $("#brands").val("");
+        $("#brand").val("");
         $("#registrationYear").val("");
         $("#ITPExpirationDate").val("");
         $("#insuranceExpirationDate").val("");
@@ -110,7 +111,7 @@
         var truckInfo = {
             Id: this.truckId,
             RegistrationNumber : $("#registrationNumber").val(),
-            BrandDropDownValue : $("#brands").val(),
+            BrandName : $("#brand").val(),
             ManufacturingYear: this.getCorrectDateFormat($("#registrationYear").val()),
             ITPExpirationDate: this.getCorrectDateFormat($("#ITPExpirationDate").val()),
             InsuranceExpirationDate: this.getCorrectDateFormat($("#insuranceExpirationDate").val()),

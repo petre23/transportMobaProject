@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NotificationWarnnings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\BrandsBL.cs" />
     <Compile Include="Logic\DriveBL.cs" />
     <Compile Include="Logic\FuelBL.cs" />
     <Compile Include="Logic\NotificationBL.cs" />

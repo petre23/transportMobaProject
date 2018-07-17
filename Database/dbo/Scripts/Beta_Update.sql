@@ -183,3 +183,14 @@ INSERT INTO dbo.DriveStatus VALUES
 	NEWID(),
 	'Anulat - nu a ajuns'
 )
+
+INSERT INTO dbo.DriveStatus VALUES
+(
+	NEWID(),
+	'In desfasurare'
+)
+INSERT INTO dbo.DriveStatus VALUES
+(
+	NEWID(),
+	'Finalizat'
+)

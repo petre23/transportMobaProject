@@ -55,9 +55,6 @@ namespace DataLayer.Repository
             {
                 using (SqlCommand cmd = new SqlCommand("SaveTruck", con))
                 {
-                    var brands = _brandRepository.GetBrands();
-                    truck.Brand = brands.FirstOrDefault(x => x.Value == truck.BrandDropDownValue).Id;
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     var isNew = truck.Id == Guid.Empty;
                     truck.Id = isNew ? Guid.NewGuid() : truck.Id;

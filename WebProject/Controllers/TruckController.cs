@@ -25,6 +25,7 @@ namespace WebProject.Controllers
         [AuthorizationAttribute]
         public ActionResult EditTruck()
         {
+            ViewBag.BrandsForDropDown = _dataAccessLayer.GetBrands();
             return View();
         }
         [AuthorizationAttribute]

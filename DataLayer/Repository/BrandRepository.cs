@@ -37,5 +37,25 @@ namespace DataLayer.Repository
                 }
             }
         }
+
+        public Guid SaveBrand(Brand brand)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("InsertNewBrand", con))
+                {
+                    brand.Id = Guid.NewGuid();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", brand.Id);
+                    cmd.Parameters.AddWithValue("@Name", brand.Name);
+                    con.Open();
+                    var reader = cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    return brand.Id;
+                }
+            }
+        }
+
     }
 }

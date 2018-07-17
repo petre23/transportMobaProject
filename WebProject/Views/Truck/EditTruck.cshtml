@@ -39,11 +39,14 @@
                                     <label>@Resources.Labels.Marca</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" name="brands" id="brands" required>
+                                    <input class="form-control" list="brandsList" name="brands" id="brand" required>
+                                    <datalist name="brandsList" id="brandsList">
                                         <option selected disabled hidden style='display: none' value=''></option>
-                                        <option value="1">Iveco Stralis</option>
-                                        <option value="2">Renault Premium</option>
-                                    </select>
+                                        @foreach (var brand in ViewBag.BrandsForDropDown)
+                                        {
+                                            <option value="@brand.Name"></option>   
+                                        }
+                                    </datalist>
                                 </div>
                             </div>
                         </div>

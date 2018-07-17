@@ -90,5 +90,11 @@ namespace DataAccessLayer
 
         [OperationContract]
         List<DriveStatus> GetDriveStatuses();
+
+        [OperationContract]
+        List<Brand> GetBrands();
+
+        [OperationContract]
+        Guid SaveBrand(Brand brand);
     }
 }

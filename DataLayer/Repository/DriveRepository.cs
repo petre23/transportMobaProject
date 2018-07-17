@@ -30,7 +30,7 @@ namespace DataLayer.Repository
                         var drive = new Drive();
                         drive.Id = Guid.Parse(reader["Id"].ToString());
                         drive.CostsSpecification = reader["CostsSpecification"].ToString();
-                        drive.Date = Convert.ToDateTime(reader["Date"].ToString());
+                        drive.Date = string.IsNullOrEmpty(reader["Date"].ToString()) ? (DateTime?)null : Convert.ToDateTime(reader["Date"].ToString());
                         drive.Destination = reader["Destination"].ToString();
                         drive.Difference = Convert.ToDecimal(reader["Difference"].ToString());
                         drive.DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString());
@@ -91,7 +91,7 @@ namespace DataLayer.Repository
                         {
                             Id = Guid.Parse(reader["Id"].ToString()),
                             CostsSpecification = reader["CostsSpecification"].ToString(),
-                            Date = Convert.ToDateTime(reader["Date"].ToString()),
+                            Date = string.IsNullOrEmpty(reader["Date"].ToString()) ? (DateTime?)null : Convert.ToDateTime(reader["Date"].ToString()),
                             Destination = reader["Destination"].ToString(),
                             Difference = Convert.ToDecimal(reader["Difference"].ToString()),
                             DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString()),
@@ -196,7 +196,7 @@ namespace DataLayer.Repository
                         {
                             Id = Guid.Parse(reader["Id"].ToString()),
                             CostsSpecification = reader["CostsSpecification"].ToString(),
-                            Date = Convert.ToDateTime(reader["Date"].ToString()),
+                            Date = string.IsNullOrEmpty(reader["Date"].ToString()) ? (DateTime?)null : Convert.ToDateTime(reader["Date"].ToString()),
                             Destination = reader["Destination"].ToString(),
                             Difference = Convert.ToDecimal(reader["Difference"].ToString()),
                             DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString()),

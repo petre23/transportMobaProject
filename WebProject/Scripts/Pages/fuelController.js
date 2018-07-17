@@ -84,6 +84,10 @@ var fuelController =
                 });
             }
         },
+        initExportControls: function () {
+            $("#startDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+            $("#endDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+        },
         confirmDeleteFuel: function () {
             var txt;
             var r = confirm("Sunteti sigur ca vreti sa stergeti acesta alimentare?");
@@ -95,3 +99,4 @@ var fuelController =
         }
     };
 fuelController.getFuel();
+fuelController.initExportControls();
