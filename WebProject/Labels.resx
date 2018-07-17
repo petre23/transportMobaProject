@@ -348,4 +348,7 @@
   <data name="ExportFuelWorkerSettings" xml:space="preserve">
     <value>Optiuni export alimentari sofer</value>
   </data>
+  <data name="DataExpirareVignetteRO" xml:space="preserve">
+    <value>Data Expirare Vignette RO</value>
+  </data>
 </root>

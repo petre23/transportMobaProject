@@ -43,6 +43,7 @@
         $("#insuranceExpirationDate").val(truck.InsuranceExpirationDateString);
         $("#tachographExpirationDate").val(truck.TachographExpirationDateString);
         $("#vignetteExpirationDateUK").val(truck.VignetteExpirationDateUKString);
+        $("#vignetteExpirationDateRO").val(truck.VignetteExpirationDateROString);
         $("#vignetteExpirationDateNL").val(truck.VignetteExpirationDateNLString);
         $("#conformCopyExpirationDate").val(truck.ConformCopyExpirationDateString);
     },
@@ -65,6 +66,7 @@
         $("#insuranceExpirationDate").val("");
         $("#tachographExpirationDate").val("");
         $("#vignetteExpirationDateUK").val("");
+        $("#vignetteExpirationDateRO").val("");
         $("#vignetteExpirationDateNL").val("");
         $("#conformCopyExpirationDate").val("");
     },
@@ -94,6 +96,7 @@
         $("#insuranceExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#tachographExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#vignetteExpirationDateUK").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
+        $("#vignetteExpirationDateRO").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#vignetteExpirationDateNL").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#conformCopyExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
 
@@ -116,6 +119,7 @@
             InsuranceExpirationDate: this.getCorrectDateFormat($("#insuranceExpirationDate").val()),
             TachographExpirationDate: this.getCorrectDateFormat($("#tachographExpirationDate").val()),
             VignetteExpirationDateUK: this.getCorrectDateFormat($("#vignetteExpirationDateUK").val()),
+            VignetteExpirationDateRO: this.getCorrectDateFormat($("#vignetteExpirationDateRO").val()),
             VignetteExpirationDateNL: this.getCorrectDateFormat($("#vignetteExpirationDateNL").val()),
             ConformCopyExpirationDate: this.getCorrectDateFormat($("#conformCopyExpirationDate").val())
         };

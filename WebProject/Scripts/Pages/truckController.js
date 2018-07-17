@@ -49,6 +49,7 @@ var truckController =
                     { name: "ManufacturingYearString", title: 'An fabricatie', type: "text", width: 60 },
                     { name: "ITPExpirationDateString", title: 'Data expirare ITP', type: "text", width: 80 },
                     { name: "VignetteExpirationDateUKString", title: 'Data expirare vignette UK', type: "text", width: 100 },
+                    { name: "VignetteExpirationDateROString", title: 'Data expirare vignette UK', type: "text", width: 100 },
                     { name: "VignetteExpirationDateNLString", title: 'Data expirare vignette NL', type: "text", width: 100 },
                     { name: "InsuranceExpirationDateString", title: 'Data expirare asigurare', type: "text", width: 100 },
                     { name: "TachographExpirationDateString", title: 'Data expirare tahograf', type: "text", width: 100 },
