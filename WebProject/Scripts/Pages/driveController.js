@@ -72,7 +72,7 @@
                     { name: "Reason", title: 'Motiv', type: "text", width: 200 },
                     { name: "WorkerCosts", title: 'Cheltuieli Sofer €', type: "text", width: 100 },
                     { name: "WorkerCostsPounds", title: 'Cheltuieli Sofer £', type: "text", width: 100 },
-                    { name: "CostsSpecifications", title: 'Specificatie cheltuieli', type: "text", width: 200 },
+                    { name: "CostsSpecification", title: 'Specificatie cheltuieli', type: "text", width: 200 },
                     { name: "PayedCosts", title: 'Cheltuieli platite €', type: "text", width: 100 },
                     { name: "PayedCostsPounds", title: 'Cheltuieli platite £', type: "text", width: 100 },
                     { name: "SettlementCosts", title: 'Cheltuieli de decontat €', type: "text", width: 100 },
