@@ -124,7 +124,7 @@
                                     <label>@Resources.Labels.KMAlimentati</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.KMAlimentati" step="0.01" id="FueledKM" type="number" />
+                                    <input class="form-control" oninput="editFuelController.calculateRealConsum();" placeholder="@Resources.Labels.KMAlimentati" step="0.01" id="FueledKM" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                     <label>@Resources.Labels.AlimentareDieselEWlitrii</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.AlimentareDieselEWlitrii" step="0.01" id="fueledDieseEWLiters" type="number" />
+                                    <input class="form-control" oninput="editFuelController.calculateRealConsum();" placeholder="@Resources.Labels.AlimentareDieselEWlitrii" step="0.01" id="fueledDieseEWLiters" type="number" />
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                                     <label>@Resources.Labels.ConsumReal</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" placeholder="@Resources.Labels.ConsumReal" step="0.01" id="realConsumption" type="number" />
+                                    <input class="form-control"  oninput="editFuelController.calculateRealConsum();" placeholder="@Resources.Labels.ConsumReal" step="0.01" id="realConsumption" type="number" />
                                 </div>
                             </div>
                         </div>

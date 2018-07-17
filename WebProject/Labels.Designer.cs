@@ -340,6 +340,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data Expirare Vignette RO.
+        /// </summary>
+        public static string DataExpirareVignetteRO {
+            get {
+                return ResourceManager.GetString("DataExpirareVignetteRO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data expirare Vignette UK.
         /// </summary>
         public static string DataExpirareVignetteUK {

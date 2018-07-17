@@ -149,5 +149,15 @@
             $("#GPSConsumption").removeClass("red-border");
         }
     },
+
+
+    calculateRealConsum: function () {
+        var KMAlimentare = parseInt($("#FueledKM").val());
+        var KMAlimentareDieselEWlitrii = parseInt($("#fueledDieseEWLiters").val());
+        if (KMAlimentare && KMAlimentareDieselEWlitrii) {
+            var calculatedFormula = parseInt(KMAlimentare) % parseInt(KMAlimentareDieselEWlitrii)/100;
+            $("#realConsumption").val(calculatedFormula);
+        }
+    },
 };
 editFuelController.initFuel();
