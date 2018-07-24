@@ -351,4 +351,13 @@
   <data name="DataExpirareVignetteRO" xml:space="preserve">
     <value>Data Expirare Vignette RO</value>
   </data>
+  <data name="AlimentariPropriiSofer" xml:space="preserve">
+    <value>Alimentari proprii sofer</value>
+  </data>
+  <data name="AlimentariTKCompanie" xml:space="preserve">
+    <value>Alimentari TK companie</value>
+  </data>
+  <data name="AlimentariTKSofer" xml:space="preserve">
+    <value>Alimentari TK sofer</value>
+  </data>
 </root>

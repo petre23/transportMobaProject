@@ -97,6 +97,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alimentari proprii sofer.
+        /// </summary>
+        public static string AlimentariPropriiSofer {
+            get {
+                return ResourceManager.GetString("AlimentariPropriiSofer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alimentari TK companie.
+        /// </summary>
+        public static string AlimentariTKCompanie {
+            get {
+                return ResourceManager.GetString("AlimentariTKCompanie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alimentari TK sofer.
+        /// </summary>
+        public static string AlimentariTKSofer {
+            get {
+                return ResourceManager.GetString("AlimentariTKSofer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An fabricatie.
         /// </summary>
         public static string AnFabricatie {
