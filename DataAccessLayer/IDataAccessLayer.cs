@@ -96,5 +96,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         Guid SaveBrand(Brand brand);
+
+        [OperationContract]
+        decimal? GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date);
     }
 }

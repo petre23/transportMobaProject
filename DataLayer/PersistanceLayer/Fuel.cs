@@ -72,5 +72,29 @@ namespace DataLayer.PersistanceLayer
         public string DistanceGPSString { get; set; }
         [DataMember]
         public string TruckRegistrationNumber { get; set; }
+        [DataMember]
+        public decimal? WorkerSelfFueled { get; set; }
+        [DataMember]
+        public string WorkerSelfFueledString { get; set; }
+        [DataMember]
+        public decimal? WorkerSelfFueledPounds { get; set; }
+        [DataMember]
+        public string WorkerSelfFueledPoundsString { get; set; }
+        [DataMember]
+        public decimal? WorkerTKFuel { get; set; }
+        [DataMember]
+        public string WorkerTKFuelString { get; set; }
+        [DataMember]
+        public decimal? WorkerTKFuelPounds { get; set; }
+        [DataMember]
+        public string WorkerTKFuelPoundsString { get; set; }
+        [DataMember]
+        public decimal? CompanyTKFuel { get; set; }
+        [DataMember]
+        public string CompanyTKFuelString { get; set; }
+        [DataMember]
+        public decimal? CompanyTKFuelPounds { get; set; }
+        [DataMember]
+        public string CompanyTKFuelPoundsString { get; set; }
     }
 }

@@ -14,7 +14,13 @@
 	@FueledKM decimal(12,2) = null,
 	@Date datetime,
 	@DistanceGPS decimal(12,2) = null,
-	@Truck uniqueidentifier = null
+	@Truck uniqueidentifier = null,
+	@WorkerSelfFueled decimal(12,2) = null,
+	@WorkerSelfFueledPounds decimal(12,2) = null,
+	@WorkerTKFuel decimal(12,2) = null,
+	@WorkerTKFuelPounds decimal(12,2) = null,
+	@CompanyTKFuel decimal(12,2) = null,
+	@CompanyTKFuelPounds decimal(12,2) = null
 AS
 BEGIN
 	IF(@IsNew = 1)
@@ -34,7 +40,13 @@ BEGIN
 			RealConsumption,
 			Date,
 			DistanceGPS,
-			Truck)
+			Truck,
+			WorkerSelfFueled,
+			WorkerSelfFueledPounds,
+			WorkerTKFuel,
+			WorkerTKFuelPounds,
+			CompanyTKFuel,
+			CompanyTKFuelPounds)
 		VALUES(
 			@Id,
 			@Worker,
@@ -50,7 +62,13 @@ BEGIN
 			@RealConsumption,
 			@Date,
 			@DistanceGPS,
-			@Truck)
+			@Truck,
+			@WorkerSelfFueled,
+			@WorkerSelfFueledPounds,
+			@WorkerTKFuel,
+			@WorkerTKFuelPounds,
+			@CompanyTKFuel,
+			@CompanyTKFuelPounds)
 	END
 	ELSE
 	BEGIN
@@ -68,7 +86,13 @@ BEGIN
 			RealConsumption = @RealConsumption,
 			Date = @Date,
 			DistanceGPS = @DistanceGPS,
-			Truck = @Truck
+			Truck = @Truck,
+			WorkerSelfFueled = @WorkerSelfFueled,
+			WorkerSelfFueledPounds = @WorkerSelfFueledPounds,
+			WorkerTKFuel = @WorkerTKFuel,
+			WorkerTKFuelPounds = @WorkerTKFuelPounds,
+			CompanyTKFuel = @CompanyTKFuel,
+			CompanyTKFuelPounds = @CompanyTKFuelPounds
 			WHERE Id = @Id
 	END
 END

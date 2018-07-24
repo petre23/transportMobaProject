@@ -102,6 +102,7 @@
     <Build Include="dbo\Tables\DriveStatus.sql" />
     <Build Include="dbo\StoredProcedures\GetDriveStatuses.sql" />
     <Build Include="dbo\StoredProcedures\InsertNewBrand.sql" />
+    <Build Include="dbo\StoredProcedures\GetEstimatedConsumtionSumForDriverAndDate.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

@@ -33,5 +33,10 @@ namespace BusinessLogicLayer.Logic
         {
             _fuelRepository.DeleteFuel(fuelId);
         }
+
+        public decimal? GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date)
+        {
+            return _fuelRepository.GetEstimatedConsumtionSumForDriverAndDate(workerId, date);
+        }
     }
 }

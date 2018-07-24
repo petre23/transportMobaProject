@@ -90,6 +90,20 @@ namespace WebProject.Controllers
         }
 
         [AuthorizationAttribute]
+        public ActionResult GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date)
+        {
+            try
+            {
+                return Json(new { totalEstimatedConsumtion = _dataAccessLayer.GetEstimatedConsumtionSumForDriverAndDate(workerId,date) });
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
+            }
+        }
+
+        [AuthorizationAttribute]
         public ActionResult ExportFuelData()
         {
             try

@@ -35,6 +35,31 @@
             }
         });
     },
+    getTotalEstimateConsumtion: function (selectedWorkerId,selectedDate) {
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: "/Fuel/GetEstimatedConsumtionSumForDriverAndDate",
+            data: {
+                workerId: selectedWorkerId,
+                date: selectedDate
+            },
+            success: function (res) {
+                $("#estimatedConsumption").val(res.totalEstimatedConsumtion);
+            },
+            error: function (jqXHR, textStatus, exception, errorThrown) {
+                $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
+                $("#errorDialog").dialog("open");
+            }
+        });
+    },
+    getTotalEstimateFor: function () {
+        var workerId = $("#worker").val();
+        var date = $("#date").val();
+        if (workerId && date) {
+            this.getTotalEstimateConsumtion(workerId, date);
+        }
+    },
     setFuelDetails: function (fuel) {
         $("#GPSInitialConsumption").val(fuel.GPSInitialConsumption);
         $("#GPSFinalConsumption").val(fuel.GPSFinalConsumption);
@@ -50,6 +75,12 @@
         $("#date").val(fuel.DateString);
         $("#KMGPS").val(fuel.DistanceGPS);
         $("#truck").val(fuel.Truck);
+        $("#workerSelfFueled").val(fuel.WorkerSelfFueled);
+        $("#workerSelfFueledPounds").val(fuel.WorkerSelfFueledPounds);
+        $("#workerTKFueled").val(fuel.WorkerTKFuel);
+        $("#workerTKFueledPounds").val(fuel.WorkerTKFuelPounds);
+        $("#companyTKFuel").val(fuel.CompanyTKFuel);
+        $("#companyTKFuelPounds").val(fuel.CompanyTKFuelPounds);
     },
     getCorrectDateFormat: function (dateString) {
         var parts = dateString.split("/");
@@ -75,6 +106,12 @@
         $("#date").val("");
         $("#KMGPS").val("");
         $("#truck").val("");
+        $("#workerSelfFueled").val("");
+        $("#workerSelfFueledPounds").val("");
+        $("#workerTKFueled").val("");
+        $("#workerTKFueledPounds").val("");
+        $("#companyTKFuel").val("");
+        $("#companyTKFuelPounds").val("");
     },
     initFuel: function () {
         var url = new URL(window.location.href);
@@ -123,7 +160,13 @@
             Worker: $("#worker").val(),
             Date: $("#date").val(),
             DistanceGPSString: $("#KMGPS").val(),
-            Truck: $("#truck").val()
+            Truck: $("#truck").val(),
+            WorkerSelfFueledString: $("#workerSelfFueled").val(),
+            WorkerSelfFueledPoundsString: $("#workerSelfFueledPounds").val(),
+            WorkerTKFuelString: $("#workerTKFueled").val(),
+            WorkerTKFuelPoundsString: $("#workerTKFueledPounds").val(),
+            CompanyTKFuelString: $("#companyTKFuel").val(),
+            CompanyTKFuelPoundsString: $("#companyTKFuelPounds").val()
         };
         this.saveFuel(fuelInfo);
     },

@@ -172,5 +172,10 @@ namespace DataAccessLayer
         {
             return _brandLogic.SaveBrand(brand);
         }
+
+        public decimal? GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date)
+        {
+            return _fuelLogic.GetEstimatedConsumtionSumForDriverAndDate(workerId, date);
+        }
     }
 }

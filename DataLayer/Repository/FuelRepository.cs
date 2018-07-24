@@ -39,6 +39,12 @@ namespace DataLayer.Repository
                             RealConsumption = string.IsNullOrEmpty(reader["RealConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["RealConsumption"].ToString()),
                             Date = Convert.ToDateTime(reader["Date"].ToString()),
                             DistanceGPS = string.IsNullOrEmpty(reader["DistanceGPS"].ToString()) ? 0 : Convert.ToDecimal(reader["DistanceGPS"].ToString()),
+                            WorkerSelfFueled = string.IsNullOrEmpty(reader["WorkerSelfFueled"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerSelfFueled"].ToString()),
+                            WorkerSelfFueledPounds = string.IsNullOrEmpty(reader["WorkerSelfFueledPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerSelfFueledPounds"].ToString()),
+                            WorkerTKFuel = string.IsNullOrEmpty(reader["WorkerTKFuel"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerTKFuel"].ToString()),
+                            WorkerTKFuelPounds = string.IsNullOrEmpty(reader["WorkerTKFuelPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerTKFuelPounds"].ToString()),
+                            CompanyTKFuel = string.IsNullOrEmpty(reader["CompanyTKFuel"].ToString()) ? 0 : Convert.ToDecimal(reader["CompanyTKFuel"].ToString()),
+                            CompanyTKFuelPounds = string.IsNullOrEmpty(reader["CompanyTKFuelPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["CompanyTKFuelPounds"].ToString()),
                             TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString()
                         };
                         fuelInfoList.Add(fuelInfo);
@@ -75,6 +81,12 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@RealConsumption", fuel.RealConsumption);
                     cmd.Parameters.AddWithValue("@Date", fuel.Date);
                     cmd.Parameters.AddWithValue("@DistanceGPS", fuel.DistanceGPS);
+                    cmd.Parameters.AddWithValue("@WorkerSelfFueled", fuel.WorkerSelfFueled);
+                    cmd.Parameters.AddWithValue("@WorkerSelfFueledPounds", fuel.WorkerSelfFueledPounds);
+                    cmd.Parameters.AddWithValue("@CompanyTKFuel", fuel.CompanyTKFuel);
+                    cmd.Parameters.AddWithValue("@CompanyTKFuelPounds", fuel.CompanyTKFuelPounds);
+                    cmd.Parameters.AddWithValue("@WorkerTKFuel", fuel.WorkerTKFuel);
+                    cmd.Parameters.AddWithValue("@WorkerTKFuelPounds", fuel.WorkerTKFuelPounds);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -116,6 +128,12 @@ namespace DataLayer.Repository
                             RealConsumption = Convert.ToDecimal(reader["RealConsumption"].ToString()),
                             Date = Convert.ToDateTime(reader["Date"].ToString()),
                             DistanceGPS = string.IsNullOrEmpty(reader["DistanceGPS"].ToString()) ? 0 : Convert.ToDecimal(reader["DistanceGPS"].ToString()),
+                            WorkerSelfFueled = string.IsNullOrEmpty(reader["WorkerSelfFueled"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerSelfFueled"].ToString()),
+                            WorkerSelfFueledPounds = string.IsNullOrEmpty(reader["WorkerSelfFueledPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerSelfFueledPounds"].ToString()),
+                            WorkerTKFuel = string.IsNullOrEmpty(reader["WorkerTKFuel"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerTKFuel"].ToString()),
+                            WorkerTKFuelPounds = string.IsNullOrEmpty(reader["WorkerTKFuelPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerTKFuelPounds"].ToString()),
+                            CompanyTKFuel = string.IsNullOrEmpty(reader["CompanyTKFuel"].ToString()) ? 0 : Convert.ToDecimal(reader["CompanyTKFuel"].ToString()),
+                            CompanyTKFuelPounds = string.IsNullOrEmpty(reader["CompanyTKFuelPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["CompanyTKFuelPounds"].ToString()),
                             TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString()
                         };
                         fueledInfoList.Add(fuleInfo);
@@ -138,6 +156,29 @@ namespace DataLayer.Repository
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
+                }
+            }
+        }
+
+        public decimal? GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetEstimatedConsumtionSumForDriverAndDate", con))
+                {
+                    decimal? totalEstimatedConsumtion = 0;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@DriverId", workerId);
+                    cmd.Parameters.AddWithValue("@Date", date);
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        totalEstimatedConsumtion = string.IsNullOrEmpty(reader["TotalEstimatedConsumption"].ToString()) ? (decimal?)null : Convert.ToDecimal(reader["TotalEstimatedConsumption"].ToString());
+                    }
+                    con.Close();
+
+                    return totalEstimatedConsumtion;
                 }
             }
         }
