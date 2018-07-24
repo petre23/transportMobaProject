@@ -47,14 +47,14 @@ var fuelController =
                     { name: "DateString", title: 'Data', type: "text", width: 80},
                     { name: "GPSInitialConsumption", title: 'Consum GPS Initial', type: "text", width: 80 },
                     { name: "GPSFinalConsumption", title: 'Consum GPS Final', type: "text", width: 80 },
-                    { name: "GPSConsumption", title: 'Consum GPS', type: "text", width: 60 },
-                    { name: "FueledKM", title: 'Km la Alimentare', type: "text", width: 80 },
-                    { name: "FueledDieseKMLitersString", title: 'Alimentare Diesel EW litrii', type: "text", width: 100 },
-                    { name: "DieselValue", title: 'Valoare Diesel', type: "text", width: 100 },
-                    { name: "RealConsumption", title: 'Consum Real', type: "text", width: 100 },
-                    { name: "AdblueLiters", title: 'Adblue Litri', type: "text", width: 100 },
-                    { name: "AdblueValue", title: 'Valoare Adblue', type: "text", width: 100 },
-                    { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 100 },
+                    { name: "GPSConsumption", title: 'Consum GPS', type: "text", width: 70 },
+                    { name: "FueledKM", title: 'Km la Alimentare', type: "text", width: 85 },
+                    { name: "FueledDieseKMLitersString", title: 'Alimentare Diesel EW litrii', type: "text", width: 90 },
+                    { name: "DieselValue", title: 'Valoare Diesel', type: "text", width: 85 },
+                    { name: "RealConsumption", title: 'Consum Real', type: "text", width: 85 },
+                    { name: "AdblueLiters", title: 'Adblue Litri', type: "text", width: 85 },
+                    { name: "AdblueValue", title: 'Valoare Adblue', type: "text", width: 85 },
+                    { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 85 },
                     { name: "TruckRegistrationNumber", title: 'Nr. Inmatriculare Camion', type: "text", width: 100 }
                 ]
             });
