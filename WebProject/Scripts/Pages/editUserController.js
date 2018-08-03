@@ -71,8 +71,8 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     },
     initControls: function () {
-        $("#saveUser").on("submit", function () {
-            return false;
+        $('#saveUser').on('submit', function (e) {
+            e.preventDefault();
         });
     },
     cancelEdit: function () {

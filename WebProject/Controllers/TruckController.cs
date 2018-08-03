@@ -16,6 +16,7 @@ namespace WebProject.Controllers
     {
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // GET: Truck
         [AuthorizationAttribute]
         public ActionResult Index()
@@ -37,6 +38,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetTrucks \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -55,6 +57,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in SaveTruck for truckId: {0} \n\r : {1} - {2}",truck.Id, ex.Message,ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -68,6 +71,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetTruck for truckId: {0} \n\r : {1} - {2}", idTruck, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -87,6 +91,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in DeleteTruck for truckId: {0} \n\r : {1} - {2}", truckId, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -100,6 +105,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetTrucksForDropDown \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }

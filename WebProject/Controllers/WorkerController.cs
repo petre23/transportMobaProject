@@ -14,6 +14,7 @@ namespace WebProject.Controllers
     {
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // GET: Truck
         [AuthorizationAttribute]
         public ActionResult Index()
@@ -35,6 +36,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetWorkers \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -54,6 +56,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in SaveWorker with id: {0} \n\r : {1} - {2}",worker.Id, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -67,6 +70,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetWorker with id: {0} \n\r : {1} - {2}", idWorker, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -86,6 +90,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in DeleteWorker with id: {0} \n\r : {1} - {2}", workerId, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }

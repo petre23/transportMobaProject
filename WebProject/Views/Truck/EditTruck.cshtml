@@ -14,7 +14,7 @@
         </nav>
     </div>
 </div>
-<form name="saveTruck" class="edit-panel" onsubmit="editTruckController.validateAndSaveTruck();">
+<form id="saveTruck" name="saveTruck" class="edit-panel" onsubmit="editTruckController.validateAndSaveTruck();">
     <div id="generalInformation">
         <h3 class="details-header">Informatii generale</h3>
         <div class="row fields-padding">
@@ -64,7 +64,7 @@
                                     <label>@Resources.Labels.AnFabricatie</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control" id="registrationYear" placeholder="dd/MM/yyyy" type="text"/>
+                                    <input class="form-control" id="registrationYear" pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" placeholder="dd/MM/yyyy" type="text"/>
                                 </div>
                             </div>
                         </div>

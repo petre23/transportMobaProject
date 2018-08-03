@@ -18,6 +18,7 @@ namespace WebProject.Controllers
     {
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // GET: Fuel
         public ActionResult Index()
         {
@@ -41,6 +42,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetFuelInfo \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -56,6 +58,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in SaveFuel with id {0} \n\r : {1} - {2}",fuel.Id, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -69,6 +72,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetFuelByid for fueld with id {0} \n\r : {1} - {2}",fuelId, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -84,6 +88,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in DeleteFuel for fueld with id {0} \n\r : {1} - {2}", fuelId, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -98,6 +103,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetEstimatedConsumtionSumForDriverAndDate \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -108,6 +114,7 @@ namespace WebProject.Controllers
         {
             try
             {
+                log.Info(string.Format("Utilizatorul {0} a descarcat un excel cu toate alimentarile inregistrate.", Session["Username"]));
                 var gv = AdaptGridViewForExport(_dataAccessLayer.GetFuelInfo());
 
                 Response.ClearContent();
@@ -127,6 +134,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in FuelController - ExportFuelData \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new
                 {
@@ -140,6 +148,8 @@ namespace WebProject.Controllers
         {
             try
             {
+                log.Info(string.Format("Utilizatorul {0} a descarcat un excel cu alimentari pentru soferul {1} in intervalul orar {2} - {3}.", Session["Username"], workerId, startDate, endDate));
+
                 var worker = _dataAccessLayer.GetWorker(workerId);
                 var fileName = string.Format("Alimentari-{0}.xls", worker.WorkerName);
 
@@ -163,6 +173,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in FuelController - ExportFuelDataForWorkerByDateInterval \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new
                 {

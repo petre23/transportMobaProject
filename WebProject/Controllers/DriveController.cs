@@ -15,6 +15,8 @@ namespace WebProject.Controllers
 {
     public class DriveController : Controller
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
         // GET: Drive
@@ -41,6 +43,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetDrives \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new
                 {
@@ -58,6 +61,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in SaveDrives with id {0} \n\r : {1} - {2}", drive.Id, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -71,6 +75,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetDrive for drive with id = {0} \n\r : {1} - {2}",idDrive, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -85,6 +90,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in DeleteDrive for drive with id = {0} \n\r : {1} - {2}", driveId, ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -95,6 +101,7 @@ namespace WebProject.Controllers
         {
             try
             {
+                log.Info(string.Format("Utilizatorul {0} a descarcat un excel cu toate cursele inregistrate.", Session["Username"]));
                 var gv = AdaptGridViewForExport(_dataAccessLayer.GetDrives(99999, 0));
 
                 Response.ClearContent();
@@ -114,6 +121,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in DriveController - ExportToExcel \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
@@ -124,6 +132,8 @@ namespace WebProject.Controllers
         {
             try
             {
+                log.Info(string.Format("Utilizatorul {0} a descarcat un excel cu curse pentru soferul {1} in intervalul orar {2} - {3}.", Session["Username"],workerId,startDate,endDate));
+
                 var worker = _dataAccessLayer.GetWorker(workerId);
                 var fileName = string.Format("Curse-{0}.xls", worker.WorkerName);
 
@@ -146,6 +156,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in GetDrivesForWorkerByDateInterval \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new
                 {

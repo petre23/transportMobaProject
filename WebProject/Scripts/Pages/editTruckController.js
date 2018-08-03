@@ -101,8 +101,8 @@
         $("#vignetteExpirationDateNL").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
         $("#conformCopyExpirationDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: false, changeYear: true });
 
-        $("#saveTruck").on("submit", function () {
-            return false;
+        $('#saveTruck').on('submit', function (e) {
+            e.preventDefault();
         });
     },
     cancelEdit: function () {

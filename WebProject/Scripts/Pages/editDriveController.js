@@ -116,8 +116,8 @@
     initControls: function () {
         $("#date").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
 
-        $("#saveDrive").on("submit", function () {
-            return false;
+        $('#saveDrive').on('submit', function (e) {
+            e.preventDefault();
         });
 
         if ($("#difference").val() < 0)

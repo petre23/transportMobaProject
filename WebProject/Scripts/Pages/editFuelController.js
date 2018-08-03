@@ -135,8 +135,8 @@
     initControls: function () {
         $("#date").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
 
-        $("#saveFuel").on("submit", function () {
-            return false;
+        $('#saveFuel').on('submit', function (e) {
+            e.preventDefault();
         });
     },
     cancelEdit: function () {

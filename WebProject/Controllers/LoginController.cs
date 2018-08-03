@@ -10,6 +10,7 @@ namespace WebProject.Controllers
 {
     public class LoginController : Controller
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         DataAccessLayer.DataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
 
@@ -30,6 +31,8 @@ namespace WebProject.Controllers
                     Session["UserFullName"] = correctUser.FullName;
                     Session["HasAdminRole"] = correctUser.HasAdminRole;
 
+                    log.Info(string.Format("The user: {0} started a new session", Session["Username"]));
+
                     var notifications = _dataAccessLayer.GetNotifications();
                     Session["NotificationNumber"] = notifications.Any() ? notifications.Count : 0;
                     Session["Notifications"] = notifications.Any() ? notifications: new List<Notification>();
@@ -38,6 +41,7 @@ namespace WebProject.Controllers
             }
             catch (Exception ex)
             {
+                log.Error(string.Format("Error in Login \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
