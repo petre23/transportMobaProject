@@ -199,7 +199,7 @@
         var KMAlimentareDieselEWlitrii = parseInt($("#fueledDieseEWLiters").val());
         if (KMgps && KMAlimentareDieselEWlitrii) {
             var calculatedFormula = parseInt(KMgps) / parseInt(KMAlimentareDieselEWlitrii)*100;
-            $("#realConsumption").val(calculatedFormula);
+            $("#realConsumption").val(calculatedFormula.toFixed(3));
         }
     },
 };

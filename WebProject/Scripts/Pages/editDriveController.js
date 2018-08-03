@@ -141,6 +141,7 @@
         return "";
     },
     validateAndSaveDrive: function () {
+        debugger;
         var driveInfo = {
             Id: this.driveId,
             Worker: $("#driver").val(),
@@ -193,7 +194,7 @@
         if (GPSkm && tonaj)
         {
             var estimatedConsumption = (parseInt(GPSkm) * (25 + 0.5 * parseInt(tonaj)) / 100).toFixed(2);
-            $("#estimatedConsumption").val(estimatedConsumption);
+            $("#estimatedConsumption").val(estimatedConsumption.toFixed(3));
         }
     },
     calculateKMGPS: function () {
@@ -201,7 +202,7 @@
         var KMFinali = parseInt($("#KMGpsFinal").val());
         if (KMInitiali && KMFinali) {
             var difference = parseInt(KMFinali) - parseInt(KMInitiali);
-            $("#KMGps").val(difference);
+            $("#KMGps").val(difference.toFixed(3));
         }
     },
     calculateDifference: function ()

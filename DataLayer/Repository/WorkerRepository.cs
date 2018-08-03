@@ -36,6 +36,7 @@ namespace DataLayer.Repository
                             CertificateExpirationDate = !string.IsNullOrEmpty(reader["CertificateExpirationDate"].ToString()) ? Convert.ToDateTime(reader["CertificateExpirationDate"].ToString()) : (DateTime?)null,
                             DrivingLicenseExpirationDate = !string.IsNullOrEmpty(reader["DrivingLicenseExpirationDate"].ToString()) ? Convert.ToDateTime(reader["DrivingLicenseExpirationDate"].ToString()) : (DateTime?)null,
                             MedicalTestsExpirationDate = !string.IsNullOrEmpty(reader["MedicalTestsExpirationDate"].ToString()) ? Convert.ToDateTime(reader["MedicalTestsExpirationDate"].ToString()) : (DateTime?)null,
+                            TachographCardExpirationDate = !string.IsNullOrEmpty(reader["TachographCardExpirationDate"].ToString()) ? Convert.ToDateTime(reader["TachographCardExpirationDate"].ToString()) : (DateTime?)null,
                             FirstName = reader["FirstName"].ToString(),
                             CNP = reader["CNP"].ToString(),
                             Surname = reader["Surname"].ToString(),

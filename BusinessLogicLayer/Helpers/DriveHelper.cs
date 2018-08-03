@@ -10,7 +10,7 @@ namespace BusinessLogicLayer.Helpers
             var adaptedDrive = drive;
             adaptedDrive.Difference = !string.IsNullOrEmpty(drive.DifferenceString) ? Convert.ToDecimal(drive.DifferenceString) : 0;
             adaptedDrive.DistanceDFDS = !string.IsNullOrEmpty(drive.DistanceDFDSString) ? Convert.ToDecimal(drive.DistanceDFDSString) : 0;
-            adaptedDrive.DistanceGpl = !string.IsNullOrEmpty(drive.DistanceGplString) ? Convert.ToDecimal(drive.DistanceGplString) : 0;
+            adaptedDrive.DistanceGgl = !string.IsNullOrEmpty(drive.DistanceGglString) ? Convert.ToDecimal(drive.DistanceGglString) : 0;
             adaptedDrive.DistanceGPS = !string.IsNullOrEmpty(drive.DistanceGPSString) ? Convert.ToDecimal(drive.DistanceGPSString): 0;
             adaptedDrive.FinalGPSKM = !string.IsNullOrEmpty(drive.FinalGPSKMString) ? Convert.ToDecimal(drive.FinalGPSKMString): 0;
             adaptedDrive.InitialGPSKM = !string.IsNullOrEmpty(drive.InitialGPSKMString) ? Convert.ToDecimal(drive.InitialGPSKMString): 0;

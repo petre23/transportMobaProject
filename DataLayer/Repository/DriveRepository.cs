@@ -34,7 +34,7 @@ namespace DataLayer.Repository
                         drive.Destination = reader["Destination"].ToString();
                         drive.Difference = Convert.ToDecimal(reader["Difference"].ToString());
                         drive.DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString());
-                        drive.DistanceGpl = Convert.ToDecimal(reader["DistanceGpl"].ToString());
+                        drive.DistanceGgl = Convert.ToDecimal(reader["DistanceGpl"].ToString());
                         drive.DistanceGPS = Convert.ToDecimal(reader["DistanceGPS"].ToString());
                         drive.FinalGPSKM = Convert.ToDecimal(reader["FinalGPSKM"].ToString());
                         drive.InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString());
@@ -95,7 +95,7 @@ namespace DataLayer.Repository
                             Destination = reader["Destination"].ToString(),
                             Difference = Convert.ToDecimal(reader["Difference"].ToString()),
                             DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString()),
-                            DistanceGpl = Convert.ToDecimal(reader["DistanceGpl"].ToString()),
+                            DistanceGgl = Convert.ToDecimal(reader["DistanceGpl"].ToString()),
                             DistanceGPS = Convert.ToDecimal(reader["DistanceGPS"].ToString()),
                             FinalGPSKM = Convert.ToDecimal(reader["FinalGPSKM"].ToString()),
                             InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),
@@ -147,7 +147,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@Destination", drive.Destination);
                     cmd.Parameters.AddWithValue("@Difference", drive.Difference);
                     cmd.Parameters.AddWithValue("@DistanceDFDS", drive.DistanceDFDS);
-                    cmd.Parameters.AddWithValue("@DistanceGpl", drive.DistanceGpl);
+                    cmd.Parameters.AddWithValue("@DistanceGpl", drive.DistanceGgl);
                     cmd.Parameters.AddWithValue("@DistanceGPS", drive.DistanceGPS);
                     cmd.Parameters.AddWithValue("@FinalGPSKM", drive.FinalGPSKM);
                     cmd.Parameters.AddWithValue("@InitialGPSKM", drive.InitialGPSKM);
@@ -200,7 +200,7 @@ namespace DataLayer.Repository
                             Destination = reader["Destination"].ToString(),
                             Difference = Convert.ToDecimal(reader["Difference"].ToString()),
                             DistanceDFDS = Convert.ToDecimal(reader["DistanceDFDS"].ToString()),
-                            DistanceGpl = Convert.ToDecimal(reader["DistanceGpl"].ToString()),
+                            DistanceGgl = Convert.ToDecimal(reader["DistanceGpl"].ToString()),
                             DistanceGPS = Convert.ToDecimal(reader["DistanceGPS"].ToString()),
                             FinalGPSKM = Convert.ToDecimal(reader["FinalGPSKM"].ToString()),
                             InitialGPSKM = Convert.ToDecimal(reader["InitialGPSKM"].ToString()),

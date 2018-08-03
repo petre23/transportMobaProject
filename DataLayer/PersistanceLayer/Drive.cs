@@ -43,9 +43,9 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string DistanceGPSString { get; set; }
         [DataMember]
-        public decimal? DistanceGpl { get; set; }
+        public decimal? DistanceGgl { get; set; }
         [DataMember]
-        public string DistanceGplString { get; set; }
+        public string DistanceGglString { get; set; }
         [DataMember]
         public decimal? DistanceDFDS { get; set; }
         [DataMember]
