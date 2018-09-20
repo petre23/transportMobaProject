@@ -45,7 +45,8 @@ namespace DataLayer.Repository
                             WorkerTKFuelPounds = string.IsNullOrEmpty(reader["WorkerTKFuelPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["WorkerTKFuelPounds"].ToString()),
                             CompanyTKFuel = string.IsNullOrEmpty(reader["CompanyTKFuel"].ToString()) ? 0 : Convert.ToDecimal(reader["CompanyTKFuel"].ToString()),
                             CompanyTKFuelPounds = string.IsNullOrEmpty(reader["CompanyTKFuelPounds"].ToString()) ? 0 : Convert.ToDecimal(reader["CompanyTKFuelPounds"].ToString()),
-                            TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString()
+                            TruckRegistrationNumber = reader["TruckRegistrationNumber"].ToString(),
+                            CreationDate = DateTime.Parse(reader["CreationDate"].ToString())
                         };
                         fuelInfoList.Add(fuelInfo);
                     }

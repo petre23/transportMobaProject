@@ -27,7 +27,7 @@
                 editDriveController.driveId = res.drive.Id;
                 var drive = res.drive;
                 editDriveController.setDriveDetails(drive);
-                editDriveController.initControls();
+                editDriveController.initControls(drive);
             },
             error: function (jqXHR, textStatus, exception, errorThrown) {
                 $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
@@ -62,6 +62,7 @@
         $("#totalCostsPounds").val(drive.TotalPaymentsPounds);
         $("#trailer").val(drive.Trailer);
         $("#driveStatus").val(drive.DriveStatus);
+        $("#driveType").val(drive.DriveType);
         $("#estimatedConsumption").val(drive.EstimatedConsumption);
     },
     getParameterByName: function (name, url) {
@@ -101,6 +102,7 @@
         $("#totalCostsPounds").val("");
         $("#trailer").val("");
         $("#driveStatus").val("");
+        $("#driveType").val("");
         $("#estimatedConsumption").val("");
     },
     initDrive: function () {
@@ -113,7 +115,7 @@
             setTimeout(function () { editDriveController.initControls(); }, 0);
         }
     },
-    initControls: function () {
+    initControls: function (drive) {
         $("#date").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
 
         $('#saveDrive').on('submit', function (e) {
@@ -124,6 +126,27 @@
         {
             $("#difference").addClass("red-border");
         }
+        var driveCosts = drive !== null && drive !== undefined ? drive.DriveCosts : [];
+        this.initDriveCostsGrid(driveCosts);
+    },
+    initDriveCostsGrid: function (driveCosts) {
+        $("#driveCosts").jsGrid({
+            height: "200px",
+            width: "100%",
+            editing: true,
+            sorting: true,
+            paging: true,
+            inserting: true,
+            scroling:true,
+            data: driveCosts,
+            deleteConfirm: "Doriti sa stergeti aceasta inregistrare?",
+            fields: [
+                { name: "Id", type: "text", css: "hide", width: 150 },
+                { name: "CostEuro", title: "Cost €", type: "decimal", width: 50 },
+                { name: "CostPounds", title: "Cost £", type: "decimal", width: 50 },
+                { type: "control" }
+            ]
+        });
     },
     cancelEdit: function () {
         if (this.confirmCancel()) {
@@ -141,7 +164,6 @@
         return "";
     },
     validateAndSaveDrive: function () {
-        debugger;
         var driveInfo = {
             Id: this.driveId,
             Worker: $("#driver").val(),
@@ -170,7 +192,9 @@
             TotalPaymentsPoundsString: $("#totalCostsPounds").val(),
             Trailer: $("#trailer").val(),
             DriveStatus: $("#driveStatus").val(),
-            EstimatedConsumptionString: $("#estimatedConsumption").val()
+            DriveType: $("#driveType").val(),
+            EstimatedConsumptionString: $("#estimatedConsumption").val(),
+            DriveCosts: $("#driveCosts").jsGrid("option", "data")
         };
         this.saveDrive(driveInfo);
     },
@@ -194,7 +218,7 @@
         if (GPSkm && tonaj)
         {
             var estimatedConsumption = (parseInt(GPSkm) * (25 + 0.5 * parseInt(tonaj)) / 100).toFixed(2);
-            $("#estimatedConsumption").val(estimatedConsumption.toFixed(3));
+            $("#estimatedConsumption").val(estimatedConsumption.toFixed(2));
         }
     },
     calculateKMGPS: function () {
@@ -202,7 +226,7 @@
         var KMFinali = parseInt($("#KMGpsFinal").val());
         if (KMInitiali && KMFinali) {
             var difference = parseInt(KMFinali) - parseInt(KMInitiali);
-            $("#KMGps").val(difference.toFixed(3));
+            $("#KMGps").val(difference.toFixed(2));
         }
     },
     calculateDifference: function ()
@@ -220,6 +244,34 @@
         {
             $("#difference").removeClass("red-border");
         }
+    },
+
+    DecimalField: function (config) {
+        jsGrid.NumberField.call(this, config);
+    },
+    config: function () {
+        editDriveController.DecimalField.prototype = new jsGrid.NumberField({
+
+            itemTemplate: function (value) {
+                return value !== null && value !== undefined ? value.toFixed(2) : 0;
+            },
+
+            filterValue: function () {
+                return parseFloat(this.filterControl.val() || 0);
+            },
+
+            insertValue: function () {
+                return parseFloat(this.insertControl.val() || 0);
+            },
+
+            editValue: function () {
+                return parseFloat(this.editControl.val() || 0);
+            }
+
+        });
+
+        jsGrid.fields.decimal = editDriveController.DecimalField;
     }
 }
 editDriveController.initDrive();
+editDriveController.config();

@@ -1,6 +1,8 @@
 ﻿
-@{ ViewBag.Title = "Curse";
+@{
+    ViewBag.Title = "Curse";
 }
+
 <nav class="navbar navbar-inverse nav-bar">
     <div class="container-fluid">
         <div class="navbar-header" style="margin-top: 5px;">
@@ -52,57 +54,58 @@
             <div class="modal-body">
                 @using (Html.BeginForm("GetDrivesForWorkerByDateInterval", "Drive", FormMethod.Post))
                 {
-                <div class="row">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="col-md-6">
-                            <label>@Resources.Labels.Sofer</label>
-                        </div>
-                        <div class="col-md-6">
-                            <select class="form-control" placeholder="@Resources.Labels.Sofer" id="worker" name="workerId" required>
-                                <option selected disabled hidden style='display: none' value=''></option>
-                                @foreach (var worker in ViewBag.WorkersForDropDown)
-                                {
-                        <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
-                                }
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="col-md-6">
-                            <label>@Resources.Labels.StartDate</label>
-                        </div>
-                        <div class="col-md-6">
-                            <input class="form-control" placeholder="dd/MM/yyyy" id="startDate" name="startDate" type="text" required />
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <label>@Resources.Labels.Sofer</label>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-control" placeholder="@Resources.Labels.Sofer" id="worker" name="workerId" required>
+                                    <option selected disabled hidden style='display: none' value=''></option>
+                                    @foreach (var worker in ViewBag.WorkersForDropDown)
+                                    {
+                                        <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
+                                    }
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="col-md-6">
-                            <label>@Resources.Labels.EndDate</label>
-                        </div>
-                        <div class="col-md-6">
-                            <input class="form-control" placeholder="dd/MM/yyyy" id="endDate" name="endDate" type="text" required />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="col-md-6">
-                            <button class="btn btn-primary" id="exportWorkerToExcel"><i class="fas fa-file-excel"></i> @Resources.Labels.GenerateExcel</button>
-                        </div>
-                        <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <label>@Resources.Labels.StartDate</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="dd/MM/yyyy" id="startDate" name="startDate" type="text" required />
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <label>@Resources.Labels.EndDate</label>
+                            </div>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="dd/MM/yyyy" id="endDate" name="endDate" type="text" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" id="exportWorkerToExcel"><i class="fas fa-file-excel"></i> @Resources.Labels.GenerateExcel</button>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
                 }
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Labels.Close</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.Labels.Close</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<input id="driveId" class="hidden" type="text" />
 <script src="~/Scripts/Pages/driveController.js"></script>

@@ -92,6 +92,9 @@ namespace DataAccessLayer
         List<DriveStatus> GetDriveStatuses();
 
         [OperationContract]
+        List<DriveType> GetDriveTypes();
+
+        [OperationContract]
         List<Brand> GetBrands();
 
         [OperationContract]

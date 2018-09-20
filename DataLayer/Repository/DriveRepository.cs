@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLayer.Repository
 {
     public class DriveRepository: BaseRepository
     {
+        private DriveCostsRepository _driveCostsRepository = new DriveCostsRepository();
+
         public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50,string searchText = null)
         {
             var totalDrivesCount = GetDrivesTotalCount();
@@ -62,12 +62,13 @@ namespace DataLayer.Repository
                         drive.DriveStatusName = reader["DriveStatusName"].ToString();
                         drive.TotalRows = totalDrivesCount;
                         drive.EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString());
-
+                        drive.CreationDate = DateTime.Parse(reader["CreationDate"].ToString());
+                        drive.DriveTypeName = reader["DriveTypeName"].ToString();
                         drives.Add(drive);
                     }
                     con.Close();
 
-                    return drives;
+                    return drives.OrderBy(x=>x.InitialGPSKM).OrderByDescending(x => x.Date).OrderByDescending(x=>x.CreationDate).ToList();
                 }
             }
         }
@@ -120,7 +121,8 @@ namespace DataLayer.Repository
                             Trailer = reader["Trailer"].ToString(),
                             DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
                             DriveStatusName = reader["DriveStatusName"].ToString(),
-                            EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString())
+                            EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
+                            DriveTypeName = reader["DriveTypeName"].ToString()
                         };
                         drives.Add(drive);
                     }
@@ -170,13 +172,17 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@Trailer", drive.Trailer);
                     cmd.Parameters.AddWithValue("@DriveStatus", drive.DriveStatus);
                     cmd.Parameters.AddWithValue("@EstimatedConsumption", drive.EstimatedConsumption);
+                    cmd.Parameters.AddWithValue("@DriveType", drive.DriveType);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
-
-                    return drive.Id;
                 }
             }
+
+            drive.DriveCosts.ForEach(x=>x.Drive = drive.Id);
+            _driveCostsRepository.SaveDriveCosts(drive.DriveCosts);
+
+            return drive.Id;
         }
 
         public Drive GetDrive(Guid idDrive)
@@ -226,12 +232,20 @@ namespace DataLayer.Repository
                             DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
                             DriveStatusName = reader["DriveStatusName"].ToString(),
                             EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
+                            DriveType = string.IsNullOrEmpty(reader["DriveTypeId"].ToString()) ? (int?)null : Convert.ToInt32(reader["DriveTypeId"].ToString())
                         };
                         drives.Add(drive);
                     }
                     con.Close();
 
-                    return drives.Any() ? drives.FirstOrDefault() : null;
+                    var driveToReturn = drives.Any() ? drives.FirstOrDefault() : null;
+                    driveToReturn.DriveCosts = new List<DriveCosts>();
+                    if (driveToReturn != null)
+                    {
+                        driveToReturn.DriveCosts = _driveCostsRepository.GetCostsForDrive(idDrive);
+                    }
+
+                    return driveToReturn;
                 }
             }
         }
@@ -294,6 +308,31 @@ namespace DataLayer.Repository
                     con.Close();
                 }
                 return driveStatuses;
+            }
+        }
+
+        public List<DriveType> GetDriveTypes()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                var driveTypes = new List<DriveType>();
+                using (SqlCommand cmd = new SqlCommand("GetDriveTypes", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var driveType = new DriveType()
+                        {
+                            Id = Convert.ToInt32(reader["Id"].ToString()),
+                            TypeName = reader["TypeName"].ToString()
+                        };
+                        driveTypes.Add(driveType);
+                    }
+                    con.Close();
+                }
+                return driveTypes;
             }
         }
     }

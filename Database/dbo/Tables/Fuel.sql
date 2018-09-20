@@ -21,6 +21,7 @@
 	[CompanyTKFuel] decimal(12,2) NULL,
 	[CompanyTKFuelPounds] decimal(12,2) NULL,
 	[WorkerTKFuelPounds] decimal(12,2) NULL,
+	[CreationDate] Datetime NOT NULL DEFAULT(GETDATE()),
 	CONSTRAINT FK_FUEL_WORKER FOREIGN KEY (Worker) REFERENCES dbo.Worker (Id),
 	CONSTRAINT FK_FUEL_Truck FOREIGN KEY (Truck) REFERENCES dbo.Trucks (Id)
 )

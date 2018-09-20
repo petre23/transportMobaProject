@@ -30,9 +30,9 @@
                                     <select class="form-control" placeholder="@Resources.Labels.Sofer" onchange="editDriveController.setTruckForWorker();" id="driver">
                                         <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var worker in ViewBag.WorkersForDropDown)
-                                        {
-                                            <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
-                                        }
+                                    {
+                                        <option value="@worker.Id" id="@worker.Id" truck-id="@worker.Truck">@worker.WorkerName</option>
+                                }
                                     </select>
                                 </div>
                             </div>
@@ -48,9 +48,9 @@
                                     <select class="form-control" placeholder="@Resources.Labels.Camion" name="truck" id="truck">
                                         <option selected disabled hidden style='display: none' value=''></option>
                                         @foreach (var truck in ViewBag.TrucksForDropDown)
-                                        {
-                                            <option value="@truck.Id">@truck.RegistrationNumber</option>
-                                        }
+                                    {
+                                        <option value="@truck.Id">@truck.RegistrationNumber</option>
+                                }
                                     </select>
                                 </div>
                             </div>
@@ -96,6 +96,36 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
+                                    <label>@Resources.Labels.Remorca</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="trailer" placeholder="@Resources.Labels.Remorca" step="0.01" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.Data</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" placeholder="dd/MM/yyyy" id="date" type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label>@Resources.Labels.LocIncarcare</label>
                                 </div>
                                 <div class="col-md-6">
@@ -112,6 +142,48 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input class="form-control" placeholder="@Resources.Labels.LocDescarcare" id="destination" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fields-padding">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.TipCursa</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control" placeholder="@Resources.Labels.TipCursa" id="driveType">
+                                        <option selected disabled hidden style='display: none' value=''></option>
+                                        @foreach (var driveType in ViewBag.DriveTypesForDropDown)
+                                        {
+                                        <option value="@driveType.Id" id="@driveType.Id">@driveType.TypeName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <label>@Resources.Labels.StareCursa</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control" placeholder="@Resources.Labels.StareCursa" onchange="editDriveController.setTruckForWorker();" id="driveStatus">
+                                        <option selected disabled hidden style='display: none' value=''></option>
+                                        @foreach (var driveStatus in ViewBag.DriveStatusesForDropDown)
+                                        {
+                                            <option value="@driveStatus.Id" id="@driveStatus.Id">@driveStatus.Status</option>
+                                        }
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -200,37 +272,10 @@
                                 <div class="col-md-6">
                                     <label>@Resources.Labels.Diferenta</label>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3 no-margin-right">
                                     <input class="form-control" readonly placeholder="@Resources.Labels.Diferenta" id="difference" step="0.01" type="number" />
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row fields-padding">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="col-md-6">
-                                    <label>@Resources.Labels.Remorca</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input class="form-control" id="trailer" placeholder="@Resources.Labels.Remorca" step="0.01" type="text" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="col-md-6">
-                                    <label>@Resources.Labels.Motiv</label>
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <input class="form-control" placeholder="@Resources.Labels.Motiv" id="reason" />
                                 </div>
                             </div>
@@ -246,46 +291,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
-                                    <label>@Resources.Labels.Data</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input class="form-control" placeholder="dd/MM/yyyy" id="date" type="text" required/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="col-md-6">
                                     <label>@Resources.Labels.Tonaj</label>
                                 </div>
                                 <div class="col-md-6">
                                     <input class="form-control" oninput="editDriveController.calculateEstimatedConsumption();" id="tons" placeholder="@Resources.Labels.Tonaj" step="0.01" type="number" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row fields-padding">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="col-md-6">
-                                    <label>@Resources.Labels.StareCursa</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <select class="form-control" placeholder="@Resources.Labels.StareCursa" onchange="editDriveController.setTruckForWorker();" id="driveStatus">
-                                        <option selected disabled hidden style='display: none' value=''></option>
-                                        @foreach (var driveStatus in ViewBag.DriveStatusesForDropDown)
-                                        {
-                                        <option value="@driveStatus.Id" id="@driveStatus.Id" >@driveStatus.Status</option>
-                                        }
-                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -317,18 +326,18 @@
                                 <div class="col-md-6">
                                     <label>@Resources.Labels.CheltuieliSofer</label>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="input-group">
-                                        <input class="form-control" step="0.01" id="workerCosts" type="number" />
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
+                                <div class="col-md-6">
+                                    <div id="driveCosts">
+                                        @*<input class="form-control" step="0.01" id="workerCosts" type="number" />
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>*@
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                @*<div class="col-md-3">
                                     <div class="input-group">
                                         <input class="form-control" step="0.01" id="workerCostsPounds" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>
@@ -407,16 +416,10 @@
                                 <div class="col-md-6">
                                     <label>@Resources.Labels.TotalPlati</label>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
                                     <div class="input-group">
                                         <input class="form-control" step="0.01" id="totalCosts" type="number" />
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-euro"></i></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="input-group">
-                                        <input class="form-control" step="0.01" id="totalCostsPounds" type="number" />
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-gbp"></i></span>
                                     </div>
                                 </div>
                             </div>

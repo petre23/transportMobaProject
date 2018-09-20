@@ -24,7 +24,8 @@ BEGIN
 		   f.Date,
 		   f.DistanceGPS,
 		   f.Truck,
-		   t.RegistrationNumber AS TruckRegistrationNumber
+		   t.RegistrationNumber AS TruckRegistrationNumber,
+		   f.CreationDate
 		FROM dbo.Fuel f
 		LEFT JOIN dbo.Worker w ON w.Id = f.Worker
 		LEFT JOIN dbo.Trucks t ON t.Id = f.Truck

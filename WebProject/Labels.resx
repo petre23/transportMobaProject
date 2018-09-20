@@ -280,10 +280,10 @@
     <value>KM GPS initiali</value>
   </data>
   <data name="LocDescarcare" xml:space="preserve">
-    <value>Loc descarcare</value>
+    <value>Destinatie</value>
   </data>
   <data name="LocIncarcare" xml:space="preserve">
-    <value>Loc incarcare</value>
+    <value>Loc plecare</value>
   </data>
   <data name="Motiv" xml:space="preserve">
     <value>Motiv</value>
@@ -359,5 +359,8 @@
   </data>
   <data name="AlimentariTKSofer" xml:space="preserve">
     <value>Alimentari TK sofer</value>
+  </data>
+  <data name="TipCursa" xml:space="preserve">
+    <value>Tip cursa</value>
   </data>
 </root>

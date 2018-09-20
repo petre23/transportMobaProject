@@ -35,11 +35,13 @@ BEGIN
 		   d.DriveStatus,
 		   ds.Status AS DriveStatusName,
 		   d.Trailer,
-		   d.EstimatedConsumption
+		   d.EstimatedConsumption,
+		   dt.TypeName AS DriveTypeName
 	FROM dbo.Drive d
 	INNER JOIN dbo.Worker w ON d.Worker = w.Id
 	INNER JOIN dbo.Trucks t ON d.Truck = t.Id
 	LEFT JOIN dbo.DriveStatus ds ON ds.Id = d.DriveStatus
+	LEFT JOIN dbo.DriveType dt ON dt.Id = d.DriveTypeId
 	WHERE d.Worker = @WorkerId
 	AND d.Date BETWEEN @StartDate AND @EndDate
 END

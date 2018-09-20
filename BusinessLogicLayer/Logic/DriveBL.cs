@@ -39,5 +39,10 @@ namespace BusinessLogicLayer.Logic
         {
             return _driveRepository.GetDriveStatuses();
         }
+
+        public List<DriveType> GetDriveTypes()
+        {
+            return _driveRepository.GetDriveTypes();
+        }
     }
 }

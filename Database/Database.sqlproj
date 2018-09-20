@@ -63,6 +63,7 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Scripts" />
     <Folder Include="Snapshots" />
+    <Folder Include="dbo\Types" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
@@ -103,9 +104,16 @@
     <Build Include="dbo\StoredProcedures\GetDriveStatuses.sql" />
     <Build Include="dbo\StoredProcedures\InsertNewBrand.sql" />
     <Build Include="dbo\StoredProcedures\GetEstimatedConsumtionSumForDriverAndDate.sql" />
+    <Build Include="dbo\Tables\DriveType.sql" />
+    <Build Include="dbo\StoredProcedures\GetDriveTypes.sql" />
+    <Build Include="dbo\Tables\DriveCosts.sql" />
+    <Build Include="dbo\StoredProcedures\GetDriveCostsByDriveId.sql" />
+    <Build Include="dbo\StoredProcedures\SaveDriveCosts.sql" />
+    <Build Include="dbo\Types\DriveCostsType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />
     <None Include="dbo\Scripts\Beta_Update.sql" />
+    <None Include="dbo\Scripts\Data_Live.sql" />
   </ItemGroup>
 </Project>

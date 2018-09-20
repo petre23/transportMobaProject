@@ -46,7 +46,8 @@ BEGIN
 			WorkerTKFuel,
 			WorkerTKFuelPounds,
 			CompanyTKFuel,
-			CompanyTKFuelPounds)
+			CompanyTKFuelPounds,
+			CreationDate)
 		VALUES(
 			@Id,
 			@Worker,
@@ -68,7 +69,8 @@ BEGIN
 			@WorkerTKFuel,
 			@WorkerTKFuelPounds,
 			@CompanyTKFuel,
-			@CompanyTKFuelPounds)
+			@CompanyTKFuelPounds,
+			GETDATE())
 	END
 	ELSE
 	BEGIN

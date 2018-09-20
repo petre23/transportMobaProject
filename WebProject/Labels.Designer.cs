@@ -592,7 +592,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loc descarcare.
+        ///   Looks up a localized string similar to Destinatie.
         /// </summary>
         public static string LocDescarcare {
             get {
@@ -601,7 +601,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loc incarcare.
+        ///   Looks up a localized string similar to Loc plecare.
         /// </summary>
         public static string LocIncarcare {
             get {
@@ -723,6 +723,15 @@ namespace Resources {
         public static string Sterge {
             get {
                 return ResourceManager.GetString("Sterge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip cursa.
+        /// </summary>
+        public static string TipCursa {
+            get {
+                return ResourceManager.GetString("TipCursa", resourceCulture);
             }
         }
         

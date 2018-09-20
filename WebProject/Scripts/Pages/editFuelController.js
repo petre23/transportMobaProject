@@ -195,11 +195,11 @@
 
 
     calculateRealConsum: function () {
-        var KMgps = parseInt($("#KMGPS").val());
+        var KMLaAlimentare = parseInt($("#KMGPS").val());
         var KMAlimentareDieselEWlitrii = parseInt($("#fueledDieseEWLiters").val());
         if (KMgps && KMAlimentareDieselEWlitrii) {
-            var calculatedFormula = parseInt(KMgps) / parseInt(KMAlimentareDieselEWlitrii)*100;
-            $("#realConsumption").val(calculatedFormula.toFixed(3));
+            var calculatedFormula = parseInt(KMAlimentareDieselEWlitrii) / parseInt(KMLaAlimentare) - (lastKMLaAlimentare)*100;
+            $("#realConsumption").val(calculatedFormula.toFixed(2));
         }
     },
 };

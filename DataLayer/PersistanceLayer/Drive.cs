@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace DataLayer.PersistanceLayer
@@ -6,6 +7,11 @@ namespace DataLayer.PersistanceLayer
     [DataContract]
     public class Drive
     {
+        public Drive()
+        {
+            DriveCosts = new List<DriveCosts>();
+        }
+
         [DataMember]
         public Guid Id { get; set; }
         [DataMember]
@@ -109,10 +115,19 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string DriveStatusName { get; set; }
         [DataMember]
+        public int? DriveType { get; set; }
+        [DataMember]
+        public string DriveTypeName { get; set; }
+        [DataMember]
         public decimal EstimatedConsumption { get; set; }
         [DataMember]
         public string EstimatedConsumptionString { get; set; }
         [DataMember]
         public int TotalRows { get; set; }
+        [DataMember]
+        public DateTime CreationDate { get; set; }
+
+        [DataMember]
+        public List<DriveCosts> DriveCosts { get; set; }
     }
 }

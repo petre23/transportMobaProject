@@ -44,7 +44,9 @@
   <ItemGroup>
     <Compile Include="PersistanceLayer\Brand.cs" />
     <Compile Include="PersistanceLayer\Commons.cs" />
+    <Compile Include="PersistanceLayer\DriveCosts.cs" />
     <Compile Include="PersistanceLayer\DriveStatus.cs" />
+    <Compile Include="PersistanceLayer\DriveType.cs" />
     <Compile Include="PersistanceLayer\Employer.cs" />
     <Compile Include="PersistanceLayer\Fuel.cs" />
     <Compile Include="PersistanceLayer\Notification.cs" />
@@ -55,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\BrandRepository.cs" />
+    <Compile Include="Repository\DriveCostsRepository.cs" />
     <Compile Include="Repository\EmployerRepository.cs" />
     <Compile Include="Repository\FuelRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />

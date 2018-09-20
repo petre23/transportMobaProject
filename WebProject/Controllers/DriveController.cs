@@ -32,6 +32,7 @@ namespace WebProject.Controllers
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             ViewBag.DriveStatusesForDropDown = _dataAccessLayer.GetDriveStatuses();
+            ViewBag.DriveTypesForDropDown = _dataAccessLayer.GetDriveTypes();
             return View();
         }
         [AuthorizationAttribute]
@@ -39,7 +40,10 @@ namespace WebProject.Controllers
         {
             try
             {
-                return Json(new { drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, searchText), JsonRequestBehavior.AllowGet });
+                var drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, searchText);
+                var groupings = drives.GroupBy(x => x.Vlaplan).Select(g=> new { Vlaplan = g.Key, Drives = g.ToList() }).ToList();
+
+                return Json(new { drives = groupings, JsonRequestBehavior.AllowGet });
             }
             catch (Exception ex)
             {

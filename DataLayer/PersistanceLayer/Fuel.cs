@@ -96,5 +96,7 @@ namespace DataLayer.PersistanceLayer
         public decimal? CompanyTKFuelPounds { get; set; }
         [DataMember]
         public string CompanyTKFuelPoundsString { get; set; }
+        [DataMember]
+        public DateTime CreationDate { get; set; }
     }
 }

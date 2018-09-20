@@ -163,6 +163,11 @@ namespace DataAccessLayer
             return _driveLogic.GetDriveStatuses();
         }
 
+        public List<DriveType> GetDriveTypes()
+        {
+            return _driveLogic.GetDriveTypes();
+        }
+
         public List<Brand> GetBrands()
         {
             return _brandLogic.GetBrands();
