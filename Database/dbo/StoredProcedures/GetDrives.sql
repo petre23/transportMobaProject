@@ -1,7 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[GetDrives]
 	@PageSize int = 50,
 	@PageNumber int = 0,
-	@SearchText nvarchar(50) = null
+	@FilterDriver nvarchar(50) = null,
+	@FilterTruck nvarchar(50) = null,
+	@FilterTrail nvarchar(50) = null,
+	@FilterVlaplan nvarchar(50) = null,
+	@FilterVlarref nvarchar(50) = null
 AS
 BEGIN
 SELECT d.Id,
@@ -45,8 +49,12 @@ SELECT d.Id,
 	LEFT JOIN dbo.DriveStatus ds ON ds.Id = d.DriveStatus
 	INNER JOIN dbo.Users u ON u.Id = d.LastUpdateByUser
 	LEFT JOIN dbo.DriveType dt ON dt.Id = d.DriveTypeId
-	WHERE (@SearchText IS NULL OR @SearchText = '')
-	OR (t.RegistrationNumber like '%'+@SearchText+'%' OR d.Vlaref like '%'+@SearchText+'%' OR d.Trailer like '%'+@SearchText+'%')
+	WHERE  
+	(w.FirstName + '' + w.Surname) like '%'+ (CASE WHEN @FilterDriver IS NOT NULL THEN @FilterDriver ELSE '' END ) +'%'
+	AND t.RegistrationNumber like '%'+ (CASE WHEN @FilterTruck IS NOT NULL THEN @FilterTruck ELSE '' END ) +'%'
+	AND d.Trailer like '%'+ (CASE WHEN @FilterTrail IS NOT NULL THEN @FilterTrail ELSE '' END ) +'%'
+	AND d.Vlaplan like '%'+ (CASE WHEN @FilterVlaplan IS NOT NULL THEN @FilterVlaplan ELSE '' END ) +'%'
+	AND d.Vlaref like '%'+ (CASE WHEN @FilterVlarref IS NOT NULL THEN @FilterVlarref ELSE '' END ) +'%'
 	ORDER BY d.CreationDate DESC, d.InitialGPSKM ASC, ds.[Order], d.Date  DESC
 	OFFSET (@PageSize*@PageNumber) ROWS
 	FETCH NEXT @PageSize ROWS ONLY;

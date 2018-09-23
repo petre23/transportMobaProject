@@ -9,9 +9,9 @@ namespace BusinessLogicLayer.Logic
     public class DriveBL
     {
         DriveRepository _driveRepository = new DriveRepository();
-        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50,string searchText = null)
+        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50, FilterDrivesModel filterDrivesModel = null)
         {
-            return _driveRepository.GetDrives(pageSize,pageNumber, searchText);
+            return _driveRepository.GetDrives(pageSize,pageNumber, filterDrivesModel);
         }
 
         public Guid SaveDrive(Drive drive)

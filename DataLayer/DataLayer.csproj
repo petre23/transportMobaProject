@@ -48,6 +48,7 @@
     <Compile Include="PersistanceLayer\DriveStatus.cs" />
     <Compile Include="PersistanceLayer\DriveType.cs" />
     <Compile Include="PersistanceLayer\Employer.cs" />
+    <Compile Include="PersistanceLayer\FilterDrivesModel.cs" />
     <Compile Include="PersistanceLayer\Fuel.cs" />
     <Compile Include="PersistanceLayer\Notification.cs" />
     <Compile Include="PersistanceLayer\User.cs" />

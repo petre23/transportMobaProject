@@ -10,7 +10,7 @@
 
             $("#driveGrid").jsGrid({
                 width: "100%",
-                height: "80vh",
+                height: "75vh",
 
                 inserting: false,
                 editing: false,
@@ -32,7 +32,12 @@
                 },
                 controller: {
                     loadData: function (filter) {
-                        filter.searchText = $("#searchText").val();
+                        filter.FilterDriver = $("#filterDriver").val();
+                        filter.FilterTruck = $("#filterTruck").val();
+                        filter.FilterTrail = $("#filterTrail").val();
+                        filter.FilterVlaplan = $("#filterVlaplan").val();
+                        filter.FilterVlarref = $("#filterVlarref").val();
+
                         var deferred = $.Deferred();
                         $.ajax({
                             type: "post",
@@ -164,6 +169,12 @@
         {
             this.initGrid();
             this.initExportControls();
+        },
+        enterPressed: function (event) {
+
+            if (event.keyCode === 13) {
+                $("#bntFilter").click();
+            }
         }
     };
 driveController.initDrivePage();

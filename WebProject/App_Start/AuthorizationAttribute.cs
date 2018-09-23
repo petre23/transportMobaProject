@@ -7,15 +7,16 @@ namespace WebProject.App_Start
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            return httpContext.Session != null && httpContext.Session["UserId"] != null;
+            return true;
+            //return httpContext.Session != null && httpContext.Session["UserId"] != null;
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            if (HttpContext.Current.Session == null || HttpContext.Current.Session["UserId"] == null)
-            {
-                filterContext.Result = new RedirectResult("~/Login/Index");
-            }
+            //if (HttpContext.Current.Session == null || HttpContext.Current.Session["UserId"] == null)
+            //{
+            //    filterContext.Result = new RedirectResult("~/Login/Index");
+            //}
         }
     }
 }

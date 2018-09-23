@@ -36,11 +36,11 @@ namespace WebProject.Controllers
             return View();
         }
         [AuthorizationAttribute]
-        public ActionResult GetDrives(string pageIndex, string pageSize,string searchText)
+        public ActionResult GetDrives(string pageIndex, string pageSize, FilterDrivesModel filters)
         {
             try
             {
-                var drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, searchText);
+                var drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, filters);
                 var groupings = drives.GroupBy(x => x.Vlaplan).Select(g=> new { Vlaplan = g.Key, Drives = g.ToList() }).ToList();
 
                 return Json(new { drives = groupings, JsonRequestBehavior.AllowGet });

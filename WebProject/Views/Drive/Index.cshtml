@@ -30,13 +30,33 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    @*<div class="col-md-6">
         <div class="input-group" style="padding-top:7px;">
             <input type="text" id="searchText" class="form-control my-search" placeholder="Cauta curse..." style="float:right">
             <span class="input-group-btn">
                 <button class="btn btn-primary" onclick="driveController.initGrid();" type="button"><span><i class="glyphicon glyphicon-search"></i></span></button>
             </span>
         </div>
+    </div>*@
+</div>
+<div class="row filter-padding">
+    <div class="col-md-2">
+        <input type="text" id="filterDriver" onkeypress="driveController.enterPressed(event)" placeholder="@Resources.Labels.Sofer" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" id="filterTruck" onkeypress="driveController.enterPressed(event)" placeholder="@Resources.Labels.Camion" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" id="filterTrail" onkeypress="driveController.enterPressed(event)" placeholder="Remorca" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" id="filterVlaplan" onkeypress="driveController.enterPressed(event)" placeholder="@Resources.Labels.Vlaplan" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <input type="text" id="filterVlarref" onkeypress="driveController.enterPressed(event)" placeholder="@Resources.Labels.Vlarref" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary" id="bntFilter" onclick="driveController.initGrid();" type="button">Filtrare <span><i class="glyphicon glyphicon-filter"></i></span></button>
     </div>
 </div>
 <div class="row">

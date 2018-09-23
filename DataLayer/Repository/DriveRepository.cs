@@ -11,7 +11,7 @@ namespace DataLayer.Repository
     {
         private DriveCostsRepository _driveCostsRepository = new DriveCostsRepository();
 
-        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50,string searchText = null)
+        public List<Drive> GetDrives(int pageSize = 0,int pageNumber = 50, FilterDrivesModel filterDrivesModel = null)
         {
             var totalDrivesCount = GetDrivesTotalCount();
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -21,7 +21,12 @@ namespace DataLayer.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PageNumber", pageNumber);
                     cmd.Parameters.AddWithValue("@PageSize", pageSize);
-                    cmd.Parameters.AddWithValue("@SearchText", searchText);
+                    cmd.Parameters.AddWithValue("@FilterDriver", filterDrivesModel.FilterDriver);
+                    cmd.Parameters.AddWithValue("@FilterTrail", filterDrivesModel.FilterTrail);
+                    cmd.Parameters.AddWithValue("@FilterTruck", filterDrivesModel.FilterTruck);
+                    cmd.Parameters.AddWithValue("@FilterVlaplan", filterDrivesModel.FilterVlaplan);
+                    cmd.Parameters.AddWithValue("@FilterVlarref", filterDrivesModel.FilterVlarref);
+
                     con.Open();
                     var reader = cmd.ExecuteReader();
                     var drives = new List<Drive>();
