@@ -83,9 +83,9 @@ namespace DataAccessLayer
             return _truckLogic.GetTrucksForDropDown();
         }
 
-        public List<Drive> GetDrives(int pageSize = 0, int pageNumber = 50, string searchText = null)
+        public List<Drive> GetDrives(int pageSize = 0, int pageNumber = 50, FilterDrivesModel filterDrivesModel = null)
         {
-            return _driveLogic.GetDrives(pageSize,pageNumber, searchText);
+            return _driveLogic.GetDrives(pageSize,pageNumber, filterDrivesModel);
         }
 
         public Guid SaveDrive(Drive drive)
