@@ -30,32 +30,58 @@ var fuelController =
                 editing: false,
                 sorting: true,
                 paging: false,
-                rowClick: function (args) {
-                    $("#fuelGrid tr").removeClass("selected-row")
-                    $selectedRow = $(args.event.target).closest("tr");
-                    $selectedRow.addClass("selected-row");
-
-                    fuelController.selectedFuel = args.item.Id;
-
-                    $("#editFuelButton").prop('disabled', false);
-                    $("#deleteFuelButton").prop('disabled', false);
-                },
                 data: fuel,
+                rowRenderer: function (item) {
+                    var $row = $("<tr>");
+                    var $cell = $("<td style='border:1px solid lightgrey'>");
+
+                    var $drivesGrid = $("<div id='fuelGroupingGrid'>").addClass("nested-grid");
+                    $drivesGrid.jsGrid({
+                        width: "100%",
+                        height: "auto",
+                        data: item.FuelData,
+                        heading: true,
+                        sorting: true,
+                        fields: [
+                            { name: "Id", title: 'Id', type: "text", css: "hide" },
+                            { name: "DateString", title: 'Data', type: "text", width: 80 },
+                            { name: "GPSInitialConsumption", title: 'Consum GPS Initial', type: "text", width: 80 },
+                            { name: "GPSFinalConsumption", title: 'Consum GPS Final', type: "text", width: 80 },
+                            { name: "GPSConsumption", title: 'Consum GPS', type: "text", width: 70 },
+                            { name: "FueledKM", title: 'Km la Alimentare', type: "text", width: 85 },
+                            { name: "FueledDieseKMLitersString", title: 'Alimentare Diesel EW litrii', type: "text", width: 90 },
+                            { name: "DieselValue", title: 'Valoare Diesel', type: "text", width: 85 },
+                            { name: "RealConsumption", title: 'Consum Real', type: "text", width: 85 },
+                            { name: "AdblueLiters", title: 'Adblue Litri', type: "text", width: 85 },
+                            { name: "AdblueValue", title: 'Valoare Adblue', type: "text", width: 85 },
+                            { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 85 },
+                            { name: "TruckRegistrationNumber", title: 'Nr. Inmatriculare Camion', type: "text", width: 100 }
+                        ],
+                        rowClick: function (args) {
+                            $("#fuelGroupingGrid tr").removeClass("selected-row")
+                            $selectedRow = $(args.event.target).closest("tr");
+                            $selectedRow.addClass("selected-row");
+
+                            fuelController.selectedFuel = args.item.Id;
+
+                            $("#editFuelButton").prop('disabled', false);
+                            $("#deleteFuelButton").prop('disabled', false);
+                        },
+                    });
+
+                    var $link = $("<a>").text("Sofer: " + item.Worker)
+                        .prop("href", "#")
+                        .click(function () {
+                            $drivesGrid.toggle();
+                        });
+
+                    $cell.append($link)
+                        .append($drivesGrid);
+
+                    return $row.append($cell);
+                },
                 fields: [
-                    { name: "Id", title: 'Id', type: "text", css: "hide" },
-                    { name: "WorkerName", title: 'Sofer', type: "text", width: 80 },
-                    { name: "DateString", title: 'Data', type: "text", width: 80},
-                    { name: "GPSInitialConsumption", title: 'Consum GPS Initial', type: "text", width: 80 },
-                    { name: "GPSFinalConsumption", title: 'Consum GPS Final', type: "text", width: 80 },
-                    { name: "GPSConsumption", title: 'Consum GPS', type: "text", width: 70 },
-                    { name: "FueledKM", title: 'Km la Alimentare', type: "text", width: 85 },
-                    { name: "FueledDieseKMLitersString", title: 'Alimentare Diesel EW litrii', type: "text", width: 90 },
-                    { name: "DieselValue", title: 'Valoare Diesel', type: "text", width: 85 },
-                    { name: "RealConsumption", title: 'Consum Real', type: "text", width: 85 },
-                    { name: "AdblueLiters", title: 'Adblue Litri', type: "text", width: 85 },
-                    { name: "AdblueValue", title: 'Valoare Adblue', type: "text", width: 85 },
-                    { name: "EstimatedConsumption", title: 'Consum estimat', type: "text", width: 85 },
-                    { name: "TruckRegistrationNumber", title: 'Nr. Inmatriculare Camion', type: "text", width: 100 }
+                    { title: 'Alimentari', type: "text", width: 100 }
                 ]
             });
         },
@@ -87,6 +113,8 @@ var fuelController =
         initExportControls: function () {
             $("#startDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
             $("#endDate").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+            $("#startDateTruck").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
+            $("#endDateTruck").datepicker({ dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true });
         },
         confirmDeleteFuel: function () {
             var txt;

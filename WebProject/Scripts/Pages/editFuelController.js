@@ -1,5 +1,6 @@
 ﻿var editFuelController = {
     fuelId: null,
+    lastKmGpsForSelectedWorker: 0,
     saveFuel: function (fuel) {
         $.ajax({
             type: 'post',
@@ -55,10 +56,29 @@
     },
     getTotalEstimateFor: function () {
         var workerId = $("#worker").val();
-        var date = $("#date").val();
-        if (workerId && date) {
-            this.getTotalEstimateConsumtion(workerId, date);
+        if (workerId) {
+            this.getLastKmGPSForWorker(workerId);
         }
+        if (workerId && $("#date").val()) {
+            this.getTotalEstimateConsumtion(workerId, $("#date").val());
+        }
+    },
+    getLastKmGPSForWorker: function (selectedWorkerId) {
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: "/Fuel/GetLastKmGPSForDriver",
+            data: {
+                workerId: selectedWorkerId
+            },
+            success: function (res) {
+                editFuelController.lastKmGpsForSelectedWorker = res.lastKmGPSForDriver;
+            },
+            error: function (jqXHR, textStatus, exception, errorThrown) {
+                $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
+                $("#errorDialog").dialog("open");
+            }
+        });
     },
     setFuelDetails: function (fuel) {
         $("#GPSInitialConsumption").val(fuel.GPSInitialConsumption);
@@ -192,13 +212,11 @@
             $("#GPSConsumption").removeClass("red-border");
         }
     },
-
-
     calculateRealConsum: function () {
         var KMLaAlimentare = parseInt($("#KMGPS").val());
         var KMAlimentareDieselEWlitrii = parseInt($("#fueledDieseEWLiters").val());
-        if (KMgps && KMAlimentareDieselEWlitrii) {
-            var calculatedFormula = parseInt(KMAlimentareDieselEWlitrii) / parseInt(KMLaAlimentare) - (lastKMLaAlimentare)*100;
+        if (KMLaAlimentare && KMAlimentareDieselEWlitrii) {
+            var calculatedFormula = (parseInt(KMAlimentareDieselEWlitrii) / parseInt(KMLaAlimentare) - editFuelController.lastKmGpsForSelectedWorker) * 100;
             $("#realConsumption").val(calculatedFormula.toFixed(2));
         }
     },

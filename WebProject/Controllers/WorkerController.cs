@@ -16,18 +16,18 @@ namespace WebProject.Controllers
         public ErrorHelper _errorHelper = new ErrorHelper();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // GET: Truck
-        [AuthorizationAttribute]
+
         public ActionResult Index()
         {
             return View();
         }
-        [AuthorizationAttribute]
+
         public ActionResult EditWorker()
         {
             ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetWorkers()
         {
             try
@@ -41,7 +41,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult SaveWorker(Worker worker)
         {
             try
@@ -61,7 +61,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetWorker(Guid idWorker)
         {
             try
@@ -75,7 +75,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult DeleteWorker(Guid workerId)
         {
             try

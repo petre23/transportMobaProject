@@ -52,7 +52,7 @@ namespace DataLayer.Repository
                     }
                     con.Close();
 
-                    return fuelInfoList;
+                    return fuelInfoList.OrderByDescending(x=>x.CreationDate).ToList();
                 }
             }
         }
@@ -157,6 +157,28 @@ namespace DataLayer.Repository
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
+                }
+            }
+        }
+
+        public decimal GetLastKmGPSForDriver(Guid workerId)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("GetLastKmGPSForDriver", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@WorkerId", workerId);
+                    con.Open();
+
+                    var reader = cmd.ExecuteReader();
+                    decimal lastKmGPSForDriver = 0;
+                    while (reader.Read())
+                    {
+                        lastKmGPSForDriver = Convert.ToDecimal(reader["LastKmGPSForDriver"].ToString());
+                    }
+                    con.Close();
+                    return lastKmGPSForDriver;
                 }
             }
         }

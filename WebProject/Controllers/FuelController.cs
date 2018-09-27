@@ -23,22 +23,25 @@ namespace WebProject.Controllers
         public ActionResult Index()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
+            ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
 
-        [AuthorizationAttribute]
         public ActionResult EditFuel()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetFuelInfo()
         {
             try
             {
-                return Json(new { fuelData = _dataAccessLayer.GetFuelInfo(), JsonRequestBehavior.AllowGet });
+                var fuelData = _dataAccessLayer.GetFuelInfo();
+                var grouping = fuelData.GroupBy(x=>x.WorkerName).Select(g => new { Worker = g.Key, FuelData = g.ToList() }).ToList();
+
+                return Json(new { fuelData = grouping });
             }
             catch (Exception ex)
             {
@@ -47,7 +50,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult SaveFuel(Fuel fuel)
         {
             try
@@ -63,7 +66,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetFuelByid(Guid fuelId)
         {
             try
@@ -77,7 +80,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult DeleteFuel(Guid fuelId)
         {
             try
@@ -94,7 +97,6 @@ namespace WebProject.Controllers
             }
         }
 
-        [AuthorizationAttribute]
         public ActionResult GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date)
         {
             try
@@ -109,17 +111,21 @@ namespace WebProject.Controllers
             }
         }
 
-        [AuthorizationAttribute]
-        public ActionResult ExportFuelData()
+        public ActionResult ExportFuelDataForTruckByDateInterval(Guid truckId, DateTime startDate, DateTime endDate)
         {
             try
             {
-                log.Info(string.Format("Utilizatorul {0} a descarcat un excel cu toate alimentarile inregistrate.", Session["Username"]));
-                var gv = AdaptGridViewForExport(_dataAccessLayer.GetFuelInfo());
+                log.Info(string.Format("Utilizatorul {0} a descarcat un excel cu alimentari pentru masina {1} in intervalul orar {2} - {3}.", Session["Username"], truckId, startDate, endDate));
+
+                var truck = _dataAccessLayer.GetTruck(truckId);
+                var fileName = string.Format("Alimentari-{0}.xls", truck.RegistrationNumber);
+
+                var fuelData = _dataAccessLayer.GetFuelInfo();
+                var gv = AdaptGridViewForExport(fuelData.Where(x => x.Date <= endDate && x.Date >= startDate && x.Truck == truckId).ToList());
 
                 Response.ClearContent();
                 Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=Alimentari.xls");
+                Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
                 Response.ContentType = "application/ms-excel";
                 Response.Charset = "";
                 StringWriter objStringWriter = new StringWriter();
@@ -129,12 +135,13 @@ namespace WebProject.Controllers
                 Response.Flush();
                 Response.End();
 
+                ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
                 ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
                 return View("Index");
             }
             catch (Exception ex)
             {
-                log.Error(string.Format("Error in FuelController - ExportFuelData \n\r : {0} - {1}", ex.Message, ex.StackTrace));
+                log.Error(string.Format("Error in FuelController - ExportFuelDataForWorkerByDateInterval \n\r : {0} - {1}", ex.Message, ex.StackTrace));
                 Response.StatusCode = 500;
                 return Json(new
                 {
@@ -143,7 +150,6 @@ namespace WebProject.Controllers
             }
         }
 
-        [AuthorizationAttribute]
         public ActionResult ExportFuelDataForWorkerByDateInterval(Guid workerId, DateTime startDate, DateTime endDate)
         {
             try
@@ -168,6 +174,7 @@ namespace WebProject.Controllers
                 Response.Flush();
                 Response.End();
 
+                ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
                 ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
                 return View("Index");
             }
@@ -244,6 +251,23 @@ namespace WebProject.Controllers
                 }
             }
             return gv;
+        }
+
+        public ActionResult GetLastKmGPSForDriver(Guid workerId)
+        {
+            try
+            {
+                return Json(new { lastKmGPSForDriver = _dataAccessLayer.GetLastKmGPSForDriver(workerId) });
+            }
+            catch (Exception ex)
+            {
+                log.Error(string.Format("Error in FuelController - GetLastKmGPSForDriver \n\r : {0} - {1}", ex.Message, ex.StackTrace));
+                Response.StatusCode = 500;
+                return Json(new
+                {
+                    error = _errorHelper.GetErrorMessage(ex)
+                });
+            }
         }
     }
 }

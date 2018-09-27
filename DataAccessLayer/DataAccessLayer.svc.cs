@@ -182,5 +182,10 @@ namespace DataAccessLayer
         {
             return _fuelLogic.GetEstimatedConsumtionSumForDriverAndDate(workerId, date);
         }
+
+        public decimal GetLastKmGPSForDriver(Guid workerId)
+        {
+            return _fuelLogic.GetLastKmGPSForDriver(workerId);
+        }
     }
 }

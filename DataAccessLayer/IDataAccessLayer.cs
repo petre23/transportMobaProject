@@ -102,5 +102,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         decimal? GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date);
+
+        [OperationContract]
+        decimal GetLastKmGPSForDriver(Guid workerId);
     }
 }

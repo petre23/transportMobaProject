@@ -38,5 +38,10 @@ namespace BusinessLogicLayer.Logic
         {
             return _fuelRepository.GetEstimatedConsumtionSumForDriverAndDate(workerId, date);
         }
+
+        public decimal GetLastKmGPSForDriver(Guid workerId)
+        {
+            return _fuelRepository.GetLastKmGPSForDriver(workerId);
+        }
     }
 }

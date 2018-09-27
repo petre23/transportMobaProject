@@ -20,13 +20,12 @@ namespace WebProject.Controllers
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
         // GET: Drive
-        [AuthorizationAttribute]
         public ActionResult Index()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             return View();
         }
-        [AuthorizationAttribute]
+
         public ActionResult EditDrive()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
@@ -35,7 +34,7 @@ namespace WebProject.Controllers
             ViewBag.DriveTypesForDropDown = _dataAccessLayer.GetDriveTypes();
             return View();
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetDrives(string pageIndex, string pageSize, FilterDrivesModel filters)
         {
             try
@@ -55,7 +54,7 @@ namespace WebProject.Controllers
                 });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult SaveDrive(Drive drive)
         {
             try
@@ -70,7 +69,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetDrive(Guid idDrive)
         {
             try
@@ -84,7 +83,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult DeleteDrive(Guid driveId)
         {
             try
@@ -100,13 +99,12 @@ namespace WebProject.Controllers
             }
         }
 
-        [AuthorizationAttribute]
         public ActionResult ExportToExcel()
         {
             try
             {
                 log.Info(string.Format("Utilizatorul {0} a descarcat un excel cu toate cursele inregistrate.", Session["Username"]));
-                var gv = AdaptGridViewForExport(_dataAccessLayer.GetDrives(99999, 0));
+                var gv = AdaptGridViewForExport(_dataAccessLayer.GetDrives(99999, 0, new FilterDrivesModel()));
 
                 Response.ClearContent();
                 Response.Buffer = true;
@@ -131,7 +129,6 @@ namespace WebProject.Controllers
             }
         }
 
-        [AuthorizationAttribute]
         public ActionResult GetDrivesForWorkerByDateInterval(Guid workerId, DateTime startDate, DateTime endDate)
         {
             try

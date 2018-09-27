@@ -14,17 +14,17 @@ namespace WebProject.Controllers
         DataAccessLayer.DataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public ErrorHelper _errorHelper = new ErrorHelper();
-        [AuthorizationAttribute]
+
         public ActionResult Index()
         {
             return View();
         }
-        [AuthorizationAttribute]
+
         public ActionResult EditUser()
         {
             return View();
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetUsers()
         {
             try
@@ -38,7 +38,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult GetUser(Guid userId)
         {
             try
@@ -52,7 +52,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult SaveUser(User user)
         {
             try
@@ -67,7 +67,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-        [AuthorizationAttribute]
+
         public ActionResult DeleteUser(Guid userId)
         {
             try
