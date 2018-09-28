@@ -111,6 +111,7 @@
     <Build Include="dbo\StoredProcedures\SaveDriveCosts.sql" />
     <Build Include="dbo\Types\DriveCostsType.sql" />
     <Build Include="dbo\StoredProcedures\GetLastKmGPSForDriver.sql" />
+    <Build Include="dbo\StoredProcedures\VerifyIfVlarefIsAlreadyUsed.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Scripts\InsertData.sql" />

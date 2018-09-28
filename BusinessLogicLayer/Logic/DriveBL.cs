@@ -44,5 +44,10 @@ namespace BusinessLogicLayer.Logic
         {
             return _driveRepository.GetDriveTypes();
         }
+
+        public bool VerifyIfVlarefIsAlreadyUsed(string vlaref)
+        {
+            return _driveRepository.VerifyIfVlarefIsAlreadyUsed(vlaref);
+        }
     }
 }

@@ -105,5 +105,8 @@ namespace DataAccessLayer
 
         [OperationContract]
         decimal GetLastKmGPSForDriver(Guid workerId);
+
+        [OperationContract]
+        bool VerifyIfVlarefIsAlreadyUsed(string vlaref);
     }
 }

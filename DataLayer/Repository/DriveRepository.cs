@@ -340,5 +340,27 @@ namespace DataLayer.Repository
                 return driveTypes;
             }
         }
+
+        public bool VerifyIfVlarefIsAlreadyUsed(string vlaref)
+        {
+            var vlarefExists = false;
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("VerifyIfVlarefIsAlreadyUsed", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Vlaref", vlaref);
+                    con.Open();
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        vlarefExists = Convert.ToBoolean(reader["VlarefExists"].ToString());
+                    }
+                    con.Close();
+                }
+            }
+
+            return vlarefExists;
+        }
     }
 }

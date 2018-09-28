@@ -187,5 +187,10 @@ namespace DataAccessLayer
         {
             return _fuelLogic.GetLastKmGPSForDriver(workerId);
         }
+
+        public bool VerifyIfVlarefIsAlreadyUsed(string vlaref)
+        {
+            return _driveLogic.VerifyIfVlarefIsAlreadyUsed(vlaref);
+        }
     }
 }

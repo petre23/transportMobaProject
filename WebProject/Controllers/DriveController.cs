@@ -99,6 +99,21 @@ namespace WebProject.Controllers
             }
         }
 
+        public ActionResult VerifyIfVlarefIsAlreadyUsed(string vlaref)
+        {
+            try
+            {
+                var vlarefExists = _dataAccessLayer.VerifyIfVlarefIsAlreadyUsed(vlaref);
+                return Json(new { vlarefExists });
+            }
+            catch (Exception ex)
+            {
+                log.Error(string.Format("Error in VerifyIfVlarefIsAlreadyUsed for vlaref with id = {0} \n\r : {1} - {2}", vlaref, ex.Message, ex.StackTrace));
+                Response.StatusCode = 500;
+                return Json(new { error = _errorHelper.GetErrorMessage(ex) });
+            }
+        }
+
         public ActionResult ExportToExcel()
         {
             try

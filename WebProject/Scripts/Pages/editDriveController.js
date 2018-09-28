@@ -35,6 +35,31 @@
             }
         });
     },
+    verifyIfVlarefExists: function () {
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: "/Drive/VerifyIfVlarefIsAlreadyUsed",
+            data: {
+                vlaref: $("#vlaref").val()
+            },
+            success: function (res) {
+                var url = new URL(window.location.href);
+                var driveId = editDriveController.getParameterByName("driveId", new URL(window.location.href));
+
+                if (res.vlarefExists === false || driveId) {
+                    editDriveController.validateAndSaveDrive();
+                } else
+                {
+                    alert("Cursa cu acest Vlaref exista deja!");
+                }
+            },
+            error: function (jqXHR, textStatus, exception, errorThrown) {
+                $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
+                $("#errorDialog").dialog("open");
+            }
+        });
+    },
     setDriveDetails: function (drive) {
         $("#driver").val(drive.Worker);
         $("#truck").val(drive.Truck);
