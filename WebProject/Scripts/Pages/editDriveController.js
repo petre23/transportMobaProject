@@ -51,7 +51,9 @@
                     editDriveController.validateAndSaveDrive();
                 } else
                 {
-                    alert("Cursa cu acest Vlaref exista deja!");
+                    if (editDriveController.vlarefExistsConfirm()) {
+                        editDriveController.validateAndSaveDrive();
+                    }
                 }
             },
             error: function (jqXHR, textStatus, exception, errorThrown) {
@@ -59,6 +61,15 @@
                 $("#errorDialog").dialog("open");
             }
         });
+    },
+    vlarefExistsConfirm: function () {
+        var txt;
+        var r = confirm(" Cursa cu acest vlaref a fost deja introdusa! \r\n Doriti sa continuati?");
+        if (r == true) {
+            return true;
+        } else {
+            return false;
+        }
     },
     setDriveDetails: function (drive) {
         $("#driver").val(drive.Worker);
