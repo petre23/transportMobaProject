@@ -4,5 +4,6 @@
 	[CostEuro] DECIMAL(12,2) NOT NULL,
 	[CostPounds] DECIMAL(12,2) NOT NULL,
 	[Drive] UNIQUEIDENTIFIER  NOT NULL,
-	CONSTRAINT FK_DriveCosts_Drive FOREIGN KEY (Drive) REFERENCES dbo.Drive(Id)
+	[Specifications] NVARCHAR(300) NULL, 
+    CONSTRAINT FK_DriveCosts_Drive FOREIGN KEY (Drive) REFERENCES dbo.Drive(Id)
 )

@@ -119,6 +119,10 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public string DriveTypeName { get; set; }
         [DataMember]
+        public int? DriveTypeEnd { get; set; }
+        [DataMember]
+        public string DriveTypeEndName { get; set; }
+        [DataMember]
         public decimal EstimatedConsumption { get; set; }
         [DataMember]
         public string EstimatedConsumptionString { get; set; }

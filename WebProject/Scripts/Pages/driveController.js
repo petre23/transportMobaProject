@@ -73,7 +73,8 @@
                             { name: "TruckRegistrationNumber", title: 'Camion', type: "text", width: 80 },
                             { name: "Trailer", title: 'Remorca', type: "text", width: 90 },
                             { name: "DriveStatusName", title: 'Status', type: "text", width: 120 },
-                            { name: "DriveTypeName", title: 'Tipul cursei', type: "text", width: 120 },
+                            { name: "DriveTypeName", title: 'Tipul cursei la plecare', type: "text", width: 120 },
+                            { name: "DriveTypeEndName", title: 'Tipul cursei la destinatie', type: "text", width: 120 },
                             { name: "DateString", title: 'Data', type: "text", width: 85 },
                             { name: "Vlaplan", title: 'Vlaplan', type: "text", width: 120 },
                             { name: "Vlaref", title: 'Vlaref', type: "text", width: 120 },
@@ -101,6 +102,8 @@
                             $("#drivesGroupingGrid tr").removeClass("selected-row");
                             $selectedRow = $(args.event.target).closest("tr");
                             $selectedRow.addClass("selected-row");
+
+                            driveController.selectedDrive = args.item.Id;
 
                             $("#driveId").val(args.item.Id);
 
@@ -140,7 +143,7 @@
                     type: 'post',
                     dataType: 'json',
                     url: "/Drive/DeleteDrive",
-                    data: { driveId: driveController.selectedDrive },
+                    data: { driveId: $("#driveId").val() },
                     success: function (res) {
                         driveController.initGrid();
                     },

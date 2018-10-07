@@ -5,7 +5,8 @@ BEGIN
 	SELECT dc.Id,
 		   dc.CostEuro,
 		   dc.CostPounds,
-		   dc.Drive
+		   dc.Drive,
+		   Specifications
 	FROM dbo.DriveCosts dc
 	WHERE dc.Drive = @DriveId
 END

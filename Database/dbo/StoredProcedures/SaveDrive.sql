@@ -29,7 +29,8 @@
 	@DriveStatus UNIQUEIDENTIFIER = null,
 	@Trailer NVARCHAR(255) = null,
 	@EstimatedConsumption decimal(12,2) = null,
-	@DriveType int = null
+	@DriveType int = null,
+	@DriveTypeEnd int = null
 AS
 	IF(@IsNew = 1)
 	BEGIN
@@ -37,13 +38,13 @@ AS
 							Difference,DistanceDFDS,DistanceGpl,DistanceGPS,
 							FinalGPSKM,InitialGPSKM,LoadingPlace,PayedCosts,Reason,SettlementCosts,TotalPayments,Truck,Vlaplan,
 							Vlaref,WeightInTons,Worker,WorkerCosts,LastUpdateByUser,WorkerCostsPounds,PayedCostsPounds,
-							SettlementCostsPounds,TotalPaymentsPounds,Trailer,DriveStatus,EstimatedConsumption,CreationDate,DriveTypeId)
+							SettlementCostsPounds,TotalPaymentsPounds,Trailer,DriveStatus,EstimatedConsumption,CreationDate,DriveTypeId,DriveTypeEndId)
 		VALUES
 		(@Id,@Date,@Destination,@CostsSpecification,
 		@Difference,@DistanceDFDS,@DistanceGpl,@DistanceGPS,
 		@FinalGPSKM,@InitialGPSKM,@LoadingPlace,@PayedCosts,@Reason,@SettlementCosts,@TotalPayments,@Truck,@Vlaplan,
 		@Vlaref,@WeightInTons,@Worker,@WorkerCosts,@LastUpdateByUser,@WorkerCostsPounds,@PayedCostsPounds
-		,@SettlementCostsPounds,@TotalPaymentsPounds,@Trailer,@DriveStatus,@EstimatedConsumption,GetDate(),@DriveType)
+		,@SettlementCostsPounds,@TotalPaymentsPounds,@Trailer,@DriveStatus,@EstimatedConsumption,GetDate(),@DriveType,@DriveTypeEnd)
 	END
 	ELSE
 	BEGIN
@@ -76,6 +77,7 @@ AS
 			Trailer = @Trailer,
 			DriveStatus = @DriveStatus,
 			EstimatedConsumption = @EstimatedConsumption,
-			DriveTypeId = @DriveType
+			DriveTypeId = @DriveType,
+			DriveTypeEndId = @DriveTypeEnd
 			WHERE Id = @Id
 	END

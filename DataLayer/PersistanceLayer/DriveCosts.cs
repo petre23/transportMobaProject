@@ -17,6 +17,8 @@ namespace DataLayer.PersistanceLayer
         [DataMember]
         public decimal CostPounds { get; set; }
         [DataMember]
+        public string Specifications { get; set; }
+        [DataMember]
         public Guid Drive { get; set; }
     }
 }

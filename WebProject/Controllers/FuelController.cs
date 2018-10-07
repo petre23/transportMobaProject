@@ -39,7 +39,7 @@ namespace WebProject.Controllers
             try
             {
                 var fuelData = _dataAccessLayer.GetFuelInfo();
-                var grouping = fuelData.GroupBy(x=>x.WorkerName).Select(g => new { Worker = g.Key, FuelData = g.ToList() }).ToList();
+                var grouping = fuelData.GroupBy(x=>x.WorkerName).Select(g => new { Worker = g.Key, RealConsumptionAvg = g.ToList().Average(x=>x.RealConsumption),KM = (g.LastOrDefault().FueledKM - g.FirstOrDefault().FueledKM), TotalDisel = g.Sum(x => x.DieselValue), TotalAdBlue = g.Sum(x=>x.AdblueValue) , FuelData = g.ToList() }).ToList();
 
                 return Json(new { fuelData = grouping });
             }

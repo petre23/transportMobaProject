@@ -3,5 +3,6 @@
 	Id UNIQUEIDENTIFIER,
 	CostEuro decimal(12,2),
 	CostPounds decimal(12,2),
-	Drive UNIQUEIDENTIFIER
+	Drive UNIQUEIDENTIFIER,
+	Specifications nvarchar(300) NULL
 )

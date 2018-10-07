@@ -69,6 +69,7 @@ namespace DataLayer.Repository
                         drive.EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString());
                         drive.CreationDate = DateTime.Parse(reader["CreationDate"].ToString());
                         drive.DriveTypeName = reader["DriveTypeName"].ToString();
+                        drive.DriveTypeEndName = reader["DriveTypeEndName"].ToString();
                         drives.Add(drive);
                     }
                     con.Close();
@@ -127,7 +128,8 @@ namespace DataLayer.Repository
                             DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
                             DriveStatusName = reader["DriveStatusName"].ToString(),
                             EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
-                            DriveTypeName = reader["DriveTypeName"].ToString()
+                            DriveTypeName = reader["DriveTypeName"].ToString(),
+                            DriveTypeEndName = reader["DriveTypeEndName"].ToString()
                         };
                         drives.Add(drive);
                     }
@@ -178,6 +180,7 @@ namespace DataLayer.Repository
                     cmd.Parameters.AddWithValue("@DriveStatus", drive.DriveStatus);
                     cmd.Parameters.AddWithValue("@EstimatedConsumption", drive.EstimatedConsumption);
                     cmd.Parameters.AddWithValue("@DriveType", drive.DriveType);
+                    cmd.Parameters.AddWithValue("@DriveTypeEnd", drive.DriveTypeEnd);
                     con.Open();
                     var reader = cmd.ExecuteNonQuery();
                     con.Close();
@@ -237,7 +240,8 @@ namespace DataLayer.Repository
                             DriveStatus = !string.IsNullOrEmpty(reader["DriveStatus"].ToString()) ? Guid.Parse(reader["DriveStatus"].ToString()) : (Guid?)null,
                             DriveStatusName = reader["DriveStatusName"].ToString(),
                             EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
-                            DriveType = string.IsNullOrEmpty(reader["DriveTypeId"].ToString()) ? (int?)null : Convert.ToInt32(reader["DriveTypeId"].ToString())
+                            DriveType = string.IsNullOrEmpty(reader["DriveTypeId"].ToString()) ? (int?)null : Convert.ToInt32(reader["DriveTypeId"].ToString()),
+                            DriveTypeEnd = string.IsNullOrEmpty(reader["DriveTypeEndId"].ToString()) ? (int?)null : Convert.ToInt32(reader["DriveTypeEndId"].ToString())
                         };
                         drives.Add(drive);
                     }

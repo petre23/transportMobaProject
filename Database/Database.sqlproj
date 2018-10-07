@@ -62,7 +62,6 @@
     <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Scripts" />
-    <Folder Include="Snapshots" />
     <Folder Include="dbo\Types" />
   </ItemGroup>
   <ItemGroup>

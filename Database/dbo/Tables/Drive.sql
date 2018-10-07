@@ -31,9 +31,11 @@
 	[EstimatedConsumption] decimal(12,2) NULL,
 	[CreationDate] Datetime NOT NULL DEFAULT(GETDATE()),
 	[DriveTypeId] INT NULL,
+	[DriveTypeEndId] INT NULL,
 	CONSTRAINT FK_DRIVE_WORKER FOREIGN KEY (Worker) REFERENCES dbo.Worker (Id),
 	CONSTRAINT FK_DRIVE_Truck FOREIGN KEY (Truck) REFERENCES dbo.Trucks (Id),
 	CONSTRAINT FK_DRIVE_User FOREIGN KEY (LastUpdateByUser) REFERENCES dbo.Users (Id),
 	CONSTRAINT FK_DRIVE_DriveStatus FOREIGN KEY (DriveStatus) REFERENCES dbo.DriveStatus (Id),
-	CONSTRAINT FK_DRIVE_DriveType FOREIGN KEY (DriveTypeId) REFERENCES dbo.DriveType (Id)
+	CONSTRAINT FK_DRIVE_DriveType FOREIGN KEY (DriveTypeId) REFERENCES dbo.DriveType (Id),
+	CONSTRAINT FK_DRIVE_DriveTypeENd FOREIGN KEY (DriveTypeEndId) REFERENCES dbo.DriveType (Id)
 )

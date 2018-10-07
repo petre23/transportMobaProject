@@ -99,6 +99,7 @@
         $("#trailer").val(drive.Trailer);
         $("#driveStatus").val(drive.DriveStatus);
         $("#driveType").val(drive.DriveType);
+        $("#driveTypeEnd").val(drive.DriveTypeEnd);
         $("#estimatedConsumption").val(drive.EstimatedConsumption);
     },
     getParameterByName: function (name, url) {
@@ -139,6 +140,7 @@
         $("#trailer").val("");
         $("#driveStatus").val("");
         $("#driveType").val("");
+        $("#driveTypeEnd").val("");
         $("#estimatedConsumption").val("");
     },
     initDrive: function () {
@@ -180,6 +182,7 @@
                 { name: "Id", type: "text", css: "hide", width: 150 },
                 { name: "CostEuro", title: "Cost €", type: "decimal", width: 50 },
                 { name: "CostPounds", title: "Cost £", type: "decimal", width: 50 },
+                { name: "Specifications", title: "Specificatii cheltuieli", type: "text", width: 100 },
                 { type: "control" }
             ]
         });
@@ -229,6 +232,7 @@
             Trailer: $("#trailer").val(),
             DriveStatus: $("#driveStatus").val(),
             DriveType: $("#driveType").val(),
+            DriveTypeEnd: $("#driveTypeEnd").val(),
             EstimatedConsumptionString: $("#estimatedConsumption").val(),
             DriveCosts: $("#driveCosts").jsGrid("option", "data")
         };

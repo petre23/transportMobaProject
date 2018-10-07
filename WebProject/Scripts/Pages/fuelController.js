@@ -49,7 +49,7 @@ var fuelController =
                             { name: "GPSFinalConsumption", title: 'Consum GPS Final', type: "text", width: 80 },
                             { name: "GPSConsumption", title: 'Consum GPS', type: "text", width: 70 },
                             { name: "FueledKM", title: 'Km la Alimentare', type: "text", width: 85 },
-                            { name: "FueledDieseKMLitersString", title: 'Alimentare Diesel EW litrii', type: "text", width: 90 },
+                            { name: "FueledDieseKMLiters", title: 'Alimentare Diesel EW litrii', type: "text", width: 90 },
                             { name: "DieselValue", title: 'Valoare Diesel', type: "text", width: 85 },
                             { name: "RealConsumption", title: 'Consum Real', type: "text", width: 85 },
                             { name: "AdblueLiters", title: 'Adblue Litri', type: "text", width: 85 },
@@ -69,7 +69,7 @@ var fuelController =
                         },
                     });
 
-                    var $link = $("<a>").text("Sofer: " + item.Worker)
+                    var $link = $("<a>").html("Sofer: " + item.Worker + "&emsp; KM la alimentare:" + item.KM + "&emsp; Consum Real mediu: " + item.RealConsumptionAvg + "&emsp; Total Valoare diesel: " + item.TotalDisel + "&emsp; Total Valoare AdBlue: " + item.TotalAdBlue)
                         .prop("href", "#")
                         .click(function () {
                             $drivesGrid.toggle();

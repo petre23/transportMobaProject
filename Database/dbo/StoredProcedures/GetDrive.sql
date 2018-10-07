@@ -34,7 +34,8 @@ BEGIN
 		   ds.Status AS DriveStatusName,
 		   d.Trailer,
 		   d.EstimatedConsumption,
-		   d.DriveTypeId
+		   d.DriveTypeId,
+		   d.DriveTypeEndId
 	FROM dbo.Drive d
 	LEFT JOIN dbo.Worker w ON d.Worker = w.Id
 	LEFT JOIN dbo.Trucks t ON d.Truck = t.Id

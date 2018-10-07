@@ -29,7 +29,8 @@ namespace DataLayer.Repository
                             Id = Guid.Parse(reader["Id"].ToString()),
                             CostEuro = Convert.ToDecimal(reader["CostEuro"].ToString()),
                             CostPounds = Convert.ToDecimal(reader["CostPounds"].ToString()),
-                            Drive = Guid.Parse(reader["Drive"].ToString())
+                            Drive = Guid.Parse(reader["Drive"].ToString()),
+                            Specifications = reader["Specifications"].ToString(),
                         };
                         driveCosts.Add(driveCost);
                     }
@@ -67,10 +68,11 @@ namespace DataLayer.Repository
             dataTable.Columns.Add("CostEuro", typeof(decimal));
             dataTable.Columns.Add("CostPounds", typeof(decimal));
             dataTable.Columns.Add("Drive", typeof(Guid));
+            dataTable.Columns.Add("Specifications", typeof(string));
 
             foreach (var cost in driveCosts)
             {
-                dataTable.Rows.Add(cost.Id, cost.CostEuro, cost.CostPounds, cost.Drive);
+                dataTable.Rows.Add(cost.Id, cost.CostEuro, cost.CostPounds, cost.Drive, cost.Specifications);
             }
 
             return dataTable;

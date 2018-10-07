@@ -220,5 +220,16 @@
             $("#realConsumption").val(calculatedFormula.toFixed(2));
         }
     },
+    setRealConsumptionValueTo0: function ()
+    {
+        if ($("#realConsumption").prop('disabled') == false) {
+            $("#realConsumption").val(0);
+            $("#realConsumption").prop('disabled', true);
+        } else
+        {
+            $("#realConsumption").val(0);
+            $("#realConsumption").prop('disabled', false);
+        }
+    }
 };
 editFuelController.initFuel();
