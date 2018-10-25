@@ -2,7 +2,7 @@
     {
         selectedDrive: "",
         page: 1,
-        pageSize: 10000,
+        pageSize: 50,
         drives: null,
         initGrid: function (drives) {
             $("#editDriveButton").prop('disabled', true);
@@ -32,6 +32,8 @@
                 },
                 controller: {
                     loadData: function (filter) {
+                        $("#loadingAnimation").show();
+
                         filter.FilterDriver = $("#filterDriver").val();
                         filter.FilterTruck = $("#filterTruck").val();
                         filter.FilterTrail = $("#filterTrail").val();
@@ -51,6 +53,7 @@
                                 }
                                 drives = res.drives;
                                 deferred.resolve(dataForDrives);
+                                $("#loadingAnimation").hide();
                             }
                         });
                         return deferred.promise();

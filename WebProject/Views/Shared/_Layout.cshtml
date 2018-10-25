@@ -25,7 +25,7 @@
 <body class="zero-space-body">
     <div class="container-fluid">
         <div class="row no-margin-right">
-            @if (HttpContext.Current.Request.RawUrl != "/" && HttpContext.Current.Request.RawUrl != "/Login/Logout")
+            @if ((HttpContext.Current.Session["UserId"] != null))
             {
                 <div class="col-md-2 left-sidebar">
                     <ul id="sidebar">
@@ -39,7 +39,7 @@
                     </ul>
                 </div>
             }
-            <div class="@(HttpContext.Current.Request.RawUrl != "/" && HttpContext.Current.Request.RawUrl != "/Login/Logout" ? "col-md-10" : "co-md-12")">
+            <div class="@(HttpContext.Current.Session["UserId"] != null ? "col-md-10" : "co-md-12")">
                 <div id="errorDialog" title="Error"></div>
                 @RenderBody()
             </div>

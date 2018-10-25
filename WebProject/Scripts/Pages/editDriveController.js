@@ -1,5 +1,6 @@
 ﻿var editDriveController = {
     driveId: null,
+    reuseDrive: false,
     saveDrive: function (drive) {
         $.ajax({
             type: 'post',
@@ -7,7 +8,24 @@
             url: "/Drive/SaveDrive",
             data: drive,
             success: function (res) {
-                window.location = "/Drive/Index";
+                if (!editDriveController.reuseDrive) {
+                    window.location = "/Drive/Index";
+                }
+                else {
+                    var vlaplan = $("#vlaplan").val();
+                    var trailer = $("#trailer").val();
+                    var date = $("#date").val();
+                    var destination = $("#destination").val();
+                    var driveState = $("#driveStatus").val();
+
+                    editDriveController.setupNewDriveInfo();
+
+                    $("#vlaplan").val(vlaplan);
+                    $("#trailer").val(trailer);
+                    $("#date").val(date);
+                    $("#driveStatus").val(driveState);
+                    $("#loadingPlace").val(destination);
+                }
             },
             error: function (jqXHR, textStatus, exception, errorThrown) {
                 $("#errorDialog").html(JSON.parse(jqXHR.responseText).error);
@@ -285,7 +303,10 @@
             $("#difference").removeClass("red-border");
         }
     },
-
+    setDriveReuse: function (value)
+    {
+        this.reuseDrive = value;
+    },
     DecimalField: function (config) {
         jsGrid.NumberField.call(this, config);
     },

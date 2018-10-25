@@ -129,7 +129,7 @@ namespace DataLayer.Repository
                             DriveStatusName = reader["DriveStatusName"].ToString(),
                             EstimatedConsumption = string.IsNullOrEmpty(reader["EstimatedConsumption"].ToString()) ? 0 : Convert.ToDecimal(reader["EstimatedConsumption"].ToString()),
                             DriveTypeName = reader["DriveTypeName"].ToString(),
-                            DriveTypeEndName = reader["DriveTypeEndName"].ToString()
+                            //DriveTypeEndName = reader["DriveTypeEndName"].ToString()
                         };
                         drives.Add(drive);
                     }

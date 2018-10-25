@@ -20,20 +20,21 @@ namespace WebProject.Controllers
         public ErrorHelper _errorHelper = new ErrorHelper();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // GET: Fuel
+        [Authorization]
         public ActionResult Index()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
-
+        [Authorization]
         public ActionResult EditFuel()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             ViewBag.TrucksForDropDown = _dataAccessLayer.GetTrucksForDropDown();
             return View();
         }
-
+        [Authorization]
         public ActionResult GetFuelInfo()
         {
             try
@@ -50,7 +51,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult SaveFuel(Fuel fuel)
         {
             try
@@ -66,7 +67,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult GetFuelByid(Guid fuelId)
         {
             try
@@ -80,7 +81,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult DeleteFuel(Guid fuelId)
         {
             try
@@ -96,7 +97,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult GetEstimatedConsumtionSumForDriverAndDate(Guid workerId, DateTime date)
         {
             try
@@ -110,7 +111,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult ExportFuelDataForTruckByDateInterval(Guid truckId, DateTime startDate, DateTime endDate)
         {
             try
@@ -149,7 +150,7 @@ namespace WebProject.Controllers
                 });
             }
         }
-
+        [Authorization]
         public ActionResult ExportFuelDataForWorkerByDateInterval(Guid workerId, DateTime startDate, DateTime endDate)
         {
             try
@@ -252,7 +253,7 @@ namespace WebProject.Controllers
             }
             return gv;
         }
-
+        [Authorization]
         public ActionResult GetLastKmGPSForDriver(Guid workerId)
         {
             try

@@ -18,18 +18,18 @@ namespace WebProject.Controllers
         public ErrorHelper _errorHelper = new ErrorHelper();
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         // GET: Truck
-
+        [Authorization]
         public ActionResult Index()
         {
             return View();
         }
-
+        [Authorization]
         public ActionResult EditTruck()
         {
             ViewBag.BrandsForDropDown = _dataAccessLayer.GetBrands();
             return View();
         }
-
+        [Authorization]
         public ActionResult GetTrucks()
         {
             try
@@ -43,7 +43,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult SaveTruck(Truck truck)
         {
             try
@@ -62,7 +62,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult GetTruck(Guid idTruck)
         {
             try
@@ -76,7 +76,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult DeleteTruck(Guid truckId)
         {
             try
@@ -96,7 +96,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult GetTrucksForDropDown()
         {
             try

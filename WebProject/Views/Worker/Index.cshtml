@@ -15,7 +15,7 @@
                 <button class="btn btn-success" id="editButton" disabled onclick="workerController.editWorker();"><span class="glyphicon glyphicon glyphicon-edit"></span> @Resources.Labels.Editeaza</button>
                 <button class="btn btn-danger" id="deleteButton" disabled onclick="workerController.deleteWorker();"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Sterge</button>
             </div>
-            <button class="btn btn-primary" style="margin-right:10px;"><span class="glyphicon glyphicon-log-out"> @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration" })  </span></button>
+            @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "no-text-decoration btn btn-primary glyphicon glyphicon-log-out" })
         </div>
 
     </div>

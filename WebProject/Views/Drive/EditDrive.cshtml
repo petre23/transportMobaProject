@@ -427,7 +427,8 @@
     <nav class="navbar navbar navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="btn-group right-side">
-                <button type="submit" id="btnSaveDrive" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> @Resources.Labels.Salvare</button>
+                <button type="submit" id="btnSaveDrive" onclick="editDriveController.setDriveReuse(false)" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> @Resources.Labels.Salvare</button>
+                <button type="submit" id="btnSaveDriveAndAddAnother" onclick="editDriveController.setDriveReuse(true)" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span>Salvare si reutilizare</button>
                 <button type="button" onclick="editDriveController.cancelEdit();" id="btnCancelSaveDrive" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-remove"></span> @Resources.Labels.Anulare</button>
             </div>
         </div>

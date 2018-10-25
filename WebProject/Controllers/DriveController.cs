@@ -20,12 +20,13 @@ namespace WebProject.Controllers
         public IDataAccessLayer _dataAccessLayer = new DataAccessLayer.DataAccessLayer();
         public ErrorHelper _errorHelper = new ErrorHelper();
         // GET: Drive
+        [Authorization]
         public ActionResult Index()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
             return View();
         }
-
+        [Authorization]
         public ActionResult EditDrive()
         {
             ViewBag.WorkersForDropDown = _dataAccessLayer.GetWorkersForDropDown();
@@ -34,13 +35,13 @@ namespace WebProject.Controllers
             ViewBag.DriveTypesForDropDown = _dataAccessLayer.GetDriveTypes();
             return View();
         }
-
+        [Authorization]
         public ActionResult GetDrives(string pageIndex, string pageSize, FilterDrivesModel filters)
         {
             try
             {
                 var drives = _dataAccessLayer.GetDrives(Convert.ToInt32(pageSize), Convert.ToInt32(pageIndex) - 1, filters);
-                var groupings = drives.GroupBy(x => x.Vlaplan).Select(g=> new { Vlaplan = g.Key, Drives = g.ToList() }).ToList();
+                var groupings = drives.GroupBy(x => x.Vlaplan).Select(g=> new { Vlaplan = g.Key, Drives = g.ToList(), TotalRows = g.FirstOrDefault().TotalRows }).ToList();
 
                 return Json(new { drives = groupings, JsonRequestBehavior.AllowGet });
             }
@@ -54,7 +55,7 @@ namespace WebProject.Controllers
                 });
             }
         }
-
+        [Authorization]
         public ActionResult SaveDrive(Drive drive)
         {
             try
@@ -69,7 +70,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult GetDrive(Guid idDrive)
         {
             try
@@ -83,7 +84,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult DeleteDrive(Guid driveId)
         {
             try
@@ -98,7 +99,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult VerifyIfVlarefIsAlreadyUsed(string vlaref)
         {
             try
@@ -113,7 +114,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult ExportToExcel()
         {
             try
@@ -143,7 +144,7 @@ namespace WebProject.Controllers
                 return Json(new { error = _errorHelper.GetErrorMessage(ex) });
             }
         }
-
+        [Authorization]
         public ActionResult GetDrivesForWorkerByDateInterval(Guid workerId, DateTime startDate, DateTime endDate)
         {
             try
