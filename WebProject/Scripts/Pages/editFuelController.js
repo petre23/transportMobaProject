@@ -28,6 +28,11 @@
                 editFuelController.fuelId = res.fuel.Id;
                 var fuel = res.fuel;
                 editFuelController.setFuelDetails(fuel);
+
+                if (fuel.Worker) {
+                    editFuelController.getLastKmGPSForWorker(fuel.Worker);
+                }
+
                 editFuelController.initControls();
             },
             error: function (jqXHR, textStatus, exception, errorThrown) {
@@ -216,7 +221,7 @@
         var KMLaAlimentare = parseInt($("#KMGPS").val());
         var KMAlimentareDieselEWlitrii = parseInt($("#fueledDieseEWLiters").val());
         if (KMLaAlimentare && KMAlimentareDieselEWlitrii) {
-            var calculatedFormula = (parseInt(KMAlimentareDieselEWlitrii) / parseInt(KMLaAlimentare) - editFuelController.lastKmGpsForSelectedWorker) * 100;
+            var calculatedFormula = (parseInt(KMAlimentareDieselEWlitrii) / Math.abs(parseInt(KMLaAlimentare) - editFuelController.lastKmGpsForSelectedWorker)) * 100;
             $("#realConsumption").val(calculatedFormula.toFixed(2));
         }
     },
